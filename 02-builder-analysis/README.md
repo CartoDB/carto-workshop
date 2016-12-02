@@ -4,17 +4,18 @@ Análisis geoespacial con CARTO BUILDER
 ## Agenda
 
 * Edición de geometrías
+* Publicación de dashboards
 * Análisis en CARTO BUILDER y su relación con widgets
 * Creación de datos: Data Observatory, Georreferenciación, etc
 * Transformación: intersección de capas, áreas de influencia,...
 * Análisis y predicción: clustering espacial, análisis de clusters y outliers, predicción
-* Publicación de dashboards
+
 
 ## Recursos
 
 Ejercicios:
 
-* [spies in the sky](exercises/spies.md)
+* [spies in the sky](exercises/spies_sky.md)
 * [crímenes de Chicago](exercises/chicago.md)
 * [análisis de mercado](exercises/dominos.md)
 * [análisis de riesgos](exercises/railways.md)

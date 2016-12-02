@@ -17,6 +17,8 @@ If no data shows on your map open the developer console and look for any errors.
 
 This section assumes some basic knowledge on SQL. If you need a bit more of help on the basics of this language take a look on [this workshop](../introductory/elections-workshop.html), there's a section on simple SQL queries.
 
+## Contents
+
 <!-- MarkdownTOC -->
 
 - PostGIS concepts: `geometry` vs. `geography`

@@ -1,11 +1,9 @@
 
 # Spatial SQL  <a name="postgis"></a>
 
-
-
 On this section you'll have the chance to test some of the most common [PostGIS](http://postgis.net/docs/reference.html) SQL procedures. To follow this section you only need to open a browser pointing to this url: [http://bl.ocks.org/jsanz/raw/fcb8394e084919a4135188b7c30504ad/](http://bl.ocks.org/jsanz/raw/fcb8394e084919a4135188b7c30504ad/) and change the Maps API entry point to `http://geostat-api.carto.com/api/v1/map`.
 
-![](../img/160921-geostat/sql-block.png)
+![](imgs/sql-block.png)
 
 From that point, you can place any valid query on the SQL panel that plays with the following datasets from [Natural Earth](http://www.naturalearthdata.com/)
 
@@ -49,9 +47,9 @@ This section assumes some basic knowledge on SQL. If you need a bit more of help
 
 More about the `geography` type can be found [here](http://workshops.boundlessgeo.com/postgis-intro/geography.html) and [here](http://postgis.net/docs/manual-1.5/ch04.html#PostGIS_Geography).
 
-![cart vs sph](../img/common/cartesian_spherical.jpg)
+![cart vs sph](imgs/cartesian_spherical.jpg)
 
-![LA-CDG](../img/common/lax_cdg.jpg)
+![LA-CDG](imgs/lax_cdg.jpg)
 
 _Source: [Boundless Postgis intro](http://workshops.boundlessgeo.com/postgis-intro)_
 

@@ -14,7 +14,7 @@ Bases de datos geoespaciales
 
 * [Introducción a SQL](https://docs.google.com/a/cartodb.com/presentation/d/1LRa6HHdtUCrxl7Kh4wjgTktkigoihVekuhwH-dW5jv8/edit?usp=sharing)
 * [Ejercicios sencillos con SQL](exercises/sql-easy.md)
-* [SQL Espacial](exercises/sql-spatial)
+* [SQL Espacial](exercises/sql-spatial.md)
 * [Ejemplos de funciones y triggers](exercises/TODO)
 * [La arquitectura de CARTO](https://docs.google.com/a/cartodb.com/presentation/d/1LLT1zXeF4VTcYL4-w__AtbxBViolcRKNWT2eL6Pu3vk/edit?usp=sharing)
 * Práctica de las APIs de CARTO con [Postman](http://getpostman.com)

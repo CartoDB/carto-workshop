@@ -14,9 +14,11 @@ CARTO allows you to interact with your datasets using the interface so you can f
 - Filtering character fields
 - Filtering a range
 - Combining character and numeric filters
-- Selecting aggregated values
 - Ordering results
 - **Limiting results**
+- Making calculations
+- Joining and grouping datasets
+- Other aggregation functions
 
 <!-- /MarkdownTOC -->
 
@@ -121,38 +123,6 @@ AND
   pop_max > 5000000
 ```
 
-
-## Selecting aggregated values
-
-**count**
-
-```sql
-SELECT
-  count(*) as total_rows
-FROM
-  ne_10m_populated_places_simple
-```
-**sum**
-
-```sql
-SELECT
-  sum(pop_max) as total_pop_spain
-FROM
-  ne_10m_populated_places_simple
-WHERE
-  adm0name ilike 'spain'
-```
-**avg**
-
-```sql
-SELECT
-  avg(pop_max) as avg_pop_spain
-FROM
-  ne_10m_populated_places_simple
-WHERE
-  adm0name ilike 'spain'
-```
-
 ## Ordering results
 
 Even you can order the results on BUILDER, sometimes it's useful to order explicitly the results of your query by some field. By default `ORDER` works in ascending order (`ASC`) so you don't need to specify it.
@@ -192,7 +162,7 @@ ORDER BY
 LIMIT 10
 ```
 
-#### Making calculations
+## Making calculations
 
 You can make calculations and run functions on your query `SELECT` part and also on the `WHERE` section. This way you can compute densities, normalize columns, format dates and numbers, etc. Next example shows how to get the 20 most densified countries.
 
@@ -211,7 +181,7 @@ ORDER BY pop_km2 DESC
 
 More about mathematical functions [here](https://www.postgresql.org/docs/9.1/static/functions-math.html).
 
-#### Joining and grouping datasets
+## Joining and grouping datasets
 
 It's very common to have different datasets that we need to join to produce a map. Typically we have a geographic reference dataset (as IGN in this case) and we need to join it with some business data. To do so we use the `JOIN` clause where we refer to another table and make explicit the condition to join fields from one table to the other, normally using a common field or like in this case a spatial relation (don't worry about that part as for now).
 
@@ -232,7 +202,7 @@ LIMIT 10
 
 Note the use of alias for tables and how they are used at the `SELECT` section.
 
-#### Other aggregation functions
+## Other aggregation functions
 
 There are other functions you can apply to your columns. For example you can compute aggregated functions to get the maximum, minimum and average values for a column.
 

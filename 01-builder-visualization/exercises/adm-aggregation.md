@@ -11,20 +11,30 @@
 * *Datasests needed*:
 	* ne_10m_populated_places_simple dataset from CARTO [Data Library](https://carto.com/dataset/ne_10m_populated_places_simple)
 
-## Instructions
+<!-- MarkdownTOC -->
 
-### 1. Import and create map
-#### 1. 1. Use the link above to download the dataset and import it to the account. 
-* Just drag and drop the file into the CARTO Maps interface and wait for the dataset to be imported. The map should be automatically created. 
+- 1. Import and create map
+	- 1. 1. Use the link above to download the dataset and import it to the account.
+- 2. Visualize the different aggregations
+	- 2. 1. Select an aggregated visualization
+	- 2. 3. Aggregation by provinces
+- 3. Style the aggregation
+	- 3. 1. Use the `Style` options
 
-### 2. Visualize the different aggregations
-#### 2. 1. Select an aggregated visualization
-* Click on the layer and then on `STYLE` to access the visualization properties. 
+<!-- /MarkdownTOC -->
+
+## 1. Import and create map
+### 1. 1. Use the link above to download the dataset and import it to the account.
+* Just drag and drop the file into the CARTO Maps interface and wait for the dataset to be imported. The map should be automatically created.
+
+## 2. Visualize the different aggregations
+### 2. 1. Select an aggregated visualization
+* Click on the layer and then on `STYLE` to access the visualization properties.
 * Scroll horizontally on the first section to find the `ADM. REGIONS` aggregation method
 
 ![adm-agg-01](imgs/01-adm-agg-01.png)
 
-* This will create an aggregated visualization using the world borders polygons. 
+* This will create an aggregated visualization using the world borders polygons.
 * By default, it will use countries and `COUNT` aggregation method
 
 ![adm-agg-02](imgs/01-adm-agg-02.png)
@@ -33,7 +43,7 @@
 
 ![adm-agg-03](imgs/01-adm-agg-03.png)
 
-* Note that the aggregation is already normalized. There are certainly more cities in México than in Guatemala, but the density is higher in the latter, thus the darker color. 
+* Note that the aggregation is already normalized. There are certainly more cities in México than in Guatemala, but the density is higher in the latter, thus the darker color.
 
 #### 2. 2. Exploring other possibilities
 * Use the `OPERATION` input field to select `SUM` and `pop_max` in the columns' dropdown
@@ -45,7 +55,7 @@
 ![adm-agg-05](imgs/01-adm-agg-05.png)
 
 * Note the difference between this one and the previous aggregation
-* We could apply any aggregation function in the list: 
+* We could apply any aggregation function in the list:
 	* `COUNT`: Will count the number of features aggregated
 	* `SUM`: Will sum the value in the selected column for the aggregated features
 	* `AVG`: Will calculate an arithmetic average of the value in the selected column for the aggregated features
@@ -54,7 +64,7 @@
 
 * **Exercise:** Create a choropleth map that shows which country has the most populated city
 
-#### 2. 3. Aggregation by provinces
+### 2. 3. Aggregation by provinces
 
 For some countries, CARTO has geometries of their administrative level 1. That usually match provinces, states or other administrative levels superior to the local scale
 
@@ -66,10 +76,10 @@ For some countries, CARTO has geometries of their administrative level 1. That u
 
 ![adm-agg-07](imgs/01-adm-agg-07.png)
 
-### 3. Style the aggregation
-#### 3. 1. Use the `Style` options
+## 3. Style the aggregation
+### 3. 1. Use the `Style` options
 * After selecting any kind of `Admin. Region` aggregation, it's possible to style it as it would be with any other layer
 
 ![adm-agg-08](imgs/01-adm-agg-08.png)
 
-* We could play with different ramps, number of buckets and classification methods to get the map that suits our needs. 
+* We could play with different ramps, number of buckets and classification methods to get the map that suits our needs.

@@ -14,13 +14,27 @@
 
 > Do the download before the demo!
 
-<br>
+<!-- MarkdownTOC -->
 
-## Instructions
+- 1. Import and create a map
+  - 1. 1. Import .carto file
+  - 1. 2. Create a map
+- 2. Layers and styles
+  - 2. 1. Layers
+  - 2. 2. Layer options, styles
+- 3. Analysis
+  - 3. 1. Create Areas of Interest
+  - 3. 2. Get population and household data from the Data Observatory
+- 4. Add new layer and some widgets
+  - 4. 1. Add new layer
+  - 4. 2. Add widgets
 
-### 1. Import and create a map
+<!-- /MarkdownTOC -->
 
-#### 1. 1. Import .carto file
+
+## 1. Import and create a map
+
+### 1. 1. Import .carto file
 
 * First, import **`nyc_blocks`** into CARTO, dragging and dropping the file.
 * Secondly, import **`dominos_data`** into CARTO.
@@ -28,24 +42,22 @@
 
 > Make sure you are on the `DATASETS` dashboard.
 
-#### 1. 2. Create a map
+### 1. 2. Create a map
 
 * Just after clicking on `CREATE MAP`, the Builder main menu will open up. On the one hand, the Builder dashboard will show four layers ("Positron labels", "dominos_data", "nyc_blocks" and "Positron"), the first and last are the basemap, the the other two are proper layers. On the other hand, your visualization will consist on orange polygons and black points representing NYC blocks and Dominos Pizza stores, respectively.
 * Rename the map as **"Dominos Pizza Demo"** and the two layers as "Pizza Stores" and "NYC blocks" respectively.
 
 ![1](https://cloud.githubusercontent.com/assets/5215798/17518721/55f08e8c-5e49-11e6-985e-d84e52daa0cc.png)
 
-<br>
+## 2. Layers and styles
 
-### 2. Layers and styles
-
-#### 2. 1. Layers
+### 2. 1. Layers
 
 * Change a basemap without labels in order to show the viewer that now you have two layers instead of three.
 
 * Explain that each layer (but the basemap) have a dataset layer source. For instance, the source of the "Pizza Stores" layer is **`dominos_data`**, aka `a0`. This would be very important when adding analysis and widgets.
 
-#### 2. 2. Layer options, styles
+### 2. 2. Layer options, styles
 
 * Click on "NYC blocks".
 
@@ -65,11 +77,9 @@
 
 ![2](https://cloud.githubusercontent.com/assets/5215798/17518737/6577ab2e-5e49-11e6-84be-4e28c764fbbf.png)
 
-<br>
+## 3. Analysis
 
-### 3. Analysis
-
-#### 3. 1. Create Areas of Interest
+### 3. 1. Create Areas of Interest
 
 * Back in the main menu, click on 'ADD ANALYSIS' on the "Pizza Stores" layer.
 * Select `Create areas of influence`. Click on `ADD ANALYSIS`.
@@ -83,9 +93,7 @@
 
 ![3-1](https://cloud.githubusercontent.com/assets/5215798/17518746/6c3e1b5a-5e49-11e6-80b3-9127b8c9afbf.png)
 
-<br>
-
-#### 3. 2. Get population and household data from the Data Observatory
+### 3. 2. Get population and household data from the Data Observatory
 
 * Add another Analysis to the Analysis Chain by clicking the plus in `Workflow`.
 * Select `Enrich from Data Observatory`. Click on `ADD ANALYSIS`.
@@ -110,18 +118,16 @@
 
 ![3-3](https://cloud.githubusercontent.com/assets/5215798/17518751/707e4bcc-5e49-11e6-9206-ff566970f7e6.png)
 
-<br>
+## 4. Add new layer and some widgets
 
-### 4. Add new layer and some widgets
-
-#### 4. 1. Add new layer
+### 4. 1. Add new layer
 
 * Click on `LAYERS`, `ADD` a third layer, again select the `dominos_data` dataset and rename it as "Pizza Stores Points".
 * `STYLE` this new layer, set the marker width according to `monthly_revenue` value, select a color (white would be good choice) and set the `STROKE` to `0.2`.
 
 ![4-1](https://cloud.githubusercontent.com/assets/5215798/17518753/721eeb3a-5e49-11e6-9e90-ba24880aeb5d.png)
 
-#### 4. 2. Add widgets
+### 4. 2. Add widgets
 
 * Back in the main menu, click on `WIDGETS`, then `ADD WiDGET`:
 
@@ -144,5 +150,3 @@
 ![4-2](https://cloud.githubusercontent.com/assets/5215798/17518755/73942ed0-5e49-11e6-961b-d5d9a7a9db8f.png)
 
 > Use the filters according to an invented target (for instance, stores with lower monthly revenue but closer to households without cars).
-
-<br>

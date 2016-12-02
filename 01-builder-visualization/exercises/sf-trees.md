@@ -21,7 +21,7 @@
 
 #### 1. 2. Dataset view
 
-* Don't waste time with this. But show the `METDATA`-`SQL` switch and the `PREVIEW`.
+* Don't waste time with this. But show the `METADATA`-`SQL` switch and the `PREVIEW`.
 
 #### 1. 3. Click on ``CREATE MAP`` from the ``Street Tree List`` dataset. Change the name of the map to ``San Francisco Trees``
 

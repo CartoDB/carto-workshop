@@ -15,7 +15,7 @@ Análisis geoespacial con CARTO BUILDER
 Ejercicios:
 
 * [spies in the sky](exercises/spies.md)
-* [crímenes de Chicago](exercises/chicago)
+* [crímenes de Chicago](exercises/chicago.md)
 * [análisis de mercado](exercises/dominos.md)
 * [análisis de riesgos](exercises/railways.md)
 * [territorios de venta](exercises/portland.md)

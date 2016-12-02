@@ -1,7 +1,7 @@
 
 # Spatial SQL  <a name="postgis"></a>
 
-On this section you'll have the chance to test some of the most common [PostGIS](http://postgis.net/docs/reference.html) SQL procedures. To follow this section you only need to open a browser pointing to this url: [http://bl.ocks.org/jsanz/raw/fcb8394e084919a4135188b7c30504ad/](http://bl.ocks.org/jsanz/raw/fcb8394e084919a4135188b7c30504ad/) and change the Maps API entry point to `http://geostat-api.carto.com/api/v1/map`.
+On this section you'll have the chance to test some of the most common [PostGIS](http://postgis.net/docs/reference.html) SQL procedures. To follow this section you only need to open a browser pointing to this url: [http://bl.ocks.org/jsanz/raw/fcb8394e084919a4135188b7c30504ad/](http://bl.ocks.org/jsanz/raw/fcb8394e084919a4135188b7c30504ad/) and change the Maps API entry point to `http://carto-workshops.carto.com/api/v1/map`.
 
 ![](imgs/sql-block.png)
 

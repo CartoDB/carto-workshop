@@ -14,12 +14,9 @@
 <!-- MarkdownTOC -->
 
 - 1. Import and create map
-	- 1. 1. Use the link above to download the dataset and import it to the account.
 - 2. Visualize the different aggregations
-	- 2. 1. Select an aggregated visualization
-	- 2. 3. Aggregation by provinces
-- 3. Style the aggregation
-	- 3. 1. Use the `Style` options
+- 3. Other aggregations
+- 4. Style the aggregation
 
 <!-- /MarkdownTOC -->
 
@@ -76,10 +73,42 @@ For some countries, CARTO has geometries of their administrative level 1. That u
 
 ![adm-agg-07](imgs/01-adm-agg-07.png)
 
-## 3. Style the aggregation
-### 3. 1. Use the `Style` options
+## 3. Other aggregations
+There are also other possibilities when it comes to visualizing aggregated data with Builder. Let's make a quick overview of them
+### 3. 1. Squares aggregation
+* Use the `Aggregation` selector, scrolling horizontally to find the `SQUARES` method
+
+![sq-agg-01](imgs/01-sq-agg-01.png)
+
+* You could use the other parameters to configure the size of the grid, as well as the aggregation method, same as we already saw with the Admin. Region aggregation. 
+
+![sq-agg-02](imgs/01-sq-agg-02.png)
+
+* Note that currently in Builder, the size of the grid is set in pixels for the zoom level at the moment of the setting. Zooming in or out won't make the grid readapt, but will have the same fixed size across different zoom levels.
+
+![sq-agg-03](imgs/01-sq-agg-03.png)
+
+![sq-agg-04](imgs/01-sq-agg-04.png)
+
+### 3. 2. Hexabins aggregation
+
+* Use the `Aggregation` selector to find the `HEXBINS` method.  
+
+![01-hex-agg-01](imgs/01-hex-agg-01.png)
+
+* This method will create an hexagonal grid to aggregate the features in the map.
+
+![01-hex-agg-02](imgs/01-hex-agg-02.png)
+
+* Apart from the different shape of the grid, there isn't any other difference bettween this aggregation method and the `SQUARES` one.
+* Same as before, the size of the grid is set in pixels for the zoom level at the moment of the setting. Zooming in or out won't make the grid readapt, but will have the same fixed size across different zoom levels.
+
+## 4. Style the aggregation
+### 4. 1. Use the `Style` options
 * After selecting any kind of `Admin. Region` aggregation, it's possible to style it as it would be with any other layer
 
 ![adm-agg-08](imgs/01-adm-agg-08.png)
 
 * We could play with different ramps, number of buckets and classification methods to get the map that suits our needs.
+
+* **Exercise:** Create a grid map of your choice to show the average world citie's population. 

@@ -14,19 +14,20 @@
 
 <!-- MarkdownTOC -->
 
-- 1. Import datasets and create a map
-  - 1. 1. Import datasets into CARTO
-  - 1. 3. Rename map title and layers
-- 2. Layers and widgets
-  - 2. 1. Show the different options layers have
-  - 2. 2. Add widgets in order to explore crimes layer
-- 3. Add Analysis and styles
-  - 3. 1. Create crimes centroids for district
-  - 3. 2. Style crimes layer
-  - 3. 3. Connect police stations with centroids and calculate distances
-  - 3. 4. Style police stations, centroids and lines layers
-- 4. Add an histogram widget for filtering by distance
-  - 4. 1. Add a widget for filtering by store id
+  - 1. Import datasets and create a map
+    - 1. 1. Import datasets into CARTO
+    - 1. 3. Rename map title and layers
+  - 2. Layers and widgets
+    - 2. 1. Show the different options layers have
+    - 2. 2. Add widgets in order to explore crimes layer
+  - 3. Add Analysis and styles
+    - 3. 1. Create crimes centroids for district
+    - 3. 2. Style crimes layer
+    - 3. 3. Connect police stations with centroids and calculate distances
+    - 3. 4. Style police stations, centroids and lines layers
+  - 4. Add an histogram widget for filtering by distance
+    - 4. 1. Add a widget for filtering by store id
+- 5. Extension
 
 <!-- /MarkdownTOC -->
 
@@ -34,7 +35,7 @@
 
 ### 1. 1. Import datasets into CARTO
 
-* Show how easy is to import files into CARTO! Drag and drop in CARTO Datasets dashboard, first **`chicago_crimes`**, and then **`chicago_police_stations`** csv files. Explain the viewer the wide diversity of geodata supported in CARTO during the importing.
+* It's easy to import files into CARTO! Drag and drop in CARTO Datasets dashboard, first **`chicago_crimes`**, and then **`chicago_police_stations`** csv files. Explain the viewer the wide diversity of geodata supported in CARTO during the importing.
 
 * Select `chicago_crimes` and `chicago_police_stations`, click on `NEW MAP`.
 
@@ -50,7 +51,7 @@
 ### 2. 1. Show the different options layers have
 
 * Click on the `Positron` basemap and select `Dark Matter Lite`.
-* Comment that each layer has 5 options: `DATA`, `ANALYSES`, `STYLE`, `POP-UPS` and `LEGENDS`.
+* Each layer has 5 options: `DATA`, `ANALYSES`, `STYLE`, `POP-UPS` and `LEGENDS`.
 
 ### 2. 2. Add widgets in order to explore crimes layer
 
@@ -82,7 +83,7 @@
     * `STROKE`: set stroke width to `0`.
     * `BLENDING`: `multiply`.
 
-![style](https://cloud.githubusercontent.com/assets/5215798/19149588/e38b427c-8bc2-11e6-8d2a-7b5f73bb658c.png)
+![style](imgs/chicago/01-data.png)
 
 ### 3. 3. Connect police stations with centroids and calculate distances
 
@@ -95,9 +96,9 @@
     * `SOURCE COL.`: `category`.
     * `TARGET COL.`: `district_char`.
 
-![lines](https://cloud.githubusercontent.com/assets/5215798/19149598/e81efc8e-8bc2-11e6-9a4b-ba709c3b480f.png)
+![lines](imgs/chicago/02-lines.png)
 
-> Show the viewer (click on `DATA` and change to table view) the new fields created from this analysis, especially the `length` column.
+> Click on `DATA` and change to table view to see how the new fields have been created from this analysis, being specially interesting the `length` column.
 
 ### 3. 4. Style police stations, centroids and lines layers
 
@@ -108,7 +109,7 @@
 * In order to style the `Lines` layer follow these steps:
   * Click on `Lines` layer.
   * Click on `STYLE`:
-    * `FILL`: set the line width value to `3` and color to picton blue (`#40B4E5`).
+    * `FILL`: set the line width value to `3` and color blue (`#40B4E5`).
 
 #### Centroids style
 
@@ -144,8 +145,14 @@
 * In the `DATA` view. Activate the checkbox option on `length`.
 * Rename them as "Distance".
 
-> This demo can be improved using filter by layer analysis and/or adding (centroids and police stations) AOIs and intersecting them with crimes.
+![final](imgs/chicago/03-final.png)
 
-![final](https://cloud.githubusercontent.com/assets/5215798/19149602/eb75be22-8bc2-11e6-9a8b-6ae267fd208b.png)
+[Link](https://builder-demo.carto.com/builder/f0f77986-8dd7-4a33-82f8-99e7cec8fdee/embed) to the map.
 
-[Link](https://solutionscdb.carto.com/u/cdbsol-admin/builder/40adbc10-8adc-11e6-9d22-0ee66e2c9693/embed) to the embed map.
+# 5. Extension
+
+This demo can be improved:
+
+* With the **Filter by layer** analysis to link police stations and crime locations
+
+* Adding **areas of interest** to the centroids and police stations and intersect them with crimes to check which crimes are less than certain distance to both locations.

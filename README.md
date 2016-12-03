@@ -10,6 +10,13 @@ Colaboradores:
 * Ernesto Martínez · ernesto@carto.com
 * Oriol Boix · oboix@carto.com
 * Ramiro Aznar · ramiroaznar@carto.com
+* Michelle Chandra · mchandra@carto.com
+
+## Acceso a las cuentas del taller
+
+* Repartir cuentas `cdmx01` a `cdmx20`. Se crearán más si fuera necesario
+* Acceder a las cuentas en la dirección web `https://cdmxAA.carto.com` donde `AA` será el número asignado anteriormente.
+* La contraseña será proporcionada por el instructor
 
 
 ## Día 1. CARTO BUILDER I: Visualización y estilización de datos

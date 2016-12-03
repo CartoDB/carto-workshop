@@ -12,12 +12,14 @@
   * NYC blocks (**`nyc_blocks`**): download from [here](https://team.carto.com/u/builder-demo/tables/nyc_blocks/public) as csv file.
   * Dominos data (**`dominos_data`**): download from [here](https://team.carto.com/u/builder-demo/tables/dominos_data/public) as csv file.
 
-> Do the download before the demo!
+
+## Contents
+
 
 <!-- MarkdownTOC -->
 
 - 1. Import and create a map
-  - 1. 1. Import .carto file
+  - 1. 1. Import datasets
   - 1. 2. Create a map
 - 2. Layers and styles
   - 2. 1. Layers
@@ -34,17 +36,15 @@
 
 ## 1. Import and create a map
 
-### 1. 1. Import .carto file
+### 1. 1. Import datasets
 
 * First, import **`nyc_blocks`** into CARTO, dragging and dropping the file.
 * Secondly, import **`dominos_data`** into CARTO.
 * Then select both datasets and click on `CREATE MAP`.
 
-> Make sure you are on the `DATASETS` dashboard.
-
 ### 1. 2. Create a map
 
-* Just after clicking on `CREATE MAP`, the Builder main menu will open up. On the one hand, the Builder dashboard will show four layers ("Positron labels", "dominos_data", "nyc_blocks" and "Positron"), the first and last are the basemap, the the other two are proper layers. On the other hand, your visualization will consist on orange polygons and black points representing NYC blocks and Dominos Pizza stores, respectively.
+* Just after clicking on `CREATE MAP`, the Builder main menu will open up. On the one hand, the Builder dashboard will show four layers ("Positron labels", "dominos_data", "nyc_blocks" and "Positron"), the first and last are the basemap, the the other two are proper layers. On the other hand, your visualization will consist on blue polygons and orange points representing NYC blocks and Dominos Pizza stores, respectively.
 * Rename the map as **"Dominos Pizza Demo"** and the two layers as "Pizza Stores" and "NYC blocks" respectively.
 
 ![1](https://cloud.githubusercontent.com/assets/5215798/17518721/55f08e8c-5e49-11e6-985e-d84e52daa0cc.png)
@@ -55,25 +55,21 @@
 
 * Change a basemap without labels in order to show the viewer that now you have two layers instead of three.
 
-* Explain that each layer (but the basemap) have a dataset layer source. For instance, the source of the "Pizza Stores" layer is **`dominos_data`**, aka `a0`. This would be very important when adding analysis and widgets.
+* Each layer (but the basemap) have a dataset layer source. For instance, the source of the "Pizza Stores" layer is **`dominos_data`**, aka `a0`. This will be very important when adding analysis and widgets.
 
 ### 2. 2. Layer options, styles
 
 * Click on "NYC blocks".
 
-> Comment that each layer has 5 options: `DATA`, `ANALYSES`, `STYLE`, `POP-UPS` and `LEGENDS`.
-
 * `DATA`:
-  * Explain that this interface gives you a general idea of each field/column in the layer, its name and its data type but also from there you can add them as widgets.
-  * Switch to `VALUES` to `SQL`. Explain that the SQL command line allows more advanced users to manage data in a more precise way.
-  * Finally, show how easy is to change from map view to dataset view.
+  * This interface gives you a general idea of each field/column in the layer, its name and its data type but also from there you can add them as widgets.
+  * Switch to `VALUES` to `SQL`. The SQL command line allows more advanced users to manage data in a more precise way.
+  * Finally, it's easy to change from map view to dataset view.
 
 * `STYLE`:
   * `FILL`: click on the color bar, select `BY VALUE`, set `total_pop` as the variable and choose a nice color palette.
   * Change the `STROKE` to `0.2`.
-  * Switch to `VALUES` to `CARTOCSS`. Explain that the CartoCSS command line allows more advanced users to layer style in a more precise way. For instance, change the `polygon-opacity` to `0.7`.
-
-> If the viewer is pro, you can explain how `turbo-carto` `ramp()` function works. It gets four arguments: the variable, the min and max values, and the break method.
+  * Switch to `VALUES` to `CARTOCSS`. The CartoCSS command line allows more advanced users to layer style in a more precise way.
 
 ![2](https://cloud.githubusercontent.com/assets/5215798/17518737/6577ab2e-5e49-11e6-84be-4e28c764fbbf.png)
 
@@ -83,13 +79,10 @@
 
 * Back in the main menu, click on 'ADD ANALYSIS' on the "Pizza Stores" layer.
 * Select `Create areas of influence`. Click on `ADD ANALYSIS`.
-
-> Explain how this analysis works: it creates polygons according to the parameters set by the user.
-
 * Set `DISTANCE` to `km` and `RADIUS` to `1`. `APPLY`.
 * An explanatory window would pop up. Click on `DONE`.
 
-> We will do some styling later; the map should now look like the following:
+The map should now look like the following:
 
 ![3-1](https://cloud.githubusercontent.com/assets/5215798/17518746/6c3e1b5a-5e49-11e6-80b3-9127b8c9afbf.png)
 
@@ -98,7 +91,7 @@
 * Add another Analysis to the Analysis Chain by clicking the plus in `Workflow`.
 * Select `Enrich from Data Observatory`. Click on `ADD ANALYSIS`.
 
-> Explain how this analysis works: the Data Observatory enrichment is the result of the geometry location and the measure requested.
+> the Data Observatory enrichment is the result of the geometry location and the measure requested.
 
 * Set `NEW COL. NAME` to `population`. Select `United States` as `COUNTRY`, `Age and Gender` as `MEASUREMENT` and `Total Population` as `SEGMENTS`. Click on `APPLY`.
 * An explanatory window would pop up. Click on `DONE`.

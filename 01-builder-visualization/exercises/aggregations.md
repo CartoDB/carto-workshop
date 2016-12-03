@@ -14,7 +14,7 @@
 <!-- MarkdownTOC -->
 
 - 1. Import and create map
-- 2. Visualize the different aggregations
+- 2. Administrative regions aggregation
 - 3. Other aggregations
 - 4. Style the aggregation
 
@@ -24,7 +24,7 @@
 ### 1. 1. Use the link above to download the dataset and import it to the account.
 * Just drag and drop the file into the CARTO Maps interface and wait for the dataset to be imported. The map should be automatically created.
 
-## 2. Visualize the different aggregations
+## 2. Administrative regions aggregation
 ### 2. 1. Select an aggregated visualization
 * Click on the layer and then on `STYLE` to access the visualization properties.
 * Scroll horizontally on the first section to find the `ADM. REGIONS` aggregation method

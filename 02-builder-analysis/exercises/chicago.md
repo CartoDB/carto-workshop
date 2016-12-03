@@ -9,8 +9,8 @@
   * Analysis: Find centroid from geometries & Connect with lines.
 
 * *Datasests needed*:
-  * Chicago Crimes (**`chicago_crimes`**): download it [from the `builder-demo` CARTO account](https://team.carto.com/u/builder-demo/tables/chicago_crimes/public) and import it into CARTO from your local machine as a csv file.
-  * Chicago Police Stations (**`chicago_police_stations`**): download it [from the `builder-demo` CARTO account](https://team.carto.com/u/builder-demo/tables/chicago_police_stations/public) and import it into CARTO from your local machine as a csv file.
+  * Chicago Crimes (**`chicago_crimes`**): download it [from the `builder-demo` CARTO account](https://builder-demo.carto.com:443/api/v2/sql?q=select+*+from+chicago_crimes&format=gpkg&filename=chicago_crimes.gpkg) and import it into CARTO from your local machine..
+  * Chicago Police Stations (**`chicago_police_stations`**): download it [from the `builder-demo` CARTO account](https://builder-demo.carto.com:443/api/v2/sql?q=select+*+from+chicago_police_stations&format=gpkg&filename=chicago_police_stations.gpkg) and import it into CARTO from your local machine.
 
 <!-- MarkdownTOC -->
 
@@ -21,6 +21,7 @@
     - 2. 1. Show the different options layers have
     - 2. 2. Add widgets in order to explore crimes layer
   - 3. Add Analysis and styles
+    - 3. 0. Optional: sample the dataset
     - 3. 1. Create crimes centroids for district
     - 3. 2. Style crimes layer
     - 3. 3. Connect police stations with centroids and calculate distances
@@ -60,6 +61,10 @@
 * Rename them as "Number of Crimes", "Date" and "Type of Crime" respectively.
 
 ## 3. Add Analysis and styles
+
+### 3. 0. Optional: sample the dataset
+
+You can add the **Subsample percent of rows** analysis to the crimes dataste. This way you can design the analysis working with for example a 10% of the dataset and when you finish it then upgrade to the 100%.
 
 ### 3. 1. Create crimes centroids for district
 
@@ -155,4 +160,6 @@ This demo can be improved:
 
 * With the **Filter by layer** analysis to link police stations and crime locations
 
-* Adding **areas of interest** to the centroids and police stations and intersect them with crimes to check which crimes are less than certain distance to both locations.
+* Adding **areas of interest** to the centroids and police stations and check which crimes are less than certain distance to both locations.
+
+![extension](imgs/chicago/04-extension.png)

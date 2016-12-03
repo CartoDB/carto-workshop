@@ -204,10 +204,6 @@ Each example points to a real time viewer showcasing a different procedure using
   * Events, feature click [plnkr](http://plnkr.co/edit/88Qc99jdgP4X43FSTRdH?p=preview)
   * Custom infowindows [plnkr](http://plnkr.co/edit/9FE6BHILGudsIrDmCzdd?p=preview)
   * Custom tooltips [plnkr](http://plnkr.co/edit/uD0Fdw?p=preview)
-* Some advance examples
-  * Highlight polygons on hover with Leaflet + `sql.execute` [bl.ocks](http://bl.ocks.org/javisantana/8313604)
-  * Custom layer selector [bl.ocks](http://bl.ocks.org/jsanz/6a83dbae9d6e984ca938)
-  * Aggregate content in SQL clusters [bl.ocks](http://bl.ocks.org/ernesmb/348b9eed9ee4c7038fd7)
 * Layer selector: dropdown menu. [bl.ocks](http://bl.ocks.org/oriolbx/bbadc6aa0b5a8e133792)
 * Layer selector: dropdown menu & Torque layers. [bl.ocks](http://bl.ocks.org/oriolbx/8aa36a091ce32ae939ab156c13b2aa10)
 * CARTO.js & Leaflet.js: Change zoom level with custom zoom controls. [bl.ocks](http://bl.ocks.org/oriolbx/f9a75b1dc017e7a8af2a)
@@ -221,6 +217,7 @@ Each example points to a real time viewer showcasing a different procedure using
 * CARTO.js & JQuery UI: Filtering time data with a slider. [bl.ocks](http://bl.ocks.org/iriberri/7335eebcdda69b0b4f80)
 * SQL & CARTO.js: Adding points from map to dataset. [bl.ocks](http://bl.ocks.org/ernesmb/beb25f539f8ff38bbd891e6d114ea7f4)
 * Complete Named map example. [bl.ocks](http://bl.ocks.org/ernesmb/f5c7bffe033e898bf9f2)
-
-TODO
-----
+* Some advance examples
+  * Highlight polygons on hover with Leaflet + `sql.execute` [bl.ocks](http://bl.ocks.org/javisantana/8313604)
+  * Custom layer selector [bl.ocks](http://bl.ocks.org/jsanz/6a83dbae9d6e984ca938)
+  * Aggregate content in SQL clusters [bl.ocks](http://bl.ocks.org/ernesmb/348b9eed9ee4c7038fd7)

@@ -14,7 +14,7 @@
 <!-- MarkdownTOC -->
 
 - 1. Import and create map
-	- 1. 1. Import ``carto.flights`` geopackage.
+	- 1. 1. Import ``flights`` geopackage.
 	- 1. 2. Dataset view
 	- 1. 3. Click on ``CREATE MAP`` from ``flights``
 - 2. Layers and styles
@@ -36,7 +36,7 @@
 
 ## 1. Import and create map
 
-### 1. 1. Import ``carto.flights`` geopackage.
+### 1. 1. Import ``flights`` geopackage.
 
 * Don't download the dataset, instead you can directly put the url above into the URL box and CARTO will download an import it in one single step.
 
@@ -109,7 +109,7 @@ Each layer has 5 options: `DATA`, `ANALYSES`, `STYLE`, `POP-UPS` and `LEGENDS`.
 
 ### 3. 2. Connect with lines Analysis
 
-* We will apply the analysis to the  result of the ``Filter by column``  analysis, so we will go back to the main menu and we will  click on the ``ADD ANALYSIS`` option of the ``carto.flights`` layer.
+* We will apply the analysis to the  result of the ``Filter by column``  analysis, so we will go back to the main menu and we will  click on the ``ADD ANALYSIS`` option of the ``flights`` layer.
 * We will select the ``Connect with lines`` analysis.
 
 ![lines](imgs/spies_sky/lines.png)

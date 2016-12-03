@@ -192,6 +192,22 @@ Second, `cartodb-legend category`, applied in simple or category maps:
 
 Each example points to a real time viewer showcasing a different procedure using CARTO.js. Feel free to change and play with the code and refresh the webpage to return to the initial state.
 
+* Cartodb.js for on-premises [gist](https://gist.github.com/ernesmb/af3f957d109d0686612d)
+* Load a simple visualization [plnkr](http://plnkr.co/edit/plhwv3IQwFxLHBGWodQp?p=preview)
+* Load an anonymous map [plnkr](http://plnkr.co/edit/aG7ZSN24WBE6d8ZJQTqY?p=preview)
+* Load a named map [plnkr](http://plnkr.co/edit/HitBoz?p=preview)
+* Change in SQL and CartoCSS
+  * Anonymous map [plnkr](http://plnkr.co/edit/SzMbyj?p=preview)
+  * Named map [plnkr](http://plnkr.co/edit/c7gFkI?p=preview)
+* Execute a SQL query [plnkr](http://plnkr.co/edit/z3BpG1?p=preview)
+* Interactivity
+  * Events, feature click [plnkr](http://plnkr.co/edit/88Qc99jdgP4X43FSTRdH?p=preview)
+  * Custom infowindows [plnkr](http://plnkr.co/edit/9FE6BHILGudsIrDmCzdd?p=preview)
+  * Custom tooltips [plnkr](http://plnkr.co/edit/uD0Fdw?p=preview)
+* Some advance examples
+  * Highlight polygons on hover with Leaflet + `sql.execute` [bl.ocks](http://bl.ocks.org/javisantana/8313604)
+  * Custom layer selector [bl.ocks](http://bl.ocks.org/jsanz/6a83dbae9d6e984ca938)
+  * Aggregate content in SQL clusters [bl.ocks](http://bl.ocks.org/ernesmb/348b9eed9ee4c7038fd7)
 * Layer selector: dropdown menu. [bl.ocks](http://bl.ocks.org/oriolbx/bbadc6aa0b5a8e133792)
 * Layer selector: dropdown menu & Torque layers. [bl.ocks](http://bl.ocks.org/oriolbx/8aa36a091ce32ae939ab156c13b2aa10)
 * CARTO.js & Leaflet.js: Change zoom level with custom zoom controls. [bl.ocks](http://bl.ocks.org/oriolbx/f9a75b1dc017e7a8af2a)

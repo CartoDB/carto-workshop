@@ -9,14 +9,14 @@
 	* Widgets: timeseries, point count(formula), altitude (histogram), avergage speed (formula).
 
 * *Datasests needed*:
-	* Use carto.flights dataset, download it from [here](https://builder-demo.carto.com/api/v2/sql?q=select%20*%20from%20%22builder-demo%22.flights&format=gpkg&filename=flights.gpkg).
+	* [`flights` dataset](https://builder-demo.carto.com/api/v2/sql?q=select+*+from+flights&format=gpkg&filename=flights.gpkg).
 
 <!-- MarkdownTOC -->
 
 - 1. Import and create map
 	- 1. 1. Import ``carto.flights`` geopackage.
 	- 1. 2. Dataset view
-	- 1. 3. Click on ``CREATE MAP`` from ``carto.flights``
+	- 1. 3. Click on ``CREATE MAP`` from ``flights``
 - 2. Layers and styles
 	- 2. 1. Show the new ordering of the layers in the Builder
 	- 2. 2. Show the different options layers have
@@ -30,6 +30,7 @@
 	- 4. 3. Formula widget
 	- 4. 4. Modify widgets
 - 5. Publish
+- 6. Extension
 
 <!-- /MarkdownTOC -->
 
@@ -37,43 +38,42 @@
 
 ### 1. 1. Import ``carto.flights`` geopackage.
 
-* Show how easy is to import files into CARTO! Explain the viewer the wide diversity of geodata supported in CARTO during the importing.
+* Don't download the dataset, instead you can directly put the url above into the URL box and CARTO will download an import it in one single step.
+
+![](imgs/spies_sky/import.png)
 
 ### 1. 2. Dataset view
 
-* Don't waste time with this. But show the `METDATA`-`SQL` switch and the `PREVIEW`.
+Take a look on the dataset schema, the relevant fields are: `flight_id`, `timestamp`, `altitude` and `speed`
 
-### 1. 3. Click on ``CREATE MAP`` from ``carto.flights``
+### 1. 3. Click on ``CREATE MAP`` from ``flights``
 
 > Explore the visualization. Could you observe any clear pattern? The expected pattern are straight lines, but what about the circles?
 
-* You should have a map like this:
-
 ![first](imgs/spies_sky/first.png)
 
+**Hint**: try to use the `multiply` composite operation to see more clearly some patterns on the dataset.
 
 ## 2. Layers and styles
 
 ### 2. 1. Show the new ordering of the layers in the Builder
 
-* Show the different basemaps options.
-
-* Explain that each layer (but the basemap) have a dataset layer source. For instance, the source of the ``flights`` layer is **``carto.flights``**, aka ``A0``. This would be very important when adding analysis and widgets.
+* Every layer has a source. For instance, the source of the ``flights`` layer is the **``flights``** table, identified here as ``A0``. This will be very important when adding analysis and widgets.
 
 * Change basemap from Positron to Positron (labels below)
 
 ### 2. 2. Show the different options layers have
 
-> Comment that each layer has 5 options: `DATA`, `ANALYSES`, `STYLE`, `POP-UPS` and `LEGENDS`.
+Each layer has 5 options: `DATA`, `ANALYSES`, `STYLE`, `POP-UPS` and `LEGENDS`.
 
 * `DATA`:
-  * Explain that this interface gives a general view of the fields the layer, its name and its data type but also from there you can add them as widgets.
-  * Switch to `VALUES` to `SQL`. Explain that the SQL command line allows more advanced users to manage data in a more precise way.
-  * Finally, show how easy is to change from map view to dataset view.
+  * This interface gives a general view of the fields the layer, its name and its data type but also from there you can add them as widgets.
+  * Switch to `VALUES` to `SQL`. The SQL command line allows more advanced users to manage data in a more precise way.
+  * Finally, it's easy to change from map view to dataset view.
 
 * `STYLE`:
   * Change the fill color to ``#f20000`` and set the size of the markers to 7.
-  * Switch to `VALUES` to `CARTOCSS`. Explain that the CartoCSS command line allows more advanced users to layer style in a more precise way.
+  * Switch to `VALUES` to `CARTOCSS`. CartoCSS panel allows more advanced users to layer style in a more precise way.
 
 
 ![style](imgs/spies_sky/style.png)
@@ -93,7 +93,6 @@
 * In the ``ANALYSES`` tab of the layer, we have several sections:
 	* **Workflow**: Is an overview of the analysis that we apply to the layer, so you can have more than one. The analysis should have the name ``A1`` to indicate that is the first analysis applied to the layer.
 	* **Filter by column value**: asks for the source layer where are the columns that you want to use to filter (**input parameter**) and the column that you want to use to filter. We select the column `flight_id`. A new section **Parameters** appears in the analysis menu.
-
 	* **Parameters**: We select the value of the column that we want to use to filter our data.
 	We select/write the value ``8366cde``.
 
@@ -256,5 +255,10 @@
 
 ![publish_1](imgs/spies_sky/publish_2.png)
 
+## 6. Extension
+
+An extension of this exercise would be to add another analysis to the filtered points: connect them with the centroid. This is another version of the **Connect with lines** analysis where you use the `Source` option so all the points are connected to a different source, in this case the _Centroid_ layer. This analysis also gives to the resulting dataset a new field named `Length` that can be added as a histogram to be able to find that as our planes are doing circles we have a significant number of lines with the same length.
+
+![](imgs/spies_sky/extension.png)
 
 

@@ -192,6 +192,19 @@ Second, `cartodb-legend category`, applied in simple or category maps:
 
 Each example points to a real time viewer showcasing a different procedure using CARTO.js. Feel free to change and play with the code and refresh the webpage to return to the initial state.
 
+* Layer selector: dropdown menu. [bl.ocks](http://bl.ocks.org/oriolbx/bbadc6aa0b5a8e133792)
+* Layer selector: dropdown menu & Torque layers. [bl.ocks](http://bl.ocks.org/oriolbx/8aa36a091ce32ae939ab156c13b2aa10)
+* CARTO.js & Leaflet.js: Change zoom level with custom zoom controls. [bl.ocks](http://bl.ocks.org/oriolbx/f9a75b1dc017e7a8af2a)
+* SQL & CARTO.js: Download dataset with button. [bl.ocks](http://bl.ocks.org/oriolbx/0476fe891f5ab5e3615c2f3f16ec1d18)
+* SQL & CARTO.js: Custom search box. [bl.ocks](http://bl.ocks.org/oriolbx/1e3755a44583058f4b95)
+* CARTO.js & D3.js: 3D world minimap. [bl.ocks](http://bl.ocks.org/oriolbx/3f753e4e51e797bbbf27)
+* Disable pan and zoom options. [bl.ocks](http://bl.ocks.org/oriolbx/937a83b2260350ccc267)
+* Custom infowindow, custom infobox & custom tooltip. [bl.ocks](http://bl.ocks.org/oriolbx/3950e1a9b458a9177f9c)
+* Custom infowindow with youtube video inside. [bl.ocks](http://bl.ocks.org/michellechandra/0890a67f513f3fe674db)
+* Classification methods: Using layer selector + SQL API to classify your data with different options. [bl.ocks](http://bl.ocks.org/oriolbx/8525229e34263adcaeaf)
+* CARTO.js & JQuery UI: Filtering time data with a slider. [bl.ocks](http://bl.ocks.org/iriberri/7335eebcdda69b0b4f80)
+* SQL & CARTO.js: Adding points from map to dataset. [bl.ocks](http://bl.ocks.org/ernesmb/beb25f539f8ff38bbd891e6d114ea7f4)
+* Complete Named map example. [bl.ocks](http://bl.ocks.org/ernesmb/f5c7bffe033e898bf9f2)
 
 TODO
 ----

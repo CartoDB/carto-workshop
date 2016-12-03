@@ -204,6 +204,9 @@ Each example points to a real time viewer showcasing a different procedure using
   * Events, feature click [plnkr](http://plnkr.co/edit/88Qc99jdgP4X43FSTRdH?p=preview)
   * Custom infowindows [plnkr](http://plnkr.co/edit/9FE6BHILGudsIrDmCzdd?p=preview)
   * Custom tooltips [plnkr](http://plnkr.co/edit/uD0Fdw?p=preview)
+
+The following list presents a number of running examples on doing many different tasks.
+
 * Layer selector: dropdown menu. [bl.ocks](http://bl.ocks.org/oriolbx/bbadc6aa0b5a8e133792)
 * Layer selector: dropdown menu & Torque layers. [bl.ocks](http://bl.ocks.org/oriolbx/8aa36a091ce32ae939ab156c13b2aa10)
 * CARTO.js & Leaflet.js: Change zoom level with custom zoom controls. [bl.ocks](http://bl.ocks.org/oriolbx/f9a75b1dc017e7a8af2a)

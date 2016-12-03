@@ -90,7 +90,7 @@ There are also other possibilities when it comes to visualizing aggregated data 
 
 ![sq-agg-04](imgs/01-sq-agg-04.png)
 
-### 3. 2. Hexabins aggregation
+### 3. 2. Hexbins aggregation
 
 * Use the `Aggregation` selector to find the `HEXBINS` method.  
 

@@ -1,4 +1,4 @@
-# Simple exercise: San Francisco tree map <a name="sf-trees"></a>
+# San Francisco tree map
 
 * *Degree of Difficulty*: **
 * *Goal*: Display the different kinds of trees in San Francisco and when they were planted.
@@ -29,6 +29,7 @@
 
 ### 1. 1. Import the ``Street Tree List`` as a csv file into your dataset dashboard.
 
+* Go to https://team.carto.com/u/builder-demo/tables/sf_trees/public/map
 * Download the dataset as a CSV
 * Go to your account and import is using the `NEW DATASET` wizard
 
@@ -65,7 +66,7 @@
   * In the ``Fill`` options, select the ``By Value`` option and then choose the ``common_species`` option to color the dots depending on the values of the ``common_species`` values.
   * Change the size of the dots to 3 and change the stroke value of the points to 0.
 
-![style](https://cloud.githubusercontent.com/assets/11177693/17486997/4718a482-5d93-11e6-838f-0865c1b57385.png)
+![style](./imgs/01-sftrees-01.png)
 
 
 * `POP-UPS`:
@@ -73,7 +74,7 @@
   * In the ``Show Items`` section of the hover menu, select the ``common_species`` field and change its name to *Common Species*.
   * By doing this, a pop-up will appear when we hover over the points on the map.
 
-![hover](https://cloud.githubusercontent.com/assets/11177693/17486993/420e9e24-5d93-11e6-8a94-7b9dd9b90aa2.png)
+![hover](imgs/01-sftrees-02.png)
 
 
 ## 3. Widgets
@@ -83,31 +84,31 @@
 * Back to the main menu, select the ``WIDGETS`` tab and select the ``ADD WIDGET``.
 * In the options of the ``Category`` tab, select the ``common_species`` and ``caretaker`` checkboxes in order to have widgets that display the different categories of the ``common_species`` and ``caretaker`` fields. Click ``CONTINUE``to add the widgets on the map.
 
-![category](https://cloud.githubusercontent.com/assets/11177693/17486990/3d021a32-5d93-11e6-9ad0-7bae2f8d787a.png)
+![category](imgs/01-sftrees-03.png)
 
 ### 3. 2. Time series widget
 
 * Back to the main menu, select the ``WIDGETS`` tab and select the ``ADD WIDGET``.
 * In the options of the ``Time-series`` tab, select the ``plant_date`` checkbox in order to display the dates were the trees were planted. Click ``CONTINUE``to add the widgets on the map.
 
-![time](https://cloud.githubusercontent.com/assets/11177693/17486985/385eb94a-5d93-11e6-8b00-6ab790c97d5f.png)
+![time](imgs/01-sftrees-04.png)
 
 ### 3. 3. Change order and name of widgets
 
 * Back to the main menu, select the ``WIDGETS`` tab to see a list with the widgets that we have added.
 * We can drag and drop the widgets in the widget menu to change their order.
 
-![widgets](https://cloud.githubusercontent.com/assets/11177693/17486975/33b7c92c-5d93-11e6-8037-c25cc3272bc0.png)
+![widgets](imgs/01-sftrees-05.png)
 
 
 * We can change the name of our widgets by selecting the ``rename`` option of the widget menu or by doing a double click on the widget name in the widgets menu.
 
-![rename](https://cloud.githubusercontent.com/assets/11177693/17486968/2f02e06a-5d93-11e6-931c-e8e237a1969e.png)
+![rename](imgs/01-sftrees-06.png)
 
 
 * Change the name of the ``common_species`` widget to ``Common Species``, the name of the ``caretaker`` widget to ``Caretaker`` and the name of the ``plant_date`` widget to ``Plant Date``.
 
-![names_changed](https://cloud.githubusercontent.com/assets/11177693/17486963/2ad66318-5d93-11e6-824b-f6ad8e1875a8.png)
+![names_changed](imgs/01-sftrees-07.png)
 
 
 ## 4. Share map
@@ -115,9 +116,9 @@
 * At the bottom of the main menu, click the ``Share`` button.
 * Select the ``Publish`` tab and click on the ``Publish`` button that is below the Map title in order to share our map.
 
-![publish](https://cloud.githubusercontent.com/assets/11177693/17486954/2471f492-5d93-11e6-8ca9-6be7d27d0a2c.png)
+![publish](imgs/01-sftrees-08.png)
 
 
 * After clicking the ``Publish`` button, we can select the option that we want to share our map.
 
-![share](https://cloud.githubusercontent.com/assets/11177693/17486948/1d60b120-5d93-11e6-9d74-af8ca56667c9.png)
+![share](imgs/01-sftrees-09.png)

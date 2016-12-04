@@ -21,4 +21,4 @@ Ejercicios:
 * [Análisis de mercado](exercises/dominos.md)
 * [Análisis de riesgos](exercises/railways.md)
 * [Territorios de venta](exercises/portland.md)
-* [Presentando datos de ventas](exercises/TODO)
+* [Presentando datos de ventas](exercises/stores.md)

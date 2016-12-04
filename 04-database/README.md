@@ -18,6 +18,6 @@ Bases de datos geoespaciales
 * [Ejemplos de funciones y triggers](exercises/TODO)
 * [La arquitectura de CARTO](https://docs.google.com/a/cartodb.com/presentation/d/1LLT1zXeF4VTcYL4-w__AtbxBViolcRKNWT2eL6Pu3vk/edit?usp=sharing)
 * Práctica de las APIs de CARTO con [Postman](http://getpostman.com)
-  * [Colección](https://www.getpostman.com/collections/aff572107f5ef204b713)
-  * [Entorno de pruebas](TODO)
+  * [Colección](https://github.com/CartoDB/cdmx-training/raw/master/04-database/exercises/postman/Training%20Collection.postman_collection.json)
+  * [Variables](https://github.com/CartoDB/cdmx-training/raw/master/04-database/exercises/postman/CARTO%20Training%20Env.postman_environment.json)
 

@@ -1,0 +1,533 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Training Collection",
+		"_postman_id": "a5c5c45e-bb8f-faa4-f808-bbdb3d2034a0",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Enterprise API",
+			"description": "Organization management API",
+			"item": [
+				{
+					"name": "Create a new ORG user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"postman.setEnvironmentVariable(\"ORG_USER\", jsonData.username)"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://{{ORG}}.carto.com/u/{{ORG_OWNER}}/api/v1/organization/{{ORG}}/users?api_key={{OWNER_KEY}}",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\":\"org-user\", \n\t\"email\":\"org-user@sample-org.com\", \n\t\"password\":\"secret!\",\n\t\"soft_geocoding_limit\":false,\n\t\"quota_in_bytes\":157286400\n}"
+						},
+						"description": "Use the org. owner account to create a new user with the specified data"
+					},
+					"response": []
+				},
+				{
+					"name": "Update ORG user",
+					"request": {
+						"url": "https://{{ORG}}.carto.com/u/{{ORG_OWNER}}/api/v1/organization/{{ORG}}/users/{{ORG_USER}}?api_key={{OWNER_KEY}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\":\"org-user-new-name\", \n\t\"email\":\"org-user-new-email@sample-org.com\", \n\t\"password\":\"secret!new\",\n\t\"soft_geocoding_limit\":false,\n\t\"quota_in_bytes\":157286400\n}"
+						},
+						"description": "Use the org. owner account to update an org. user account with the specified data"
+					},
+					"response": []
+				},
+				{
+					"name": "Show ORG user info",
+					"request": {
+						"url": "https://{{ORG}}.carto.com/u/{{ORG_OWNER}}/api/v1/organization/{{ORG}}/users/{{ORG_USER}}?api_key={{OWNER_KEY}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\":\"org-user\", \n\t\"email\":\"org-user@sample-org.com\", \n\t\"password\":\"secret!\",\n\t\"soft_geocoding_limit\":false,\n\t\"quota_in_bytes\":157286400\n}"
+						},
+						"description": "Use the org. owner account to get info from an org. user account"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove ORG user",
+					"request": {
+						"url": "https://{{ORG}}.carto.com/u/{{ORG_OWNER}}/api/v1/organization/{{ORG}}/users/{{ORG_USER}}?api_key={{OWNER_KEY}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Use the org. owner account to remove an user from an organization"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Imports",
+			"description": "",
+			"item": [
+				{
+					"name": "Import a file",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"postman.setEnvironmentVariable(\"IMPORT_ID\", jsonData.item_queue_id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://{{USER}}.carto.com/api/v1/imports?api_key={{KEY}}",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Create a new CARTO dataset by uploading a local .csv file"
+					},
+					"response": []
+				},
+				{
+					"name": "Import from URL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"postman.setEnvironmentVariable(\"IMPORT_ID\", jsonData.item_queue_id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://{{USER}}.carto.com/api/v1/imports/?api_key={{KEY}}&url={{URL}}",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "We just need to pass the URL as a parameter\n\nhttp://www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip"
+					},
+					"response": []
+				},
+				{
+					"name": "Check current imports",
+					"request": {
+						"url": "https://{{USER}}.carto.com/api/v1/imports/?api_key={{KEY}}",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "It will return only currently existing proccesses"
+					},
+					"response": []
+				},
+				{
+					"name": "Check specific import",
+					"request": {
+						"url": "https://{{USER}}.carto.com/api/v1/imports/{{IMPORT_ID}}?api_key={{KEY}}",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Adding the {{import_id}} value, it will return information about that specific proccess"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Maps",
+			"description": "Maps API requests",
+			"item": [
+				{
+					"name": "Instantiate Anonymous Map",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"postman.setEnvironmentVariable(\"LAYERGROUPID\", jsonData.layergroupid);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://{{USER}}.carto.com/api/v1/map/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"version\": \"1.0.1\",\n  \"layers\": [\n    {\n      \"type\": \"cartodb\",\n      \"options\": {\n        \"sql\": \"select * from world_borders\",\n        \"cartocss\": \"\\/** simple visualization *\\/\\n\\n#world_borders{\\n  polygon-fill: #3E7BB6;\\n  polygon-opacity: 0.7;\\n  line-color: #FFF;\\n  line-width: 0.5;\\n  line-opacity: 1;\\n}\",\n        \"cartocss_version\": \"2.1.1\",\n        \"interactivity\": [\n          \"cartodb_id\"\n        ]\n      }\n    }\n  ]\n}"
+						},
+						"description": "No API key required"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Static Map with Center+Zoom+Resolution",
+					"request": {
+						"url": "http://{{USER}}.carto.com/api/v1/map/static/center/{{LAYERGROUPID}}/{{ZOOM}}/{{CENTER_LAT}}/{{CENTER_LON}}/{{X_RES}}/{{Y_RES}}.png",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Static Map with BBOX+Resolution",
+					"request": {
+						"url": "http://{{USER}}.carto.com/api/v1/map/static/bbox/{{LAYERGROUPID}}/{{WEST}},{{SOUTH}},{{EAST}},{{NORTH}}/{{X_RES}}/{{Y_RES}}.png",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Named Maps",
+			"description": "Most common operations with Named Maps\n",
+			"item": [
+				{
+					"name": "Get Templates",
+					"request": {
+						"url": "https://{{USER}}.carto.com/api/v1/map/named?api_key={{KEY}}",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new Named Map",
+					"request": {
+						"url": "https://{{USER}}.carto.com/api/v1/map/named?api_key={{KEY}}",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"auth\": {\n    \"method\": \"token\",\n    \"valid_tokens\": [\n    \t\"cartodb\",\n    \t\"carto\"\n    \t]\n  },\n  \"version\": \"0.0.1\",\n  \"name\": \"named_map_test\",\n  \"placeholders\": {\n    \"filter\": {\n      \"type\": \"number\",\n      \"default\": 2\n    },\n    \"color\": {\n      \"type\": \"css_color\",\n      \"default\": \"#FF0000\"\n    }\n  },\n  \"layergroup\": {\n    \"version\": \"1.0.1\",\n    \"layers\": [\n      {\n        \"type\": \"cartodb\",\n        \"options\": {\n          \"sql\": \"select * from world_borders\",\n          \"layer_name\": \"world_borders\",\n          \"cartocss\": \"#layer { polygon-fill: lighten(red,30); polygon-opacity: 0.1; line-color: #F00; }\",\n          \"cartocss_version\": \"2.1.1\",\n          \"interactivity\": [\n            \"cartodb_id\",\n            \"name\"\n          ],\n          \"table_name\": \"\\\"\\\".\",\n          \"attributes\": {\n            \"id\": \"cartodb_id\",\n            \"columns\": [\n              \"name\",\n              \"region\",\n              \"iso2\",\n              \"iso3\",\n              \"pop2005\"\n            ]\n          }\n        }\n      },\n      {\n        \"type\": \"cartodb\",\n        \"options\": {\n          \"sql\": \"select * from ne_10m_populated_places_simple where pop_max > <%= filter %>\",\n          \"layer_name\": \"populated_places\",\n          \"cartocss\": \"#populated_places{ marker-line-opacity: 0;  marker-width: 3;  marker-fill: <%= color %>; marker-allow-overlap: true;}\",\n          \"cartocss_version\": \"2.1.1\",\n          \"interactivity\": [\n            \"cartodb_id\",\n            \"name\"\n          ],\n          \"table_name\": \"\\\"\\\".\",\n          \"attributes\": {\n            \"id\": \"cartodb_id\",\n            \"columns\": [\n              \"adm0name\",\n              \"name\"\n            ]\n          }\n        }\n      }\n    ]\n  },\n  \"view\": {\n    \"zoom\": 3,\n    \"center\": {\n      \"lng\": 0,\n      \"lat\": 0\n    },\n    \"bounds\": {\n      \"west\": -80,\n      \"south\": -40,\n      \"east\": 80,\n      \"north\": 40\n    }\n  }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Template",
+					"request": {
+						"url": "https://{{USER}}.carto.com/api/v1/map/named/{{TEMPLATE}}?api_key={{KEY}}",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Instantiate a named map with params (solutions)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"postman.setEnvironmentVariable(\"LAYERGROUPID\", jsonData.layergroupid);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://{{USER}}.carto.com/api/v1/map/named/named_map_test?auth_token=cartodb",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"color\": \"blue\",\n \"filter\": 5\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update a template",
+					"request": {
+						"url": "https://{{USER}}.carto.com/api/v1/map/named/named_map_test?api_key={{KEY}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"auth\": {\n      \"method\": \"token\",\n      \"valid_tokens\": [\n    \t\"cartodb\",\n    \t\"carto\"\n    \t]\n    },\n    \"version\": \"0.0.1\",\n    \"name\": \"named_map_test\",\n    \"placeholders\": {\n      \"filter\": {\n        \"type\": \"number\",\n        \"default\": 2\n      },\n      \"color\": {\n        \"type\": \"css_color\",\n        \"default\": \"#FF0000\"\n      }\n    },\n    \"layergroup\": {\n      \"version\": \"1.0.1\",\n      \"layers\": [\n        {\n          \"type\": \"cartodb\",\n          \"options\": {\n            \"sql\": \"select * from world_borders\",\n            \"layer_name\": \"world_borders\",\n            \"cartocss\": \"#layer { polygon-fill: lighten(blue,30); polygon-opacity: 0.1; line-color: #F00; }\",\n            \"cartocss_version\": \"2.1.1\",\n            \"interactivity\": [\n              \"cartodb_id\",\n              \"name\"\n            ],\n            \"table_name\": \"\\\"\\\".\",\n            \"attributes\": {\n              \"id\": \"cartodb_id\",\n              \"columns\": [\n                \"name\",\n                \"region\",\n                \"iso2\",\n                \"iso3\",\n                \"pop2005\"\n              ]\n            }\n          }\n        },\n        {\n          \"type\": \"cartodb\",\n          \"options\": {\n            \"sql\": \"select * from populated_places where pop_max > <%= filter %>\",\n            \"layer_name\": \"populated_places\",\n            \"cartocss\": \"#populated_places{ marker-line-opacity: 0;  marker-width: 15;  marker-fill: <%= color %>; marker-allow-overlap: true;}\",\n            \"cartocss_version\": \"2.1.1\",\n            \"interactivity\": [\n              \"cartodb_id\",\n              \"name\"\n            ],\n            \"table_name\": \"\\\"\\\".\",\n            \"attributes\": {\n              \"id\": \"cartodb_id\",\n              \"columns\": [\n                \"adm0name\",\n                \"name\"\n              ]\n            }\n          }\n        }\n      ]\n    },\n    \"view\": {\n      \"zoom\": 3,\n      \"center\": {\n        \"lng\": 0,\n        \"lat\": 0\n      },\n      \"bounds\": {\n        \"west\": -80,\n        \"south\": -40,\n        \"east\": 80,\n        \"north\": 40\n      }\n    }\n  }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a template",
+					"request": {
+						"url": "https://{{USER}}.carto.com/api/v1/map/named/{{TEMPLATE}}?api_key={{KEY}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SQL",
+			"description": "Collection of request to SQL API",
+			"item": [
+				{
+					"name": "Simple SQL query",
+					"request": {
+						"url": "https://{{USER}}.carto.com/api/v2/sql/?q=SELECT+cartodb_id,iso2,name,area,pop2005+FROM+world_borders+LIMIT+10&api_key={{KEY}}",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "SELECT * FROM world_borders"
+					},
+					"response": []
+				},
+				{
+					"name": "Simple SQL query via POST",
+					"request": {
+						"url": "http://{{USER}}.carto.com/api/v2/sql?api_key={{KEY}}",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"q\":\"SELECT cartodb_id,scalerank,ST_AsText(the_geom) as geom FROM ne_10m_populated_places_simple LIMIT 100\"\n}"
+						},
+						"description": "The query content will not be publicly sent in the URL, as it is part of the request payload"
+					},
+					"response": []
+				},
+				{
+					"name": "SQL API --> GeoJSON",
+					"request": {
+						"url": "https://{{USER}}.carto.com/api/v2/sql/?q=SELECT+*+FROM+world_borders+LIMIT+5&api_key={{KEY}}&format=geojson",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Downloads the query result in the specified format"
+					},
+					"response": []
+				},
+				{
+					"name": "SQL API --> Shapefile",
+					"request": {
+						"url": "https://{{USER}}.carto.com/api/v2/sql/?q=SELECT+*+FROM+world_borders+LIMIT+5&api_key={{KEY}}&format=shp",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Downloads the query result in the specified format"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Batch SQL Job",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"postman.setEnvironmentVariable(\"JOB_ID\", jsonData.job_id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://{{USER}}.carto.com/api/v2/sql/job?api_key={{KEY}}",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"query\": [\n\t\t\"create table secciones_evolucion_bcn as with data as (select s.cartodb_id, ST_Centroid(s.the_geom_webmercator) as the_geom_webmercator, ST_Centroid(s.the_geom) as the_geom, e.m_ener_1506, e.m_ener_1507, e.m_ener_1508, e.m_ener_1509, e.m_ener_1510, e.m_ener_1511, e.m_ener_1512, e.m_ener_1601, e.m_ener_1602, e.m_ener_1603, e.m_ener_1604, e.m_ener_1605, e.m_ener_1606 from evolucion e join secciones s on s.area_id = e.ucensal_ps and s.the_geom && ST_MakeEnvelope(2.056847,41.336349,2.286186,41.472831,4326) limit 1 ) select d.cartodb_id, d.the_geom_webmercator, d.the_geom, d.m_ener_1506 as margen, '2015-06-01'::date as date from data d union all select d.cartodb_id + 1e6 as cartodb_id, d.the_geom_webmercator, d.the_geom, d.m_ener_1507 as margen, '2015-07-01'::date as date from data d union all select d.cartodb_id + 2e6 as cartodb_id, d.the_geom_webmercator, d.the_geom, d.m_ener_1508 as margen, '2015-08-01'::date as date from data d union all select d.cartodb_id + 3e6 as cartodb_id, d.the_geom_webmercator, d.the_geom, d.m_ener_1509 as margen, '2015-09-01'::date as date from data d union all select d.cartodb_id + 4e6 as cartodb_id, d.the_geom_webmercator, d.the_geom, d.m_ener_1510 as margen, '2015-10-01'::date as date from data d union all select d.cartodb_id + 5e6 as cartodb_id, d.the_geom_webmercator, d.the_geom, d.m_ener_1511 as margen, '2015-11-01'::date as date from data d union all select d.cartodb_id + 6e6 as cartodb_id, d.the_geom_webmercator, d.the_geom, d.m_ener_1512 as margen, '2015-12-01'::date as date from data d union all select d.cartodb_id + 7e6 as cartodb_id, d.the_geom_webmercator, d.the_geom, d.m_ener_1601 as margen, '2016-01-01'::date as date from data d union all select d.cartodb_id + 8e6 as cartodb_id, d.the_geom_webmercator, d.the_geom, d.m_ener_1602 as margen, '2016-02-01'::date as date from data d union all select d.cartodb_id + 9e6 as cartodb_id, d.the_geom_webmercator, d.the_geom, d.m_ener_1603 as margen, '2016-07-03'::date as date from data d union all select d.cartodb_id + 10e6 as cartodb_id, d.the_geom_webmercator, d.the_geom, d.m_ener_1604 as margen, '2016-04-01'::date as date from data d union all select d.cartodb_id + 11e6 as cartodb_id, d.the_geom_webmercator, d.the_geom, d.m_ener_1605 as margen, '2016-05-01'::date as date from data d union all select d.cartodb_id + 12e6 as cartodb_id, d.the_geom_webmercator, d.the_geom, d.m_ener_1606 as margen, '2016-06-01'::date as date from data d;\",\n\t\t\"select cdb_cartodbfytable('endesa-admin','secciones_evolucion_bcn');\"\n\t\t]\n}"
+						},
+						"description": "This is a SQL query that will run in batches, avoiding timeouts"
+					},
+					"response": []
+				},
+				{
+					"name": "Check an specific Batch SQL Job",
+					"request": {
+						"url": "http://{{USER}}.carto.com/api/v2/sql/job/{{JOB_ID}}?api_key={{KEY}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"query\":\"SELECT * FROM populated_places\"\n}"
+						},
+						"description": "Will respond with an  objects with the job we have requested"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Batch SQL Job",
+					"request": {
+						"url": "http://{{USER}}.carto.com/api/v2/sql/job/{{JOB_ID}}?api_key={{KEY}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"query\":\"SELECT * FROM populated_places\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

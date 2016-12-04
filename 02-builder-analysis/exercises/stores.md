@@ -15,9 +15,9 @@
 - 1. Import and create a map
 - 2. Georeference stores layer
 - 3. Process the sales table to group the data
-- 4. Join bot layers.
-- 4. Style
-- 5. Add widgets
+- 4. Join both layers.
+- 5. Style
+- 6. Add widgets
 
 <!-- /MarkdownTOC -->
 
@@ -32,7 +32,7 @@ Drag and drop the zip file on your dashboard and both CSV files will be converte
 
 * Select the stores layer and add the **Georeference** analysis
 * Use the `City names` option, select the `name` column for the city names and write on the `COUNTRY` manually as `México`.
-* Clic apply and the geocoder will give geometries for our stores layer.
+* Click `Apply` and the geocoder will give geometries for our stores layer.
 
 ![2](imgs/stores/02-georeference.png)
 
@@ -55,7 +55,7 @@ GROUP by store_id
 
 Don't worry too much about it as we'll cover SQL extensively on another lesson but this sentence groups our sales per store and gives us the total purchases made as well as the counts. The rest of the fields are required by the BUILDER but we won't use them.
 
-## 4. Join bot layers.
+## 4. Join both layers.
 
 * Select the `Orders` layer and add the **Join columns from 2nd layer** analysis
 * Set as `INPUT #2` the georeferenced layer (probably `B1`)
@@ -68,14 +68,14 @@ Don't worry too much about it as we'll cover SQL extensively on another lesson b
 
 ![3](imgs/stores/03-join.png)
 
-## 4. Style
+## 5. Style
 
-Now you have the total sales for your stores and you can give them a simple bubble symbology to see easily those who have sold more.
+Now you have the total sales for your stores, and you could use a simple bubble symbology to easily find those which have sold more.
 
 
-## 5. Add widgets
+## 6. Add widgets
 
-Finally you can add some widgets to finish your dashboard:
+Finally you could add some widgets to finish your dashboard:
 
 * Count of stores
 * Sum of the counts for the total number of transactions

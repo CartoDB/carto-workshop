@@ -33,7 +33,7 @@
 ## 3. Animated map
 
 * Select the layer and move to the `STYLE` section
-* Select the `time` on the `COLUMN` parameter in order to animate your map by the timestamp of the position
+* Select `time` on the `COLUMN` parameter in order to animate your map by the timestamp of the position
 * Experiment with the rest of the parameters and how they affect your map visualization
   * Point properties: fill, stroke and blending
   * Duration

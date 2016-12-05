@@ -11,7 +11,8 @@ Cartografía en CARTO
 
 ## Recursos
 
-* [CartoCSS](exercises/TODO)
+* [Principios de diseño cartográfico](https://docs.google.com/presentation/d/1LbBIFPEWki58F2yRdbESTKGgm_sjnZRf9VV4odLGPlM/edit?usp=sharing)
+* [CartoCSS](https://github.com/CartoDB/cdmx-training/tree/master/03-cartography/resources/cartocss.md)
 * [Diapositivas TurboCARTO](https://docs.google.com/a/cartodb.com/presentation/d/1v4IYwOXSfUMwv6_X5pbDPBr5SaHLS6GUaa74HSMG3-8/edit?usp=sharing)
 * [Taller TurboCARTO](exercises/TODO)
 * [Ejercicio TurboCARTO](exercises/TODO)

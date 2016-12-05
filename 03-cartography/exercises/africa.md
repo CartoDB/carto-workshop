@@ -139,4 +139,20 @@
 
 ## Basemap
 
-`@ocean: #c3d1c7;`
++ Finally, go back to the main menu to style the basemap:
+  1. Click on "Positron".
+  2. Set `COLOR` as `Source`
+  3. Set `#c3d1c7` as HEX value.
+
+<br>
+![map](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/map.png)
+<br>
+
+## Publish
+
++ Go back to the main menu in order to share your map:
+  1. Click on `SHARE`
+  2. Click on `PUBLISH` blue button
+  3. Click on `PUBLISH` (below)
+  3. Copy the link and paste it in a new browser tab: [https://team.carto.com/u/ramirocartodb/builder/9dc51d07-da6b-4694-a6ba-953cdaec9552/embed](https://team.carto.com/u/ramirocartodb/builder/9dc51d07-da6b-4694-a6ba-953cdaec9552/embed)
+

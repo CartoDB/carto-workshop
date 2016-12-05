@@ -23,7 +23,7 @@
   5. Click on `APPLY`
 
 <br>
-![filter by column value](/img/filterbycolval.png)
+![filter by column value](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/filterbycolval.png)
 <br>
 
 + Add analysis > Area of Influence (100 miles, 6 buffers, intact)

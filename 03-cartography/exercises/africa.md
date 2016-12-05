@@ -1,6 +1,10 @@
 # How to create a vintage Africa map
 
-+ Based on [Mamata Akella](https://team.carto.com/u/mamataakella/me)'s CARTO Summit workshop
++ Based on [Mamata Akella](https://team.carto.com/u/mamataakella/me)'s CARTO Summit workshop inspired by this "Submarine Cable Map":
+
+<br>
+![submarine cable map](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/submarinecablemap.png)
+<br>
 
 ## Resources
 

@@ -1,24 +1,20 @@
 # PostgreSQL stored procedures
 
-Index
-------
+<!-- MarkdownTOC -->
 
-* What is a stored procedure?
-* Basic structure of a PL/pgSQL function
-    * Input and output arguments
-    * Variables and constants
-    * Errors and messages
-* Dynamic PL/pgSQL functions
-* Functions that doesn't return rows(insert/update/delete)
-* Function that returns a table
-* Function with Security Definer
-* Trigger functions
-* Control structures
-  * IF statement
-  * CASE statement
-  * LOOP statement
-* PL/pgSQL and PostGIS
-* Further reading  
+- What is a stored procedure?
+- Basic structure of a PL/pgSQL function
+- Dynamic PL/pgSQL functions
+- Functions that doesn't return rows\(insert/update/delete\)
+- Function that returns a table
+- Function with Security Definer
+- Trigger functions
+- Control structures
+- Pl/pgSQL and PostGIS
+- Further reading
+
+<!-- /MarkdownTOC -->
+
  
 
 ## What is a stored procedure?

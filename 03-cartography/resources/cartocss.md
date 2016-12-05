@@ -122,7 +122,7 @@ Suppose you have a point symbol and want to put a glowing halo around it. You ne
     marker-allow-overlap: true;
   }
 
-//top layer of symbol  
+//top layer of symbol
    marker-width: 10;
    marker-fill: #FFB927 ;
    marker-fill-opacity: 0.9;
@@ -131,7 +131,7 @@ Suppose you have a point symbol and want to put a glowing halo around it. You ne
    marker-line-opacity: 1;
    marker-placement: point;
    marker-type: ellipse;
-   marker-allow-overlap: true;  
+   marker-allow-overlap: true;
 }
 ```
 

@@ -157,6 +157,6 @@
   3. Copy the link and paste it in a new browser tab: [https://team.carto.com/u/ramirocartodb/builder/9dc51d07-da6b-4694-a6ba-953cdaec9552/embed](https://team.carto.com/u/ramirocartodb/builder/9dc51d07-da6b-4694-a6ba-953cdaec9552/embed)
 
 <br>
-![basemap](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/basemap.png)
+![map](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/map.png)
 <br>
 

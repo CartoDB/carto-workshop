@@ -72,7 +72,7 @@ Note how the CartoCSS syntax is structured and the different CartoCSS properties
 
 ## CartoCSS variables
 
-Apply the `@` symbol to lists of all the color values for your categories. The CartoCSS syntax is structured so that you can apply all your color changes in one section `@name: color;` and reference the point style within the category label `marker-fill: @name;`. This enables you to visualize exactly where your marker-fill values are located, in addition to the overall map styles.
+Apply the `@` symbol to lists of all the color values for your categories. The CartoCSS syntax is structured so that you can apply all your color changes in one section `@name: color;` and reference the point style within the category label `marker-fill: @name;`. This enables you to visualize exactly where your marker-fill values are located, in addition to the overall map styles*.
 
 ```css
 @fill: #A64942;
@@ -95,3 +95,39 @@ Apply the `@` symbol to lists of all the color values for your categories. The C
 ![variables](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/variables.png)
 <br>
 
+*Note: using CartoCSS variables inside Turbo CARTO ramp funcions is not supported at the moment.
+
+## Multiple Symbolizers for a Map Layer
+
+## CartoCSS Comments
+
+If you are just learning CartoCSS, it might be useful to add comments next to lines of your CartoCSS code. For example, you can add comments to describe a specific hex color, the default value for a property, the available values, and so on.
+
+Enter comments by using the following format in your CartoCSS code. Note the required spacing:
+
+```css
+cartocss-property; /* comment */
+```
+
+In the following example, there are user comments entered in the marker-line-color, marker-placement, marker-width, and marker-fill CartoCSS properties.
+
+```css
+/** simple visualization */
+
+#layer{
+  marker-fill-opacity: 0.9;
+  marker-line-color: #FFF; /* white */
+  marker-line-width: 1;
+  marker-line-opacity: 1;
+  marker-placement: point; /* options are point, line, interior */
+  marker-type: ellipse;
+  marker-width: 15; /* default value was 10 */
+  marker-fill: #2E5387; /* hex color is St Tropaz */
+  marker-allow-overlap: true;
+  marker-comp-op: overlay;
+}
+```
+
+<br>
+![comments](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/comments.png)
+<br>

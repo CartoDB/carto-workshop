@@ -118,11 +118,25 @@
 
 ## Ocean
 
-`@ocean: #c3d1c7;`
-
++ In order to style "Ocean" layer:
+  1. Go back to the main menu
+  2. Click on "Ocean" layer
+  3. Go to STYLE tab
+  4. Click on `CartoCSS`
+  5. Apply this code:
 
 ```css
+#layer{
   polygon-fill: lighten(#b3d1cf,0);
   polygon-pattern-file: url(https://s3.amazonaws.com/com.cartodb.users-assets.production/production/mamatablog/assets/20151025140245land_paper.png);
   polygon-pattern-opacity: 0.4;
+}
 ```
+
+<br>
+![ocean](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/ocean.png)
+<br>
+
+## Basemap
+
+`@ocean: #c3d1c7;`

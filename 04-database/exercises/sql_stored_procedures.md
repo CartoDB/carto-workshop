@@ -11,7 +11,7 @@
 - Trigger functions
 - Control structures
 - Pl/pgSQL and PostGIS
-- Exercise
+- Exercises
 - Further reading
 
 <!-- /MarkdownTOC -->
@@ -597,14 +597,113 @@ SELECT regularPolygons(the_geom,100000,3), adm0_a3 from populated_places_spf WHE
 We can create a different way to classify our point data like in [this example](https://team.cartodb.com/u/oboix/viz/63e74f10-27d7-11e6-bad6-0e3ff518bd15/public_map).
 
 
-## Exercise
-### Create a function that inserts
+## Exercises
+### 1. Create a function that inserts a point into a table. 
+
+* First, let's define the function. It should take Longitude and Latitude as parameters, as well as the table name where we want to insert the points. It should also return a table with `cartodb_id` that will be generated in the inserted row: 
+
+  ```
+  CREATE OR REPLACE FUNCTION insertpoint(
+    lon numeric, 
+    lat numeric, 
+    tablename text, 
+    )
+  RETURNS TABLE(cartodb_id INT)
+  LANGUAGE 'plpgsql' SECURITY DEFINER
+  RETURNS NULL ON NULL INPUT 
+  ```
+
+* This part specifies the language we are using and allows to grant specific permission to the function: 
+
+  ```sql
+  LANGUAGE 'plpgsql' SECURITY DEFINER
+  ```
+
+* We need to declare a `text` variable that will store the function itself so we can execute it afterwards. We need to follow this logic in order to being able to use the table name and different column names as arguments/variables within the function. 
+
+  ```sql
+  DECLARE
+    sql text;
+  ```
+
+* This is the body of the function and where most of the logic relies: 
+
+  ```sql
+  'WITH do_insert AS (
+      INSERT INTO '||quote_ident(tablename)||'(the_geom) 
+      VALUES '
+        ||'('
+        ||'ST_SetSRID(ST_MakePoint('||lon||','||lat||'), 4326)'
+        ||')'
+      ||'RETURNING cartodb_id)' 
+  ||'SELECT cartodb_id FROM do_insert';
+  ```
+  Apart from the string-variable concatenation (`'string'||variable||'string'`) that may produce some confusing syntax, the query is quite straight forward. 
+
+  We are going to insert a geometry with its alphanumerical data, using the function arguments as values. 
+
+  The main difficulty here is correctly parsing the arguments so we don't duplicate, miss or change the expected quoting. 
+
+  The name of the table needs to be used inside the [`quote_ident()` function](https://www.postgresql.org/docs/9.5/static/functions-string.html). That means that it is going to be interpreted as an identifier for the table (double quoted), instead of as a plain string. 
+
+* We are wrapping the `INSERT INTO` query inside a `WITH do_insert AS` statement that returns `cartodb_id` for the newly inserted row. After that, we do a `SELECT cartodb_id FROM do_insert`, according with what our function returns:
+
+  ```sql
+  RETURNS TABLE(cartodb_id INT)
+  ```
+
+* The last step is executing the query we have dinamically crafted into the `sql` variable and returning its output: 
+
+  ```sql
+  RETURN QUERY EXECUTE sql;
+  ```
+
+* Grant permission to the function
+
+  In order to make the function executable for the `publicuser` with the same privileges as the function owner, we need to grant execution permissions to it: 
+
+  ```sql
+  GRANT EXECUTE ON FUNCTION insertpoint(lon numeric, lat numeric, tablename text) TO publicuser;
+  ```
+
+  Remember that a function is defined by its name and input arguments.
+
+* Calling the function: 
+
+  We could execute the function just by including it in a `SELECT` statement, providing the necessary parameters: 
+
+  ```sql
+  SELECT insertpoint(-4.565,33.294,'tableName');
+  ```
+
+  A more orthodox way to call it, since the function returns a table would be: 
+
+  ```sql
+  SELECT * FROM insertpoint(-4.565,33.294,'tableName');
+  ```
+
+* Revoking permission / removing the function
+
+  If at some point we need to remove the function's privileges, we could run: 
+
+  ```sql
+  REVOKE EXECUTE ON FUNCTION insertpoint(lon numeric, lat numeric, name text, description text, category text, tablename text) TO publicuser;
+  ```
+
+  For removing the function, we would run: 
+
+  ```sql
+  DROP FUNCTION insertpoint(lon numeric, lat numeric, name text, description text, category text, tablename text)
+  ```
+
+### 2. Add a trigger to a table
+Add a trigger that writes a string with the simplified coordinates as a string
 
 ## Further reading  
 
 * This [tutorial](http://www.postgresqltutorial.com/postgresql-stored-procedures/) explains the basics of the PostgreSQL stored procedure language in a very friendly way. Many explanations from this document have been extracted from there.
 
-* The [Pl/pgSQL section](http://www.postgresql.org/docs/9.4/static/plpgsql.html) of the PostgreSQL documenation is a complete and detailed by itself, read it to learn all about pl/pgSQL.
+* The [Pl/pgSQL section](http://www.postgresql.org/docs/9.4/static/plpgsql.html) on the PostgreSQL documentation is a complete and detailed resource by itself, read it to learn all about pl/pgSQL.
 
 * Look and understand the different PostgreSQL/PostGIS functions that we have in the [cartodb-postgresql](https://github.com/CartoDB/cartodb-postgresql/tree/master/scripts-available) repo or other postgreSQL related repos (dataservices...).
 

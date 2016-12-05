@@ -189,26 +189,42 @@ For instance, all the lines within this code are the same:
 *Note*: Using hsl [(hue, saturation, lightness)](http://mothereffinghsl.com/) color values are often easier than rgb()values. CARTO also includes several color functions [borrowed from Less, a CSS pre-processor](http://lesscss.org/#-color-functions):
 
 ```css
-// lighten and darken colors
+/* lighten and darken colors */
 lighten(#ace, 10%);
 darken(#ace, 10%);
 
-// saturate and desaturate
+/* saturate and desaturate */
 saturate(#550000, 10%);
 desaturate(#00ff00, 10%);
 
-// increase or decrease the opacity of a color
+/* increase or decrease the opacity of a color */
 fadein(#fafafa, 10%);
 fadeout(#fefefe, 14%);
 
-// spin rotates a color around the color wheel by degrees
+/* spin rotates a color around the color wheel by degrees */
 spin(#ff00ff, 10);
 
-// mix generates a color in between two other colors.
+/* mix generates a color in between two other colors. */
 mix(#fff, #000, 50%);
 ```
 
 Each of above examples uses color variables, literal colors, or is the result of other functions operating on colors.
+
+```css
+#layer {
+  polygon-fill: lighten(#663300, 10%);
+  polygon-opacity: 0.9;
+  polygon-gamma: 0.5;
+  line-color: #663300;
+  line-width: 5;
+  line-opacity: 0.7;
+  line-comp-op: soft-light;
+}
+```
+
+<br>
+![lighten](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/lighten.png)
+<br>
 
 ## Composite operations
 

@@ -1,4 +1,5 @@
 ## Resources
+
 + [.carto file](https://drive.google.com/file/d/0B9k_lcYQZACgY1k2RHV3MGx3MTg/view?usp=sharing)
 + image url: `https://s3.amazonaws.com/com.cartodb.users-assets.production/production/mamatablog/assets/20151025140245land_paper.png`
 
@@ -7,7 +8,7 @@
 + Select Africa
 + Add analysis > Area of Influence (100 miles, 6 buffers, intact)
 
-```
+```css
   line-width: ramp([data_range],0.4,1,equal);
   line-color: teal;
   line-opacity: 0.5;
@@ -16,21 +17,24 @@
 ## Country
 
 ### Global styles
+
 + `polygon-pattern-file`
 + CartoColor `Bold`
- ```
-   polygon-pattern-file: url(https://s3.amazonaws.com/com.cartodb.users-assets.production/production/mamatablog/assets/20151025140245land_paper.png);
+
+ ```css
+  polygon-pattern-file: url(https://s3.amazonaws.com/com.cartodb.users-assets.production/production/mamatablog/assets/20151025140245land_paper.png);
   polygon-pattern-opacity: 0.3;
   polygon-fill: ramp([mapcolor7], cartocolor(Bold), category(7));
   polygon-opacity: 0.2;
  ```
+
 ### Style for Africa
 
 + Ramp line color
 + Line offset
 + Labels
 
-```
+```css
  [continent='Africa']{ 
     polygon-opacity: 0.3;
     line-width: 2;
@@ -61,7 +65,8 @@
 
 `@ocean: #c3d1c7;`
 
-```
+
+```css
   polygon-fill: lighten(#b3d1cf,0);
   polygon-pattern-file: url(https://s3.amazonaws.com/com.cartodb.users-assets.production/production/mamatablog/assets/20151025140245land_paper.png);
   polygon-pattern-opacity: 0.4;

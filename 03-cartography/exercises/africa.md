@@ -61,7 +61,7 @@
 
 ### Global styles
 
-+ In order to style all countries follow these instructions:
++ In order to style all countries by categories and using a `pattern-file` follow these instructions:
   1. Go back to the main menu
   2. Click on "Countries" layer
   3. Go to STYLE tab
@@ -83,12 +83,9 @@
 
 ### Style for Africa
 
-+ Ramp line color
-+ Line offset
-+ Labels
++ In order to highlight African countries add the following snippet at the end of the CartoCSS code. In doing so, the cartography will improve line color and offset, and labels
 
 ```css
-#layer{
   [continent='Africa']{ 
     polygon-opacity: 0.3;
     line-width: 2;
@@ -113,8 +110,11 @@
     text-wrap-width: 25;
     }
   }
-}
-``` 
+```
+
+<br>
+![africa](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/africa.png)
+<br>
 
 ## Ocean
 

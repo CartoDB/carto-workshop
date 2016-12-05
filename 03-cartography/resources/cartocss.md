@@ -70,3 +70,28 @@ Note how the CartoCSS syntax is structured and the different CartoCSS properties
 ![style](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/style.png)
 <br>
 
+## CartoCSS variables
+
+Apply the `@` symbol to lists of all the color values for your categories. The CartoCSS syntax is structured so that you can apply all your color changes in one section `@name: color;` and reference the point style within the category label `marker-fill: @name;`. This enables you to visualize exactly where your marker-fill values are located, in addition to the overall map styles.
+
+```css
+@fill: #A64942;
+@line: #FF7844;
+
+#layer {
+  marker-width: 5;
+  marker-fill: @fill;
+  marker-fill-opacity: 0.9;
+  marker-line-color: @line;
+  marker-line-width: 1;
+  marker-line-opacity: 1;
+  marker-placement: point;
+  marker-type: ellipse;
+  marker-allow-overlap: true;
+}
+```
+
+<br>
+![variables](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/variables.png)
+<br>
+

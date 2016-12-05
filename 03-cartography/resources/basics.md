@@ -8,6 +8,19 @@ In the following block of code polygon opacity is applied to the overall style o
 
 Each point is categorized as `[continent="name"] {` and contains its own polygon-fill style. You do not need to preface each point with the `#layer` label.
 
+### Style continents by categories
+
+* Data Source: `continents` from DATA LIBRARY
+
+* SQL query:
+
+```sql
+SELECT 
+  * 
+FROM 
+  continents 
+```
+
 ```css
 #layer {
   /* global */
@@ -49,6 +62,24 @@ The following two styles are based on the same principle, but instead of using s
 
 ## Choropleth
 
+Choropleth maps are one of the most well known thematic maps. Especially suited to mapping densities, these maps are a great way to visualize intensity, and also to explain geographic similarities and differences.
+
+### Style countries based upon normalized population
+
+* Data Source: `world_borders` from DATA LIBRARY
+
+* SQL query:
+
+```sql
+SELECT 
+  *, 
+  pop2005/area as pop_norm 
+FROM 
+  world_borders 
+WHERE 
+  area > 0
+```
+
 ```css
 #layer {
   /* global */
@@ -80,6 +111,21 @@ The following two styles are based on the same principle, but instead of using s
 <br>
 
 ## Bubbles
+
+Bubble, or ‘graduated point symbol’ maps are another approach to mapping data on a numerical range, and work really well when visualising geographic differences in absolute value, such as the total number of people that live in cities.
+
+### Style cities based upon number of inhabitants
+
+* Data Source: `ne_10m_populated_places_simple` from DATA LIBRARY
+
+* SQL query:
+
+```sql
+SELECT 
+  * 
+FROM 
+  ne_10m_populated_places_simple
+```
 
 ```css
 #layer {
@@ -130,6 +176,19 @@ Before we start making changes based on our zoom level, it’s important to note
 
 To start working with zoom-based styling, let’s go back to the Simple visualization, and reduce the marker size to around 3 so that we can see more of our data points. In the CartoCSS window, we’ll add some new styling so that at different zooms, the size of the marker gets bigger. Here, we want the markers to get bigger the more zoomed in we are. We want to tell CARTO that if the zoom is equal to a certain level, the marker-width should be larger than the original 3. We could also tell CARTO to change marker width at all zoom levels larger than a specified level. Take a look at the last three lines of our code block here.
 
+### Style dots based upon zoom level
+
+* Data Source: `ne_10m_populated_places_simple` from DATA LIBRARY
+
+* SQL query:
+
+```sql
+SELECT 
+  * 
+FROM 
+  ne_10m_populated_places_simple
+```
+
 ```css
 #layer{
   marker-fill-opacity: 0.9;
@@ -153,7 +212,19 @@ We can see that CARTO will read this as all markers should have a width value of
 
 Torque is an efficient, fast, and styleable rendering method to bring data to life. By using the the Torque visualizations you can animate your data directly on an interactive map. There are many CartoCSS properties, but here we will see `-torque-data-aggregation`, this can be `linear` or `cumulative`.
 
-### Linear
+### Animate railroad accidents
+
+* Data Source: `dot_rail_safety_data_1` from [`builder-demo` account](https://team.carto.com/u/ramirocartodb/tables/builder-demo.dot_rail_safety_data_1/public/map?redirected=true)
+* SQL query:
+
+```sql
+SELECT 
+  * 
+FROM 
+  dot_rail_safety_data_1 
+```
+
+#### Linear
 
 ```css
 Map {
@@ -187,7 +258,7 @@ Map {
 ![linear](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/linear.png)
 <br>
 
-### Cumulative
+#### Cumulative
 
 ```css
 Map {

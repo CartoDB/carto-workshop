@@ -118,8 +118,6 @@ The following two styles are based on the same principle, but instead of using s
 ![bubbles](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/bubbles.png)
 <br>
 
-## Torque
-
 ## Zoom-Based Styling
 
 The first tool we will look at is zoom-based styling. Zoom-based styling refers to the ability to change what is displayed on a map, or how it is visualized, based on the zoom-level. Let’s start by looking at [Stamen’s map tiles](http://maps.stamen.com/#terrain/12/37.7706/-122.3782). As you zoom in and out, you can notice that some features or data (like streets, buildings, or waterways) appear or fade away. While there is a ton of data in the map, it is simplified when you’re zoomed out, and made more complex at closer scales, when a viewer is able to process more data. The map never becomes overly complex, but also manages to provide a very data-rich view of a city.
@@ -150,3 +148,74 @@ To start working with zoom-based styling, let’s go back to the Simple visualiz
 ```
 
 We can see that CARTO will read this as all markers should have a width value of 3. If the zoom equals 4, the marker width value should be 6. If the zoom equals 5, the marker width value should be 12. Finally, if the zoom is larger than 5, the marker width value should be 16. This means that as we zoom in, the markers become bigger. [Go ahead and play around with this](https://team.carto.com/u/ramirocartodb/builder/33e2696c-badf-11e6-80bd-0ee66e2c9693/embed) to see what kinds of visualizations you can make based on zoom.
+
+## Torque
+
+### Linear
+
+```css
+Map {
+  -torque-frame-count: 256;
+  -torque-animation-duration: 30;
+  -torque-time-attribute: "date";
+  -torque-aggregation-function: "count(1)";
+  -torque-resolution: 4;
+  -torque-data-aggregation: linear;
+}
+#layer {
+  marker-width: 7;
+  marker-fill: #FFB927;
+  marker-fill-opacity: 0.9;
+  marker-line-width: 1;
+  marker-line-color: #FFF;
+  marker-line-opacity: 1;
+  comp-op: lighter;
+}
+#layer[frame-offset=1] {
+  marker-width: 9;
+  marker-fill-opacity: 0.45;
+}
+#layer[frame-offset=2] {
+  marker-width: 11;
+  marker-fill-opacity: 0.225;
+}
+```
+
+<br>
+![linear](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/linear.png)
+<br>
+
+### Cumulative
+
+```css
+Map {
+  -torque-frame-count: 256;
+  -torque-animation-duration: 30;
+  -torque-time-attribute: "date";
+  -torque-aggregation-function: "count(1)";
+  -torque-resolution: 4;
+  -torque-data-aggregation: cumulative;
+}
+#layer {
+  marker-width: 7;
+  marker-fill: #FFB927;
+  marker-fill-opacity: 0.9;
+  marker-line-width: 1;
+  marker-line-color: #FFF;
+  marker-line-opacity: 1;
+  comp-op: lighter;
+}
+#layer[frame-offset=1] {
+  marker-width: 9;
+  marker-fill-opacity: 0.45;
+}
+#layer[frame-offset=2] {
+  marker-width: 11;
+  marker-fill-opacity: 0.225;
+}
+```
+
+<br>
+![cumulative](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/cumulative.png)
+<br>
+

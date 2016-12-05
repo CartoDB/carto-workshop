@@ -321,100 +321,100 @@ DROP TRIGGER IF EXISTS triggerName ON tableName
 The ``IF`` statement it is used to execute a command conditionally. PL/pgSQL has 3 ways to use the ``IF`` statements.
 
 1. IF THEN
-```sql
-IF condition THEN
-  statement;
-END IF;  
-```
-The condition is a boolean expression that has to be evaluated as `true` or `false`, the statement will only be executed if the condition is `true`.
+  ```sql
+  IF condition THEN
+    statement;
+  END IF;  
+  ```
+  The condition is a boolean expression that has to be evaluated as `true` or `false`, the statement will only be executed if the condition is `true`.
 
 2. IF THEN/ELSE
-```sql
-IF condition THEN
-  statements;
-ELSE
-  alternative-statements;
-END IF;
-```
-The ``IF THEN/ELSE`` statement executes a command when the condition is `true` and it executes an alternative command when the condition is `false`.
+  ```sql
+  IF condition THEN
+    statements;
+  ELSE
+    alternative-statements;
+  END IF;
+  ```
+  The ``IF THEN/ELSE`` statement executes a command when the condition is `true` and it executes an alternative command when the condition is `false`.
 
 3. IF THEN/ ELSIF THEN/ELSE
 
-```sql
-IF condition-1 THEN
-  if-statement;
-ELSIF condition-2 THEN
-  elsif-statement-2
-...
-ELSIF condition-n THEN
-  elsif-statement-n;
-ELSE
-  else-statement;
-END IF;
-```
-The ``IF THEN/ ELSIF THEN/ELSE`` statement allows you to have multiple conditions to evaluate. In case one condition is `true`, PostgreSQL will stop evaluating the underneath conditions.
+  ```sql
+  IF condition-1 THEN
+    if-statement;
+  ELSIF condition-2 THEN
+    elsif-statement-2
+  ...
+  ELSIF condition-n THEN
+    elsif-statement-n;
+  ELSE
+    else-statement;
+  END IF;
+  ```
+  The ``IF THEN/ ELSIF THEN/ELSE`` statement allows you to have multiple conditions to evaluate. In case one condition is `true`, PostgreSQL will stop evaluating the underneath conditions.
 
 ### CASE statement
 
 This is similar to ``IF`` statement, but  the ``CASE`` operator allows you to execute statements based on conditions. There are two ways to apply a ``CASE``.
 
 1. Simple CASE statement
-```sql
-CASE search-expression
-   WHEN expression_1 [, expression_2, ...] THEN
-      when-statements
-  [ ... ]
-  [ELSE
-      else-statements ]
-END CASE;
-```
-The search-expression is an expression that will be evaluated against the expression in each `WHEN` branch using equality operand (`=`). If a match is found, the `when-statements` in the corresponding `WHEN` branch are executed. The subsequent expressions underneath will not be evaluated.
+  ```sql
+  CASE search-expression
+     WHEN expression_1 [, expression_2, ...] THEN
+        when-statements
+    [ ... ]
+    [ELSE
+        else-statements ]
+  END CASE;
+  ```
+  The search-expression is an expression that will be evaluated against the expression in each `WHEN` branch using equality operand (`=`). If a match is found, the `when-statements` in the corresponding `WHEN` branch are executed. The subsequent expressions underneath will not be evaluated.
 
-Example:
+  Example:
 
-```sql
-CREATE OR REPLACE FUNCTION get_price_segment(p_film_id integer)
-   RETURNS VARCHAR(50) AS $$
-DECLARE 
- rate   NUMERIC;
- price_segment VARCHAR(50);
-BEGIN
-   -- get the rate based on film_id
-    SELECT INTO rate rental_rate 
-    FROM film 
-    WHERE film_id = p_film_id;
- 
-     CASE rate
- WHEN 0.99 THEN
-    price_segment = 'Mass';
- WHEN 2.99 THEN
-    price_segment = 'Mainstream';
- WHEN 4.99 THEN
-    price_segment = 'High End';
- ELSE
-     price_segment = 'Unspecified';
- END CASE;
- 
-   RETURN price_segment;
-END; $$
-LANGUAGE plpgsql;
-```
+  ```sql
+  CREATE OR REPLACE FUNCTION get_price_segment(p_film_id integer)
+     RETURNS VARCHAR(50) AS $$
+  DECLARE 
+   rate   NUMERIC;
+   price_segment VARCHAR(50);
+  BEGIN
+     -- get the rate based on film_id
+      SELECT INTO rate rental_rate 
+      FROM film 
+      WHERE film_id = p_film_id;
+   
+       CASE rate
+   WHEN 0.99 THEN
+      price_segment = 'Mass';
+   WHEN 2.99 THEN
+      price_segment = 'Mainstream';
+   WHEN 4.99 THEN
+      price_segment = 'High End';
+   ELSE
+       price_segment = 'Unspecified';
+   END CASE;
+   
+     RETURN price_segment;
+  END; $$
+  LANGUAGE plpgsql;
+  ```
 
 2. Searched CASE statement
 
-```sql
-CASE
-    WHEN boolean-expression-1 THEN
-      statements
-  [ WHEN boolean-expression-2 THEN
-      statements
-    ... ]
-  [ ELSE
-      statements ]
-END CASE;
-```
+  ```sql
+  CASE
+      WHEN boolean-expression-1 THEN
+        statements
+    [ WHEN boolean-expression-2 THEN
+        statements
+      ... ]
+    [ ELSE
+        statements ]
+  END CASE;
+  ```
 
-The searched `CASE` statement executes statements based on the result of Boolean expressions in each `WHEN` clause.
+  The searched `CASE` statement executes statements based on the result of Boolean expressions in each `WHEN` clause.
 
 ### LOOP statement
 
@@ -696,8 +696,30 @@ We can create a different way to classify our point data like in [this example](
   DROP FUNCTION insertpoint(lon numeric, lat numeric, name text, description text, category text, tablename text)
   ```
 
-### 2. Add a trigger to a table
-Add a trigger that writes a string with the simplified coordinates as a string
+### 2. Create a trigger function that writes a string in a column each time a new point is inserted
+
+* First, we'd need to create an easy SQL function that will update the table, writing a string into `column_name`
+
+  ```sql
+  CREATE OR REPLACE FUNCTION write_string()
+  RETURNS TRIGGER
+  AS $$
+  BEGIN
+    UPDATE dummy_dataset
+    SET column_name = 'Point inserted at: '|| ST_X(the_geom) || ',' || ST_Y(the_geom);
+    RETURN null;
+  END;
+  $$
+  LANGUAGE 'plpgsql';
+  ```
+* Next step would be creating the trigger itself for `table_name`
+
+  ```sql
+  CREATE TRIGGER writer
+  AFTER INSERT ON table_name
+  FOR EACH ROW EXECUTE PROCEDURE write_string();
+  ```
+* Finally, check that everything works. **Tip:** You could use this trigger function along with the function from the first exercise to create a complete automated workflow. 
 
 ## Further reading  
 

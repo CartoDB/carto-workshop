@@ -10,10 +10,10 @@ Each point is categorized as `[continent="name"] {` and contains its own marker-
 
 ```css
 #layer {
-  // global
+  /* global */
   polygon-opacity: 0.9;
 
-  // categories
+  /* categories */
   [continent="Africa"] {
     polygon-fill: #A6CEE3;
   }
@@ -45,7 +45,39 @@ Each point is categorized as `[continent="name"] {` and contains its own marker-
 ![category](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/category.png)
 <br>
 
+The following two styles are based on the same principle, but instead of using string fields, choropleth and bubbles styles use numeric ones.
+
 ## Choropleth
+
+```css
+#layer {
+  /* global */
+  polygon-opacity: 0.7;
+  line-width: 1;
+  line-color: #FFF;
+  line-opacity: 0.5;
+  polygon-fill: #fcde9c; // polygon-fill less than or equal to 3178328.56452752
+
+  /* categories */
+  [ pop_norm > 169360.836697335 ] {
+    polygon-fill: #f58670;
+  }
+  [ pop_norm > 540892.19330855 ] {
+    polygon-fill: #e34f6f;
+  }
+  [ pop_norm > 952277.445247449 ] {
+    polygon-fill: #d72d7c;
+  }
+  [ pop_norm > 3178328.56452752 ] {
+    polygon-fill: #7c1d6f;
+  }
+
+}
+```
+
+<br>
+![choropleth](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/choropleth.png)
+<br>
 
 ## Bubbles
 
@@ -58,7 +90,7 @@ Each point is categorized as `[continent="name"] {` and contains its own marker-
   marker-line-width: 0.2;
   marker-line-color: #FFF;
   marker-line-opacity: 1;
-  marker-width: 1; // marker-width less than or equal to 2.5
+  marker-width: 1; // marker-width less than or equal to 2.5 
 
   /* categories */
   [ pop_max > 9461 ] {

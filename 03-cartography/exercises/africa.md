@@ -1,3 +1,5 @@
+# How to create a vintage Africa map
+
 ## Resources
 
 + [.carto file](https://drive.google.com/file/d/0B9k_lcYQZACgY1k2RHV3MGx3MTg/view?usp=sharing)
@@ -48,24 +50,36 @@
   3. Apply this code:
 
 ```css
+#layer{
   line-width: ramp([data_range],0.4,1,equal);
   line-color: teal;
   line-opacity: 0.5;
+}
 ```
 
-## Country
+## Countries
 
 ### Global styles
 
-+ `polygon-pattern-file`
-+ CartoColor `Bold`
++ In order to style all countries follow these instructions:
+  1. Go back to the main menu
+  2. Click on "Countries" layer
+  3. Go to STYLE tab
+  4. Click on `CartoCSS`
+  5. Apply this code:
 
  ```css
+#layer{
   polygon-pattern-file: url(https://s3.amazonaws.com/com.cartodb.users-assets.production/production/mamatablog/assets/20151025140245land_paper.png);
   polygon-pattern-opacity: 0.3;
   polygon-fill: ramp([mapcolor7], cartocolor(Bold), category(7));
   polygon-opacity: 0.2;
+}
  ```
+
+<br>
+![global](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/global.png)
+<br>
 
 ### Style for Africa
 
@@ -74,7 +88,8 @@
 + Labels
 
 ```css
- [continent='Africa']{ 
+#layer{
+  [continent='Africa']{ 
     polygon-opacity: 0.3;
     line-width: 2;
     line-color: ramp([mapcolor7], cartocolor(Bold), category(7));
@@ -96,8 +111,9 @@
     text-transform: uppercase;
     text-character-spacing: 0.5;
     text-wrap-width: 25;
-}
+    }
   }
+}
 ``` 
 
 ## Ocean

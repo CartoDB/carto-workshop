@@ -95,9 +95,56 @@ Apply the `@` symbol to lists of all the color values for your categories. The C
 ![variables](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/variables.png)
 <br>
 
-*Note: using CartoCSS variables inside Turbo CARTO ramp funcions is not supported at the moment.
+*Note*: using CartoCSS variables inside Turbo CARTO ramp funcions is not supported at the moment.
 
 ## Multiple Symbolizers for a Map Layer
+
+In some cases, you may need to apply multiple symbolizers to one map layer. For example, a point layer typically contains marker syntax. You can also attach [other compatible symbolizer](https://carto.com/docs/carto-engine/cartocss/properties/#cartocss-symbolizer) properties, to achieve a desired styling effect.
+
+Enter a double-colon symbol `::` to indicate a duplicate map layer without actually adding a new layer to your map. This dummy layer created through CartoCSS styling acts as an attachment, enabling you to apply multiple symbolizers to the selected layer.
+
+Suppose you have a point symbol and want to put a glowing halo around it. You need CartoCSS values for the point style and CartoCSS values for the glowing halo.
+
+
+```css
+#layer {
+  
+ //bottom layer of symbol
+  ::halo {
+    marker-width: 20;
+    marker-fill: teal;
+    marker-fill-opacity: 1;
+    marker-line-color: #FFF;
+    marker-line-width: 0;
+    marker-line-opacity: 1;
+    marker-placement: point;
+    marker-type: ellipse;
+    marker-allow-overlap: true;
+  }
+
+//top layer of symbol  
+   marker-width: 10;
+   marker-fill: #FFB927 ;
+   marker-fill-opacity: 0.9;
+   marker-line-color: #FFF;
+   marker-line-width: 0;
+   marker-line-opacity: 1;
+   marker-placement: point;
+   marker-type: ellipse;
+   marker-allow-overlap: true;  
+}
+```
+
+* The ::halo describes the style elements that you are applying to the halo
+* The default, top layer describes the style elements that you are applying to the point
+
+<br>
+![multiple](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/multiple.png)
+<br>
+
+*Note*: Similar to how map layers are rendered, symbolizers are rendered from bottom to top. To see an example, view this live map which is using [multiple symbolizers](https://mamataakella.carto.com/builder/36cb22c8-3334-11e6-ad49-0ecfd53eb7d3/embed) applied to point styles.
+
+
 
 ## CartoCSS Comments
 

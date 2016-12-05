@@ -1,5 +1,7 @@
 # How to create a vintage Africa map
 
++ Based on [Mamata Akella](https://team.carto.com/u/mamataakella/me)'s CARTO Summit workshop
+
 ## Resources
 
 + [.carto file](https://drive.google.com/file/d/0B9k_lcYQZACgY1k2RHV3MGx3MTg/view?usp=sharing)

@@ -164,6 +164,55 @@ Suppose you have a point symbol and want to put a glowing halo around it. You ne
 
 *Note*: Similar to how map layers are rendered, symbolizers are rendered from bottom to top. To see an example, view this live map which is using [multiple symbolizers](https://mamataakella.carto.com/builder/36cb22c8-3334-11e6-ad49-0ecfd53eb7d3/embed) applied to point styles.
 
+## Color
+
+CartoCSS accepts a variety of syntaxes for colors - HTML-style hex values, rgb, rgba, hsl, and hsla. It also supports the predefined HTML colors names, such as `yellow` and `blue`.
+
+For instance, all the lines within this code are the same:
+
+```css
+#line {
+  line-color: #ff0;
+  line-color: #ffff00;
+  line-color: rgb(255, 255, 0);
+  line-color: rgba(255, 255, 0, 1);
+  line-color: hsl(100, 50%, 50%);
+  line-color: hsla(100, 50%, 50%, 1);
+  line-color: yellow;
+}
+```
+
+<br>
+![yellow](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/yellow.png)
+<br>
+
+*Note*: Using hsl [(hue, saturation, lightness)](http://mothereffinghsl.com/) color values are often easier than rgb()values. CARTO also includes several color functions [borrowed from Less, a CSS pre-processor](http://lesscss.org/#-color-functions):
+
+```css
+// lighten and darken colors
+lighten(#ace, 10%);
+darken(#ace, 10%);
+
+// saturate and desaturate
+saturate(#550000, 10%);
+desaturate(#00ff00, 10%);
+
+// increase or decrease the opacity of a color
+fadein(#fafafa, 10%);
+fadeout(#fefefe, 14%);
+
+// spin rotates a color around the color wheel by degrees
+spin(#ff00ff, 10);
+
+// mix generates a color in between two other colors.
+mix(#fff, #000, 50%);
+```
+
+Each of above examples uses color variables, literal colors, or is the result of other functions operating on colors.
+
+## Composite operations
+
+
 
 ## CartoCSS Best Practices
 

@@ -230,7 +230,10 @@ For this purpose, we will follow the same logic we use with the layergroupid, bu
     ![](https://cartocdn-ashbu.global.ssl.fastly.net/ernestomb/api/v1/map/named/world_borders/all/0/0/0.png?config={%22color%22:%20%22green%22}&auth_token=ernesto)
 
   - As we said before, we could use these URLs as basemaps. Check [this CartoDB map](https://team.cartodb.com/u/ernestomb/viz/a5efedd0-f515-11e5-b6d6-0e31c9be1b51/embed_map) that uses the following URL for the basemap: 
-    - http://USERNAME.cartodb.com/api/v1/map/named/world_borders/all/{z}/{x}/{y}.png?config={"color":"orange"}&auth_token=mexicolindo
+    
+    ```
+    http://USERNAME.cartodb.com/api/v1/map/named/world_borders/all/{z}/{x}/{y}.png?config={"color":"orange"}&auth_token=mexicolindo
+    ```
 
 #### Retina tiles
   - @2x retina tile notation is not technically supported for Named Maps, but you can get them this way:

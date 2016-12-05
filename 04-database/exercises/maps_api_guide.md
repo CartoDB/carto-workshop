@@ -5,7 +5,7 @@ The Maps API allows to create maps based upon SQL queries and CartoCSS rules. A 
 
 Using the API we can instantiate maps via POST request, and expect a layergroupid as part of the response. This layergroupid is thereby used to perform further API calls to retrieve map tiles. The URL for each tile contains a ZXY-based reference.
 
-The layergroupid is not persistent, so any request made using an expired layergroupid will return a 400 error from the server. A new layergroupid is generated when any change is performed to the map. 
+The layergroupid is not persistent, so any request made using an expired layergroupid will return a 400 error from the server. A new layergroupid is generated when any change is performed to the map. The current limit for `layergroupid` persistency is **two hours**.
 
 > Check **[this example](http://bl.ocks.org/ernesmb/raw/e5bf4a0826bb4fa85830/)**, where a map is instantiated, the layergroupid retrieved and a tile requested.
 
@@ -14,7 +14,7 @@ The example above shows how we can use the Maps API to instantiate a map using S
 The layergroupid is used afterwards in the example to form the URL to request a tile.
 
 ```javascript
-var tileURL = 'https://ernestomb.cartodb.com/api/v1/map/'+data.layergroupid+'/0/0/0.png'
+var tileURL = 'https://USERNAME.cartodb.com/api/v1/map/'+data.layergroupid+'/0/0/0.png'
 ```
 
 ## Anonymous maps
@@ -24,10 +24,10 @@ Let's see how cartodb.js construct a call to the Maps API based on the LayerSour
 This is the cartodb.createLayer() code: 
 ```javascript
   layerSource={
-    user_name: 'ernestomb',
+    user_name: 'USERNAME',
     type: 'cartodb',
     sublayers: [{
-       sql: 'SELECT * FROM world_borders',
+       sql: 'SELECT * FROM table_name',
        cartocss: '#layer {polygon-fill: #F00;}'
     }]
   }
@@ -46,7 +46,7 @@ This is the cartodb.createLayer() code:
 ```
 When executed, the following call is sent to the Maps API to instantiate the map
 ```bash
-curl 'http://ernestomb.cartodb.com/api/v1/map
+curl 'http://USERNAME.cartodb.com/api/v1/map
   ?stat_tag=API
   &config={
   	"version":"1.3.0",
@@ -54,7 +54,7 @@ curl 'http://ernestomb.cartodb.com/api/v1/map
   	"layers":[
   		{"type":"cartodb",
   			"options":{
-  				"sql":"SELECT * FROM world_borders",
+  				"sql":"SELECT * FROM table_name",
   				"cartocss":"#layer {polygon-fill: #F00;}",
   				"cartocss_version":"2.1.0"
   			}
@@ -86,7 +86,7 @@ Which produces this response, note that it contains the layergroupid:
 
 After that, tiles are requested with simple calls of the type:
 ```bash
-curl 'http://0.ashbu.cartocdn.com/ernestomb/api/v1/map/b356a24187b9390c94d08ed134ab5fe9:1451998092397/0/1/0/0.png' --compressed
+curl 'http://0.ashbu.cartocdn.com/USERNAME/api/v1/map/b356a24187b9390c94d08ed134ab5fe9:1451998092397/0/1/0/0.png' --compressed
 ```
 
 We could use the layergroupid to get some more information, as the `grid.json` file that is used to define layer interactivity (check the link in the **[example](http://bl.ocks.org/ernesmb/raw/e5bf4a0826bb4fa85830/)**).
@@ -109,7 +109,7 @@ First thing is creating a `config.json` file that contains the map configuration
   "auth": {
     "method": "token",
     "valid_tokens": [
-      "ernesto"
+      "mexicolindo"
     ]
   },
   "placeholders": {
@@ -151,12 +151,12 @@ We have defined two placeholders that will allow to change the color of the map,
 
 The `curl` command to upload and instantiate the map is the following: 
 ```bash
-curl -X POST -H 'Content-Type: application/json' -d @config.json 'https://ernestomb.cartodb.com/api/v1/map/named?api_key=API_KEY'
+curl -X POST -H 'Content-Type: application/json' -d @config.json 'https://USERNAME.cartodb.com/api/v1/map/named?api_key=API_KEY'
 ```
 In case we need to update the `config.json` file, we could use: 
 
 ```bash
-curl -X PUT -H 'Content-Type: application/json' -d @config.json 'https://ernestomb.cartodb.com/api/v1/map/named/world_borders?api_key=API_KEY'
+curl -X PUT -H 'Content-Type: application/json' -d @config.json 'https://USERNAME.cartodb.com/api/v1/map/named/world_borders?api_key=API_KEY'
 ```
 
 The API key must always be used to upload and instantiate the map. 
@@ -195,7 +195,6 @@ SELECT * FROM (SELECT * FROM world_borders) AS wrapped_query WHERE 0=1
 ```
 That condintion will return `false` for every row, so the sublayer will not be shown.
 
-Here is a [Postman collection](namedmap_postman_collection.json) to help dealing with Named Maps operations.
 
 ### XYZ tiles
 We can use any namedmap to fetch the tiles as we would do with a basemap. This allows to create complex multi-layered maps and load it as an http tile layer. 
@@ -203,45 +202,45 @@ We can use any namedmap to fetch the tiles as we would do with a basemap. This a
 For this purpose, we will follow the same logic we use with the layergroupid, but using the map name instead:
 
   - We are able to request an specific tile from our named map:    
-    - http://ernestomb.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png
+    - http://USERNAME.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png
     
     ![](http://ernestomb.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png?auth_token=ernesto)
 
   - Also, we can pass the configuration parameters as part of the URL, instantiating the map with the passed configuration. We are going to instantiate the map using "orange" as the `color` parameter:    
-    - http://ernestomb.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png?config={"color":"orange"}
+    - http://USERNAME.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png?config={"color":"orange"}
     
     ![](http://ernestomb.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png?config={%22color%22:%20%22orange%22}&auth_token=ernesto)
 
   - We could also apply a filter passing the `population_filter` parameter:
-    - http://ernestomb.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png?config={"color":"orange","population_filter":40000000}
+    - http://USERNAME.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png?config={"color":"orange","population_filter":40000000}
     
     ![](http://ernestomb.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png?config={%22color%22:%20%22orange%22,%20%22population_filter%22:40000000}&auth_token=ernesto)
 
   - As the named map has been configured to have an authentication token, we need to pass it as an URL parameter: 
-    - http://ernestomb.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png?auth_token=ernesto
+    - [http://USERNAME.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png?auth_token=mexicolindo](http://ernestomb.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png?auth_token=ernesto)
 
   - We could also select which tile we want to retrieve, passing the z, x, y parameters in the request:
-    - http://ernestomb.cartodb.com/api/v1/map/named/world_borders/all/5/15/12.png?auth_token=ernesto
+    - http://USERNAME.cartodb.com/api/v1/map/named/world_borders/all/5/15/12.png?auth_token=mexicolindo
     
     ![](http://ernestomb.cartodb.com/api/v1/map/named/world_borders/all/5/15/12.png?auth_token=ernesto)
 
   - Finally we could also use the cdn to retrieve tiles: 
-    - https://cartocdn-ashbu.global.ssl.fastly.net/ernestomb/api/v1/map/named/world_borders/all/0/0/0.png?config={"color":"green"}
+    - https://cartocdn-ashbu.global.ssl.fastly.net/USERNAME/api/v1/map/named/world_borders/all/0/0/0.png?config={"color":"green"}
 
-    ![](https://cartocdn-ashbu.global.ssl.fastly.net/rochoa/api/v1/map/named/world_borders/all/0/0/0.png?config={%22color%22:%20%22green%22}&auth_token=ernesto)
+    ![](https://cartocdn-ashbu.global.ssl.fastly.net/ernestomb/api/v1/map/named/world_borders/all/0/0/0.png?config={%22color%22:%20%22green%22}&auth_token=ernesto)
 
   - As we said before, we could use these URLs as basemaps. Check [this CartoDB map](https://team.cartodb.com/u/ernestomb/viz/a5efedd0-f515-11e5-b6d6-0e31c9be1b51/embed_map) that uses the following URL for the basemap: 
-    - http://ernestomb.cartodb.com/api/v1/map/named/world_borders/all/{z}/{x}/{y}.png?config={"color":"orange"}&auth_token=ernesto
+    - http://USERNAME.cartodb.com/api/v1/map/named/world_borders/all/{z}/{x}/{y}.png?config={"color":"orange"}&auth_token=mexicolindo
 
 #### Retina tiles
   - @2x retina tile notation is not technically supported for Named Maps, but you can get them this way:
     - instantiate a named map using the template_id returned after you uploaded your config.json:
     ```
-    curl -X POST -H 'Content-Type: application/json' -d @config.json 'https://ernestomb.cartodb.com/api/v1/map/named/world_borders?auth_token=API_KEY'
+    curl -X POST -H 'Content-Type: application/json' -d @config.json 'https://USERNAME.cartodb.com/api/v1/map/named/world_borders?auth_token=API_KEY'
     ```
     - Use that response's layergroup id and @2x notation:
     ```
-    http://ernestomb.cartodb.com/api/v1/map/your_layergroup_id/0/0/0@2x.png
+    http://USERNAME.cartodb.com/api/v1/map/your_layergroup_id/0/0/0@2x.png
     ```
   - You can use the same retina request for Anonymous Maps, just use the layergroup id returned when you upload the config.json.
   
@@ -282,7 +281,7 @@ We can use several parameters to define the extension and resolution of an stati
     ```
     GET /api/v1/map/static/named/{name}/{width}/{height}.{format}
     ```
-    - http://ernestomb.cartodb.com/api/v1/map/static/named/world_borders/600/400.png?auth_token=ernesto
+    - http://USERNAME.cartodb.com/api/v1/map/static/named/world_borders/600/400.png?auth_token=mexicolindo
     ![](http://ernestomb.cartodb.com/api/v1/map/static/named/world_borders/600/400.png?auth_token=ernesto)
 
 Other layers could be added to the static map, they just need to be declared in the mapConfig object we use for the instantiation. 
@@ -295,7 +294,7 @@ When using a `viz.json` file as layerSource object, the URL to the file will aut
 
 ```javascript
 cartodb.createLayer(map, {
-    user_name: 'USER_NAME',
+    user_name: 'USERNAME',
     maps_api_template: "https://onpremise.domain.address:443/user/{user}",
     sql_api_template: "https://onpremise.domain.address:443/user/{user}",
     tiler_protocol: "http",

@@ -9,7 +9,10 @@ Each CartoCSS map category has its own configurable properties. You can apply mu
 
 ## CartoCSS Syntax
 
-Note how the CartoCSS syntax is structured and the different CartoCSS properties used when styling the three types of geometries.
+Note how the CartoCSS syntax is structured and the different CartoCSS properties used when styling the three types of geometries. All examples showed in this workshop can be replicated using the following datasets from the DATA LIBRARY:
+* Points: `ne_10m_populated_places_simple`
+* Lines: `ne_50m_rivers_lake_centerlines`
+* Polygons: `ne_50m_land`
 
 ### Points
 
@@ -228,7 +231,45 @@ Each of above examples uses color variables, literal colors, or is the result of
 
 ## Composite operations
 
+Composite operations style the way colors of overlapping geometries interact with each other. Similar to blend operations in Photoshop, these composite operations style the blend modes on your map. The main reason to use composite operations is to fine-tune how much some features in your map stand out compared to others. They are a great way to control your maps legibility.
 
+Composite operations are blending modes for your map layers. They fall into two main categories: [color](https://carto.com/docs/carto-engine/cartocss/composite-operations/#color-blending-values) and [alpha](https://carto.com/docs/carto-engine/cartocss/composite-operations/#alpha-blending-values), and can be applied to all non-basemap elements in your CARTO map by adding the comp-op value to your CartoCSS code.
+
+Composite operations can be applied as an overall style effect, as shown in the following code:
+
+```css
+comp-op: multiply;
+```
+
+Or, it can be applied to the specific symbolizer property, depending on the color blending operation you are trying to achieve. For example:
+
+```css
+marker-comp-op: multiply;
+polygon-comp-op: color-burn;
+text-comp-op: screen;
+```
+
+* The layer (or text) that you choose the composite operation in is called the source
+* Its composite operation is applied to each layer beneath, which are called destination layers. In CARTO, the source layer itself needs to have a color fill, but its composite operations apply to destination layers with color or texture fills (even raster layers)
+
+*Note*: Any layers that appear above the source are unaffected by the comp-op value and are rendered normally.
+
+```css
+#layer {
+  marker-width: 7;
+  marker-fill: #FFB927;
+  marker-fill-opacity: 0.9;
+  marker-allow-overlap: true;
+  marker-line-width: 1;
+  marker-line-color: #FFF;
+  marker-line-opacity: 1;
+  marker-comp-op: multiply;
+}
+```
+
+<br>
+![multiply](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/multiply.png)
+<br>
 
 ## CartoCSS Best Practices
 

@@ -3,28 +3,28 @@
 ## Contents
 <!-- MarkdownTOC -->
 
-- What is a stored procedure?
-- Basic structure of a PL/pgSQL function
-- Functions that doesn't return any row
+- 1. What is a stored procedure?
+- 2. Basic structure of a PL/pgSQL function
+- 3. Functions that doesn't return any row
 - Function that returns a table
-- Functions with Security Definer
-- Trigger functions
-- Control structures
-- Pl/pgSQL and PostGIS
-- Exercises
-- Further reading
+- 4. Functions with Security Definer
+- 5. Trigger functions
+- 6. Control structures
+- 7. Pl/pgSQL and PostGIS
+- 8. Exercises
+- 9. Further reading
 
 <!-- /MarkdownTOC -->
 
  
 
-## What is a stored procedure?
+## 1. What is a stored procedure?
 
 PostgreSQL allows you to extend the database functionality with user-defined functions by using various procedural languages, which are often referred to as stored procedures.
 
 With stored procedures you can create your own custom functions and reuse them in applications or as part of other database's workflow.
 
-## Basic structure of a PL/pgSQL function
+## 2. Basic structure of a PL/pgSQL function
 
 ```sql
 CREATE FUNCTION function_name(argument1 type,argument2 type)
@@ -60,7 +60,7 @@ If one of the variables is taken from a column in a table:
 SELECT function_name(val1,val2) FROM table;
 ```
 
-### Input and output arguments
+### 2. 1. Input and output arguments
 
 In the previous section we defined a function like 
 
@@ -122,7 +122,7 @@ END;
 LANGUAGE 'plpgsql';
 ```
 
-### Variables and constants
+### 2. 2. Variables and constants
 
 A PL/pgSQL variable holds a values that can be changed through the function. A variables is always associated to a data type.
 Before you use a variable we must declare it in the proper section, using the following syntax:
@@ -151,7 +151,7 @@ END;
 LANGUAGE language_name;
 ```
 
-## Functions that doesn't return any row
+## 3. Functions that doesn't return any row
 
 If we create a function that doesn't return any row, but performs a writing operation, such as an `UPDATE`, `INSERT` or `DELETE`, we need to set the `RETURNS TYPE` statement as `RETURNS void`
 
@@ -220,7 +220,7 @@ END;
 $$ LANGUAGE 'plpgsql'
 ```
 
-## Functions with Security Definer
+## 4. Functions with Security Definer
 
 In order to allow `publicuser` to perform writing operations such as `INSERT` or `UPDATE` queries, we need to define those actions inside a stored procedure. That function will afterwards be granted execution permission, so it will run with the same permission as the account owner. 
 
@@ -261,7 +261,7 @@ $$;
 ```
 **[Click here](https://gist.github.com/ernesmb/beb25f539f8ff38bbd891e6d114ea7f4)** to find more detailed instructions for creating a Security Definer function that allows to collect points from a public map in a secure way
 
-## Trigger functions
+## 5. Trigger functions
 
 The trigger functions have three main properties:
 
@@ -314,9 +314,9 @@ or
 ```sql
 DROP TRIGGER IF EXISTS triggerName ON tableName
 ```
-## Control structures
+## 6. Control structures
 
-### IF statement
+### 6. 1. IF statement
 
 The ``IF`` statement it is used to execute a command conditionally. PL/pgSQL has 3 ways to use the ``IF`` statements.
 
@@ -354,7 +354,7 @@ The ``IF`` statement it is used to execute a command conditionally. PL/pgSQL has
   ```
   The ``IF THEN/ ELSIF THEN/ELSE`` statement allows you to have multiple conditions to evaluate. In case one condition is `true`, PostgreSQL will stop evaluating the underneath conditions.
 
-### CASE statement
+### 6. 2. CASE statement
 
 This is similar to ``IF`` statement, but  the ``CASE`` operator allows you to execute statements based on conditions. There are two ways to apply a ``CASE``.
 
@@ -416,7 +416,7 @@ This is similar to ``IF`` statement, but  the ``CASE`` operator allows you to ex
 
   The searched `CASE` statement executes statements based on the result of Boolean expressions in each `WHEN` clause.
 
-### LOOP statement
+### 6. 3. LOOP statement
 
 This is used to execute a block of statements repeatedly until a condition becomes true. The basic syntax is:
 
@@ -463,7 +463,7 @@ SELECT j, i + j INTO i, j ;
 
 Swaps `i` and `j` at the same time without using a temporary variable.
 
-#### While loops
+### 6. 4. WHILE loops
 
 The `WHILE` loop statement executes a block of statements until a condition evaluates to false. In the `WHILE` loop statement, PostgreSQL evaluates the condition before executing the block of statements. If the condition is `true`, the block of statements is executed until it is evaluated to false.
 
@@ -489,7 +489,7 @@ BEGIN
  RETURN i ;
 END ;
 ```
-#### FOR loops
+### 6. 5. FOR loops
 
 * `FOR` loop for looping through a ranges of integers
 ```sql
@@ -522,7 +522,7 @@ LOOP
 END LOOP [ label ];
 ```
 
-## Pl/pgSQL and PostGIS
+## 7. Pl/pgSQL and PostGIS
 
 It's possible to create Pl/pgSQL functions with PostGIS to predefine a process to modify the geometries of some data. For example, based on [this
 example](https://selectoid.wordpress.com/2008/12/22/developing-fun-st_staratpoint-for-postgis/) that creates star polygons from points (read it !! it's detailed and fun), we can create a function like this one:
@@ -597,8 +597,8 @@ SELECT regularPolygons(the_geom,100000,3), adm0_a3 from populated_places_spf WHE
 We can create a different way to classify our point data like in [this example](https://team.cartodb.com/u/oboix/viz/63e74f10-27d7-11e6-bad6-0e3ff518bd15/public_map).
 
 
-## Exercises
-### 1. Create a function that inserts a point into a table. 
+## 8. Exercises
+### 8. 1. Create a function that inserts a point into a table. 
 
 * First, let's define the function. It should take Longitude and Latitude as parameters, as well as the table name where we want to insert the points. It should also return a table with `cartodb_id` that will be generated in the inserted row: 
 
@@ -696,7 +696,7 @@ We can create a different way to classify our point data like in [this example](
   DROP FUNCTION insertpoint(lon numeric, lat numeric, name text, description text, category text, tablename text)
   ```
 
-### 2. Create a trigger function that writes a string in a column each time a new point is inserted
+### 8. 2. Create a trigger function that writes a string in a column each time a new point is inserted
 
 * First, we'd need to create an easy SQL function that will update the table, writing a string into `column_name`
 
@@ -721,7 +721,7 @@ We can create a different way to classify our point data like in [this example](
   ```
 * Finally, check that everything works. **Tip:** You could use this trigger function along with the function from the first exercise to create a complete automated workflow. 
 
-## Further reading  
+## 9. Further reading  
 
 * This [tutorial](http://www.postgresqltutorial.com/postgresql-stored-procedures/) explains the basics of the PostgreSQL stored procedure language in a very friendly way. Many explanations from this document have been extracted from there.
 

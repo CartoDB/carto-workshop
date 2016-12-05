@@ -202,17 +202,17 @@ We can use any namedmap to fetch the tiles as we would do with a basemap. This a
 For this purpose, we will follow the same logic we use with the layergroupid, but using the map name instead:
 
   - We are able to request an specific tile from our named map:    
-    - http://USERNAME.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png
+    - [http://USERNAME.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png](http://ernestomb.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png?auth_token=ernesto)
     
     ![](http://ernestomb.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png?auth_token=ernesto)
 
   - Also, we can pass the configuration parameters as part of the URL, instantiating the map with the passed configuration. We are going to instantiate the map using "orange" as the `color` parameter:    
-    - http://USERNAME.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png?config={"color":"orange"}
+    - [http://USERNAME.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png?config={"color":"orange"}](http://ernestomb.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png?config={"color":"orange"}&auth_token=ernesto)
     
     ![](http://ernestomb.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png?config={%22color%22:%20%22orange%22}&auth_token=ernesto)
 
   - We could also apply a filter passing the `population_filter` parameter:
-    - http://USERNAME.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png?config={"color":"orange","population_filter":40000000}
+    - [http://USERNAME.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png?config={"color":"orange","population_filter":40000000}](http://ernestomb.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png?config={"color":"orange","population_filter":40000000}&auth_token=ernesto)
     
     ![](http://ernestomb.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png?config={%22color%22:%20%22orange%22,%20%22population_filter%22:40000000}&auth_token=ernesto)
 
@@ -220,12 +220,12 @@ For this purpose, we will follow the same logic we use with the layergroupid, bu
     - [http://USERNAME.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png?auth_token=mexicolindo](http://ernestomb.cartodb.com/api/v1/map/named/world_borders/all/0/0/0.png?auth_token=ernesto)
 
   - We could also select which tile we want to retrieve, passing the z, x, y parameters in the request:
-    - http://USERNAME.cartodb.com/api/v1/map/named/world_borders/all/5/15/12.png?auth_token=mexicolindo
+    - [http://USERNAME.cartodb.com/api/v1/map/named/world_borders/all/5/15/12.png?auth_token=mexicolindo](http://ernestomb.cartodb.com/api/v1/map/named/world_borders/all/5/15/12.png?auth_token=ernesto)
     
     ![](http://ernestomb.cartodb.com/api/v1/map/named/world_borders/all/5/15/12.png?auth_token=ernesto)
 
   - Finally we could also use the cdn to retrieve tiles: 
-    - https://cartocdn-ashbu.global.ssl.fastly.net/USERNAME/api/v1/map/named/world_borders/all/0/0/0.png?config={"color":"green"}
+    - [https://cartocdn-ashbu.global.ssl.fastly.net/USERNAME/api/v1/map/named/world_borders/all/0/0/0.png?config={"color":"green"}](https://cartocdn-ashbu.global.ssl.fastly.net/ernestomb/api/v1/map/named/world_borders/all/0/0/0.png?config={"color":"green"}&auth_token=ernesto)
 
     ![](https://cartocdn-ashbu.global.ssl.fastly.net/ernestomb/api/v1/map/named/world_borders/all/0/0/0.png?config={%22color%22:%20%22green%22}&auth_token=ernesto)
 
@@ -277,11 +277,11 @@ We can use several parameters to define the extension and resolution of an stati
     ```
     GET /api/v1/map/static/bbox/{layergroupid}/{west},{south},{east},{north}/{width}/{height}.{format}
     ```
-  - **Named map:** A named map could produce a static image passing the image resolution directly. It will take the center from the view defined in the `config.json` file
+  - **Named map:** A named map could also produce a static image just by passing the image resolution as parameters. It will take the center from the view defined in the `config.json` file
     ```
     GET /api/v1/map/static/named/{name}/{width}/{height}.{format}
     ```
-    - http://USERNAME.cartodb.com/api/v1/map/static/named/world_borders/600/400.png?auth_token=mexicolindo
+    - [http://USERNAME.cartodb.com/api/v1/map/static/named/world_borders/600/400.png?auth_token=mexicolindo](http://ernestomb.cartodb.com/api/v1/map/static/named/world_borders/600/400.png?auth_token=ernesto)
     ![](http://ernestomb.cartodb.com/api/v1/map/static/named/world_borders/600/400.png?auth_token=ernesto)
 
 Other layers could be added to the static map, they just need to be declared in the mapConfig object we use for the instantiation. 

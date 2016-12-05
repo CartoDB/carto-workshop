@@ -9,6 +9,7 @@ Cartografía en CARTO
 * Simbología condicionada por zoom
 * Torque: mapas con datos temporales
 * Turbo CARTO
+* 
 
 
 ## Recursos
@@ -17,6 +18,6 @@ Cartografía en CARTO
 * [Fundamentos de CartoCSS](https://github.com/CartoDB/cdmx-training/tree/master/03-cartography/resources/cartocss.md)
 * [Básicos de CartoCSS](https://github.com/CartoDB/cdmx-training/tree/master/03-cartography/resources/basics.md)
 * [Diapositivas Turbo CARTO](https://docs.google.com/a/cartodb.com/presentation/d/1v4IYwOXSfUMwv6_X5pbDPBr5SaHLS6GUaa74HSMG3-8/edit?usp=sharing)
-* [Taller TurboCARTO](exercises/TODO)
-* [Ejercicio TurboCARTO](exercises/TODO)
+* [Ejercicio: taller de Turbo CARTO](http://bit.ly/turboviewer-cartosummit)
+* [Ejercicio: mapa vintage de África](https://github.com/CartoDB/cdmx-training/tree/master/03-cartography/exercises/africa.md)
 

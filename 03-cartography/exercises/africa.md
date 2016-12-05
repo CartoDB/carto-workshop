@@ -23,7 +23,7 @@
   5. Click on `APPLY`
 
 <br>
-![filter by column value](/img/filtercolval.png)
+![filter by column value](/img/filterbycolval.png)
 <br>
 
 + Add analysis > Area of Influence (100 miles, 6 buffers, intact)

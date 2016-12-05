@@ -16,9 +16,9 @@ Cartografía en CARTO
 ## Recursos
 
 * [Principios de diseño cartográfico](https://docs.google.com/presentation/d/1LbBIFPEWki58F2yRdbESTKGgm_sjnZRf9VV4odLGPlM/edit?usp=sharing)
-* [Fundamentos de CartoCSS](https://github.com/CartoDB/cdmx-training/tree/master/03-cartography/resources/cartocss.md)
-* [Básicos de CartoCSS](https://github.com/CartoDB/cdmx-training/tree/master/03-cartography/resources/basics.md)
+* [Fundamentos de CartoCSS](resources/cartocss.md)
+* [Básicos de CartoCSS](resources/basics.md)
 * [Diapositivas Turbo CARTO](https://docs.google.com/a/cartodb.com/presentation/d/1v4IYwOXSfUMwv6_X5pbDPBr5SaHLS6GUaa74HSMG3-8/edit?usp=sharing)
 * [Ejercicio: taller de Turbo CARTO](http://bit.ly/turboviewer-cartosummit)
-* [Ejercicio: mapa vintage de África](https://github.com/CartoDB/cdmx-training/tree/master/03-cartography/exercises/africa.md)
+* [Ejercicio: mapa vintage de África](exercises/africa.md)
 

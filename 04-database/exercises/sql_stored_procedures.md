@@ -1,16 +1,17 @@
 # PostgreSQL stored procedures
 
+## Contents
 <!-- MarkdownTOC -->
 
 - What is a stored procedure?
 - Basic structure of a PL/pgSQL function
-- Dynamic PL/pgSQL functions
-- Functions that doesn't return rows\(insert/update/delete\)
+- Functions that doesn't return any row
 - Function that returns a table
-- Function with Security Definer
+- Functions with Security Definer
 - Trigger functions
 - Control structures
 - Pl/pgSQL and PostGIS
+- Exercise
 - Further reading
 
 <!-- /MarkdownTOC -->
@@ -19,11 +20,9 @@
 
 ## What is a stored procedure?
 
-PostgreSQL allows you to extend the database functionality with user-defined functions by using various procedural languages, which often referred to as stored procedures.
+PostgreSQL allows you to extend the database functionality with user-defined functions by using various procedural languages, which are often referred to as stored procedures.
 
-The store procedures define functions for creating triggers or custom aggregate functions. In addition, stored procedures also add many procedural features like control structures.
-
-With stored procedures you can create your own custom functions and reuse them.
+With stored procedures you can create your own custom functions and reuse them in applications or as part of other database's workflow.
 
 ## Basic structure of a PL/pgSQL function
 
@@ -33,34 +32,29 @@ CREATE FUNCTION function_name(argument1 type,argument2 type)
 BEGIN
   staments;
 END;
-LANGUAGE 'language_name' CONDITIONS;
+LANGUAGE 'language_name';
 ```
 
 Where:
 
 1. We specify the name of function followed by the ``CREATE FUNCTION``clause.
-2. Put a list of parameters inside the paretheses with theur data type (integer, boolean, geometry, etc..)
-3. ``RETURNS`` specify the return type of the function.
+2. Provide a list of parameters inside the paretheses, also specifying each data type (integer, boolean, geometry, etc..)
+3. ``RETURNS`` specifies the return type of the function.
 4. Place the block of code inside inside the ``BEGIN`` and ``END;``.
-5. Indicate the procedural language of the function. For PostgreSQL is ``plpgsql``.
-6. The conditions can be ``STRICT``, ``IMMUTABLE`` or ``VOLATILE``.
+5. Indicate the procedural language of the function. For PostgreSQL is usually ``plpgsql``.
 
-    * ``STRICT``: write ``STRICT`` when the input arguments have ``NULL`` values. The function is not evaluated and returns a ``NULL`` value.
-    * ``IMMUTABLE``: The function ensures the same result (it caches it) if the same value is put as an input arguments. This function can't change the database.
-    * ``VOLATILE``: opposite of ``IMMUTABLE``. The function has a result that changes the result even when you write the same input values.
-
-To call the created function you can write:
+To call the created function you could use:
 
 ```sql
 SELECT * FROM function_name(val1,val2);
 ```
-or
+if the function returns a table, or just
 
 ```sql
 SELECT function_name(val1,val2);
 ```
 
-or, if one of the variables belongs to a dataset
+If one of the variables is taken from a column in a table: 
 
 ```sql
 SELECT function_name(val1,val2) FROM table;
@@ -79,10 +73,10 @@ END;
 LANGUAGE language_name;
 ```
 
-Where we define the input arguments and its type and then we define the type of the output argument with the RETURNS statement.
+Where we define the input arguments and their type and then we define the type of the output argument within the `RETURNS` statement.
 
-However, there is another way to define the input and output arguments with IN and OUT, where IN define the input arguments and OUT the
-output arguments. The OUT argument declaration is useful when you need to return multiple values. For example:
+However, there is another way to define the input and output arguments with `IN` and `OUT`, where `IN` define the input arguments and `OUT` the
+output arguments. The `OUT` argument declaration is useful when you need to return multiple values. For example:
 
 ```sql
 CREATE FUNCTION sum_n_product(IN x int,IN y int, OUT sum int, OUT prod int) AS $$
@@ -93,12 +87,11 @@ END;
 $$ LANGUAGE plpgsql;
 ```
 
-Then the function can be called as: ``SELECT * FROM sum_n_product(1,2)``, where you only put the IN (input) arguments in the function.
+Then the function can be called as: ``SELECT * FROM sum_n_product(1,2)``, where you only need to pass the `IN` arguments to the function.
 
-If you define the arguments with IN or OUT, there is no need to put both. You can define IN arguments without the need to put OUT arguments or viceversa. 
 Notice that if we use IN and OUT arguments, we don't use the ``RETURNS`` statement in the function definition.
 
-On the other hand, there are different ways to refer the input arguments within the function.
+On the other hand, there are different ways to refer to the input arguments within the function.
 
 1. If the input arguments have no names:
 
@@ -112,9 +105,9 @@ END;
 LANGUAGE 'plpgsql';
 ```
 
-2. With alias for the input arguments. 
+2. Using aliases for the input arguments. 
 
-If the arguments have "ugly" names or if it consfuse to use $1,$2, etc.. We can assign alias to the input arguments.
+We can assign alias to the input arguments.
 
 ```sql
 CREATE FUNCTION function_name(type,type)
@@ -129,11 +122,10 @@ END;
 LANGUAGE 'plpgsql';
 ```
 
-
 ### Variables and constants
 
 A PL/pgSQL variable holds a values that can be changed through the function. A variables is always associated to a data type.
-Before you use a variable yuo must declare it in the delcaration section with this syntax:
+Before you use a variable we must declare it in the proper section, using the following syntax:
 
 ```sql
 CREATE FUNCTION function_name(argument1 type,argument2 type)
@@ -146,7 +138,7 @@ END;
 LANGUAGE language_name;
 ```
 
-The constants can't be changed through the function. It is declared in a very similar way than variables.
+Constants can't be changed through the function. It is declared in a very similar way than variables.
 
 ```sql
 CREATE FUNCTION function_name(argument1 type,argument2 type)
@@ -159,130 +151,9 @@ END;
 LANGUAGE language_name;
 ```
 
-### Errors and messages
+## Functions that doesn't return any row
 
-To raise a message, you use the ``RAISE`` statement: ```RAISE level format;``` the ``level`` option specifies the error severity. There are the following levels:
-
-* DEBUG
-* LOG
-* NOTICE
-* INFO
-* WARNING
-* EXCEPTION
-
-For example:
-
-```sql
-  RAISE INFO 'information message %', now() ;
-  RAISE LOG 'log message %', now();
-  RAISE DEBUG 'debug message %', now();
-  RAISE WARNING 'warning message %', now();
-  RAISE NOTICE 'notice message %', now();
-```
-
-However, the only error that would raise in the CartoDB Editor is RAISE EXCEPTION. 
-
-For example:
-
-```sql
-CREATE OR REPLACE FUNCTION sum_n_product3(IN x int,IN y int, OUT sum int, OUT prod int) AS $$
-BEGIN
-    IF x < 2 THEN
-      RAISE EXCEPTION 'information message %', now();
-    END IF;  
-    sum := x + y;
-    prod := x * y;
-END;
-$$ LANGUAGE plpgsql
-```
-
-If we call this function wihtin the CartoDB Editor, we will get the message of the RAISE EXCEPTION.
-
-On the other hand, the message errors RAISE NOTICE, RAISE WARNING and RAISE INFO only will appear if you use the SQL API outsite the editor. If we modify the previous function to add those error messages:
-
-```sql
-CREATE OR REPLACE FUNCTION sum_n_product3(IN x int,IN y int, OUT sum int, OUT prod int) AS $$
-BEGIN
-    IF x < 2 THEN
-      RAISE WARNING 'information message %', now();
-      RAISE NOTICE 'information message %', now();
-      RAISE INFO 'information message %', now();
-    END IF;  
-    sum := x + y;
-    prod := x * y;
-END;
-$$ LANGUAGE plpgsql
-```
-And then we call the function using the SQL API as a URL:
-
-```https://oboix.cartodb.com/api/v2/sql?q=SELECT * FROM sum_n_product3(1,2)&api_key=API_KEY```
-
-We get the next response with the three error messages:
-
-```json
-{
-  rows: [
-    {
-      sum: 3,
-      prod: 2
-    }
-  ],
-  time: 0.001,
-  fields: {
-    sum: {
-      type: "number"
-    },
-    prod: {
-      type: "number"
-    }
-  },
-  total_rows: 1,
-  warnings: [
-    "information message 2016-06-08 09:43:33.923025+00"
-  ],
-  notices: [
-    "information message 2016-06-08 09:43:33.923025+00"
-  ],
-  infos: [
-    "information message 2016-06-08 09:43:33.923025+00"
-  ]
-}
-```
-The error RAISE LOG and RAISE DEBUG error messages are not returned in the client side, that's because those messages are not showed to the client by default, they are
-displayed in the server side. The configuration of these error messages are controlled by the client_min_messages and log_min_messages configuration parameters. (more information [here](https://www.postgresql.org/docs/9.5/static/runtime-config-logging.html))
-
-If the level is not specified, the defaults level will be ``EXCEPTION`` that raises an error and stops the current transaction. 
-
-A transaction is a unit of work that is performed against a database. Transactions are units or sequences of work accomplished in a logical order, whether in a manual fashion by a user or automatically by some sort of a database program. A transaction is the propagation of one or more changes to the database. 
-For example, if you are creating or updating or deleting a record from the table, then you are performing transaction on the table. It is important to control transactions to ensure data integrity and to handle database errors.
-
-
-## Dynamic PL/pgSQL functions
-
-In order to write dynamic PL/pgSQL queries the ``EXECUTE 'sql';`` is used. The ``EXECUTE`` coommand it is used to generate dynamic commands inside the PL/pgSQL function. EXECUTE command it is used when the function involves different tables or different data types each time that the function is executed.
-
-Syntax of EXECUTE command:
-
-```sql
-EXECUTE command-string [ INTO [STRICT] target ] [ USING expression [, ... ] ];
-```
-
-1. ``command-string`` is an expression that contains que query to be executed.
-2. The ``target`` statement is optional. Is a record variable, row variable or a comma-separated list of simple variables and record/row fields, into which the results of the command will be stored.
-3. The ``using`` statement is optional. Supply values to be inserted into the command.
-
-Features:
-
-* There is no plan caching for commands executed via EXECUTE. The command is always planned each time the statements are running.
-* Any required variable values must be inserted in the command string as it is constructed.
-* The INTO clause specifies where the results of a SQL command returning rows should be assigned. If a row or variable list is provided, it must exactly match the structure of the query's results (when a record variable is used, it will configure itself to match the result structure automatically). If multiple rows are returned, only the first will be assigned to the INTO variable. If no rows are returned, NULL is assigned to the INTO variable(s). If no INTO clause is specified, the query results are discarded.
-* If the STRICT option is given, an error is reported unless the query produces exactly one row.
-
-For more information and examples look at [this section](http://www.postgresql.org/docs/current/static/plpgsql-statements.html#PLPGSQL-STATEMENTS-EXECUTING-DYN) of the PostgreSQL documentation.
-
-## Functions that doesn't return rows(insert/update/delete)
-
-If we create a function that don't return any row, but does an UPDATE, INSERT or DELETE operation instead, we have to set the ``RETURNS TYPE`` as ``RETURNS void`` and the write the function
+If we create a function that doesn't return any row, but performs a writing operation, such as an `UPDATE`, `INSERT` or `DELETE`, we need to set the `RETURNS TYPE` statement as `RETURNS void`
 
 For example:
 
@@ -293,37 +164,11 @@ CREATE OR REPLACE FUNCTION logfunc1(logtxt text) RETURNS void AS $$
     END;
 $$ LANGUAGE plpgsql
 ```
-We can call this function with ``SELECT * FROM logfunc1('someCoolWord')`` or ``SELECT logfunc1('coolestWordEver')``  and postgreSQL qill return no rows, but if you go to your table you will see that there is a new row with values in the description and currentime columns.
-
-You can apply the RETURNS void to UPDATE OR DELETE a row.
-
-for example, this function when it's called updates the the description column that has the cartodb_id that you put as an argument:
-
-```sql
-CREATE OR REPLACE FUNCTION upfunc(logtxt text, id numeric) RETURNS void AS $$
-    BEGIN
-        UPDATE coooltable
-		    SET description = logtxt
-		    WHERE cartodb_id = id;
-    END;
-$$ LANGUAGE plpgsql
-```
-
-And in this other example, the function will delete the row that have the cartodb_id that you put as an input.
-
-```sql
-CREATE OR REPLACE FUNCTION delfunc(id numeric) RETURNS void AS $$
-    BEGIN
-      DELETE FROM coooltable
-		  WHERE cartodb_id = id;
-    END;
-$$ LANGUAGE plpgsql
-```
+We could call this function with `SELECT logfunc1('coolestWordEver')` and postgreSQL will return no rows, but if you go to your table you will see that there is a new row with values in `description` and `currentime` columns.
 
 ## Function that returns a table
 
-To return a table from a PL/pgSQL function, we have to set ``RETURNS TABLE (column1 type, column2 type, etc)`` where column1, column2 are the names of the columns of the putput table.
-The rest of the function is like a usual function.
+To return a table from a PL/pgSQL function, we have to set `RETURNS TABLE (column1 type, column2 type, etc)` where `column1`, `column2` are the names of the columns that will be returned.
 
 This example returns a frequency table from a specific column and specific table:
 
@@ -350,7 +195,7 @@ END;
 $$ LANGUAGE 'plpgsql'
 ```
 
-Or, you can modify the function to return a frequency table with a dynamic function:
+We could also modify the function to return a frequency table with a dynamic function:
 
 ```sql
 CREATE OR REPLACE FUNCTION get_freq_table_general(col VARCHAR, tablName VARCHAR)
@@ -375,7 +220,7 @@ END;
 $$ LANGUAGE 'plpgsql'
 ```
 
-## Function with Security Definer
+## Functions with Security Definer
 
 In order to allow `publicuser` to perform writing operations such as `INSERT` or `UPDATE` queries, we need to define those actions inside a stored procedure. That function will afterwards be granted execution permission, so it will run with the same permission as the account owner. 
 
@@ -414,7 +259,7 @@ RETURN QUERY EXECUTE sql;
 END;
 $$;
 ```
-[More info](https://gist.github.com/ernesmb/beb25f539f8ff38bbd891e6d114ea7f4)
+**[Click here](https://gist.github.com/ernesmb/beb25f539f8ff38bbd891e6d114ea7f4)** to find more detailed instructions for creating a Security Definer function that allows to collect points from a public map in a secure way
 
 ## Trigger functions
 
@@ -422,7 +267,7 @@ The trigger functions have three main properties:
 
 1. They are immutable
 2. The ``RETURNS`` statement returns a trigger type
-3. Don't take input arguments
+3. They don't take any input argument
 
 The trigger functions can be defines in two setps:
 
@@ -453,9 +298,9 @@ PROCEDURE tr_function();
 
 Where:
 
-* BEFORE (or AFTER): define **when** the trigger function will be activate (before or after the INSERT operation)
-* FOR EACH ROW: the operation of the trigger function is executed for each row.
-* FOR EACH STATEMENT: the operation of the trigger function is executed for each statement.
+* BEFORE (or AFTER): define **when** the trigger function will be activated (before or after the `INSERT` operation)
+* FOR EACH ROW: the operation of the trigger function is executed once for each row.
+* FOR EACH STATEMENT: the operation of the trigger function is executed once for each statement.
 
 
 If we want to remove our triggers:
@@ -481,7 +326,7 @@ IF condition THEN
   statement;
 END IF;  
 ```
-The condition is a boolean expression that evaluates to true or false, the statement only will be executed if the condition is true.
+The condition is a boolean expression that has to be evaluated as `true` or `false`, the statement will only be executed if the condition is `true`.
 
 2. IF THEN/ELSE
 ```sql
@@ -491,8 +336,7 @@ ELSE
   alternative-statements;
 END IF;
 ```
-The ``IF THEN/ELSE`` statement executes a command when the condition is true and it executes an alternative command when the condition is false.
-
+The ``IF THEN/ELSE`` statement executes a command when the condition is `true` and it executes an alternative command when the condition is `false`.
 
 3. IF THEN/ ELSIF THEN/ELSE
 
@@ -508,11 +352,11 @@ ELSE
   else-statement;
 END IF;
 ```
-The ``IF THEN/ ELSIF THEN/ELSE`` statement allows you to have multiple conditions no evaluate. In case one condition is true, PostgreSQL will stop evaluating the underneath conditions.
+The ``IF THEN/ ELSIF THEN/ELSE`` statement allows you to have multiple conditions to evaluate. In case one condition is `true`, PostgreSQL will stop evaluating the underneath conditions.
 
 ### CASE statement
 
-It is a similar to ``IF`` statement, but  the ``CASE`` statement allows you to execute statements based on conditions. There are two ways to applyt the ``CASE`` statement.
+This is similar to ``IF`` statement, but  the ``CASE`` operator allows you to execute statements based on conditions. There are two ways to apply a ``CASE``.
 
 1. Simple CASE statement
 ```sql
@@ -524,7 +368,7 @@ CASE search-expression
       else-statements ]
 END CASE;
 ```
-The search-expression is an expression that will evaluate with the expression in each WHEN branch using equality operand ( =). If a match found found, the when-statements in the corresponding WHEN branch are executed. The subsequent expressions underneath will not be evaluated.
+The search-expression is an expression that will be evaluated against the expression in each `WHEN` branch using equality operand (`=`). If a match is found, the `when-statements` in the corresponding `WHEN` branch are executed. The subsequent expressions underneath will not be evaluated.
 
 Example:
 
@@ -570,12 +414,11 @@ CASE
 END CASE;
 ```
 
-The searched CASE statement executes statements based on the result of Boolean expressions in each WHEN clause.
+The searched `CASE` statement executes statements based on the result of Boolean expressions in each `WHEN` clause.
 
 ### LOOP statement
 
-
-It is used to execute a block of statements repeatedly until a condition becomes true. The basic syntax is:
+This is used to execute a block of statements repeatedly until a condition becomes true. The basic syntax is:
 
 ```sql
 LOOP
@@ -610,19 +453,19 @@ END ;
 $$ LANGUAGE plpgsql;
 ```
 
-The Fibonacci function accepts an integer and returns the nth Fibonacci number. By definition, Fibonacci numbers are sequence of integers starting with 0 and 1, and each subsequent number is the product the previous two numbers, for example 1, 1, 2 (1+1), 3 (2+1), 5 (3 +2), 8 (5+3), …
+The Fibonacci function accepts an integer and returns the Nth Fibonacci number. By definition, Fibonacci numbers are sequence of integers starting with 0 and 1, and each subsequent number is the product the previous two numbers, for example 1, 1, 2 (1+1), 3 (2+1), 5 (3 +2), 8 (5+3), …
 
-In the declaration section, the counter variable is initialized to zero (0). Inside the loop, when counter equals n, the loop exits. The statement:
+In the declaration section, the counter variable is initialized to zero (0). Inside the loop, when counter equals `n`, the loop exits. The statement:
 
 ```sql
 SELECT j, i + j INTO i, j ;
 ```
 
-Swaps i and j at the same time without using a temporary variable.
+Swaps `i` and `j` at the same time without using a temporary variable.
 
 #### While loops
 
-The WHILE loop statement executes a block of statements until a condition evaluates to false. In the WHILE loop statement, PostgreSQL evaluates the condition before executing the block of statements. If the condition is true, the block of statements is executed until it is evaluated to false.
+The `WHILE` loop statement executes a block of statements until a condition evaluates to false. In the `WHILE` loop statement, PostgreSQL evaluates the condition before executing the block of statements. If the condition is `true`, the block of statements is executed until it is evaluated to false.
 
 
 ```sql
@@ -648,21 +491,21 @@ END ;
 ```
 #### FOR loops
 
-* FOR loop for looping through a ranges of integers
+* `FOR` loop for looping through a ranges of integers
 ```sql
 FOR loop_counter IN [ REVERSE ] from.. to [ BY expression ] LOOP
     statements
 END LOOP [ label ];
 ```
 
-First, PostgreSQL creates a integer variable loop_counter that exists only inside the loop. By default, the loop counter is added after each iteration, If you use the REVERSE keyword, PostgreSQL will subtract the loop counter.
+First, PostgreSQL creates a integer variable `loop_counter` that exists only inside the loop. By default, the loop counter is added after each iteration, If you use the `REVERSE` keyword, PostgreSQL will subtract the loop counter.
 
-Second, the from and to are expressions that specify the lower and upper bound of the range. PostgreSQL evaluates those expressions before entering the loop.
+Second, the `FROM` and `TO` are expressions that specify the lower and upper bounds of the range. PostgreSQL evaluates those expressions before entering the loop.
 
-Third, the expression following the BY clause specifies the iteration step. If you omit this, the default step is 1. PostgreSQL also evaluates this expression once on loop entry
+Third, the expression following the `BY` clause specifies the iteration step. If you omit this, the default step is 1. PostgreSQL also evaluates this expression once on loop entry
 
 
-*  FOR loop for looping through a query result
+*  `FOR` loop for looping through a query result
 
 ```sql
 FOR target IN query LOOP
@@ -670,7 +513,7 @@ FOR target IN query LOOP
 END LOOP [ label ];
 ```
 
-* FOR loop for looping through a query result of a dynamic query
+* `FOR` loop for looping through a query result of a dynamic query
 
 ```sql
 FOR row IN EXECUTE string_expression [ USING query_param [, ... ] ] 
@@ -679,19 +522,9 @@ LOOP
 END LOOP [ label ];
 ```
 
-Instead of a SQL statement, you use a string expression that is a SQL statement in text format. This allows you to construct the query dynamically.
-
-In case the query has parameters, you use the USING statement to pass the parameter to the query.
-
-The following function demonstrates how to use the FOR loop statement to loop through a dynamic query. It accepts two parameters:
-
-  * sort_type: 1 means sort the query result by title, 2 means sort the result by release year.
-  * n: the number of rows to query from the film table. Notice that it will be used in the USING clause.
-
-
 ## Pl/pgSQL and PostGIS
 
-It is possible to create Pl/pgSQL functions with PostGIS to predefine a process to modify the geometries of some data. For example, based on [this
+It's possible to create Pl/pgSQL functions with PostGIS to predefine a process to modify the geometries of some data. For example, based on [this
 example](https://selectoid.wordpress.com/2008/12/22/developing-fun-st_staratpoint-for-postgis/) that creates star polygons from points (read it !! it's detailed and fun), we can create a function like this one:
 
 ```sql
@@ -749,7 +582,7 @@ END;
 $$ LANGUAGE plpgsql;
 ```
 
-The ``regularPolygons()`` functions take three input arguments: the points that you want to use as a center of the output polygons, the length of the radius and the number of sides of the output polygon.
+The ``regularPolygons()`` function takes three input arguments: the points that you want to use as a center of the output polygons, length of the radius and number of sides of the output polygon.
 
 Using this function like this
 
@@ -763,6 +596,9 @@ SELECT regularPolygons(the_geom,100000,3), adm0_a3 from populated_places_spf WHE
 
 We can create a different way to classify our point data like in [this example](https://team.cartodb.com/u/oboix/viz/63e74f10-27d7-11e6-bad6-0e3ff518bd15/public_map).
 
+
+## Exercise
+### Create a function that inserts
 
 ## Further reading  
 

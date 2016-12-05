@@ -1,5 +1,6 @@
 # MAPS API GUIDE
 
+## Contents
 <!-- MarkdownTOC -->
 
 - Introduction

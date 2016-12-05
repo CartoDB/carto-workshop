@@ -5,7 +5,27 @@
 
 ## Continent
 
-+ Select Africa
++ Import carto file into your account.
++ Open the map
++ Rename your map as "Vintage Africa Map".
++ Order and rename your layers as follows:
+  1. `ne_50m_admin_0_countries` > "Countries"
+  2. `continent` > "Continent"
+  3. `ne_50m_ocean` > "Ocean"
++ Select Africa:
+  1. Click on `ADD ANALYSIS` just below "Continent" layer name
+  2. Select "Filter by column value"
+  3. Click on `ADD ANALYSIS`
+  4. Set parameters as folows:
+    * COLUMN: `continent`
+    * INPUT: `Africa`
+    * RESULT: `Show`
+  5. Click on `APPLY`
+
+<br>
+![filter by column value](/img/filtercolval.png)
+<br>
+
 + Add analysis > Area of Influence (100 miles, 6 buffers, intact)
 
 ```css

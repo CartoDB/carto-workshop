@@ -247,7 +247,7 @@ For this purpose, we will follow the same logic we use with the layergroupid, bu
     ```
   - You can use the same retina request for Anonymous Maps, just use the layergroup id returned when you upload the config.json.
   
-    ![retina_scrnshot](https://cloud.githubusercontent.com/assets/1779444/16201563/ff02fb18-36df-11e6-895a-054bd5f005b6.png)
+    ![retina_screenshot](https://cloud.githubusercontent.com/assets/1779444/16201563/ff02fb18-36df-11e6-895a-054bd5f005b6.png)
 
 ## Static maps
 The Static Maps API is able to generate images from instantiated maps, based on parameters passed in the URL and the layergroupid we get in the instantiation response
@@ -285,6 +285,7 @@ We can use several parameters to define the extension and resolution of an stati
     GET /api/v1/map/static/named/{name}/{width}/{height}.{format}
     ```
     - [http://USERNAME.cartodb.com/api/v1/map/static/named/world_borders/600/400.png?auth_token=mexicolindo](http://ernestomb.cartodb.com/api/v1/map/static/named/world_borders/600/400.png?auth_token=ernesto)
+    
     ![](http://ernestomb.cartodb.com/api/v1/map/static/named/world_borders/600/400.png?auth_token=ernesto)
 
 Other layers could be added to the static map, they just need to be declared in the mapConfig object we use for the instantiation. 

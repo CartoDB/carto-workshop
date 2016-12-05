@@ -66,3 +66,7 @@ Note how the CartoCSS syntax is structured and the different CartoCSS properties
 }
 ```
 
+<br>
+![style](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/style.png)
+<br>
+

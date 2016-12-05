@@ -26,7 +26,26 @@
 ![filter by column value](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/filterbycolval.png)
 <br>
 
-+ Add analysis > Area of Influence (100 miles, 6 buffers, intact)
++ Create coastal ripple effect:
+  1. Click on "+" to add a new analysis 
+  2. Select "Create  Areas of influence"
+  3. Click on `ADD ANALYSIS`
+  4. Set parameters as folows:
+    * TYPE: `Distance`
+    * UNITS: `miles`
+    * RADIUS: `100`
+    * TRACTS: `6`
+    * BOUNDARIES: `Intact`
+  5. Click on `APPLY`
+
+<br>
+![ripples](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/ripples.png)
+<br>
+
+* Style:
+  1. Go to STYLE tab
+  2. Click on `CartoCSS`
+  3. Apply this code:
 
 ```css
   line-width: ramp([data_range],0.4,1,equal);

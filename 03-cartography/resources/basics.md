@@ -56,7 +56,7 @@ The following two styles are based on the same principle, but instead of using s
   line-width: 1;
   line-color: #FFF;
   line-opacity: 0.5;
-  polygon-fill: #fcde9c; // polygon-fill less than or equal to 3178328.56452752
+  polygon-fill: #fcde9c; /* polygon-fill less than or equal to 3178328.56452752 */
 
   /* categories */
   [ pop_norm > 169360.836697335 ] {
@@ -90,7 +90,7 @@ The following two styles are based on the same principle, but instead of using s
   marker-line-width: 0.2;
   marker-line-color: #FFF;
   marker-line-opacity: 1;
-  marker-width: 1; // marker-width less than or equal to 2.5 
+  marker-width: 1; /* marker-width less than or equal to 2.5 */
 
   /* categories */
   [ pop_max > 9461 ] {
@@ -119,3 +119,5 @@ The following two styles are based on the same principle, but instead of using s
 <br>
 
 ## Torque
+
+

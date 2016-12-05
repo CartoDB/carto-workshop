@@ -10,8 +10,10 @@ Each point is categorized as `[continent="name"] {` and contains its own marker-
 
 ```css
 #layer {
+  // global
   polygon-opacity: 0.9;
 
+  // categories
   [continent="Africa"] {
     polygon-fill: #A6CEE3;
   }
@@ -46,5 +48,42 @@ Each point is categorized as `[continent="name"] {` and contains its own marker-
 ## Choropleth
 
 ## Bubbles
+
+```css
+#layer {
+  /* global */
+  marker-fill: #af5cda;
+  marker-fill-opacity: 0.5;
+  marker-allow-overlap: true;
+  marker-line-width: 0.2;
+  marker-line-color: #FFF;
+  marker-line-opacity: 1;
+  marker-width: 1; // marker-width less than or equal to 2.5
+
+  /* categories */
+  [ pop_max > 9461 ] {
+    marker-width: 2.5;
+  }
+  [ pop_max > 27200 ] {
+    marker-width: 4;
+  }
+  [ pop_max > 53800 ] {
+    marker-width: 5.5;
+  }
+  [ pop_max > 98852 ] {
+    marker-width: 7;
+  }
+  [ pop_max > 187765 ] {
+    marker-width: 8.5;
+  }
+  [ pop_max > 440006 ] {
+    marker-width: 10;
+  }
+}
+```
+
+<br>
+![bubbles](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/bubbles.png)
+<br>
 
 ## Torque

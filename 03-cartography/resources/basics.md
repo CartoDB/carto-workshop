@@ -151,6 +151,8 @@ We can see that CARTO will read this as all markers should have a width value of
 
 ## Torque
 
+Torque is an efficient, fast, and styleable rendering method to bring data to life. By using the the Torque visualizations you can animate your data directly on an interactive map. There are many CartoCSS properties, but here we will see `-torque-data-aggregation`, this can be `linear` or `cumulative`.
+
 ### Linear
 
 ```css

@@ -1,4 +1,16 @@
 # MAPS API GUIDE
+
+<!-- MarkdownTOC -->
+
+- Introduction
+- Anonymous maps
+- Named maps
+- Static maps
+- Custom API endpoints
+
+<!-- /MarkdownTOC -->
+
+
 ## Introduction
 ### General concepts
 The Maps API allows to create maps based upon SQL queries and CartoCSS rules. A certain combination of selected data and a set of CartoCSS rules produces a CartoDB layer, which can contain one or more sublayers. One or more layers produce a layergroup, which is assigned a temporal identifier called `layergroupid`.
@@ -285,7 +297,7 @@ We can use several parameters to define the extension and resolution of an stati
     GET /api/v1/map/static/named/{name}/{width}/{height}.{format}
     ```
     - [http://USERNAME.cartodb.com/api/v1/map/static/named/world_borders/600/400.png?auth_token=mexicolindo](http://ernestomb.cartodb.com/api/v1/map/static/named/world_borders/600/400.png?auth_token=ernesto)
-    
+
     ![](http://ernestomb.cartodb.com/api/v1/map/static/named/world_borders/600/400.png?auth_token=ernesto)
 
 Other layers could be added to the static map, they just need to be declared in the mapConfig object we use for the instantiation. 

@@ -5,11 +5,12 @@ Cartografía en CARTO
 
 * Principios de diseño cartográfico
 * Fundamentos de CartoCSS
-* Creación de mapas temáticos
-* Simbología condicionada por zoom
-* Torque: mapas con datos temporales
-* Turbo CARTO
-* 
+* Básicos de CartoCSS:
+  * Creación de mapas temáticos
+  * Simbología condicionada por zoom
+  * Torque: mapas con datos temporales
+* Introducción a Turbo CARTO
+* Ejercicios con Turbo CARTO
 
 
 ## Recursos

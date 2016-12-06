@@ -8,6 +8,19 @@ In the following block of code polygon opacity is applied to the overall style o
 
 Each point is categorized as `[continent="name"] {` and contains its own polygon-fill style. You do not need to preface each point with the `#layer` label.
 
+### Style continents by categories
+
+* Data Source: `continents` from DATA LIBRARY
+
+* SQL query:
+
+```sql
+SELECT 
+  * 
+FROM 
+  continents 
+```
+
 ```css
 #layer {
   /* global */
@@ -49,6 +62,24 @@ The following two styles are based on the same principle, but instead of using s
 
 ## Choropleth
 
+Choropleth maps are one of the most well known thematic maps. Especially suited to mapping densities, these maps are a great way to visualize intensity, and also to explain geographic similarities and differences.
+
+### Style countries based upon normalized population
+
+* Data Source: `world_borders` from DATA LIBRARY
+
+* SQL query:
+
+```sql
+SELECT 
+  *, 
+  pop2005/area as pop_norm 
+FROM 
+  world_borders 
+WHERE 
+  area > 0
+```
+
 ```css
 #layer {
   /* global */
@@ -80,6 +111,21 @@ The following two styles are based on the same principle, but instead of using s
 <br>
 
 ## Bubbles
+
+Bubble, or ‘graduated point symbol’ maps are another approach to mapping data on a numerical range, and work really well when visualising geographic differences in absolute value, such as the total number of people that live in cities.
+
+### Style cities based upon number of inhabitants
+
+* Data Source: `ne_10m_populated_places_simple` from DATA LIBRARY
+
+* SQL query:
+
+```sql
+SELECT 
+  * 
+FROM 
+  ne_10m_populated_places_simple
+```
 
 ```css
 #layer {
@@ -118,8 +164,6 @@ The following two styles are based on the same principle, but instead of using s
 ![bubbles](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/bubbles.png)
 <br>
 
-## Torque
-
 ## Zoom-Based Styling
 
 The first tool we will look at is zoom-based styling. Zoom-based styling refers to the ability to change what is displayed on a map, or how it is visualized, based on the zoom-level. Let’s start by looking at [Stamen’s map tiles](http://maps.stamen.com/#terrain/12/37.7706/-122.3782). As you zoom in and out, you can notice that some features or data (like streets, buildings, or waterways) appear or fade away. While there is a ton of data in the map, it is simplified when you’re zoomed out, and made more complex at closer scales, when a viewer is able to process more data. The map never becomes overly complex, but also manages to provide a very data-rich view of a city.
@@ -131,6 +175,19 @@ The first tool we will look at is zoom-based styling. Zoom-based styling refers 
 Before we start making changes based on our zoom level, it’s important to note that online maps using [Mapnik](http://mapnik.org/) to build the map visualization will default to having marker widths stay the same, regardless of the level of zoom. In order to style your maps based on zoom level in these online maps (including CARTO, OpenStreetMap and MapBox), we’ll be using CartoCSS, which we started learning about in our last lesson.
 
 To start working with zoom-based styling, let’s go back to the Simple visualization, and reduce the marker size to around 3 so that we can see more of our data points. In the CartoCSS window, we’ll add some new styling so that at different zooms, the size of the marker gets bigger. Here, we want the markers to get bigger the more zoomed in we are. We want to tell CARTO that if the zoom is equal to a certain level, the marker-width should be larger than the original 3. We could also tell CARTO to change marker width at all zoom levels larger than a specified level. Take a look at the last three lines of our code block here.
+
+### Style dots based upon zoom level
+
+* Data Source: `ne_10m_populated_places_simple` from DATA LIBRARY
+
+* SQL query:
+
+```sql
+SELECT 
+  * 
+FROM 
+  ne_10m_populated_places_simple
+```
 
 ```css
 #layer{
@@ -150,3 +207,88 @@ To start working with zoom-based styling, let’s go back to the Simple visualiz
 ```
 
 We can see that CARTO will read this as all markers should have a width value of 3. If the zoom equals 4, the marker width value should be 6. If the zoom equals 5, the marker width value should be 12. Finally, if the zoom is larger than 5, the marker width value should be 16. This means that as we zoom in, the markers become bigger. [Go ahead and play around with this](https://team.carto.com/u/ramirocartodb/builder/33e2696c-badf-11e6-80bd-0ee66e2c9693/embed) to see what kinds of visualizations you can make based on zoom.
+
+## Torque
+
+Torque is an efficient, fast, and styleable rendering method to bring data to life. By using the the Torque visualizations you can animate your data directly on an interactive map. There are many CartoCSS properties, but here we will see `-torque-data-aggregation`, this can be `linear` or `cumulative`.
+
+### Animate railroad accidents
+
+* Data Source: `dot_rail_safety_data_1` from [`builder-demo` account](https://team.carto.com/u/ramirocartodb/tables/builder-demo.dot_rail_safety_data_1/public/map?redirected=true)
+* SQL query:
+
+```sql
+SELECT 
+  * 
+FROM 
+  dot_rail_safety_data_1 
+```
+
+#### Linear
+
+```css
+Map {
+  -torque-frame-count: 256;
+  -torque-animation-duration: 30;
+  -torque-time-attribute: "date";
+  -torque-aggregation-function: "count(1)";
+  -torque-resolution: 4;
+  -torque-data-aggregation: linear;
+}
+#layer {
+  marker-width: 7;
+  marker-fill: #FFB927;
+  marker-fill-opacity: 0.9;
+  marker-line-width: 1;
+  marker-line-color: #FFF;
+  marker-line-opacity: 1;
+  comp-op: lighter;
+}
+#layer[frame-offset=1] {
+  marker-width: 9;
+  marker-fill-opacity: 0.45;
+}
+#layer[frame-offset=2] {
+  marker-width: 11;
+  marker-fill-opacity: 0.225;
+}
+```
+
+<br>
+![linear](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/linear.png)
+<br>
+
+#### Cumulative
+
+```css
+Map {
+  -torque-frame-count: 256;
+  -torque-animation-duration: 30;
+  -torque-time-attribute: "date";
+  -torque-aggregation-function: "count(1)";
+  -torque-resolution: 4;
+  -torque-data-aggregation: cumulative;
+}
+#layer {
+  marker-width: 7;
+  marker-fill: #FFB927;
+  marker-fill-opacity: 0.9;
+  marker-line-width: 1;
+  marker-line-color: #FFF;
+  marker-line-opacity: 1;
+  comp-op: lighter;
+}
+#layer[frame-offset=1] {
+  marker-width: 9;
+  marker-fill-opacity: 0.45;
+}
+#layer[frame-offset=2] {
+  marker-width: 11;
+  marker-fill-opacity: 0.225;
+}
+```
+
+<br>
+![cumulative](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/cumulative.png)
+<br>
+

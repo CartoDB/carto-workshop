@@ -15,10 +15,10 @@ Each point is categorized as `[continent="name"] {` and contains its own polygon
 * SQL query:
 
 ```sql
-SELECT 
-  * 
-FROM 
-  continents 
+SELECT
+  *
+FROM
+  continents
 ```
 
 ```css
@@ -71,12 +71,12 @@ Choropleth maps are one of the most well known thematic maps. Especially suited 
 * SQL query:
 
 ```sql
-SELECT 
-  *, 
-  pop2005/area as pop_norm 
-FROM 
-  world_borders 
-WHERE 
+SELECT
+  *,
+  pop2005/area as pop_norm
+FROM
+  world_borders
+WHERE
   area > 0
 ```
 
@@ -90,16 +90,16 @@ WHERE
   polygon-fill: #fcde9c; /* polygon-fill less than or equal to 3178328.56452752 */
 
   /* categories */
-  [ pop_norm > 169360.836697335 ] {
+  [ pop_norm > 169360 ] {
     polygon-fill: #f58670;
   }
-  [ pop_norm > 540892.19330855 ] {
+  [ pop_norm > 540892 ] {
     polygon-fill: #e34f6f;
   }
-  [ pop_norm > 952277.445247449 ] {
+  [ pop_norm > 952277 ] {
     polygon-fill: #d72d7c;
   }
-  [ pop_norm > 3178328.56452752 ] {
+  [ pop_norm > 3178328 ] {
     polygon-fill: #7c1d6f;
   }
 
@@ -121,9 +121,9 @@ Bubble, or ‘graduated point symbol’ maps are another approach to mapping dat
 * SQL query:
 
 ```sql
-SELECT 
-  * 
-FROM 
+SELECT
+  *
+FROM
   ne_10m_populated_places_simple
 ```
 
@@ -166,13 +166,13 @@ FROM
 
 ## Zoom-Based Styling
 
-The first tool we will look at is zoom-based styling. Zoom-based styling refers to the ability to change what is displayed on a map, or how it is visualized, based on the zoom-level. Let’s start by looking at [Stamen’s map tiles](http://maps.stamen.com/#terrain/12/37.7706/-122.3782). As you zoom in and out, you can notice that some features or data (like streets, buildings, or waterways) appear or fade away. While there is a ton of data in the map, it is simplified when you’re zoomed out, and made more complex at closer scales, when a viewer is able to process more data. The map never becomes overly complex, but also manages to provide a very data-rich view of a city.
+Zoom-based styling refers to the ability to change what is displayed on a map, or how it is visualized, based on the zoom-level. Let’s start by looking at [Stamen’s map tiles](http://maps.stamen.com/#terrain/12/37.7706/-122.3782). As you zoom in and out, you can notice that some features or data (like streets, buildings, or waterways) appear or fade away. While there is a ton of data in the map, it is simplified when you’re zoomed out, and made more complex at closer scales, when a viewer is able to process more data. The map never becomes overly complex, but also manages to provide a very data-rich view of a city.
 
 <br>
 ![stamen](https://carto.com/academy/img/course2/lesson3/stamen.2c358963.gif)
 <br>
 
-Before we start making changes based on our zoom level, it’s important to note that online maps using [Mapnik](http://mapnik.org/) to build the map visualization will default to having marker widths stay the same, regardless of the level of zoom. In order to style your maps based on zoom level in these online maps (including CARTO, OpenStreetMap and MapBox), we’ll be using CartoCSS, which we started learning about in our last lesson.
+Before we start making changes based on our zoom level, it’s important to note that online maps using [Mapnik](http://mapnik.org/) to build the map visualization will default to having marker widths stay the same, regardless of the level of zoom.
 
 To start working with zoom-based styling, let’s go back to the Simple visualization, and reduce the marker size to around 3 so that we can see more of our data points. In the CartoCSS window, we’ll add some new styling so that at different zooms, the size of the marker gets bigger. Here, we want the markers to get bigger the more zoomed in we are. We want to tell CARTO that if the zoom is equal to a certain level, the marker-width should be larger than the original 3. We could also tell CARTO to change marker width at all zoom levels larger than a specified level. Take a look at the last three lines of our code block here.
 
@@ -183,9 +183,9 @@ To start working with zoom-based styling, let’s go back to the Simple visualiz
 * SQL query:
 
 ```sql
-SELECT 
-  * 
-FROM 
+SELECT
+  *
+FROM
   ne_10m_populated_places_simple
 ```
 
@@ -218,10 +218,10 @@ Torque is an efficient, fast, and styleable rendering method to bring data to li
 * SQL query:
 
 ```sql
-SELECT 
-  * 
-FROM 
-  dot_rail_safety_data_1 
+SELECT
+  *
+FROM
+  dot_rail_safety_data_1
 ```
 
 #### Linear

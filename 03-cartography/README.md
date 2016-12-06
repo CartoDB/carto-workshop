@@ -22,3 +22,8 @@ Cartografía en CARTO
 * [Ejercicio: taller de Turbo CARTO](http://bit.ly/turboviewer-cartosummit)
 * [Ejercicio: mapa vintage de África](exercises/africa.md)
 
+Adicionalmente estas lecciones sobre uso del color son muy interesantes:
+
+* [Colores, primera parte](https://carto.com/academy/courses/intermediate-design/choose-colors-1/)
+* [Colores, segunda parte](https://carto.com/academy/courses/intermediate-design/choose-colors-2/)
+* [Operaciones de composición](https://carto.com/academy/courses/intermediate-design/use-composite-operations/)

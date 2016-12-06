@@ -1,9 +1,11 @@
 Capacitación Ciudad de México
 =====================================
 
+<p style="font-family: monospace;font-size: larger;text-align: center;">http://bit.ly/1612-cdmx-carto</p>
+
 Este repositorio contiene todos los materiales y enlaces para la capacitación para el personal de Ciudad de México a realizar entre el 5 y 9 de Diciembre de 2016.
 
-Titanpad: https://titanpad.com/IisAYq74hd
+Block de notas compartido: https://titanpad.com/IisAYq74hd
 
 Facilitador: Jorge Sanz · jsanz@carto.com
 

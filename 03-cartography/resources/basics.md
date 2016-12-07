@@ -87,19 +87,19 @@ WHERE
   line-width: 1;
   line-color: #FFF;
   line-opacity: 0.5;
-  polygon-fill: #fcde9c; /* polygon-fill less than or equal to 3178328.56452752 */
+  polygon-fill: #fcde9c; 
 
   /* categories */
-  [ pop_norm > 169360 ] {
+  [ pop_norm > 190.0 ] {
     polygon-fill: #f58670;
   }
-  [ pop_norm > 540892 ] {
+  [ pop_norm > 650 ] {
     polygon-fill: #e34f6f;
   }
-  [ pop_norm > 952277 ] {
+  [ pop_norm > 1401 ] {
     polygon-fill: #d72d7c;
   }
-  [ pop_norm > 3178328 ] {
+  [ pop_norm > 4500 ] {
     polygon-fill: #7c1d6f;
   }
 

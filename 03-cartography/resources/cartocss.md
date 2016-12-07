@@ -133,7 +133,6 @@ Suppose you have a point symbol and want to put a glowing halo around it. You ne
 ```css
 /* bottom layer of symbol */
 #layer::halo {
-  ::halo {
     marker-width: 20;
     marker-fill: teal;
     marker-fill-opacity: 1;

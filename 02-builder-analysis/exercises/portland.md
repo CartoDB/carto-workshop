@@ -6,7 +6,7 @@
   * Analysis: Cluster Analysis, Weight Centroid Analysis, Area of influence analysis and Filter Points in polygons analysis.
   * Widgets: Formula widget and histogram widget.
 * *Datasests needed*:
-  * Customer locations dataset **``customer_home_locations``** from [Sales Territories (Portland) Demo](https://team.carto.com/u/builder-demo/viz/39fd43f3-3d3b-4b71-8c13-895305ccc2b8/public_map).
+  * Customer locations dataset **``customer_home_locations``** from [Sales Territories (Portland) Demo](https://team.carto.com/u/builder-demo/tables/customer_home_locations/public).
 
 <!-- MarkdownTOC -->
 

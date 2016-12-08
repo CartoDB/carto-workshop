@@ -56,7 +56,7 @@ Units for sizes are in pixels unless stated differenetly. Check the documentatio
 ```
 
 <br>
-![style](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/style.png)
+![style](exercises/img/style.png)
 <br>
 
 ## CartoCSS variables
@@ -81,7 +81,7 @@ Apply the `@` symbol to lists of all the color values for your categories. The C
 ```
 
 <br>
-![variables](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/variables.png)
+![variables](exercises/img/variables.png)
 <br>
 
 *Note*: using CartoCSS variables inside Turbo CARTO ramp funcions is not supported at the moment.
@@ -117,7 +117,7 @@ In the following example, there are user comments entered in the marker-line-col
 ```
 
 <br>
-![comments](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/comments.png)
+![comments](exercises/img/comments.png)
 <br>
 
 
@@ -162,7 +162,7 @@ Suppose you have a point symbol and want to put a glowing halo around it. You ne
 * The default, top layer describes the style elements that you are applying to the point
 
 <br>
-![multiple](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/multiple.png)
+![multiple](exercises/img/multiple.png)
 <br>
 
 *Note*: Similar to how map layers are rendered, symbolizers are rendered from bottom to top. To see an example, view this live map which is using [multiple symbolizers](https://mamataakella.carto.com/builder/36cb22c8-3334-11e6-ad49-0ecfd53eb7d3/embed) applied to point styles.
@@ -186,7 +186,7 @@ For instance, all the lines within this code are the same:
 ```
 
 <br>
-![yellow](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/yellow.png)
+![yellow](exercises/img/yellow.png)
 <br>
 
 *Note*: Using hsl [(hue, saturation, lightness)](http://mothereffinghsl.com/) color values are often easier than rgb()values. CARTO also includes several color functions [borrowed from Less, a CSS pre-processor](http://lesscss.org/#-color-functions):
@@ -226,7 +226,7 @@ Each of above examples uses color variables, literal colors, or is the result of
 ```
 
 <br>
-![lighten](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/lighten.png)
+![lighten](exercises/img/lighten.png)
 <br>
 
 ## Composite operations
@@ -268,7 +268,7 @@ text-comp-op: screen;
 ```
 
 <br>
-![multiply](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/multiply.png)
+![multiply](exercises/img/multiply.png)
 <br>
 
 ## CartoCSS Best Practices

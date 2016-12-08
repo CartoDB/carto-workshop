@@ -55,7 +55,7 @@ FROM
 ```
 
 <br>
-![category](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/category.png)
+![category](exercises/img/category.png)
 <br>
 
 The following two styles are based on the same principle, but instead of using string fields, choropleth and bubbles styles use numeric ones.
@@ -107,7 +107,7 @@ WHERE
 ```
 
 <br>
-![choropleth](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/choropleth.png)
+![choropleth](exercises/img/choropleth.png)
 <br>
 
 ## Bubbles
@@ -161,7 +161,7 @@ FROM
 ```
 
 <br>
-![bubbles](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/bubbles.png)
+![bubbles](exercises/img/bubbles.png)
 <br>
 
 ## Zoom-Based Styling
@@ -255,7 +255,7 @@ Map {
 ```
 
 <br>
-![linear](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/linear.png)
+![linear](exercises/img/linear.png)
 <br>
 
 #### Cumulative
@@ -289,6 +289,6 @@ Map {
 ```
 
 <br>
-![cumulative](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/cumulative.png)
+![cumulative](exercises/img/cumulative.png)
 <br>
 

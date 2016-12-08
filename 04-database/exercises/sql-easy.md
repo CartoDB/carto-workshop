@@ -1,9 +1,11 @@
 
 #  Simple SQL operations
 
-Before starting to make maps it's a good idea to introduce you to a bit of the query language we use to render our maps. SQL is a language widely used to query relational databases and actually a powerful tool to analyze your data.
+When doing maps it's a good idea to introduce you to a bit of the query language we use to render our maps. SQL is a language widely used to query relational databases and actually a powerful tool to analyze your data.
 
 CARTO allows you to interact with your datasets using the interface so you can filter, order and modify your data values directly from BUILDER. Sometimes it will be useful to use the SQL tray to perform more advanced tasks like formatting your data joining different tables.
+
+This section will cover the basics of SQL and is meant to be exercised using the CARTO dataset view SQL tray where you can run queries and see the results immediately. If you don't have it yet, import from CARTO Data Library the `ne_10m_populated_places_simple` and `world_borders`datasets so you can follow all these queries.
 
 ## Contents
 
@@ -39,14 +41,13 @@ SELECT *
 Sometimes we don't need all the columns of a table so we can select just some of them by putting their names. This is specially useful when you have big tables. Note also that we can change the name of the columns using aliases.
 
 ```sql
-     SELECT
-            cartodb_id,
+  SELECT cartodb_id,
     name AS city,
 adm1name AS region,
 adm0name AS country,
-            pop_max,
-            pop_min
-       FROM ne_10m_populated_places_simple
+        pop_max,
+        pop_min
+   FROM ne_10m_populated_places_simple
 ```
 
 ## Selecting distinct values

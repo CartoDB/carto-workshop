@@ -1,7 +1,7 @@
 
 # Spatial SQL  <a name="postgis"></a>
 
-On this section you'll have the chance to test some of the most common [PostGIS](http://postgis.net/docs/reference.html) SQL procedures. To follow this section you only need to open a browser pointing to this url: [http://bl.ocks.org/jsanz/raw/fcb8394e084919a4135188b7c30504ad/](http://bl.ocks.org/jsanz/raw/fcb8394e084919a4135188b7c30504ad/) and change the Maps API entry point to `http://carto-workshops.carto.com/api/v1/map`.
+On this section you'll have the chance to test some of the most common [PostGIS](http://postgis.net/docs/reference.html) SQL procedures. To follow this section you only need to open a browser pointing to this url: [http://bl.ocks.org/jsanz/raw/fcb8394e084919a4135188b7c30504ad/](http://bl.ocks.org/jsanz/raw/fcb8394e084919a4135188b7c30504ad/) and change the Maps API entry point to `http://carto-workshops.carto.com/api/v1/map`. Alternatively, you can load the datasets listed below from CARTO Data Library into your account and use BUILDER SQL tray to experiment.
 
 ![](imgs/sql-block.png)
 
@@ -60,11 +60,17 @@ _Source: [Boundless Postgis intro](http://workshops.boundlessgeo.com/postgis-int
 * **`the_geom`** EPSG:4326. Unprojected coordinates in **decimal degrees** (Lon/Lat). WGS84 Spheroid.
 * **`the_geom_webmercator`** EPSG:3857. UTM projected coordinates in **meters**. This is a conventional Coordinate Reference System, widely accepted as a 'de facto' standard in webmapping.
 
-In CartoDB, **the_geom_webmercator column is the one we see represented in the map**. Know more about projections:
+In CARTO, **the_geom_webmercator column is the one we see represented in the map**. Know more about projections:
 
 * In [this tutorial](http://docs.cartodb.com/tutorials/projections/).
 * [Map Projections in Wikipedia](https://en.wikipedia.org/wiki/Map_projection).
-* In [this CartoDB blog post](http://blog.cartodb.com/free-your-maps-web-mercator/).
+* In [this CARTO blog post](http://blog.cartodb.com/free-your-maps-web-mercator/).
+
+Finally, remember that BUILDER needs the following columns to work correctly:
+
+* `cartodb_id`: it has to be a column with unique values
+* `the_geom`: is a geometry in `EPSG:4326` coordinate system
+* `the_geom_webmercator`: is a geometry field in `EPSG:3857`
 
 
 ## Transform to a different projection
@@ -85,42 +91,31 @@ _About [working with different projections in CARTO](http://cartodb.github.io/tr
 Using `GROUP BY`:
 
 ```sql
-SELECT
-  e.cartodb_id,
-  e.admin,
-  e.the_geom_webmercator,
-  count(*) AS pp_count,
-  sum(p.pop_max) as sum_pop
-FROM
-  ne_adm0_europe e
-JOIN
-  ne_10m_populated_places_simple p
-ON
-  ST_Intersects(p.the_geom, e.the_geom)
-GROUP BY
-  e.cartodb_id
+  SELECT e.cartodb_id,
+         e.admin,
+         e.the_geom_webmercator,
+         count(*) AS pp_count,
+         sum(p.pop_max) as sum_pop
+    FROM ne_adm0_europe e
+    JOIN ne_10m_populated_places_simple p
+      ON ST_Intersects(p.the_geom, e.the_geom)
+GROUP BY e.cartodb_id
 ```
 
 Using `LATERAL`:
 
 ```sql
-SELECT
-  a.cartodb_id,
-  a.admin AS name,
-  a.the_geom_webmercator,
-  counts.number_cities AS pp_count,
-  counts.sum_pop
-FROM
-  ne_adm0_europe a
-CROSS JOIN LATERAL
-  (
-    SELECT
-      count(*) as number_cities,
-      sum(pop_max) as sum_pop
-    FROM
-      ne_10m_populated_places_simple b
-    WHERE
-      ST_Intersects(a.the_geom, b.the_geom)
+SELECT a.cartodb_id,
+       a.admin AS name,
+       a.the_geom_webmercator,
+       counts.number_cities AS pp_count,
+       counts.sum_pop
+  FROM ne_adm0_europe a
+ CROSS JOIN LATERAL
+  ( SELECT count(*) as number_cities,
+           sum(pop_max) as sum_pop
+      FROM ne_10m_populated_places_simple b
+     WHERE ST_Intersects(a.the_geom, b.the_geom)
   ) AS counts
 ```
 
@@ -133,7 +128,7 @@ _About [`ST_Intersects`](http://postgis.net/docs/ST_Intersects.html) and [Latera
 ```css
 #layer['mapnik::geometry_type'=3] {
   line-width: 0;
-  polygon-fill: ramp([pp_count], ("#edd9a3","#f99178","#ea4f88","#a431a0","#4b2991"), quantiles(5));
+  polygon-fill: ramp([pp_count], cartocolor(SunsetDark), quantiles(5));
 }
 ```
 
@@ -151,20 +146,16 @@ This is using the new [turbo-carto](https://carto.com/blog/styling-with-turbo-ca
 ## Know wether a geometry is **within** the given range from another geometry:
 
 ```sql
-SELECT
-  a.*
-FROM
-  ne_10m_populated_places_simple a,
-  ne_10m_populated_places_simple b
-WHERE
-    a.cartodb_id != b.cartodb_id
-  AND ST_DWithin(
-      a.the_geom_webmercator,
-      b.the_geom_webmercator,
-      150000
-    )
-  AND a.adm0name = 'Spain'
-  AND b.adm0name = 'Spain'
+SELECT a.*
+  FROM ne_10m_populated_places_simple a,
+       ne_10m_populated_places_simple b
+ WHERE a.cartodb_id != b.cartodb_id
+   AND ST_DWithin(
+         a.the_geom_webmercator,
+         b.the_geom_webmercator,
+         150000)
+   AND a.adm0name = 'Spain'
+   AND b.adm0name = 'Spain'
 ```
 
 In this case, we are using `the_geom_webmercator` to avoid casting to `geography` type. Calculations made with `geometry` type takes the CRS units.
@@ -176,33 +167,27 @@ _About [`ST_DWithin`](http://postgis.net/docs/ST_DWithin.html)._
 ## Create a **buffer** from points:
 
 ```sql
-SELECT
-  cartodb_id,
-  name,
-  ST_Transform(
-    ST_Buffer(the_geom::geography, 250000)::geometry
-    ,3857
-  ) AS the_geom_webmercator
-FROM
-  ne_10m_populated_places_simple
-WHERE
-  name ilike 'trondheim'
+SELECT cartodb_id,
+       name,
+       ST_Transform(
+         ST_Buffer(the_geom::geography, 250000)::geometry
+         ,3857
+       ) AS the_geom_webmercator
+  FROM ne_10m_populated_places_simple
+ WHERE name ilike 'trondheim'
 ```
 
 Compare the result with
 
 ```sql
-SELECT
-  cartodb_id,
-  name,
-  ST_Transform(
-    ST_Buffer(the_geom, 2)
-    ,3857
-  ) AS the_geom_webmercator
-FROM
-  ne_10m_populated_places_simple
-WHERE
-  name ilike 'trondheim'
+ SELECT cartodb_id,
+        name,
+        ST_Transform(
+          ST_Buffer(the_geom, 2)
+          ,3857
+        ) AS the_geom_webmercator
+   FROM ne_10m_populated_places_simple
+  WHERE name ilike 'trondheim'
 ```
 
 Why this is not a circle?
@@ -212,17 +197,14 @@ _About [`ST_Buffer`](http://postgis.net/docs/ST_Buffer.html)._
 ## Get the **difference** between two geometries:
 
 ```sql
-SELECT
-  a.cartodb_id,
-    ST_Difference(
-        a.the_geom_webmercator,
-        b.the_geom_webmercator
-  ) AS the_geom_webmercator
-FROM
-  ne_50m_land a,
-  ne_adm0_europe b
-WHERE
-  b.adm0_a3 like 'ESP'
+SELECT a.cartodb_id,
+       ST_Difference(
+         a.the_geom_webmercator,
+         b.the_geom_webmercator
+       ) AS the_geom_webmercator
+  FROM ne_50m_land a,
+       ne_adm0_europe b
+ WHERE b.adm0_a3 like 'ESP'
 ```
 
 _About [`ST_Difference`](http://postgis.net/docs/ST_Difference.html)._
@@ -230,19 +212,21 @@ _About [`ST_Difference`](http://postgis.net/docs/ST_Difference.html)._
 ## Create a **straight line** between two points:
 
 ```sql
-SELECT
-  ST_MakeLine(
-    a.the_geom_webmercator,
-    b.the_geom_webmercator
-  ) as the_geom_webmercator
-FROM (
-    SELECT * FROM ne_10m_populated_places_simple
-    WHERE name ILIKE 'madrid'
-  ) as a,
-  (
-    SELECT * FROM ne_10m_populated_places_simple
-    WHERE name ILIKE 'barcelona'AND adm0name ILIKE 'spain'
-  ) as b
+SELECT ST_MakeLine(
+        a.the_geom_webmercator,
+        b.the_geom_webmercator
+      ) as the_geom_webmercator
+ FROM (
+        SELECT *
+          FROM ne_10m_populated_places_simple
+         WHERE name ILIKE 'madrid'
+      ) as a,
+      (
+        SELECT *
+          FROM ne_10m_populated_places_simple
+         WHERE name ILIKE 'barcelona'
+           AND adm0name ILIKE 'spain'
+      ) as b
 ```
 
 _About [`ST_MakeLine`](http://postgis.net/docs/ST_MakeLine.html)._
@@ -250,22 +234,26 @@ _About [`ST_MakeLine`](http://postgis.net/docs/ST_MakeLine.html)._
 ## Create **great circles** between two points:
 
 ```sql
-SELECT
-  ST_Transform(
-    ST_Segmentize(
-      ST_Makeline(
-        a.the_geom,
-        b.the_geom
-      )::geography,
-      100000
-    )::geometry,
-  3857
-  ) as the_geom_webmercator
-FROM
-  (SELECT * FROM ne_10m_populated_places_simple
-  WHERE name ILIKE 'madrid') as a,
-  (SELECT * FROM ne_10m_populated_places_simple
-  WHERE name ILIKE 'new york') as b
+ SELECT ST_Transform(
+          ST_Segmentize(
+            ST_Makeline(
+              a.the_geom,
+              b.the_geom
+            )::geography,
+            100000
+          )::geometry,
+        3857
+        ) as the_geom_webmercator
+   FROM (
+          SELECT *
+            FROM ne_10m_populated_places_simple
+           WHERE name ILIKE 'madrid'
+        ) as a,
+        (
+          SELECT *
+            FROM ne_10m_populated_places_simple
+           WHERE name ILIKE 'new york'
+        ) as b
 ```
 
 _About [Great Circles](http://blog.cartodb.com/jets-and-datelines/)._
@@ -275,17 +263,14 @@ _About [Great Circles](http://blog.cartodb.com/jets-and-datelines/)._
 ### Rectangular grid
 
 ```sql
-SELECT
-  row_number() over () as cartodb_id,
-  CDB_RectangleGrid(
-    ST_Buffer(the_geom_webmercator,125000),
-  250000,
-  250000
-  ) AS the_geom_webmercator
-FROM
-  ne_adm0_europe
-WHERE
-  adm0_a3 IN ('ITA','GBR')
+ SELECT row_number() over () AS cartodb_id,
+        CDB_RectangleGrid(
+          ST_Buffer(the_geom_webmercator,125000),
+          250000,
+          250000
+        ) AS the_geom_webmercator
+   FROM ne_adm0_europe
+  WHERE adm0_a3 IN ('ITA','GBR')
 ```
 
 _About [CDB_RectangleGrid](http://docs.cartodb.com/tips-and-tricks/cartodb-functions/#a-rectangle-grid)_
@@ -294,28 +279,22 @@ _About [CDB_RectangleGrid](http://docs.cartodb.com/tips-and-tricks/cartodb-funct
 
 ```sql
 WITH grid AS (
-  SELECT
-    row_number() over () as cartodb_id,
-    CDB_HexagonGrid(
-      ST_Buffer(the_geom_webmercator, 100000),
-      100000
-    ) AS the_geom_webmercator
-  FROM
-    ne_adm0_europe
-  WHERE
-    adm0_a3 IN ('ESP','ITA')
+  SELECT row_number() over () AS cartodb_id,
+         CDB_HexagonGrid(
+           ST_Buffer(the_geom_webmercator, 100000),
+           100000
+         ) AS the_geom_webmercator
+    FROM ne_adm0_europe
+   WHERE adm0_a3 IN ('ESP','ITA')
 )
-SELECT
-  grid.the_geom_webmercator,
-  grid.cartodb_id
-FROM
-  grid, ne_adm0_europe a
-WHERE
-  a.adm0_a3 IN ('ESP','ITA') AND
-  ST_intersects(
-    grid.the_geom_webmercator,
-    a.the_geom_webmercator
-  )
+SELECT grid.the_geom_webmercator,
+       grid.cartodb_id
+  FROM grid, ne_adm0_europe a
+ WHERE a.adm0_a3 IN ('ESP','ITA') AND
+       ST_intersects(
+         grid.the_geom_webmercator,
+         a.the_geom_webmercator
+       )
 ```
 
 _About [CDB_HexagonGrid](http://docs.cartodb.com/tips-and-tricks/cartodb-functions/#a-hexagon-grid)_

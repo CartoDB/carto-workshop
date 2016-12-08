@@ -33,6 +33,7 @@ This section assumes some basic knowledge on SQL. If you need a bit more of help
 - Generating Grids with CDB functions
   - Rectangular grid
   - Adaptative Hexagonal grid
+- Much more to discover
 
 <!-- /MarkdownTOC -->
 
@@ -299,3 +300,14 @@ SELECT grid.the_geom_webmercator,
 
 _About [CDB_HexagonGrid](http://docs.cartodb.com/tips-and-tricks/cartodb-functions/#a-hexagon-grid)_
 
+## Much more to discover
+
+Take a look on the [PostGIS reference](http://postgis.net/docs/reference.html) for many many more interesting functions and try to experiment with them using the same approach above.
+
+* Generating envelopes from groups of features
+* Using the [operators](http://postgis.net/docs/reference.html#Operators) for super fast queries
+* Try to *deconstruct* polygon geometries to get the number of vertices, the exterior ring of a multipolygon, etc
+* Snapping and simplify functions
+* Linear Referencing functions to operate with points over lines
+* Try to mimic the *Connect with lines* BUILDER analysis
+* ....

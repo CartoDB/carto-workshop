@@ -636,7 +636,7 @@ We can create a different way to classify our point data like in [this example](
 
 * First, let's define the function. It should take Longitude and Latitude as parameters, as well as the table name where we want to insert the points. It should also return a table with `cartodb_id` that will be generated in the inserted row:
 
-  ```
+  ```sql
   CREATE OR REPLACE FUNCTION insertpoint(
           lon numeric,
           lat numeric,
@@ -721,7 +721,16 @@ We can create a different way to classify our point data like in [this example](
   If at some point we need to remove the function's privileges, we could run:
 
   ```sql
-  REVOKE EXECUTE ON FUNCTION insertpoint(lon numeric, lat numeric, name text, description text, category text, tablename text) TO publicuser;
+  REVOKE EXECUTE ON FUNCTION
+  insertpoint(
+          lon numeric,
+          lat numeric,
+         name text,
+  description text,
+     category text,
+    tablename text
+  )
+  TO publicuser;
   ```
 
   For removing the function, we would run:

@@ -96,10 +96,7 @@
 								"description": ""
 							}
 						],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
+						"body": {},
 						"description": "Use the org. owner account to remove an user from an organization"
 					},
 					"response": []
@@ -156,10 +153,7 @@
 						"url": "https://{{USER}}.carto.com/api/v1/imports/?api_key={{KEY}}&url={{URL}}",
 						"method": "POST",
 						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
+						"body": {},
 						"description": "We just need to pass the URL as a parameter\n\nhttp://www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip"
 					},
 					"response": []
@@ -170,10 +164,7 @@
 						"url": "https://{{USER}}.carto.com/api/v1/imports/?api_key={{KEY}}",
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
+						"body": {},
 						"description": "It will return only currently existing proccesses"
 					},
 					"response": []
@@ -184,11 +175,19 @@
 						"url": "https://{{USER}}.carto.com/api/v1/imports/{{IMPORT_ID}}?api_key={{KEY}}",
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
+						"body": {},
 						"description": "Adding the {{import_id}} value, it will return information about that specific proccess"
+					},
+					"response": []
+				},
+				{
+					"name": "Check current synchronizations",
+					"request": {
+						"url": "https://{{USER}}.carto.com/api/v1/synchronizations/?api_key={{KEY}}",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
 					},
 					"response": []
 				}
@@ -225,7 +224,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"version\": \"1.0.1\",\n  \"layers\": [\n    {\n      \"type\": \"cartodb\",\n      \"options\": {\n        \"sql\": \"select * from world_borders\",\n        \"cartocss\": \"\\/** simple visualization *\\/\\n\\n#world_borders{\\n  polygon-fill: #3E7BB6;\\n  polygon-opacity: 0.7;\\n  line-color: #FFF;\\n  line-width: 0.5;\\n  line-opacity: 1;\\n}\",\n        \"cartocss_version\": \"2.1.1\",\n        \"interactivity\": [\n          \"cartodb_id\"\n        ]\n      }\n    }\n  ]\n}"
+							"raw": "{\n  \"version\": \"1.0.1\",\n  \"layers\": [\n    {\n      \"type\": \"http\",\n      \"options\": {\n        \"urlTemplate\": \"http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png\",\n        \"subdomains\": [\n          \"a\",\n          \"b\",\n          \"c\"\n        ]\n      }\n    },\n    {\n      \"type\": \"cartodb\",\n      \"options\": {\n        \"sql\": \"select * from world_borders\",\n        \"cartocss\": \"\\/** simple visualization *\\/\\n\\n#world_borders{\\n  polygon-fill: #3E7BB6;\\n  polygon-opacity: 0;\\n  line-color: #FFF;\\n  line-width: 0.5;\\n  line-opacity: 1;\\n}\",\n        \"cartocss_version\": \"2.1.1\",\n        \"interactivity\": [\n          \"cartodb_id\"\n        ]\n      }\n    }\n  ]\n}"
 						},
 						"description": "No API key required"
 					},
@@ -237,10 +236,7 @@
 						"url": "http://{{USER}}.carto.com/api/v1/map/static/center/{{LAYERGROUPID}}/{{ZOOM}}/{{CENTER_LAT}}/{{CENTER_LON}}/{{X_RES}}/{{Y_RES}}.png",
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
+						"body": {},
 						"description": ""
 					},
 					"response": []
@@ -251,10 +247,7 @@
 						"url": "http://{{USER}}.carto.com/api/v1/map/static/bbox/{{LAYERGROUPID}}/{{WEST}},{{SOUTH}},{{EAST}},{{NORTH}}/{{X_RES}}/{{Y_RES}}.png",
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
+						"body": {},
 						"description": ""
 					},
 					"response": []
@@ -271,10 +264,7 @@
 						"url": "https://{{USER}}.carto.com/api/v1/map/named?api_key={{KEY}}",
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
+						"body": {},
 						"description": ""
 					},
 					"response": []
@@ -305,10 +295,7 @@
 						"url": "https://{{USER}}.carto.com/api/v1/map/named/{{TEMPLATE}}?api_key={{KEY}}",
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
+						"body": {},
 						"description": ""
 					},
 					"response": []
@@ -398,10 +385,7 @@
 						"url": "https://{{USER}}.carto.com/api/v2/sql/?q=SELECT+cartodb_id,iso2,name,area,pop2005+FROM+world_borders+LIMIT+10&api_key={{KEY}}",
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
+						"body": {},
 						"description": "SELECT * FROM world_borders"
 					},
 					"response": []
@@ -432,10 +416,7 @@
 						"url": "https://{{USER}}.carto.com/api/v2/sql/?q=SELECT+*+FROM+world_borders+LIMIT+5&api_key={{KEY}}&format=geojson",
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
+						"body": {},
 						"description": "Downloads the query result in the specified format"
 					},
 					"response": []
@@ -446,10 +427,7 @@
 						"url": "https://{{USER}}.carto.com/api/v2/sql/?q=SELECT+*+FROM+world_borders+LIMIT+5&api_key={{KEY}}&format=shp",
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
+						"body": {},
 						"description": "Downloads the query result in the specified format"
 					},
 					"response": []
@@ -521,7 +499,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"query\":\"SELECT * FROM populated_places\"\n}"
+							"raw": ""
 						},
 						"description": ""
 					},

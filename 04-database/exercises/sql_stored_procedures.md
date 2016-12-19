@@ -672,11 +672,11 @@ Once we've created the function, we need to add a trigger to any table we want t
 
 ```sql
 CREATE TRIGGER carto_version_trigger
-AFTER UPDATE OR DELETE OR INSERT ON your_important_table
+AFTER UPDATE OR DELETE OR INSERT ON dummy_dataset
     FOR EACH ROW EXECUTE PROCEDURE version_control();
 ```
 
-The trigger will be fired after each `UPDATE`, `DELETE` or `INSERT` operation that is made to `your_important_table` **(remember to update the trigger with the proper table name)**. Then the `carto_version_control()` function will make an `INSERT` to `version_control` table, adding a row with data coming from the operation itself. 
+The trigger will be fired after each `UPDATE`, `DELETE` or `INSERT` operation that is made to `dummy_dataset` **(remember to update the trigger with the proper table name)**. Then the `carto_version_control()` function will make an `INSERT` to `version_control` table, adding a row with data coming from the operation itself. 
 
 Each `control_version` row will log: 
 
@@ -691,6 +691,20 @@ Each `control_version` row will log:
 
 This is due to the triggers that are added to every table as part of the `CDB_CartodbfyTable()` proccess, and will result in almost identical rows in our `version_control` table that could help us understand what does it means to 'cartodbfy a table'.
 
+To retrieve information from `version_control` table, we could run a query like: 
+
+```sql
+SELECT (json_populate_record(null::dummy_dataset, data)).* FROM version_control LIMIT 1
+```
+
+Which will generate a row from the JSON `data` column in `dummy_dataset` table. We could also apply a filter to get more relevant information, for example: 
+
+```sql
+SELECT (json_populate_record(null::dummy_dataset, data)).* FROM version_control WHERE table_name LIKE 'dummy_dataset'
+```
+
+to get a row for each modified row in `dummy_dataset` table.
+
 
 ## Further reading
 
@@ -700,5 +714,4 @@ This is due to the triggers that are added to every table as part of the `CDB_Ca
 
 * Look and understand the different PostgreSQL/PostGIS functions that we have in the [cartodb-postgresql](https://github.com/CartoDB/cartodb-postgresql/tree/master/scripts-available) repo or other postgreSQL related repos (dataservices...).
 
-* PostgreSQL, PostGIS blogs, etc; to find different PostGIS functions that you can build with pl/pgSQL. I would recommend writing ``Fun with PostGIS`` in Google (or Bing, Yahioo,etc) and have fun looking at what people do. :)
-
+* PostgreSQL, PostGIS blogs, etc; to find different PostGIS functions that you can build with pl/pgSQL. I would recommend looking for ``Fun with PostGIS`` and have some fun looking at what people do :)

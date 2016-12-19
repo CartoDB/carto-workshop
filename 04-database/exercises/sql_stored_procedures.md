@@ -5,22 +5,13 @@
 
 - What is a stored procedure?
 - Basic structure of a PL/pgSQL function
-  - Input and output arguments
-  - Variables and constants
 - Functions that doesn't return any row
 - Function that returns a table
 - Functions with Security Definer
 - Trigger functions
 - Control structures
-  - IF statement
-  - CASE statement
-  - LOOP statement
-  - WHILE loops
-  - FOR loops
 - Pl/pgSQL and PostGIS
-- Exercises
-  - Create a function that inserts a point into a table.
-  - Create a trigger function that writes a string in a column each time a new point is inserted
+- Exercise
 - Further reading
 
 <!-- /MarkdownTOC -->
@@ -631,139 +622,89 @@ SELECT regularPolygons(the_geom,100000,3), adm0_a2
 We can create a different way to classify our point data like in [this example](https://team.cartodb.com/u/oboix/viz/63e74f10-27d7-11e6-bad6-0e3ff518bd15/public_map).
 
 
-## Exercises
-### Create a function that inserts a point into a table.
+## Exercise
 
-* First, let's define the function. It should take Longitude and Latitude as parameters, as well as the table name where we want to insert the points. It should also return a table with `cartodb_id` that will be generated in the inserted row:
+### Create a stored procedure + trigger workflow to store changes from any of your tables to a log table
 
-  ```sql
-  CREATE OR REPLACE FUNCTION insertpoint(
-          lon numeric,
-          lat numeric,
-    tablename text,
-    )
-  RETURNS TABLE(cartodb_id INT)
-  LANGUAGE 'plpgsql' SECURITY DEFINER
-  RETURNS NULL ON NULL INPUT
-  ```
+First, we need to create the log table and cartodbfy it. 
 
-* This part specifies the language we are using and allows to grant specific permission to the function:
+```sql
+CREATE TABLE version_control();
+SELECT CDB_CartodbfyTable('username','version_control');
+```
 
-  ```sql
-  LANGUAGE 'plpgsql' SECURITY DEFINER
-  ```
+Cartodbfication will add `the_geom`, `the_geom_webmercator' and 'cartodb_id' columns to the table, as well as some triggers to populate these columns automatically when a new row is added (we'll see more about this at the end of the exercise). 
 
-* We need to declare a `text` variable that will store the function itself so we can execute it afterwards. We need to follow this logic in order to being able to use the table name and different column names as arguments/variables within the function.
+Next step would be adding some extra columns to the log table.
 
-  ```sql
-  DECLARE
-    sql text;
-  ```
+```sql
+ALTER TABLE version_control ADD COLUMN data json; -- to store the complete row in JSON format
+ALTER TABLE version_control ADD COLUMN source_id integer; -- cartodb_id of the row
+ALTER TABLE version_control ADD COLUMN table_name text; -- table name 
+ALTER TABLE version_control ADD COLUMN tg_op text; -- writing operation that was performed
+ALTER TABLE version_control ADD COLUMN logged_at timestamp; -- timestamp for the operation
+```
 
-* This is the body of the function and where most of the logic relies:
+And create the function itself: 
 
-  ```sql
-  'WITH do_insert AS (
-      INSERT INTO '||quote_ident(tablename)||'(the_geom)
-      VALUES '
-        ||'('
-        ||'ST_SetSRID(ST_MakePoint('||lon||','||lat||'), 4326)'
-        ||')'
-      ||'RETURNING cartodb_id)'
-  ||'SELECT cartodb_id FROM do_insert';
-  ```
-  Apart from the string-variable concatenation (`'string'||variable||'string'`) that may produce some confusing syntax, the query is quite straight forward.
+```sql
+CREATE OR REPLACE FUNCTION carto_version_control() RETURNS TRIGGER AS $$
+    BEGIN
+        IF (TG_OP = 'DELETE') THEN
+            INSERT INTO version_control(the_geom, tg_op, data, source_id, table_name, logged_at) 
+              SELECT OLD.the_geom, 'DELETE', row_to_json(OLD), OLD.cartodb_id, TG_TABLE_NAME::text, now();
+            RETURN OLD;
+        ELSIF (TG_OP = 'UPDATE') THEN
+            INSERT INTO version_control(the_geom, tg_op, data, source_id, table_name, logged_at)
+              SELECT NEW.the_geom, 'UPDATE', row_to_json(NEW), NEW.cartodb_id, TG_TABLE_NAME::text, now();
+            RETURN NEW;
+        ELSIF (TG_OP = 'INSERT') THEN
+            INSERT INTO version_control(the_geom, tg_op, data, source_id, table_name, logged_at) 
+              SELECT NEW.the_geom, 'INSERT', row_to_json(NEW), NEW.cartodb_id, TG_TABLE_NAME::text, now();
+            RETURN NEW;
+        END IF;
+        RETURN NULL; 
+    END;
+$$ LANGUAGE plpgsql;
+```
 
-  We are going to insert a geometry with its alphanumerical data, using the function arguments as values.
+Once we've created the function, we need to add a trigger to any table we want to audit:
 
-  The main difficulty here is correctly parsing the arguments so we don't duplicate, miss or change the expected quoting.
+```sql
+CREATE TRIGGER carto_version_trigger
+AFTER UPDATE OR DELETE OR INSERT ON dummy_dataset
+    FOR EACH ROW EXECUTE PROCEDURE version_control();
+```
 
-  The name of the table needs to be used inside the [`quote_ident()` function](https://www.postgresql.org/docs/9.5/static/functions-string.html). That means that it is going to be interpreted as an identifier for the table (double quoted), instead of as a plain string.
+The trigger will be fired after each `UPDATE`, `DELETE` or `INSERT` operation that is made to `dummy_dataset` **(remember to update the trigger with the proper table name)**. Then the `carto_version_control()` function will make an `INSERT` to `version_control` table, adding a row with data coming from the operation itself. 
 
-* We are wrapping the `INSERT INTO` query inside a `WITH do_insert AS` statement that returns `cartodb_id` for the newly inserted row. After that, we do a `SELECT cartodb_id FROM do_insert`, according with what our function returns:
+Each `control_version` row will log: 
 
-  ```sql
-  RETURNS TABLE(cartodb_id INT)
-  ```
+- The deleted/updated/inserted geometry
+- The name of the operation that was made
+- The whole modified row as a JSON object
+- `cartodb_id` from the modified row
+- The name of the table that was affected by the operation (useful in case we add the trigger to several different tables)
+- Timestamp of when the trigger was fired
 
-* The last step is executing the query we have dinamically crafted into the `sql` variable and returning its output:
+**NOTE:** After each `INSERT` that is made to a cartodbfied table, there is a subsequent `UPDATE` that is triggered to populate either `the_geom` or `the_geom_webmercator` as well as `cartodb_id`. 
 
-  ```sql
-  RETURN QUERY EXECUTE sql;
-  ```
+This is due to the triggers that are added to every table as part of the `CDB_CartodbfyTable()` proccess, and will result in almost identical rows in our `version_control` table that could help us understand what does it means to 'cartodbfy a table'.
 
-* Grant permission to the function
+To retrieve information from `version_control` table, we could run a query like: 
 
-  In order to make the function executable for the `publicuser` with the same privileges as the function owner, we need to grant execution permissions to it:
+```sql
+SELECT (json_populate_record(null::dummy_dataset, data)).* FROM version_control LIMIT 1
+```
 
-  ```sql
-  GRANT EXECUTE ON FUNCTION insertpoint(lon numeric, lat numeric, tablename text) TO publicuser;
-  ```
+Which will generate a row from the JSON `data` column in `dummy_dataset` table. We could also apply a filter to get more relevant information, for example: 
 
-  Remember that a function is defined by its name and input arguments.
+```sql
+SELECT (json_populate_record(null::dummy_dataset, data)).* FROM version_control WHERE table_name LIKE 'dummy_dataset'
+```
 
-* Calling the function:
+to get a row for each modified row in `dummy_dataset` table.
 
-  We could execute the function just by including it in a `SELECT` statement, providing the necessary parameters:
-
-  ```sql
-  SELECT insertpoint(-4.565,33.294,'tableName');
-  ```
-
-  A more orthodox way to call it, since the function returns a table would be:
-
-  ```sql
-  SELECT * FROM insertpoint(-4.565,33.294,'tableName');
-  ```
-
-* Revoking permission / removing the function
-
-  If at some point we need to remove the function's privileges, we could run:
-
-  ```sql
-  REVOKE EXECUTE ON FUNCTION
-  insertpoint(
-          lon numeric,
-          lat numeric,
-         name text,
-  description text,
-     category text,
-    tablename text
-  )
-  TO publicuser;
-  ```
-
-  For removing the function, we would run:
-
-  ```sql
-  DROP FUNCTION insertpoint(lon numeric, lat numeric, name text, description text, category text, tablename text)
-  ```
-
-### Create a trigger function that writes a string in a column each time a new point is inserted
-
-* First, we'd need to create an easy SQL function that will update the table, writing a string into `column_name`
-
-  ```sql
-  CREATE OR REPLACE FUNCTION write_string()
-  RETURNS TRIGGER
-  AS $$
-  BEGIN
-    UPDATE dummy_dataset
-       SET column_name = 'Point inserted at: '||
-             ST_X(the_geom) || ',' || ST_Y(the_geom);
-    RETURN null;
-  END;
-  $$
-  LANGUAGE 'plpgsql';
-  ```
-* Next step would be creating the trigger itself for `table_name`
-
-  ```sql
-  CREATE TRIGGER writer
-  AFTER INSERT ON table_name
-  FOR EACH ROW EXECUTE PROCEDURE write_string();
-  ```
-* Finally, check that everything works. **Tip:** You could use this trigger function along with the function from the first exercise to create a complete automated workflow.
 
 ## Further reading
 
@@ -773,5 +714,4 @@ We can create a different way to classify our point data like in [this example](
 
 * Look and understand the different PostgreSQL/PostGIS functions that we have in the [cartodb-postgresql](https://github.com/CartoDB/cartodb-postgresql/tree/master/scripts-available) repo or other postgreSQL related repos (dataservices...).
 
-* PostgreSQL, PostGIS blogs, etc; to find different PostGIS functions that you can build with pl/pgSQL. I would recommend writing ``Fun with PostGIS`` in Google (or Bing, Yahioo,etc) and have fun looking at what people do. :)
-
+* PostgreSQL, PostGIS blogs, etc; to find different PostGIS functions that you can build with pl/pgSQL. I would recommend looking for ``Fun with PostGIS`` and have some fun looking at what people do :)

@@ -694,13 +694,19 @@ This is due to the triggers that are added to every table as part of the `CDB_Ca
 To retrieve information from `version_control` table, we could run a query like: 
 
 ```sql
-SELECT (json_populate_record(null::dummy_dataset, data)).* FROM version_control LIMIT 1
+SELECT (json_populate_record(null::dummy_dataset, data)).* 
+FROM version_control LIMIT 1
 ```
 
 Which will generate a row from the JSON `data` column in `dummy_dataset` table. We could also apply a filter to get more relevant information, for example: 
 
 ```sql
-SELECT (json_populate_record(null::dummy_dataset, data)).* FROM version_control WHERE table_name LIKE 'dummy_dataset'
+SELECT 
+  (json_populate_record(null::dummy_dataset, data)).* 
+FROM 
+  version_control 
+WHERE 
+  table_name LIKE 'dummy_dataset'
 ```
 
 to get a row for each modified row in `dummy_dataset` table.

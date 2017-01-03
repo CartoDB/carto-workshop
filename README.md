@@ -26,22 +26,25 @@ TODO
 
 ## [Day 1](01-builder-visualization/README.md). CARTO BUILDER I: Data visualizations and Styling
 
-This course will cover different Builder (CARTO's web interface) workflows for generating cartographic data visualizations. We'll dig into new Builder features and some differences with old Editor. During this first part, we'll those aspects related to data visualizations, cartographic styles, legend's definition and dashboard creation with actionable widgets that interact with the map. 
+This course will cover different BUILDER (CARTO's web interface) workflows for generating cartographic data visualizations. We'll dig into new Builder features and some differences with old Editor. During this first part, we'll cover those aspects related to data visualizations, cartographic styles, legend's definition and dashboard creation with actionable Widgets that interact with the map. 
 
 ## [Day 2](02-builder-analysis/README.md). CARTO BUILDER II: Geospatial analysis and prediction
 
-Este taller avanzado dará a conocer las posibilidades de análisis más potentes de CARTO BUILDER, mediante el uso de las capacidades de SQL espacial que PostGIS ofrece. La parte central de la sesión será la introducción a la definición de flujos de ańalisis y su vinculación con los widgets así como el repaso de los diferentes procedimientos de análisis de datos que ofrece actualmente BUILDER.
-
-This
+This advanced workshop will let users know the most powerful analytic capabilities of CARTO BUILDER. Analysis workflows and its link with Widgets will occupy the central part of the course, along with a review of the different analyses that BUILDER currently offers.
 
 ## [Day 3](03-cartography/README.md). Cartography and andvaced simbology
 
-Esta sesión se enfoca en el uso avanzado de BUILDER en el área de creación de reglas cartográficas para diseño de potentes visualizaciones así como en las novedades introducidas para la generación de temáticos (TurboCARTO). Finalmente repasaremos las diferentes opciones que Torque ofrece para generar mapas dinámicos.
+This session focuses on the advanced use of BUILDER, creating cartographic rules for powerful webmap visualizations. It also goes through our new tools for thematic mapping (TurboCARTO) and all the different options that Torque offers for creating dynamic maps.
 
-## [Day 4](04-database/README.md). Geospatial databases
+## [Day 4](04-database/README.md). Geospatial databases and CARTO platform
 
-En este taller se cubre en profundidad el uso avanzado de Postgres y PostGIS para aquellos casos en los que BUILDER no es suficiente. Se revisarán los aspectos más interesantes del lenguaje SQL que suelen ser útiles en el desarrollo de análisis avanzados, así como las funcionalidades geoespaciales proporcionadas por PostGIS. Se cubrirán también algunos conceptos básicos de automatización de tareas con funciones y disparadores que pueden resultar muy útiles. En la segunda parte de la jornada se hará una introducción a la arquitectura de CARTO como plataforma de webmapping, opciones de despliegue y principales componentes. A continuación se describirán las diferentes API con las que interactuar con la plataforma, qué flujos de trabajo cubren y casos de uso habituales.
+This workshop extensively covers andvaced use of PostgreSQL and PostGIS for those cases when Builder is not enough. We'll review the most relevant parts of SQL language, useful for advanced analysis development, as well as the geospatial capabilities brought by PostGIS. We'll also cover some basic concepts for task automation, as triggers and stored procedures.
+
+Second part of this course will introduce CARTO architecture as a webmapping platform, deploying options and main components. The different APIs for interacting with the platform, most usual workflows and use cases will be covered too.
 
 ## [Day 5](05-sdks/README.md). Develop with CARTO: CARTO.js, Mobile SDK and Python SDK
 
-Este taller tiene como objetivo cubrir los diferentes kits de desarrollo con los que crear aplicaciones con CARTO. El SDK de JavaScript es el más relevante y se cubrirá con mayor detalle, repasando los casos de uso habituales al desarrollar visores sobre las APIs de CARTO. A continuación se expondrá una introducción al nuevo CARTO Mobile SDK, que permite la creación de aplicaciones móviles nativas y se acabará la jornada exponiendo y haciendo ejercicios prácticos con el SDK para el lenguaje Python.
+In this last lesson, we'll cover different SDK's that we could use for developing applications with CARTO.
+Javascript SDK (CARTO.js) is the most relevant and will be covered in depth for creating web applications that work over CARTO APIs. 
+A Mobile SDK introduction will follow, allowing the development of native CARTO mobile apps. 
+Last but not least, we'll finish the course with some examples and exercise that make use of our Python SDK.

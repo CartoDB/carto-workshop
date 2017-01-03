@@ -1,23 +1,23 @@
-Bases de datos geoespaciales
-================================
+Geospatial Databases and CARTO platform
+=======================================
 
 ## Agenda
 
-* SQL y Postgres
-* PostGIS: funciones más relevantes, tipos de datos, etc
-* Creación de funciones personalizadas y triggers
-* Revisión de la arquitectura de CARTO
-* Las APIs de CARTO: Import, SQL, Maps API
-* Diferencias entre named maps y mapas anónimos
+* SQL and Postgres
+* PostGIS: most important functions, data types, etc
+* Stored procedures and triggers creation
+* CARTO architecture overview
+* CARTO APIs: Import, SQL, Maps API
+* Named maps vs. Anonymous maps
 
-## Recursos
+## Resources
 
-* [Introducción a SQL](https://docs.google.com/a/cartodb.com/presentation/d/1LRa6HHdtUCrxl7Kh4wjgTktkigoihVekuhwH-dW5jv8/edit?usp=sharing)
-* [Ejercicios sencillos con SQL](exercises/sql-easy.md)
-* [SQL Espacial](exercises/sql-spatial.md)
-* [Ejemplos de funciones y triggers](exercises/sql_stored_procedures.md)
-* [La arquitectura de CARTO](https://docs.google.com/a/cartodb.com/presentation/d/1LLT1zXeF4VTcYL4-w__AtbxBViolcRKNWT2eL6Pu3vk/edit?usp=sharing)
-* Práctica de las APIs de CARTO con [Postman](http://getpostman.com)
-  * [Colección](https://github.com/CartoDB/cdmx-training/raw/master/04-database/exercises/postman/Training%20Collection.postman_collection.json)
-  * [Variables](https://github.com/CartoDB/cdmx-training/raw/master/04-database/exercises/postman/CARTO%20Training%20Env.postman_environment.json)
-* [Guía de la API de mapas](exercises/maps_api_guide.md)
+* [Introduction to  SQL](https://docs.google.com/a/cartodb.com/presentation/d/1LRa6HHdtUCrxl7Kh4wjgTktkigoihVekuhwH-dW5jv8/edit?usp=sharing)
+* [Easy exercises with SQL](exercises/sql-easy.md)
+* [Spatial SQL](exercises/sql-spatial.md)
+* [Stored procedures and triggers examples](exercises/sql_stored_procedures.md)
+* [CARTO Architecture](https://docs.google.com/a/cartodb.com/presentation/d/1LLT1zXeF4VTcYL4-w__AtbxBViolcRKNWT2eL6Pu3vk/edit?usp=sharing)
+* Carto APIs practice with [Postman](http://getpostman.com)
+  * [Collection](https://github.com/CartoDB/carto-training/raw/master/04-database/exercises/postman/Training%20Collection.postman_collection.json)
+  * [Environment](https://github.com/CartoDB/carto-training/raw/master/04-database/exercises/postman/CARTO%20Training%20Env.postman_environment.json)
+* [Map API guide](exercises/maps_api_guide.md)

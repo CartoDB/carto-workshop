@@ -188,6 +188,8 @@ For instance, all the lines within this code are the same:
 ![yellow](exercises/img/yellow.png)
 <br>
 
+*Note*: You can ramp transparency with color inside Turbo CARTO by using rgba instead of hex colors.
+
 *Note*: Using hsl [(hue, saturation, lightness)](http://mothereffinghsl.com/) color values are often easier than rgb()values. CARTO also includes several color functions [borrowed from Less, a CSS pre-processor](http://lesscss.org/#-color-functions):
 
 ```css
@@ -228,9 +230,11 @@ Each of above examples uses color variables, literal colors, or is the result of
 ![lighten](exercises/img/lighten.png)
 <br>
 
+*Note*: Polygon-gamma is the amount of anti-aliasing applied to your polygon's edges. Anti-aliasing reduces the jagged appearance of polygon edges, so that they appear more smooth. Values can range from 0 (no anti-aliasing, sharp edges) to 1 (fully anti-aliased).
+
 ## Composite operations
 
-Composite operations style the way colors of overlapping geometries interact with each other. Similar to blend operations in Photoshop, these composite operations style the blend modes on your map. The main reason to use composite operations is to fine-tune how much some features in your map stand out compared to others. They are a great way to control your maps legibility.
+Composite operations style the way colors of overlapping geometries interact with each other. Similar to blend operations in Photoshop, these composite operations style the blend modes on your map's data layers (not including the basemap). The main reason to use composite operations is to fine-tune how much some features in your map stand out compared to others. They are a great way to control your maps legibility.
 
 Composite operations are blending modes for your map layers. They fall into two main categories: [color](https://carto.com/docs/carto-engine/cartocss/composite-operations/#color-blending-values) and [alpha](https://carto.com/docs/carto-engine/cartocss/composite-operations/#alpha-blending-values), and can be applied to all non-basemap elements in your CARTO map by adding the comp-op value to your CartoCSS code.
 
@@ -283,5 +287,24 @@ When applying CartoCSS syntax, it helps to understand how values are applied to 
 * Any layers that appear above the source are unaffected by the applied style and are rendered normally
 * Typically, you apply CartoCSS properties to different layers on a map. You can add multiple styles and values for each layer
 * Alternatively, you can apply CartoCSS by nesting categories and values. Categories contain multiple values listed under the same, single category using brackets `{ }`. This enables you visualize all of the styling elements applied to the overall map or to individual symbolizers, and avoid adding any redundant or unnecessary parameters. This is the suggested method if you are applying styles to a multi-scale map.
+* Check your styles at each zoom level and modify as needed to maintain proper information hierarchy.
 
-*Note*: Be mindful when applying styles to a map with multiple layers. Instead of applying an overall style to each map layer, apply the style to one layer on the map using this nested structure. For example, suppose you have a map with four layers, you can define zoom dependent styling as a nested value in one map layer. You do not have to go through each layer of the map to apply a zoom style. Using the nested structure allows you to apply all of the styling inside the brackets `{ }`. This is a more efficient method of applying overall map styling.
+```css
+#layer {
+  marker-width: 7;
+  marker-fill: #FFB927;
+  marker-fill-opacity: 0.9;
+  marker-allow-overlap: true;
+  marker-line-width: 1;
+  marker-line-color: #FFF;
+  marker-line-opacity: 1;
+  marker-comp-op: multiply;
+
+  [zoom = 6]{ marker-width: 10; }
+  [zoom >= 7]{ marker-width: 13; }
+  [zoom >= 10]{ marker-width: 18; }
+}
+
+*Note*: Be mindful when applying styles to a map with multiple layers. Instead of applying an overall style to each map layer, apply the style to one layer on the map using this nested structure. For example, suppose you have a map with four layers, you can define zoom dependent styling as a nested value in one map layer. You do not have to go through each layer of the map to apply a zoom style. Using the nested structure allows you to apply all of the styling inside the brackets `{ }`. This is a more efficient method of applying overall map styling. 
+
+When nested conditional styles apply to more than one case, the bottom-most styles take precedence. If the ```[zoom >= 10]``` code block above was listed above the ```[zoom >= 7]``` block, then markers at zoom 11 would be 13px.

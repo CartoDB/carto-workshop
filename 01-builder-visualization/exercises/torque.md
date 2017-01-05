@@ -24,17 +24,17 @@
 ## 1. Import and create map
 
 * Use the link above to download the dataset and import it to the account.
-* Just drag and drop the file into the CARTO Maps interface and wait for the dataset to be imported. The map should be automatically created.
+* Just drag and drop the file into the CARTO Dashboard and wait for the dataset to be imported. The map should be automatically created.
 
 ## 2. Change base map
 
-* Just change the basemap by the dark matter
+* Select *Dark Matter* basemap
 
 ## 3. Animated map
 
-* Select the layer and move to the `STYLE` section
-* Select `time` on the `COLUMN` parameter in order to animate your map by the timestamp of the position
-* Experiment with the rest of the parameters and how they affect your map visualization
+* Select the layer and move to the *STYLE* tab
+* Select `time` on the *COLUMN* parameter in order to animate your map by the timestamp of the position
+* Experiment with the rest of the parameters and see how they affect your map visualization
   * Point properties: fill, stroke and blending
   * Duration
   * Number of steps (what happens with 1 step?)

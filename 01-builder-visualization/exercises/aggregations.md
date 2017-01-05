@@ -2,7 +2,7 @@
 
 * *Degree of Difficulty*: **
 
-* *Goal*: Explore the different types of administrative aggregation available through the `STYLE` tab in BUILDER
+* *Goal*: Explore the different types of administrative aggregation available through the STYLE tab in BUILDER
 
 * *Features Highlighted*:
 	* Style: aggregations
@@ -22,17 +22,16 @@
 
 ## 1. Import and create map
 ### 1. 1. Use the link above to download the dataset and import it to the account.
-* Just drag and drop the file into the CARTO Maps interface and wait for the dataset to be imported. The map should be automatically created.
+* Just drag and drop the file into CARTO Dashboard and wait for the dataset to be imported. The map should be automatically created.
 
 ## 2. Administrative regions aggregation
 ### 2. 1. Select an aggregated visualization
-* Click on the layer and then on `STYLE` to access the visualization properties.
-* Scroll horizontally on the first section to find the `ADM. REGIONS` aggregation method
-
+* Click on the layer name and then on *STYLE* to access the visualization properties.
+* Scroll horizontally on the *Aggregation* options to find *ADM. REGIONS* and select it
 ![adm-agg-01](imgs/01-adm-agg-01.png)
 
 * This will create an aggregated visualization using the world borders polygons.
-* By default, it will use countries and `COUNT` aggregation method
+* By default, it will use countries in *ADMIN. LEVEL* and *count* as *OPERATION*
 
 ![adm-agg-02](imgs/01-adm-agg-02.png)
 
@@ -43,7 +42,7 @@
 * Note that the aggregation is already normalized. There are certainly more cities in México than in Guatemala, but the density is higher in the latter, thus the darker color.
 
 #### 2. 2. Exploring other possibilities
-* Use the `OPERATION` input field to select `SUM` and `pop_max` in the columns' dropdown
+* From *OPERATION*,select *SUM* and `pop_max` in the column selector dropdown
 
 ![adm-agg-04](imgs/01-adm-agg-04.png)
 
@@ -53,11 +52,11 @@
 
 * Note the difference between this one and the previous aggregation
 * We could apply any aggregation function in the list:
-	* `COUNT`: Will count the number of features aggregated
-	* `SUM`: Will sum the value in the selected column for the aggregated features
-	* `AVG`: Will calculate an arithmetic average of the value in the selected column for the aggregated features
-	* `MAX`: Will select the maximum value in the column for the aggregated features
-	* `MIN`: Will select the minimum value in the column for the aggregated features
+	* *COUNT*: Will count the number of features aggregated
+	* *SUM*: Will sum the value in the selected column for the aggregated features
+	* *AVG*: Will calculate an arithmetic average of the value in the selected column for the aggregated features
+	* *MAX*: Will select the maximum value in the column for the aggregated features
+	* *MIN*: Will select the minimum value in the column for the aggregated features
 
 * **Exercise:** Create a choropleth map that shows which country has the most populated city
 
@@ -65,7 +64,7 @@
 
 For some countries, CARTO has geometries of their administrative level 1. That usually match provinces, states or other administrative levels superior to the local scale
 
-* Use the `ADMIN. LEVEL` input to select `provinces`
+* Use the *ADMIN. LEVEL* options to select *provinces*
 
 ![adm-agg-06](imgs/01-adm-agg-06.png)
 
@@ -76,15 +75,15 @@ For some countries, CARTO has geometries of their administrative level 1. That u
 ## 3. Other aggregations
 There are also other possibilities when it comes to visualizing aggregated data with Builder. Let's make a quick overview of them
 ### 3. 1. Squares aggregation
-* Use the `Aggregation` selector, scrolling horizontally to find the `SQUARES` method
+* Use the *Aggregation* options, scrolling horizontally to find the *SQUARES* method
 
 ![sq-agg-01](imgs/01-sq-agg-01.png)
 
-* You could use the other parameters to configure the size of the grid, as well as the aggregation method, same as we already saw with the Admin. Region aggregation. 
+* You could use the other parameters to configure the size of the grid, as well as the aggregation method, same as we already saw with the *ADM. REGIONS* aggregation. 
 
 ![sq-agg-02](imgs/01-sq-agg-02.png)
 
-* Note that currently in Builder, the size of the grid is set in pixels for the zoom level at the moment of the setting. Zooming in or out won't make the grid readapt, but will have the same fixed size across different zoom levels.
+* Note that currently in Builder, the size of the grid is set in pixels for the zoom level at the moment of the setting. Zooming in or out won't make the grid re-adapt, but will have the same fixed size across different zoom levels.
 
 ![sq-agg-03](imgs/01-sq-agg-03.png)
 
@@ -92,7 +91,7 @@ There are also other possibilities when it comes to visualizing aggregated data 
 
 ### 3. 2. Hexbins aggregation
 
-* Use the `Aggregation` selector to find the `HEXBINS` method.  
+* Use the *Aggregation* options to find *HEXBINS* method.  
 
 ![01-hex-agg-01](imgs/01-hex-agg-01.png)
 
@@ -100,12 +99,12 @@ There are also other possibilities when it comes to visualizing aggregated data 
 
 ![01-hex-agg-02](imgs/01-hex-agg-02.png)
 
-* Apart from the different shape of the grid, there isn't any other difference bettween this aggregation method and the `SQUARES` one.
+* Apart from the different shape of the grid, there isn't any other difference bettween this aggregation method and the *SQUARES* one.
 * Same as before, the size of the grid is set in pixels for the zoom level at the moment of the setting. Zooming in or out won't make the grid readapt, but will have the same fixed size across different zoom levels.
 
 ## 4. Style the aggregation
-### 4. 1. Use the `Style` options
-* After selecting any kind of `Admin. Region` aggregation, it's possible to style it as it would be with any other layer
+### 4. 1. Use the *STYLE* tab
+* After selecting any kind of *ADM. REGIONS* aggregation, it's possible to style it as it would be with any other layer
 
 ![adm-agg-08](imgs/01-adm-agg-08.png)
 

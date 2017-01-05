@@ -10,16 +10,8 @@
 <!-- MarkdownTOC -->
 
 - 1. Import and create map
-  - 1. 1. Import the ``Street Tree List`` as a csv file into your dataset dashboard.
-  - 1. 2. Dataset view
-  - 1. 3. Click on ``CREATE MAP`` from the ``Street Tree List`` dataset.
 - 2. Layers and styles
-  - 2. 1. Ordering of the layers in the Builder
-  - 2. 2. Layer options
 - 3. Widgets
-  - 3. 1. Category Widget
-  - 3. 2. Time series widget
-  - 3. 3. Change order and name of widgets
 - 4. Share map
 
 <!-- /MarkdownTOC -->
@@ -31,15 +23,15 @@
 
 * Go to https://team.carto.com/u/builder-demo/tables/sf_trees/public/map
 * Download the dataset as a CSV
-* Go to your account and import is using the `NEW DATASET` wizard
+* Go to your account and import is using the *NEW DATASET* options
 
 ### 1. 2. Dataset view
 
 * Take a look on the dataset
 * Switch between the metadata and the SQL view, try any simple query like limiting the result.
-* Take a look on the spatial distribution using the `PREVIEW` window.
+* Take a look on the spatial distribution using the *PREVIEW* option
 
-### 1. 3. Click on ``CREATE MAP`` from the ``Street Tree List`` dataset.
+### 1. 3. Click on *CREATE MAP* from the ``Street Tree List`` dataset.
 
 * Change the name of the map to ``San Francisco Trees``
 
@@ -50,28 +42,28 @@
 
 ### 2. 1. Ordering of the layers in the Builder
 
-* Change the basemap to the dark_matter (labels below) basemap and check the different basemaps options.
+* Change the basemap to the *Dark Matter (labels below)* basemap and check the different basemaps options.
 
-* Note how the layer we added gets the `a0` identifier. This is not important now but it will be later when adding analysis and widgets.
+* Note how the layer we added gets the *A0* identifier. This is not important now but it will be later when adding analysis and widgets.
 
 ### 2. 2. Layer options
 
-* `DATA`:
+* *DATA*:
   * This interface gives a general view of the fields the layer, its name and its data type but also from there you can add them as widgets.
-  * Switch to `VALUES` to `SQL`. The SQL panel allows more advanced users to manage data in a more precise way.
-  * Finally, use the button in the bottom center of the map to switch between the table and the map view.
+  * Use the slider button to switch from *VALUES* to *SQL*. The SQL view allows more advanced users to manage data in a more precise way.
+  * Finally, use the button in the bottom left corner of the map to switch between *Data view* and *Map view*.
 
-* `STYLE`:
-  * In the ``Aggregation menu``, select the ``None`` option.
-  * In the ``Fill`` options, select the ``By Value`` option and then choose the ``common_species`` option to color the dots depending on the values of the ``common_species`` values.
-  * Change the size of the dots to 3 and change the stroke value of the points to 0.
+* *STYLE*:
+  * In the *Aggregation* menu``, select *NONE*.
+  * In the *Fill* options, select *BY VALUE* and then choose the `common_species` column to color the dots depending on its values.
+  * Change the size of the dots to `3` and change the stroke value of the points to `0`.
 
 ![style](./imgs/01-sftrees-01.png)
 
 
-* `POP-UPS`:
-  * Select the Hover tab and the light style for the hover infowindow.
-  * In the ``Show Items`` section of the hover menu, select the ``common_species`` field and change its name to *Common Species*.
+* *POP-UP*:
+  * Select the *HOVER* tab and the *LIGHT* style for the hover infowindow.
+  * In the *Show Items* options, select the `common_species` field and change its name to *Common Species*.
   * By doing this, a pop-up will appear when we hover over the points on the map.
 
 ![hover](imgs/01-sftrees-02.png)
@@ -81,27 +73,27 @@
 
 ### 3. 1. Category Widget
 
-* Back to the main menu, select the ``WIDGETS`` tab and select the ``ADD WIDGET``.
-* In the options of the ``Category`` tab, select the ``common_species`` and ``caretaker`` checkboxes in order to have widgets that display the different categories of the ``common_species`` and ``caretaker`` fields. Click ``CONTINUE``to add the widgets on the map.
+* Back to the main menu, select the *WIDGETS* tab and click on *ADD WIDGET*.
+* In the options of the *CATEGORY* tab, click the ``common_species`` and ``caretaker`` checkboxes in order to have widgets that display the different categories of the ``common_species`` and ``caretaker`` fields. Click *CONTINUE* to add the widgets on the map.
 
 ![category](imgs/01-sftrees-03.png)
 
 ### 3. 2. Time series widget
 
-* Back to the main menu, select the ``WIDGETS`` tab and select the ``ADD WIDGET``.
-* In the options of the ``Time-series`` tab, select the ``plant_date`` checkbox in order to display the dates were the trees were planted. Click ``CONTINUE``to add the widgets on the map.
+* Back to the main menu, go to *WIDGETS* tab and click on *ADD WIDGET*.
+* In the options of the ``Time-series`` tab, select the ``plant_date`` checkbox in order to display the dates were the trees were planted. Click *CONTINUE* to add the widgets on the map.
 
 ![time](imgs/01-sftrees-04.png)
 
 ### 3. 3. Change order and name of widgets
 
-* Back to the main menu, select the ``WIDGETS`` tab to see a list with the widgets that we have added.
-* We can drag and drop the widgets in the widget menu to change their order.
+* Back to the main menu, select the *WIDGETS* tab to see a list with the widgets that we have added.
+* We can drag and drop the widgets in the widget pane to change their order.
 
 ![widgets](imgs/01-sftrees-05.png)
 
 
-* We can change the name of our widgets by selecting the ``rename`` option of the widget menu or by doing a double click on the widget name in the widgets menu.
+* We can change the name of our widgets by selecting the *RENAME* option of the widget menu or by double clicking on the widget name in the *WIDGETS* pane.
 
 ![rename](imgs/01-sftrees-06.png)
 
@@ -113,12 +105,12 @@
 
 ## 4. Share map
 
-* At the bottom of the main menu, click the ``Share`` button.
-* Select the ``Publish`` tab and click on the ``Publish`` button that is below the Map title in order to share our map.
+* At the bottom of the main menu, click on *SHARE*.
+* Go to *PUBLISH* tab and click on *PUBLISH* button that is below the Map name in order to share our map.
 
 ![publish](imgs/01-sftrees-08.png)
 
 
-* After clicking the ``Publish`` button, we can select the option that we want to share our map.
+* After clicking on *PUBLISH*, we can select the options that we want to share our map.
 
 ![share](imgs/01-sftrees-09.png)

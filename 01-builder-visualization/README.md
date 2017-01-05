@@ -1,5 +1,5 @@
-CARTO BUILDER para visualización de datos
-==========================================
+CARTO BUILDER for Data Visualization
+====================================
 
 ## Agenda
 

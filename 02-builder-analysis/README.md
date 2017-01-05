@@ -1,24 +1,24 @@
-Análisis geoespacial con CARTO BUILDER
-==========================================
+Geospatial Analysis with CARTO BUILDER
+======================================
 
 ## Agenda
 
-* Edición de geometrías
-* Publicación de dashboards
-* Análisis en CARTO BUILDER y su relación con widgets
-* Creación de datos: Data Observatory, Georreferenciación, etc
-* Transformación: intersección de capas, áreas de influencia,...
-* Análisis y predicción: clustering espacial, análisis de clusters y outliers, predicción
+* Geometry edition
+* Dashboard publication
+* Analysis with CARTO BUILDER and links with Widgets
+* Data creation: Data Observatory, georeferencing
+* Transformation: layer intersection, areas of influence
+* Analysis and Prediction: spatial clustering, cluster and outliers analysis, prediction
 
 
-## Recursos
+## Resources
 
-Ejercicios:
+Exercises:
 
-* [Análisis de BUILDER](https://docs.google.com/a/cartodb.com/document/d/1EmuckitxKQFw0vrmoMa0rGk5cCtAEZ_hUFSl0WF9QTQ/edit?usp=sharing)
+* [BUILDER Analysis](https://docs.google.com/a/cartodb.com/document/d/1EmuckitxKQFw0vrmoMa0rGk5cCtAEZ_hUFSl0WF9QTQ/edit?usp=sharing)
 * [*Spies in the sky*](exercises/spies_sky.md)
-* [Crímenes de Chicago](exercises/chicago.md)
-* [Análisis de mercado](exercises/dominos.md)
-* [Análisis de riesgos](exercises/railways.md)
-* [Territorios de venta](exercises/portland.md)
-* [Presentando datos de ventas](exercises/stores.md)
+* [Chicago Crimes](exercises/chicago.md)
+* [Market analysis](exercises/dominos.md)
+* [Risk analysis](exercises/railways.md)
+* [Sales territories](exercises/portland.md)
+* [Presenting sales data](exercises/stores.md)

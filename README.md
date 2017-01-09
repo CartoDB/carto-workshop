@@ -1,28 +1,11 @@
 CARTO complete Training Course
 ==============================
 
-> https://github.com/CartoDB/carto-workshop 
+## https://github.com/CartoDB/carto-workshop 
 
-TODO: short link
+## [http://bit.ly/carto-workshop](http://bit.ly/carto-workshop)
 
 This repository contains all material and links for a complete CARTO training course.
-
-[Shared notebook](notas.md)
-
-
-Collaborators:
-
-* Jorge Sanz · jsanz@carto.com
-* Ernesto Martínez · ernesto@carto.com
-* Oriol Boix · oboix@carto.com
-* Ramiro Aznar · ramiroaznar@carto.com
-* Michelle Chandra · mchandra@carto.com
-* Stephanie Mongon · stephanie@carto.com
-
-## Access to workshop's accounts. 
-
-TODO
-
 
 ## [Day 1](01-builder-visualization/README.md). CARTO BUILDER I: Data visualizations and Styling
 

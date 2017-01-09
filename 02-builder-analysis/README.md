@@ -3,8 +3,8 @@ Geospatial Analysis with CARTO BUILDER
 
 ## Agenda
 
-* Geometry edition
-* Dashboard publication
+* Geometry editing
+* Dashboard publishing
 * Analysis with CARTO BUILDER and links with Widgets
 * Data creation: Data Observatory, georeferencing
 * Transformation: layer intersection, areas of influence
@@ -16,7 +16,7 @@ Geospatial Analysis with CARTO BUILDER
 Exercises:
 
 * [BUILDER Analysis](https://docs.google.com/a/cartodb.com/document/d/1EmuckitxKQFw0vrmoMa0rGk5cCtAEZ_hUFSl0WF9QTQ/edit?usp=sharing)
-* [*Spies in the sky*](exercises/spies_sky.md)
+* [Spies in the sky](exercises/spies_sky.md)
 * [Chicago Crimes](exercises/chicago.md)
 * [Market analysis](exercises/dominos.md)
 * [Risk analysis](exercises/railways.md)

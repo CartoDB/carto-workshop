@@ -9,7 +9,7 @@
 	* Widgets: Formulas + Histograms
 
 * *Datasests needed*:
-	* ne_10m_populated_places_simple dataset from CARTO [Data Library](https://carto.com/dataset/ne_10m_populated_places_simple)
+	* *ne_10m_populated_places_simple* dataset from CARTO [Data Library](https://carto.com/dataset/ne_10m_populated_places_simple)
 
 ## Contents
 
@@ -40,7 +40,7 @@ Look for the dataset named `ne_10m_populated_places_simple` on the Data Library 
 ![01-cat-bub-02](imgs/01-cat-bub-02.png)
 
 * You'll see that a legend has automatically been generated
-* Click on the layer name menu (three dots next to layer name) to change the layer name and see how it updates in the legend
+* Click to the layer name options (button with three dots next to the layer name) to change the layer name and see how it updates in the legend
 
 ![01-cat-bub-03](imgs/01-cat-bub-03.png)
 

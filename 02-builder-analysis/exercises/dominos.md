@@ -9,8 +9,8 @@
   * Analysis: Create AOI & Enrich with DO.
 
 * *Datasests needed*:
-  * NYC blocks (**`nyc_blocks`**): download from [here](https://team.carto.com/u/builder-demo/tables/nyc_blocks/public) as csv file.
-  * Dominos data (**`dominos_data`**): download from [here](https://team.carto.com/u/builder-demo/tables/dominos_data/public) as csv file.
+  * NYC blocks (*nyc_blocks*): download from [here](https://team.carto.com/u/builder-demo/tables/nyc_blocks/public) as csv file.
+  * Dominos data (*dominos_data*): download from [here](https://team.carto.com/u/builder-demo/tables/dominos_data/public) as csv file.
 
 
 ## Contents
@@ -30,14 +30,14 @@
 
 ### 1. 1. Import datasets
 
-* First, import `nyc_blocks` into CARTO, drag and dropping the file into Builder dashboard.
-* Then import `dominos_data`.
+* First, import *nyc_blocks* into CARTO, drag and dropping the file into Builder dashboard.
+* Then import *dominos_data*.
 * Select both datasets and click on *CREATE MAP*.
 
 ### 1. 2. Create a map
 
 * Just after clicking on *CREATE MAP*, the Builder main menu will open up. Builder user interface (already on *LAYERS* pane) will show four layers (*Positron labels*, *dominos_data*, *nyc_blocks* and *Positron*), first and last ones correspond with the basemap, the other two are proper data layers.
-* Rename the map as `Dominos Pizza Demo` and the two layers as `Pizza Stores` and `NYC blocks` respectively.
+* Rename the map as *Dominos Pizza Demo* and the two layers as *Pizza Stores* and *NYC blocks* respectively.
 
 ![1](https://cloud.githubusercontent.com/assets/5215798/17518721/55f08e8c-5e49-11e6-985e-d84e52daa0cc.png)
 
@@ -47,7 +47,7 @@
 
 * Change to a basemap without labels.
 
-* Each layer (but the basemap) have a dataset as layer source and a node id. For instance, the source of *Pizza Stores* is `dominos_data`, with `a0` as node id. This will be very important when adding analysis and widgets.
+* Each layer (but the basemap) have a dataset as layer source and a node id. For instance, the source of *Pizza Stores* is `dominos_data`, with *A0* as node id. This will be very important when adding analysis and widgets.
 
 ### 2. 2. Layer options, styles
 
@@ -69,9 +69,9 @@
 
 ### 3. 1. Create Areas of Interest
 
-* Back in the main menu, click on *ADD ANALYSIS* on the `Pizza Stores` layer.
+* Back in the main menu, click on *ADD ANALYSIS* on the *Pizza Stores* layer.
 * Select *Create areas of influence*. Click on *ADD ANALYSIS*.
-* Set *DISTANCE* to `km` and *RADIUS* to `1`. Hit *APPLY*.
+* Set *DISTANCE* to *km* and *RADIUS* to `1`. Hit *APPLY*.
 * An explanatory pop up will appear. Click on *DONE*.
 
 The map should now look like the following:
@@ -80,16 +80,16 @@ The map should now look like the following:
 
 ### 3. 2. Get population and household data from the Data Observatory
 
-* Add another Analysis to the Analysis Chain by clicking the plus symbol (`+`) in *Your workflow*.
+* Add another Analysis to the Analysis Chain by clicking the plus symbol (+) in *Your workflow*.
 * Select *Enrich from Data Observatory*. Click on *ADD ANALYSIS*.
 
 > the Data Observatory enrichment is the result of the geometry location and the measure requested.
 
-* Set *NEW COL. NAME* to `population`. Select `United States` as *COUNTRY*, `Age and Gender` as *MEASUREMENT* and `Total Population` as *SEGMENTS*. Click *APPLY*.
+* Set *NEW COL. NAME* to `population`. Select *United States* as *COUNTRY*, *Age and Gender* as *MEASUREMENT* and *Total Population* as *SEGMENTS*. Click *APPLY*.
 * An explanatory pop up will appear. Click on *DONE*.
 * Repeat steps above to add two more *Enrich from Data Observatory Analysis* with the following parameters:
-  * `total_households`, `United States`, `Housing` and `Households`.
-  * `carless_households`, `United States`, `Transportation` and `Car-free households`.
+  * `total_households`, *United States*, *Housing* and *Households*.
+  * `carless_households`, *United States*, *Transportation* and *Car-free households*.
 
 > **Warning**: if the buffers (or AOIs) are not showing right on the map, refresh!
 
@@ -99,7 +99,7 @@ The map should now look like the following:
 
 * Improve the visualization styling the AOIs. Back to the *STYLE* tab:
   * *FILL*: click on the color bar, select *BY VALUE*, set `carless_households` as the variable and choose a nice color palette with some contrast to the one used for *NYC blocks* layer. Set the number of buckets to `5`.
-  * Set *BLENDING* to `multiply`.
+  * Set *BLENDING* to *multiply*.
 
 ![3-3](https://cloud.githubusercontent.com/assets/5215798/17518751/707e4bcc-5e49-11e6-9206-ff566970f7e6.png)
 
@@ -107,7 +107,7 @@ The map should now look like the following:
 
 ### 4. 1. Add new layer
 
-* Click on *LAYERS*, *ADD* a third layer, again select the `dominos_data` dataset and rename it as `Pizza Stores Points`.
+* Click on *LAYERS*, *ADD* a third layer, again select the *dominos_data* dataset and rename it as *Pizza Stores Points*.
 * *STYLE* this new layer, set the marker width according to `monthly_revenue` value, select a color (white would be good choice) and set the *STROKE* to `0.2`.
 
 ![4-1](https://cloud.githubusercontent.com/assets/5215798/17518753/721eeb3a-5e49-11e6-9e90-ba24880aeb5d.png)
@@ -116,19 +116,19 @@ The map should now look like the following:
 
 * Back in Builder main interface, open *WIDGETS* pane and click *ADD WIDGET*:
 
-> From *Pizza Stores Points* layer, which should be `C0` node:
+> From *Pizza Stores Points* layer, which should be *C0* node:
 
-  * one *CATEGORY* widget for `store_address`,
-  * three *FORMULA* Widgets for `pizzas_sold`, `customers_served`, and `deliveries_made`. Rename these Widgets and drag them into the desired order,
-  * and one *HISTOGRAM* widget for `monthly_revenue`.
+  * one *CATEGORY* widget for *store_address*,
+  * three *FORMULA* Widgets for *pizzas_sold*, *customers_served*, and *deliveries_made*. Rename these Widgets and drag them into the desired order,
+  * and one *HISTOGRAM* widget for *monthly_revenue*.
 
 * Also add the following widgets:
 
-> From *Pizza Stores* layer (should be node `A0`).
+> From *Pizza Stores* layer (should be node *A0*).
 
-  * Three *HISTOGRAM* widgets for `population`, `total_households` and `carless_households`.
+  * Three *HISTOGRAM* widgets for *population*, *total_household* and *carless_households*.
 
-> Tip 1: for widgets that have values with units, such as `monthly_revenue` (a dollar amount), you may add a *Prefix* to the widget, in this case a `$` symbol.
+> Tip 1: for widgets that have values with units, such as *monthly_revenue* (a dollar amount), you may add a *Prefix* to the widget, in this case a `$` symbol.
 
 > Tip 2: rename each widget, they'll look nicer :)
 

@@ -15,19 +15,19 @@
 
 + Import carto file into your account.
 + Open the map
-+ Rename your map as "Vintage Africa Map".
++ Rename your map as *Vintage Africa Map*.
 + Order and rename your layers as follows:
-  1. `ne_50m_admin_0_countries` > "Countries"
-  2. `continent` > "Continent"
-  3. `ne_50m_ocean` > "Ocean"
+  1. *ne_50m_admin_0_countries* > *Countries*
+  2. *continent* > *Continent*
+  3. *ne_50m_ocean* > *Ocean*
 + Select Africa:
-  1. Click on *ADD ANALYSIS* just below "Continent" layer name
+  1. Click on *ADD ANALYSIS* just below *Continent* layer name
   2. Select *Filter by column value*
-  3. Click on `ADD ANALYSIS`
+  3. Click on *ADD ANALYSIS*
   4. Set parameters as folows:
     * *COLUMN*: `continent`
     * *INPUT*: `Africa`
-    * *RESULT*: `Show`
+    * *RESULT*: *Show*
   5. Click on *APPLY*
 
 <br>
@@ -39,12 +39,12 @@
   2. Select *Create  Areas of influence*
   3. Click on *ADD ANALYSIS*
   4. Set parameters as folows:
-    * *TYPE*: `Distance`
-    * *UNITS*: `miles`
+    * *TYPE*: *Distance*
+    * *UNITS*: *miles*
     * *RADIUS*: `100`
     * *TRACTS*: `6`
-    * *BOUNDARIES*: `Intact`
-  5. Click on `APPLY`
+    * *BOUNDARIES*: *Intact*
+  5. Hit *APPLY*
 
 <br>
 ![ripples](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/ripples.png)
@@ -67,9 +67,9 @@
 
 ### Global styles
 
-+ In order to style all countries by categories and using a `pattern-file` follow these instructions:
++ In order to style all countries by categories and using a pattern file follow these instructions:
   1. Go back to *LAYERS* pane
-  2. Click on "Countries" layer
+  2. Click on *Countries* layer
   3. Go to *STYLE* tab
   4. Open CartoCSS view by clickin the slider button
   5. Apply this code:
@@ -124,11 +124,11 @@
 
 ## Ocean
 
-+ In order to style "Ocean" layer:
++ In order to style *Ocean* layer:
   1. Go back to *LAYERS* pane
-  2. Click on "Ocean" layer
+  2. Click on *Ocean* layer
   3. Go to *STYLE* tab
-  4. Open CartoCSS view by clickin the slider button
+  4. Open CartoCSS view by clicking the slider button
   5. Apply this code:
 
 ```css
@@ -145,9 +145,9 @@
 
 ## Basemap
 
-+ Finally, go back to *LAYERS* paen to style the basemap:
++ Finally, go back to *LAYERS* pane to style the basemap:
   1. Click on *Positron*.
-  2. Set *COLOR* as `Source`
+  2. Set *COLOR* as *Source*
   3. Set `#c3d1c7` as *HEX* value.
 
 <br>

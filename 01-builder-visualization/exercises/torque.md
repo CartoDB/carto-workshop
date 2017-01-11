@@ -33,14 +33,15 @@
 ## 3. Animated map
 
 * Select the layer and move to the *STYLE* tab
+* Scroll horizontally on the *Aggregation* section to find *ANIMATED*
 * Select `time` on the *COLUMN* parameter in order to animate your map by the timestamp of the position
 * Experiment with the rest of the parameters and see how they affect your map visualization
-  * Point properties: fill, stroke and blending
-  * Duration
-  * Number of steps (what happens with 1 step?)
+  * Point properties: *FILL*, *STROKE* and *BLENDING*
+  * *DURATION*
+  * *NUMBER OF STEPS* (what happens with just `1` step?)
   * Accumulative or not?
-  * Number of trails
-  * Resolution (hint: make it really big)
+  * Number of *TRAILS*
+  * *RESOLUTION* (hint: make it really big)
 
 ![](imgs/01-torque-01.png)
 

@@ -9,8 +9,8 @@
   * Analysis: Find centroid from geometries & Connect with lines.
 
 * *Datasests needed*:
-  * Chicago Crimes (**`chicago_crimes`**): download it [from the `builder-demo` CARTO account](https://builder-demo.carto.com:443/api/v2/sql?q=select+*+from+chicago_crimes&format=gpkg&filename=chicago_crimes.gpkg) and import it into CARTO from your local machine..
-  * Chicago Police Stations (**`chicago_police_stations`**): download it [from the `builder-demo` CARTO account](https://builder-demo.carto.com:443/api/v2/sql?q=select+*+from+chicago_police_stations&format=gpkg&filename=chicago_police_stations.gpkg) and import it into CARTO from your local machine.
+  * Chicago Crimes (*chicago_crimes*): download it [from the `builder-demo` CARTO account](https://builder-demo.carto.com:443/api/v2/sql?q=select+*+from+chicago_crimes&format=gpkg&filename=chicago_crimes.gpkg) and import it into CARTO from your local machine..
+  * Chicago Police Stations (*chicago_police_stations*): download it [from the `builder-demo` CARTO account](https://builder-demo.carto.com:443/api/v2/sql?q=select+*+from+chicago_police_stations&format=gpkg&filename=chicago_police_stations.gpkg) and import it into CARTO from your local machine.
 
 <!-- MarkdownTOC -->
 
@@ -45,15 +45,15 @@
 
 ### 2. 2. Add widgets in order to explore crimes layer
 
-* Back to the main menu, click on *Crimes* layer.
-* In *DATA* pane, activate the checkbox on `point count`, `date` and `primary_type`.
+* Back to the *LAYERS* pane, click on *Crimes* layer.
+* In *DATA* tab, activate the checkbox on `point count`, `date` and `primary_type`.
 * Rename them as `Number of Crimes`, `Date` and `Type of Crime` respectively.
 
 ## 3. Add Analysis and styles
 
 ### 3. 0. Optional: sample the dataset
 
-You can add the *Subsample percent of rows* analysis to the crimes dataset. We could reduce the dataset size to a 10% while we define the analysis workflow, and then set it to 100% when we finish to recalculate the analysis with the whole dataset.
+You can add the *Subsample percent of rows* analysis to the crimes dataset. We could reduce the dataset size to a 10% while we define the analysis workflow, and then set it to 100% when we finish in order to  recalculate the analysis with the whole dataset.
 
 ### 3. 1. Create crimes centroids by district
 
@@ -66,22 +66,22 @@ You can add the *Subsample percent of rows* analysis to the crimes dataset. We c
 
 ### 3. 2. Style crimes layer
 
-* After applying the analysis, drag and drop out the original node layer. Rename the analysis node layer as `Centroids`.
+* After applying the analysis, drag and drop out the original node layer. Rename the analysis node layer as *Centroids*.
 
 > Now you should have a mess of points, three layers equally styled.
 
-* In order to style the `Crimes` layer follow these steps:
+* In order to style the *Crimes* layer follow these steps:
   * Click on *Crimes* layer.
   * Click on *STYLE*:
     * *FILL*: set the marker size value to `1` and color to yellow (`#FFE95C`).
     * *STROKE*: set stroke width to `0`.
-    * *BLENDING*: `multiply`.
+    * *BLENDING*: *multiply*.
 
 ![style](imgs/chicago/01-data.png)
 
 ### 3. 3. Connect police stations with centroids and calculate distances
 
-* Add a new analysis (to the `Centroids` layer).
+* Add a new analysis (to the *Centroids* layer).
 * Select *Connect with lines*.
 * Click on *ADD ANALYSIS*.
 * Set the parameters as follows:
@@ -96,7 +96,7 @@ You can add the *Subsample percent of rows* analysis to the crimes dataset. We c
 
 ### 3. 4. Style police stations, centroids and lines layers
 
-* After applying the analysis, drag and drop out the *Connect with lines* analysis node, on top of *Crimes* but below *Police Stations* and *Centroids*. Rename the new layer as `Lines`.
+* After applying the analysis, drag and drop out the *Connect with lines* analysis node, on top of *Crimes* but below *Police Stations* and *Centroids*. Rename the new layer as *Lines*.
 
 #### Lines style
 
@@ -120,7 +120,7 @@ You can add the *Subsample percent of rows* analysis to the crimes dataset. We c
 
 #### Police Stations style
 
-* Follow the steps below to style `Police Stations` layer:
+* Follow the steps below to style *Police Stations* layer:
   * Click on *Crimes* layer.
   * Click on *STYLE*:
     * *FILL*: set the marker size value to `20` and color to dark pink (`#EA526F`).
@@ -137,7 +137,7 @@ You can add the *Subsample percent of rows* analysis to the crimes dataset. We c
 
 * Back to *LAYERS* pane on main Bulder interface, click on *Lines* layer.
 * In the *DATA* tab. Activate the *Add as a widget* checkbox on `length` column.
-* Rename them as `Distance`.
+* Rename them as *Distance*.
 
 ![final](imgs/chicago/03-final.png)
 

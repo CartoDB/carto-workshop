@@ -2,14 +2,14 @@
 
 * *Degree of Difficulty*: **
 
-* *Goal*: Explore the different types of administrative aggregation available through the STYLE tab in BUILDER
+* *Goal*: Explore the different types of administrative aggregation available through the *STYLE* tab in BUILDER
 
 * *Features Highlighted*:
 	* Style: aggregations
 	* Widgets: filtering
 
 * *Datasests needed*:
-	* ne_10m_populated_places_simple dataset from CARTO [Data Library](https://carto.com/dataset/ne_10m_populated_places_simple)
+	* *ne_10m_populated_places_simple* dataset from CARTO [Data Library](https://carto.com/dataset/ne_10m_populated_places_simple)
 
 <!-- MarkdownTOC -->
 
@@ -31,7 +31,7 @@
 ![adm-agg-01](imgs/01-adm-agg-01.png)
 
 * This will create an aggregated visualization using the world borders polygons.
-* By default, it will use countries in *ADMIN. LEVEL* and *count* as *OPERATION*
+* By default, it will use *countries* in *ADMIN. LEVEL* and *COUNT* as *OPERATION*
 
 ![adm-agg-02](imgs/01-adm-agg-02.png)
 
@@ -62,13 +62,13 @@
 
 ### 2. 3. Aggregation by provinces
 
-For some countries, CARTO has geometries of their administrative level 1. That usually match provinces, states or other administrative levels superior to the local scale
+For some countries, CARTO has geometries of their administrative level one. That usually match provinces, states or other administrative levels superior to the local scale
 
 * Use the *ADMIN. LEVEL* options to select *provinces*
 
 ![adm-agg-06](imgs/01-adm-agg-06.png)
 
-* Wait for the map to be calculated and see how the choropleths have been created using the selected aggregation function. In this case, same as before: `SUM(pop_max)` (or _sum the population in the aggregated cities_)
+* Wait for the map to be calculated and see how the choropleths have been created using the selected aggregation function. In this case, same as before: `SUM(pop_max)` (or _"sum the population in the aggregated cities"_)
 
 ![adm-agg-07](imgs/01-adm-agg-07.png)
 

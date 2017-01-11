@@ -9,14 +9,14 @@ Moules can be easily combined to finally make a 1 week full training but they ca
 
 ## [Module 0](00-intro-carto/). Introduction to CARTO
 
-- Duration: 1 hour
+- Duration: 1.5 hour
 - Audience: General public interested in CARTO and location intelligence.
 
-Introduction to the training sessions and general explanation about CARTO as a platform: product positioning, general overview of the portfolio and examples of how CARTO can solve different use cases.
+Introduction to the training sessions, GIS and webmapping and general explanation about CARTO as a platform: product positioning, general overview of the portfolio and examples of how CARTO can solve different use cases.
 
 ## [Module 1](01-builder-visualization/). CARTO BUILDER I: Data visualizations and Styling
 
-- Duration: 7 hours
+- Duration: 6.5 hours
 - Audience: General public with basic knowledge on geomatics, databases and data analysis.
 
 This course will cover different BUILDER (CARTO's web interface) workflows for generating cartographic data visualizations. We'll dig into new Builder features and some differences with old Editor. During this first part, we'll cover those aspects related to data visualizations, cartographic styles, legend's definition and dashboard creation with actionable Widgets that interact with the map.

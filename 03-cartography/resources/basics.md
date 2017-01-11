@@ -66,6 +66,12 @@ The following two styles are based on the same principle, but instead of using s
 
 Choropleth maps are one of the most well known thematic maps. Especially suited to mapping densities, these maps are a great way to visualize intensity, and also to explain geographic similarities and differences.
 
+It is important to use a normalized (rate) attribute in a choropleth instead of a raw count. Counts show magnitude instead of concentration. In the dataset below, both Nigeria (pop2005 = 141,356,083 people) and Russia (pop2005 = 143,953,092 people) have ~140 million people. If we make a choropleth using the pop2005 attribute, Russia and Nigeria are the same color because they are included in the same bucket. This is misleading if what we're really trying to map is how crowded or population-dense those countries are, since Russia covers a much bigger area. To see density we need to factor out area size, like in the SQL example below. If you want to work with raw counts instead Bubble maps are a better option.
+
+It's also important to consider [quantification](https://carto.com/academy/courses/intermediate-design/which-kind-of-map-should-i-make#quantification), since that's how your data is bucketed into choropleth bins. Each method can make your map look dramatically different.
+
+*Tip*: Prioritize legibility: Make sure to choose a color ramp that contrasts with your basemap colors enough to be easily readable.
+
 ### Style countries based upon normalized population
 
 * Data Source: `world_borders` from *DATA LIBRARY*
@@ -214,6 +220,10 @@ To start working with zoom-based styling, let’s go back to the Simple visualiz
   ```
 
 We can see that CARTO will read this as all markers should have a width value of `3`. If the zoom equals `4`, the marker width value should be `6`. If the zoom equals `5`, the marker width value should be `12`. Finally, if the zoom is larger than `5`, the marker width value should be `16`. This means that as we zoom in, the markers become bigger. [Go ahead and play around with this](https://team.carto.com/u/ramirocartodb/builder/33e2696c-badf-11e6-80bd-0ee66e2c9693/embed) to see what kinds of visualizations you can make based on zoom.
+
+*Note*: When nested conditional styles apply to more than one case, the bottom-most styles take precedence.
+
+*Tip*: If you're working with choropleth polygons, check the legibility of the smallest polygon at each zoom level to judge how to adjust your styles.
 
 ## Torque
 

@@ -40,12 +40,9 @@ This session focuses on the advanced use of BUILDER, creating cartographic rules
 - Duration: 5 hours
 - Audience: Data analysts and developers with none or small experience on Spatial SQL and geospatial databases in general.
 
-
-
-
 This workshop extensively covers advanced use of PostgreSQL and PostGIS for those cases when Builder is not enough. We'll review the most relevant parts of SQL language, useful for advanced analysis development, as well as the geospatial capabilities brought by PostGIS. We'll also cover some basic concepts for task automation, as triggers and stored procedures.
 
-## [Module 5](05-engine-apis/README.md). CARTO ENGINE I, platform and APIs
+## [Module 5](05-apis/README.md). CARTO ENGINE I, platform and APIs
 
 - Duration: 3 hours
 - Audience: Data analysts and developers that need to build applications using CARTO ENGINE offering.

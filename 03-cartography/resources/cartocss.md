@@ -84,7 +84,7 @@ Apply the `@` symbol to lists of all the color values for your categories. The C
 ![variables](exercises/img/variables.png)
 <br>
 
-*Note*: using CartoCSS variables inside Turbo CARTO ramp funcions is not supported at the moment.
+*Note*: using CartoCSS variables inside TurboCARTO ramp funcions is not supported at the moment.
 
 
 ## CartoCSS Comments
@@ -97,7 +97,7 @@ Enter comments by using the following format in your CartoCSS code. Note the req
 cartocss-property; /* comment */
 ```
 
-In the following example, there are user comments entered in the marker-line-color, marker-placement, marker-width, and marker-fill CartoCSS properties.
+In the following example, there are user comments entered in the `marker-line-color`, `marker-placement`, `marker-width`, and `marker-fill` CartoCSS properties.
 
 ```css
 /** simple visualization */
@@ -168,7 +168,7 @@ Suppose you have a point symbol and want to put a glowing halo around it. You ne
 
 ## Color
 
-CartoCSS accepts a variety of syntaxes for colors - HTML-style hex values, rgb, rgba, hsl, and hsla. It also supports the predefined HTML colors names, such as `yellow` and `blue`.
+CartoCSS accepts a variety of syntaxes for colors - HTML-style `hex` values, `rgb`, `rgba`, `hsl`, and `hsla`. It also supports the predefined HTML colors names, such as `yellow` and `blue`.
 
 For instance, all the lines within this code are the same:
 
@@ -188,9 +188,10 @@ For instance, all the lines within this code are the same:
 ![yellow](exercises/img/yellow.png)
 <br>
 
+
 *Note*: You can ramp transparency with color inside Turbo CARTO by using rgba instead of hex colors.
 
-*Note*: Using hsl [(hue, saturation, lightness)](http://mothereffinghsl.com/) color values are often easier than rgb()values. CARTO also includes several color functions [borrowed from Less, a CSS pre-processor](http://lesscss.org/#-color-functions):
+*Note*: Using *HSL* [(hue, saturation, lightness)](http://mothereffinghsl.com/) color values are often easier than rgb()values. CARTO also includes several color functions [borrowed from Less, a CSS pre-processor](http://lesscss.org/#-color-functions):
 
 ```css
 /* lighten and darken colors */
@@ -286,6 +287,7 @@ When applying CartoCSS syntax, it helps to understand how values are applied to 
 * The destination is the effect on the rest of the map, underneath the source
 * Any layers that appear above the source are unaffected by the applied style and are rendered normally
 * Typically, you apply CartoCSS properties to different layers on a map. You can add multiple styles and values for each layer
+
 * Alternatively, you can apply CartoCSS by nesting categories and values. Categories contain multiple values listed under the same, single category using brackets `{ }`. This enables you visualize all of the styling elements applied to the overall map or to individual symbolizers, and avoid adding any redundant or unnecessary parameters. This is the suggested method if you are applying styles to a multi-scale map.
 * Check your styles at each zoom level and modify as needed to maintain proper information hierarchy.
 

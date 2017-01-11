@@ -1,29 +1,29 @@
-Cartografía en CARTO
-==========================
+Cartography with CARTO
+======================
 
 ## Agenda
 
-* Principios de diseño cartográfico
-* Fundamentos de CartoCSS
-* Básicos de CartoCSS:
-  * Creación de mapas temáticos
-  * Simbología condicionada por zoom
-  * Torque: mapas con datos temporales
-* Introducción a Turbo CARTO
-* Ejercicios con Turbo CARTO
+* Cartographic design principles
+* CartoCSS foundations
+* CartoCSS basics:
+  * Thematic mapping
+  * Zoom based symbology
+  * Torque: maps with temporal data
+* Introduction to TurboCARTO
+* Exercises with Turbo CARTO
 
 
-## Recursos
+## Resources
 
-* [Principios de diseño cartográfico](https://docs.google.com/presentation/d/1LbBIFPEWki58F2yRdbESTKGgm_sjnZRf9VV4odLGPlM/edit?usp=sharing)
-* [Fundamentos de CartoCSS](resources/cartocss.md)
-* [Básicos de CartoCSS](resources/basics.md)
-* [Diapositivas Turbo CARTO](https://docs.google.com/a/cartodb.com/presentation/d/1v4IYwOXSfUMwv6_X5pbDPBr5SaHLS6GUaa74HSMG3-8/edit?usp=sharing)
-* [Ejercicio: taller de Turbo CARTO](http://bit.ly/turboviewer-cartosummit)
-* [Ejercicio: mapa vintage de África](exercises/africa.md)
+* [Cartographic design principles](https://docs.google.com/presentation/d/1LbBIFPEWki58F2yRdbESTKGgm_sjnZRf9VV4odLGPlM/edit?usp=sharing)
+* [CartoCSS foundations](resources/cartocss.md)
+* [CartoCSS basics](resources/basics.md)
+* [TurboCARTO slides](https://docs.google.com/a/cartodb.com/presentation/d/1v4IYwOXSfUMwv6_X5pbDPBr5SaHLS6GUaa74HSMG3-8/edit?usp=sharing)
+* [Exercise: TurboCARTO workshop](http://bit.ly/turboviewer-cartosummit)
+* [Exercise: Africa vintage map](exercises/africa.md)
 
-Adicionalmente estas lecciones sobre uso del color son muy interesantes:
+Additionally, these lessons about colors in Cartography are also very useful:
 
-* [Colores, primera parte](https://carto.com/academy/courses/intermediate-design/choose-colors-1/)
-* [Colores, segunda parte](https://carto.com/academy/courses/intermediate-design/choose-colors-2/)
-* [Operaciones de composición](https://carto.com/academy/courses/intermediate-design/use-composite-operations/)
+* [Colors, part I](https://carto.com/academy/courses/intermediate-design/choose-colors-1/)
+* [Colors, part II](https://carto.com/academy/courses/intermediate-design/choose-colors-2/)
+* [Composite operations](https://carto.com/academy/courses/intermediate-design/use-composite-operations/)

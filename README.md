@@ -13,7 +13,7 @@ This course will cover different BUILDER (CARTO's web interface) workflows for g
 
 This advanced workshop will let users know the most powerful analytic capabilities of CARTO BUILDER. Analysis workflows and its link with Widgets will occupy the central part of the course, along with a review of the different analyses that BUILDER currently offers.
 
-## [Day 3](03-cartography/README.md). Cartography and advanced simbology
+## [Day 3](03-cartography/README.md). Cartography and advanced symbology
 
 This session focuses on the advanced use of BUILDER, creating cartographic rules for powerful webmap visualizations. It also goes through our new tools for thematic mapping (TurboCARTO) and all the different options that Torque offers for creating dynamic maps.
 

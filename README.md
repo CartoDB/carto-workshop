@@ -19,7 +19,7 @@ This session focuses on the advanced use of BUILDER, creating cartographic rules
 
 ## [Day 4](04-database/README.md). Geospatial databases and CARTO platform
 
-This workshop extensively covers andvaced use of PostgreSQL and PostGIS for those cases when Builder is not enough. We'll review the most relevant parts of SQL language, useful for advanced analysis development, as well as the geospatial capabilities brought by PostGIS. We'll also cover some basic concepts for task automation, as triggers and stored procedures.
+This workshop extensively covers advanced use of PostgreSQL and PostGIS for those cases when Builder is not enough. We'll review the most relevant parts of SQL language, useful for advanced analysis development, as well as the geospatial capabilities brought by PostGIS. We'll also cover some basic concepts for task automation, as triggers and stored procedures.
 
 Second part of this course will introduce CARTO architecture as a webmapping platform, deploying options and main components. The different APIs for interacting with the platform, most usual workflows and use cases will be covered too.
 

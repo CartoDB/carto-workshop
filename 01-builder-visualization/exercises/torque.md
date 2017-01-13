@@ -13,24 +13,25 @@
 
 <!-- MarkdownTOC -->
 
-- 1. Import and create map
-- 2. Change base map
-- 3. Animated map
-- 4. Positions layer
-- 5. Widgets
+- Import and create map
+- Change base map
+- Animated map
+- Positions layer
+- Widgets
+- Adding category style
 
 <!-- /MarkdownTOC -->
 
-## 1. Import and create map
+## Import and create map
 
 * Use the link above to download the dataset and import it to the account.
 * Just drag and drop the file into the CARTO Dashboard and wait for the dataset to be imported. The map should be automatically created.
 
-## 2. Change base map
+## Change base map
 
 * Select *Dark Matter* basemap
 
-## 3. Animated map
+## Animated map
 
 * Select the layer and move to the *STYLE* tab
 * Scroll horizontally on the *Aggregation* section to find *ANIMATED*
@@ -45,7 +46,7 @@
 
 ![](imgs/01-torque-01.png)
 
-## 4. Positions layer
+## Positions layer
 
 * Add again the dataset so you can have the track as a static image
 * Style it in a way it's easy to view. You probably want to remove the stroke, select a light color, etc.
@@ -53,7 +54,7 @@
 
 ![](imgs/01-torque-02.png)
 
-## 5. Widgets
+## Widgets
 
 Add the following widgets using the mentioned fields:
 
@@ -66,4 +67,7 @@ Add the following widgets using the mentioned fields:
 Tweak the labels, suffixes, number of bins, etc so you get a nice map of the track.
 
 ![](imgs/01-torque-03.png)
+
+
+## Adding category style
 

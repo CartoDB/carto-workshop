@@ -5,7 +5,7 @@
 * *Goal*: Create a map based on animated data with BUILDER
 
 * *Features Highlighted*:
-	* Style: animated map
+	* Style: animated map, category map
 	* Widgets: time series, histograms
 
 * *Datasests needed*:
@@ -71,3 +71,12 @@ Tweak the labels, suffixes, number of bins, etc so you get a nice map of the tra
 
 ## Adding category style
 
+Besides styling data by a time field, you can also style data by a column value. Select the data layer you styled as an animated map:
+
+* Navigate to the *STYLE* tab
+* Select on the *Aggregation* section, choose "none" for the aggregation
+* Click on the color fill bar next to "FILL" on the *Style* section
+* In the upper left hand side of the color picker, select "BY VALUE" (not "SOLID"). Choose the "up_or_down" column from the column list that appears.
+* To see your data values better, select the color bar next to *Stroke*. In the color picker, change the opacity from "1" (located in the lower right hand side) to "0"
+
+![](imgs/01-torque-04.png)

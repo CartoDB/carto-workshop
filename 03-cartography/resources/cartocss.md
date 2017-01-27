@@ -310,3 +310,69 @@ When applying CartoCSS syntax, it helps to understand how values are applied to 
 *Note*: Be mindful when applying styles to a map with multiple layers. Instead of applying an overall style to each map layer, apply the style to one layer on the map using this nested structure. For example, suppose you have a map with four layers, you can define zoom dependent styling as a nested value in one map layer. You do not have to go through each layer of the map to apply a zoom style. Using the nested structure allows you to apply all of the styling inside the brackets `{ }`. This is a more efficient method of applying overall map styling. 
 
 When nested conditional styles apply to more than one case, the bottom-most styles take precedence. If the ```[zoom >= 10]``` code block above was listed above the ```[zoom >= 7]``` block, then markers at zoom 11 would be 13px.
+
+## Some handy tricks
+
+**2.5D/Pseudo 3D/extruded geometries**
+  
+We could achieve a 3D-looking map using `building` CartoCSS properties:
+
+```css
+#layer {
+  /* global */
+  polygon-opacity: 0.7;
+  line-width: 1;
+  line-color: black;
+  line-opacity: 1;
+  
+  building-fill:#fcde9c; 
+  building-fill-opacity: 1;
+  building-height: [pop2005]/ 2500 ;
+
+  /* categories */
+  [pop_norm > 190.0] {
+    building-fill: #f58670;
+  }
+  [pop_norm > 650] {
+    building-fill: #e34f6f;
+  }
+  [pop_norm > 1401] {
+    building-fill: #d72d7c;
+  }
+  [pop_norm > 4500] {
+    building-fill: #7c1d6f;
+  }
+}
+```
+  
+See an example [here](http://bl.ocks.org/ernesmb/4a6f00d6d795a20406516bce3fbe8092)
+
+When using this kind of properties, some features won't fit into a single tile, and we'll need to use this trick in order to render geometries that go beyond their tile. This is also useful for labels that don't fit in a single tile: 
+
+```css
+Map{
+  buffer-size: 512;
+}
+```
+
+**SQL query to calculate breaks in your data** 
+
+Sometimes, we'd need to calculate the breaks in a classification in order to generate a choropleth visualization. [TurboCARTO](https://docs.google.com/a/cartodb.com/presentation/d/1v4IYwOXSfUMwv6_X5pbDPBr5SaHLS6GUaa74HSMG3-8/edit?usp=sharing) solves this easily, but you may encounter other situations where this query will help:
+
+```sql
+WITH data as (SELECT
+  *,
+  pop2005/area as pop_norm
+FROM
+  world_borders
+WHERE
+  area > 0
+)
+select unnest(CDB_QuantileBins(array_agg(pop_norm),4)) from data
+```
+
+More [here](https://carto.com/docs/tips-and-tricks/carto-functions/#statistical-functions)
+
+
+ 
+

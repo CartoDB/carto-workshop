@@ -23,119 +23,127 @@
 <!-- /MarkdownTOC -->
 
 
-## 1. Import and create a map
+## 1. Getting started <a name="getting-started"></a>
 
-* Import the *dot_rail_safety_data* csv file into your dataset dashboard.
-* Create a new map with it
-* You should have a dashboard like this:
+### 1.1. Create a map <a name="map"></a>
 
-![1](imgs/railways/01-import.png)
+* Click on **`NEW MAP`**.
+* Clik on **`SEARCH`** and type "world borders".
+* Select `world_borders` dataset.
+* Click on **`CREATE MAP`**.
+* You can rename the map and layer title as "Countries & Cities" and "Countries" respectively, doing double click over them.
 
-## 2. Style layer
+<br>
 
-* *FILL*: click on the marker size, select *BY VALUE*, set `total_damage` as the variable and choose a color.
-* Change the *STROKE* to `0`.
-* Click the slider button from *VALUES* to *CARTOCSS*. With the CartoCSS panel advanced users are allowed to layer style in a more precise way.
+![map](/imgs/basics/map.png)
+<figcaption>A view of BUILDER main dashboard</figcaption>
 
-> Switch to the CartoCSS view and check how the quantitative map has been defined. You'll see a `ramp()` function. This is TurboCarto, our CartoCSS pre-processor that helps creating parametric symbolization based on column values. Learn more about TurboCarto in this [awesome blog post](https://carto.com/blog/styling-with-turbo-carto/) by our senior cartographer [Mamata Akella](https://mamataakella.carto.com).
+<hr>
 
-![2](imgs/railways/02-style.png)
+### 1.2. Layers <a name="layers"></a>
 
-## 3. Add widgets
+* Add a new layer:
+  * Click on **`ADD`**.
+  * Click on **`SEARCH`** and type "populated places".
+  * Select `ne_10m_populated_places_simple` dataset.
+  * Click on **`ADD LAYER`**.
+* You can rename the title of this new layer as "Cities".
+* Click on the layer to show its components: 
+  * **`DATA`**
+  * **`ANALYSIS`**
+  * **`STYLE`**
+  * **`POP-UP`**
+  * **`LEGEND`**
 
-### 3. 1. Back to the main menu, select *WIDGETS*
+<br>
 
-* *ADD WIDGET*:
-  * *Railroad Companies Category Widget*: select *CATEGORY*, choose *railroad*, and click on *CONTINUE*. In order to rename the widget, come back to the list of widgets and double click on the name and rename it as *Railroad Companies*.
-    * Take a look on how CARTO Builder sets a connection between vizualization and widgets. This connection is bidirectional, the map changes widgets values and clicking on categories changes the map.
-    * Click on the *Auto style* droplet button to see how each dot is colored according to its category.
-    * Disable the *Auto style* to come back to the default visualization.
+![layer](/imgs/basics/layer.png)
+<figcaption>A view of BUILDER layer main menu</figcaption>
 
+<hr>
 
-![3-1](imgs/railways/03-widgets.png)
+### 1.3. Styling <a name="styling"></a>
 
-* *Total Damage Formula Widget*: select *FORMULA*, choose *total_damage*, and click on *CONTINUE* and set *OPERATION* to *SUM* and add `$` as *PREFIX*. In order to rename the widget, come back to the list of widgets and double click on the name and rename it as *Total damage*.
-    * Again, experimient with the connection between visualization and widgets.
-    * Try to filter by company and see how the total damage widget is updated automatically.
-    * Change the order of the widgets, you can prioritize visually one over another.
+* Create a bubble (proportional symbols) map:
+  * Click on **`STYLE`**.
+  * Click on point-size number.
+  * Select **`BY VALUE`**.
+  * Select `pop_max` column.
 
-![3-2](imgs/railways/04-widgets.png)
+<br>
 
-* *Date Time Series Widget*: select *TIME SERIES*, choose *date*, and click on *CONTINUE* in order to rename the widget.
+![dots](/imgs/basics/dots.png)
+<figcaption>A view of BUILDER bubble map</figcaption>
 
-![3-3](imgs/railways/05-widgets.png)
+<br>
 
+* Create a chroropleth map:
+  * Click on `marker-fill` column.
+  * Select **`BY VALUE`**.
+  * Select `pop_max` column.
+  * You can customize your map further changing (and flipping) a different color palette, the number of buckets and quantification method.
 
-## 4. Add US counties layer, start the analysis
+<br>
 
-### 4. 1. Back to *LAYERS* pane on Builder user interface, then *ADD*
+![choropleth](/imgs/basics/choropleth.png)
+<figcaption>A view of BUILDER bubble & choropleth map</figcaption>
 
-* Click on *DATA LIBRARY*, type `counties` on the *SEARCH* bar, select the  *cb_2013_us_county_500k* dataset and finally, click on *ADD LAYER*.
-* Rename the new layer to "US Counties".
+<br>
 
-### 4. 2. Click on *US Counties* layer, *ANALYSES*, *ADD ANALYSIS*
+* To learn more about how this works behind the scenes check out the CartoCSS panel.
 
-* Select *Intersect second layer*: this analysis performs a spatial intersection and aggregates the geometry values from the target layer that intersect with the geometry of the source layer..
-  * Select "Railroad accidents" as *TARGET LAYER* and `SUM(total_damage)` as *OPERATION*. Apply.
-  * When the analysis is done, an explanatory pop-up will appear. Click on *DONE*.
+<hr>
 
-> **Warning**: if you have not run this analysis before, you could encounter a well known bug. This consist on that instead of polygons, you get points. You can get the right geometry changing the style of the layer.
+### 1.4. Widgets <a name="widgets"></a>
 
-* First, using the map take a look on the results of the analysis: only the counties overlapping with data points are showed. Secondly, go to the dataset view to show the new column created with the previous analysis, `sum_total_damage`.
+* Add widgets to "Cities" layer:
+  * Click on **`DATA`**.
+  * Select `point count` in order to show the number of cities.
+  * Select `name` in order to filter by city name.
+  * Click on **`EDIT`** in order to customize both widgets.
+* Add widgets to "Countries" layer:
+  * Click on **`LAYERS`**.
+  * Click on "Countries" layer.
+  * Click on **`DATA`**.
+  * Select `name` in order to filter by country name.
+  * Click on **`EDIT`** in order to customize both widgets.
+* Now you can filter and autostyle by country and city name.
 
-![4-1](imgs/railways/06-table.png)
+<br>
 
-* *Sum Total Damage Histogram Widget*: from the same *DATA* section, click the *Add as a widget* checkbox of the *sum_total_damage* field and *EDIT*. This will create a new histogram widget. Set the buckets to `7` and rename it as *Sum Total Damage*.
+![widgets](/imgs/basics/widgets.png)
+<figcaption>A view of BUILDER widgets</figcaption>
 
-* Use the autostyling and removing the visibility of the *Railroad accidents* layer. Remove auto style again. Go back to the main menu.
+<hr>
 
-![4-2](imgs/railways/07-counties.png)
+### 1.5. Analysis <a name="analysis"></a>
 
-## 5. Continue the analysis, get outliers and clusters
+* Go back to the main menu.
+* Click on **`ADD ANALYSIS`** just below "Cities".
+* Select **`Filter by layer`** analysis.
+* Click on **`ADD ANALYSIS`**.
+* Set the parameters as follows:
+  * `FILTER BY LAYER`: "Countries".
+  * `SOURCE COLUMN`: `sov_a3`.
+  * `FILTER COLUMN`: `iso3`.
+* Now fitering by country, you are also filtering the cities within that country. 
 
-### 5. 1. Click on *ADD ANALYSIS* just below *US Counties*
+<br>
 
-* Select *Detect outliers and clusters*: this analysis finds areas in your data where clusters of high values or low values exist, as well as areas which are dissimilar from their neighbors.
-  * Select `sum_total_damage` as *TARGET COLUMN* and leave the rest of parameters with the default values. *APPLY*.
-  * Again, when the analysis is done, an explanatory window will pop up. Click on *DONE*.
+![filter](/imgs/basics/filter.png)
+<figcaption>A view of BUILDER filtering and analysis power</figcaption>
 
-* First, using the map show the viewer the results of the analysis: only the counties considered by the analysis as outliers or clusters are showed. Secondly, go to the dataset view to show the new columns created with the previous analysis, `quad` is the more interesting column because it contains the groups resulting from the analysis:
+<hr>
 
-* `HH` and `LL`: clusters of high or low values surrounded by similar values
-* `HL` and `LH`: outliers of high or low values surrounded by opposite values
+### 1.6. Publish <a name="publish"></a>
 
-![5-1](imgs/railways/08-table.png)
+* Click on **`SHARE`**.
+* Set to `LINK` or `PUBLIC`.
+* Click on **`PUBLISH`**.
+* Now you can share the map as link or embed.
 
-* We are going to add a last widget, *Sum Total Damage Histogram Widget*: click on *WIDGETS*, *ADD*, *Category* and select *quads*. *CONTINUE*. Rename it as *Groups*.
+<br>
 
-* Filter by `HH` and `HL` counties. Those are counties with high value of total damage surrounded by counties with also high values, and counties with high value of total damage surrounded by counties with low values. Click on the autostyling droplet to better distinguish them. Remove the autostyle.
+<iframe width="100%" height="520" frameborder="0" src="https://team.carto.com/u/ramirocartodb/builder/23cd250b-ffd9-4267-806f-b935716eeb8c/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
-![5-2](imgs/railways/09-moran.png)
-
-## 6. Share and export your results
-
-### 6. 1. Back to *LAYERS* pane in Builder interface, click the three dots button to open *US Counties* layer menu.
-
-* Select *Export data*, choose *CSV*.
-* Open (with Excel or another similar software) the csv file you just download *US_Counties.csv*. Collapse `the_geom` column. You should have 39 counties/rows, containing only `HH` and `HL` values.
-
-![6-1](imgs/railways/10-table.png)
-
-### 6. 2. Back to the main menu, show the publish dialogs
-
-* Below the map title it should show *PRIVATE*, *ADD PEOPLE* and *Map not published yet*. Let's change that.
-  * First, click on *PRIVATE*, and again. Select *Link*.
-  * Secondly, click on *SHARE* (at the bottom of the *LAYERS* pane). Click on *PUBLISH*, and then *DONE*.
-  * Get the link and past it into your browser.
-
-> The dashboard should show your *Railroad accidents* as green dots with sizes depending on the total damage. In addition, all the groups of counties will be displayed. This is because the filters and auto styling you did, it is not applied. Finally, you will have four widgets but in different order.
-
-![6-2](imgs/railways/11-publish.png)
-
-* Back to the main menu, click on *US Counties* layer. Go to the *STYLE* tab. Style the layer with a *FILL* styled *BY VALUE*. Select `quads` as variable and choose a couple of colors that can be easily distinguished.
-* Click again on *SHARE* and now in *UPDATE*.
-* Now if you go back to your browser tab where you have pasted the link nothing has changed. But if you refresh the page, voilá! The colors have been modified.
-
-![6-3](imgs/railways/12-publish.png)
-
-
+---

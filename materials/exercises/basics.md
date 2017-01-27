@@ -1,24 +1,23 @@
 # Basic Demo<a name="basics"></a>
 
 * *Degree of Difficulty*: *
-* *Goal*: what US counties have higher risk for insuring railroad companies.
+* *Goal*: Getting started with CARTO BUILDER.
 * *Features Highlighted*:
-  * Widgets: Category, Formula and Time Series.
-  * Analysis: Intersect, Outliers & Cluster analysis.
+  * Basic features
 * *Datasests needed*:
-  * Railroad accidents (*dot_rail_safety_data*): download it [from the `builder-demo` CARTO account](https://team.carto.com/u/ramirocartodb/tables/builder-demo.dot_rail_safety_data_1/public/map?redirected=true) and import it into CARTO from your local machine.
-  * US counties (*cb_2013_us_county_500k*): search and connect via Data Library.
+  * World borders: `world_borders`.
+  * Populated places: `ne_10m_populated_places_simple`.
 
 ## Contents
 
 <!-- MarkdownTOC -->
 
-- 1. Import and create a map
-- 2. Style layer
-- 3. Add widgets
-- 4. Add US counties layer, start the analysis
-- 5. Continue the analysis, get outliers and clusters
-- 6. Share and export your results
+- 1. Create a map
+- 2. Layers
+- 3. Style layer
+- 4. Widgets
+- 5. Analysis
+- 6. Publish
 
 <!-- /MarkdownTOC -->
 
@@ -35,7 +34,7 @@
 
 <br>
 
-![map](/imgs/basics/map.png)
+![map](imgs/basics/map.png)
 <figcaption>A view of BUILDER main dashboard</figcaption>
 
 <hr>
@@ -57,7 +56,7 @@
 
 <br>
 
-![layer](/imgs/basics/layer.png)
+![layer](imgs/basics/layer.png)
 <figcaption>A view of BUILDER layer main menu</figcaption>
 
 <hr>
@@ -72,7 +71,7 @@
 
 <br>
 
-![dots](/imgs/basics/dots.png)
+![dots](imgs/basics/dots.png)
 <figcaption>A view of BUILDER bubble map</figcaption>
 
 <br>
@@ -85,7 +84,7 @@
 
 <br>
 
-![choropleth](/imgs/basics/choropleth.png)
+![choropleth](imgs/basics/choropleth.png)
 <figcaption>A view of BUILDER bubble & choropleth map</figcaption>
 
 <br>
@@ -111,7 +110,7 @@
 
 <br>
 
-![widgets](/imgs/basics/widgets.png)
+![widgets](imgs/basics/widgets.png)
 <figcaption>A view of BUILDER widgets</figcaption>
 
 <hr>
@@ -130,7 +129,7 @@
 
 <br>
 
-![filter](/imgs/basics/filter.png)
+![filter](imgs/basics/filter.png)
 <figcaption>A view of BUILDER filtering and analysis power</figcaption>
 
 <hr>

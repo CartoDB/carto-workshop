@@ -35,6 +35,7 @@ This course will cover the basics and workflows of BUILDER (CARTO's web interfac
 - Audience: General public with basic knowledge on geomatics, databases and data analysis.
 - Content:
   * [Risk Analysis Demo](/materials/exercises/railways.md)
+  * [List of BUILDER Analysis](https://docs.google.com/document/d/1EmuckitxKQFw0vrmoMa0rGk5cCtAEZ_hUFSl0WF9QTQ/edit)
 
 This advanced demo based on risk analysis will let users know the most powerful analytic capabilities of CARTO BUILDER. Analysis workflows and its link with Widgets will occupy the central part of the course, along with a review of the different analyses that BUILDER currently offers.
 

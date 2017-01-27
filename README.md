@@ -3,7 +3,7 @@ CARTO Training Course
 
 ## [http://bit.ly/carto-ndm-msc](http://bit.ly/carto-ndm-msc)
 
-This training course 
+This training course was designed as a class of 1 hour and 40 minutes for the [*Máster de Gestión de Desastres Naturales*](http://www.mat.ucm.es/mgd/) given by UPM and UCM universities.
 
 In order to access the complete training on CARTO technologies, you have to go to [the master branch](http://bit.ly/carto-workshop). The contents are separated into modules and are meant to be made sequentially going from the most basic usage for GIS and analysts up to the advanced development section for attendants with more knowledge about web mapping development and so on. Modules can be easily combined to finally make a 1 week full training but they can be also split to make a longer training with half day duration.
 
@@ -25,7 +25,7 @@ Introduction to the training sessions, GIS and webmapping and general explanatio
 - Audience: General public with basic knowledge on geomatics, databases and data analysis.
 - Content:
   * [Introduction to CARTO BUILDER](https://docs.google.com/presentation/d/1r2s43SXz_rXCmEM4i141ekA7R9V4zWQmYG4651ejLiI/edit?usp=sharing)
-  * [Basic Demo](risk-analysis/README.md)
+  * [Basic Demo]()
 
 This course will cover the basics and workflows of BUILDER (CARTO's web interface) for generating cartographic data visualizations. We'll dig into new Builder features and some differences with old Editor. During this first part, we'll cover those aspects related to data visualizations, cartographic styles, legend's and popups definition, analysis and dashboard creation with actionable Widgets that interact with the map.
 
@@ -34,7 +34,7 @@ This course will cover the basics and workflows of BUILDER (CARTO's web interfac
 - Duration: 30 minutes
 - Audience: General public with basic knowledge on geomatics, databases and data analysis.
 - Content:
-  * [Risk Analysis Demo]()
+  * [Risk Analysis Demo](risk-analysis/README.md)
 
 This advanced demo based on risk analysis will let users know the most powerful analytic capabilities of CARTO BUILDER. Analysis workflows and its link with Widgets will occupy the central part of the course, along with a review of the different analyses that BUILDER currently offers.
 

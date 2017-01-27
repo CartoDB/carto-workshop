@@ -1,58 +1,44 @@
-CARTO complete Training Course
-==============================
+CARTO Training Course
+=====================
 
-## [http://bit.ly/carto-workshop](http://bit.ly/carto-workshop)
+## [http://bit.ly/carto-ndm-msc](http://bit.ly/carto-ndm-msc)
 
-This repository contains a complete training on CARTO technologies. The contents are separated into modules and are meant to be made sequentially going from the most basic usage for GIS and analysts up to the advanced development section for attendants with more knowledge about web mapping development and so on.
+This training course 
 
-Moules can be easily combined to finally make a 1 week full training but they can be also split to make a longer training with half day duration.
+In order to access the complete training on CARTO technologies, you have to go to [the master branch](http://bit.ly/carto-workshop). The contents are separated into modules and are meant to be made sequentially going from the most basic usage for GIS and analysts up to the advanced development section for attendants with more knowledge about web mapping development and so on. Modules can be easily combined to finally make a 1 week full training but they can be also split to make a longer training with half day duration.
 
-## [Module 0](00-intro-carto/). Introduction to CARTO
+## Agenda
 
-- Duration: 1.5 hour
+### Introduction to CARTO
+
+- Duration: 15 minutes
 - Audience: General public interested in CARTO and location intelligence.
+- Content:
+  * [Introduction to CARTO](https://docs.google.com/presentation/d/1LffR206bZAUbFl3MjgKax7V9BNlntWyhPAn-W4GJAvc/edit?usp=sharing)
+  * [Introduction to webmapping](https://docs.google.com/presentation/d/1v-3KUdcZeZqElY9X7UU3JRLb1r40T3j9BC-8akNFfec/edit?usp=sharing)
 
 Introduction to the training sessions, GIS and webmapping and general explanation about CARTO as a platform: product positioning, general overview of the portfolio and examples of how CARTO can solve different use cases.
 
-## [Module 1](01-builder-visualization/). CARTO BUILDER I: Data visualizations and Styling
+### Introduction to CARTO BUILDER
 
-- Duration: 6.5 hours
+- Duration: 45 minutes
 - Audience: General public with basic knowledge on geomatics, databases and data analysis.
+- Content:
+  * [Introduction to CARTO BUILDER](https://docs.google.com/presentation/d/1r2s43SXz_rXCmEM4i141ekA7R9V4zWQmYG4651ejLiI/edit?usp=sharing)
+  * [Basic Demo](risk-analysis/README.md)
 
-This course will cover different BUILDER (CARTO's web interface) workflows for generating cartographic data visualizations. We'll dig into new Builder features and some differences with old Editor. During this first part, we'll cover those aspects related to data visualizations, cartographic styles, legend's definition and dashboard creation with actionable Widgets that interact with the map.
+This course will cover the basics and workflows of BUILDER (CARTO's web interface) for generating cartographic data visualizations. We'll dig into new Builder features and some differences with old Editor. During this first part, we'll cover those aspects related to data visualizations, cartographic styles, legend's and popups definition, analysis and dashboard creation with actionable Widgets that interact with the map.
 
-## [Module 2](02-builder-analysis/). CARTO BUILDER II: Geospatial analysis and prediction
+## Exercise: Risk Analysis Demo
 
-- Duration: 8 hours
+- Duration: 30 minutes
 - Audience: General public with basic knowledge on geomatics, databases and data analysis.
+- Content:
+  * [Risk Analysis Demo]()
 
-This advanced workshop will let users know the most powerful analytic capabilities of CARTO BUILDER. Analysis workflows and its link with Widgets will occupy the central part of the course, along with a review of the different analyses that BUILDER currently offers.
+This advanced demo based on risk analysis will let users know the most powerful analytic capabilities of CARTO BUILDER. Analysis workflows and its link with Widgets will occupy the central part of the course, along with a review of the different analyses that BUILDER currently offers.
 
-## [Module 3](03-cartography/). Cartography and advanced simbology
+## Q&A
 
-- Duration: 6 hours
-- Audience: Cartographers and geomatics technicians that work on web cartography design willing to go beyond BUILDER styling defaults.
-
-This session focuses on the advanced use of BUILDER, creating cartographic rules for powerful webmap visualizations. It also goes through our new tools for thematic mapping (TurboCARTO) and all the different options that Torque offers for creating dynamic maps.
-
-## [Module 4](04-database/). Geospatial databases
-
-- Duration: 5 hours
-- Audience: Data analysts and developers with none or small experience on Spatial SQL and geospatial databases in general.
-
-This workshop extensively covers advanced use of PostgreSQL and PostGIS for those cases when Builder is not enough. We'll review the most relevant parts of SQL language, useful for advanced analysis development, as well as the geospatial capabilities brought by PostGIS. We'll also cover some basic concepts for task automation, as triggers and stored procedures.
-
-## [Module 5](05-apis/). CARTO ENGINE I, platform and APIs
-
-- Duration: 3 hours
-- Audience: Data analysts and developers that need to build applications using CARTO ENGINE offering.
-
-This course will introduce CARTO architecture as a webmapping platform, deploying options and main components. The different APIs for interacting with the platform, most usual workflows and use cases will be covered too.
-
-## [Module 6](06-sdks/). CARTO ENGINE II, development kits
-
-- Duration: 8 hours
-- Audience: Developers that need to build applications using CARTO ENGINE development kits.
-
-In this last lesson, we'll cover different SDK's that we could use for developing applications with CARTO. Javascript SDK (CARTO.js) is the most relevant and will be covered in depth for creating web applications that work over CARTO APIs. A Mobile SDK introduction will follow, allowing the development of native CARTO mobile apps. Last but not least, we'll finish the course with some examples and exercise that make use of our Python SDK.
-
+- Duration: 10 minutes
+- You can post (and check!) your questions in [GIS StackExchange forum adding `carto` tag](http://gis.stackexchange.com/questions/tagged/carto).

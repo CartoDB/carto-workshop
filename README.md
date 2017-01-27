@@ -25,7 +25,7 @@ Introduction to the training sessions, GIS and webmapping and general explanatio
 - Audience: General public with basic knowledge on geomatics, databases and data analysis.
 - Content:
   * [Introduction to CARTO BUILDER](https://docs.google.com/presentation/d/1r2s43SXz_rXCmEM4i141ekA7R9V4zWQmYG4651ejLiI/edit?usp=sharing)
-  * [Basic Demo]()
+  * [Basic Demo](/materials/exercises/basics.md)
 
 This course will cover the basics and workflows of BUILDER (CARTO's web interface) for generating cartographic data visualizations. We'll dig into new Builder features and some differences with old Editor. During this first part, we'll cover those aspects related to data visualizations, cartographic styles, legend's and popups definition, analysis and dashboard creation with actionable Widgets that interact with the map.
 
@@ -34,7 +34,7 @@ This course will cover the basics and workflows of BUILDER (CARTO's web interfac
 - Duration: 30 minutes
 - Audience: General public with basic knowledge on geomatics, databases and data analysis.
 - Content:
-  * [Risk Analysis Demo](risk-analysis/README.md)
+  * [Risk Analysis Demo](/materials/exercises/railways.md)
 
 This advanced demo based on risk analysis will let users know the most powerful analytic capabilities of CARTO BUILDER. Analysis workflows and its link with Widgets will occupy the central part of the course, along with a review of the different analyses that BUILDER currently offers.
 

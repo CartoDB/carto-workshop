@@ -27,3 +27,14 @@ Additionally, these lessons about colors in Cartography are also very useful:
 * [Colors, part I](https://carto.com/academy/courses/intermediate-design/choose-colors-1/)
 * [Colors, part II](https://carto.com/academy/courses/intermediate-design/choose-colors-2/)
 * [Composite operations](https://carto.com/academy/courses/intermediate-design/use-composite-operations/)
+
+Also, some other nice resources:
+
+* [CARTO ColorScales tool](http://cartodb.github.io/labs-colorscales) 
+* [Maki icons collection](https://github.com/mapbox/maki)
+* [CARTOCSS complete reference](https://carto.com/docs/carto-engine/cartocss/properties/)
+* [More on the same](https://tilemill-project.github.io/tilemill/docs/guides/selectors/)
+* [Dig into the Torque unknown](http://andrewxhill.com/blog/2015/04/17/torque-unknown) 
+* [Some Cesium experiments](https://cesium.cartodb.io/)
+  ![cesium](exercises/img/cesium.png)
+  code is [here](https://github.com/CartoDB/labs-cesiumjs)  

@@ -22,3 +22,9 @@ Exercises:
 * [Risk analysis](exercises/railways.md)
 * [Sales territories](exercises/portland.md)
 * [Presenting sales data](exercises/stores.md)
+
+Examples:
+
+* [Some ideas on more complex analysis](https://carto.com/blog/author/abel-vazquez)
+* [Spatial analysis with Python](https://pysal.readthedocs.io/en/v1.11.0/)
+* [Complex Analysis <3 Good cartography](https://team.carto.com/u/mamataakella/me)

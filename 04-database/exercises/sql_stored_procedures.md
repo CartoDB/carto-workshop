@@ -712,6 +712,35 @@ WHERE
 to get a row for each modified row in `dummy_dataset` table.
 
 
+## A different example
+
+This is another example of stored procedure that will allow to insert a point with the `public` user role. This is most helpful in order to [setup a point collector app](http://bl.ocks.org/ernesmb/beb25f539f8ff38bbd891e6d114ea7f4). 
+
+```sql
+CREATE OR REPLACE FUNCTION insertpoint(
+        lon numeric,
+        lat numeric,
+        tablename text
+  )
+RETURNS TABLE(cartodb_id INT)
+LANGUAGE 'plpgsql' SECURITY DEFINER
+RETURNS NULL ON NULL INPUT AS $function$
+DECLARE
+  sql text;
+BEGIN
+sql = 'WITH do_insert AS ( 
+  INSERT INTO ' ||quote_ident(tablename)|| '(the_geom) 
+  VALUES '||'('||
+    'ST_SetSRID(ST_MakePoint('||lon||','||lat||'), 4326)'||')'||
+  'RETURNING cartodb_id)'||
+  'SELECT cartodb_id FROM do_insert';
+RETURN QUERY EXECUTE sql;
+END;
+$function$
+```
+
+
+
 ## Further reading
 
 * This [tutorial](http://www.postgresqltutorial.com/postgresql-stored-procedures/) explains the basics of the PostgreSQL stored procedure language in a very friendly way. Many explanations from this document have been extracted from there.

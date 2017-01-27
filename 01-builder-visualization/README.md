@@ -14,8 +14,16 @@ CARTO BUILDER for Data Visualization
 
 ## Resources
 
-* Exercise: [San Francisco's trees dashboard](exercises/sf-trees.md)
-* Exercise: [aggregated data](exercises/aggregations.md)
-* Exercise: [category-bubbles](exercises/category-bubble.md)
-* Exercise: [dynamic data](exercises/torque.md)
+Exercises:
 
+* [San Francisco's trees dashboard](exercises/sf-trees.md)
+* [aggregated data](exercises/aggregations.md)
+* [category-bubbles](exercises/category-bubble.md)
+* [dynamic data](exercises/torque.md)
+
+Examples:
+* [Populated Places dashboard](https://cartoworkshops.carto.com/u/carto-workshops/builder/2e5f8efe-bb1e-11e6-935a-0e233c30368f/embed)
+* [Builder Demo maps](https://team.carto.com/u/builder-demo/maps)
+* [A more complex dynamic map](https://cartodb.github.io/reefers/#9120217/2/-11.01/62.58)
+* [CARTOcolors for meaningful visualizations](https://carto.com/carto-colors)
+* [ColorBrewer, the origins](http://colorbrewer2.org/#type=sequential&scheme=BuGn&n=)

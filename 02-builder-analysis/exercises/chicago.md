@@ -9,7 +9,7 @@
   * Analysis: Find centroid from geometries & Connect with lines.
 
 * *Datasests needed*:
-  * Chicago Crimes (**`chicago_crimes`**): download it [from the `builder-demo` CARTO account](https://builder-demo.carto.com:443/api/v2/sql?q=select+*+from+chicago_crimes&format=gpkg&filename=chicago_crimes.gpkg) and import it into CARTO from your local machine..
+  * Chicago Crimes (**`chicago_crimes`**): download it [from the `builder-demo` CARTO account](https://builder-demo.carto.com:443/api/v2/sql?q=select+*+from+chicago_crimes_sampled&format=gpkg&filename=chicago_crimes_sampled.gpkg) and import it into CARTO from your local machine..
   * Chicago Police Stations (**`chicago_police_stations`**): download it [from the `builder-demo` CARTO account](https://builder-demo.carto.com:443/api/v2/sql?q=select+*+from+chicago_police_stations&format=gpkg&filename=chicago_police_stations.gpkg) and import it into CARTO from your local machine.
 
 <!-- MarkdownTOC -->
@@ -26,7 +26,7 @@
     - 3. 2. Style crimes layer
     - 3. 3. Connect police stations with centroids and calculate distances
     - 3. 4. Style police stations, centroids and lines layers
-  - 4. Add an histogram widget for filtering by distance
+  - 4. Add a histogram widget for filtering by distance
     - 4. 1. Add a widget for filtering by store id
 - 5. Extension
 
@@ -38,13 +38,13 @@
 
 * It's easy to import files into CARTO! Drag and drop in CARTO Datasets dashboard, first **`chicago_crimes`**, and then **`chicago_police_stations`** csv files. Explain the viewer the wide diversity of geodata supported in CARTO during the importing.
 
-* Select `chicago_crimes` and `chicago_police_stations`, click on `NEW MAP`.
+* Select `chicago_crimes_sampled` and `chicago_police_stations`, click on `Create map`.
 
 ### 1. 3. Rename map title and layers
 
 * Rename map title to **`Police Stations Location Demo`**.
 * Rename layers:
-  1. `chicago_crimes` as `Crimes`,
+  1. `chicago_crimes_sampled` as `Crimes`,
   2. `chicago_police_stations` as `Police Stations`,
 
 ## 2. Layers and widgets
@@ -68,11 +68,11 @@ You can add the **Subsample percent of rows** analysis to the crimes dataste. Th
 
 ### 3. 1. Create crimes centroids for district
 
-* Back to the main menu, click on `ADD ANALYSIS` just below `Analysis` layer.
+* Back to the main menu, click on `ADD ANALYSIS` just below `Crimes` layer.
 * Select `Find centroid from geometries` analysis.
 * Click on `ADD ANALYSIS`.
 * Set the parameters as follows:
-  * `CATEGORIZE...`: `district_char`.
+  * `CATEGORIZE...`: `district_c`.
 * Click on `APPLY`.
 
 ### 3. 2. Style crimes layer
@@ -84,7 +84,7 @@ You can add the **Subsample percent of rows** analysis to the crimes dataste. Th
 * In order to style the `Crimes` layer follow these steps:
   * Click on `Crimes` layer.
   * Click on `STYLE`:
-    * `FILL`: set the marker size value to `1` and color to yellow (`#FFE95C`).
+    * `FILL`: set the marker size value to `2` and color to yellow (`#FFE95C`).
     * `STROKE`: set stroke width to `0`.
     * `BLENDING`: `multiply`.
 
@@ -97,6 +97,7 @@ You can add the **Subsample percent of rows** analysis to the crimes dataste. Th
 * Click on `ADD ANALYSIS`.
 * Set the parameters as follows:
   * `TYPE`: `To Source`
+  * `TARGET`: `Police Stations`
   * Check the `GROUP BY` option:
     * `SOURCE COL.`: `category`.
     * `TARGET COL.`: `district_char`.
@@ -118,8 +119,8 @@ You can add the **Subsample percent of rows** analysis to the crimes dataste. Th
 
 #### Centroids style
 
-* In order to style the `Police Stations` layer follow these steps:
-  * Click on `Crimes` layer.
+* In order to style the `Centroids` layer follow these steps:
+  * Click on `Centroids` layer.
   * Click on `STYLE`:
     * `FILL`: set the marker size value to `20` and color to wageningen green (`#3FAE29`).
     * `STROKE`: set stroke width to `0`.
@@ -132,7 +133,7 @@ You can add the **Subsample percent of rows** analysis to the crimes dataste. Th
 #### Police Stations style
 
 * In order to style the `Police Stations` layer follow these steps:
-  * Click on `Crimes` layer.
+  * Click on `Police Stations` layer.
   * Click on `STYLE`:
     * `FILL`: set the marker size value to `20` and color to dark pink (`#EA526F`).
     * `STROKE`: set stroke width to `0`.
@@ -152,7 +153,7 @@ You can add the **Subsample percent of rows** analysis to the crimes dataste. Th
 
 ![final](imgs/chicago/03-final.png)
 
-[Link](https://builder-demo.carto.com/builder/f0f77986-8dd7-4a33-82f8-99e7cec8fdee/embed) to the map.
+[Link](https://builder-demo.carto.com/builder/0876e726-e73f-11e6-82a3-0e233c30368f) to the map.
 
 # 5. Extension
 

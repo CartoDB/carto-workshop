@@ -1,19 +1,22 @@
-# Spies in the sky Demo
+# Spies in the Sky Demo
 
 * *Degree of Difficulty*: ***
 
-* *Use case*: This use case is based on a data journalism research published in [buzzfeed in April](https://www.buzzfeed.com/peteraldhous/spies-in-the-skies?utm_term=.hn2ryrBLb#.fgjgag9vG). The authors used data from [FlighRadar24](https://www.flightradar24.com/how-it-works), where thousands of collaborators upload flight information using automatic dependent surveillance-broadcast (ADS-B) technology. You can have a look at how they built the dataset in this github repository. The research reveals that each weekday, dozens of U.S. government aircraft (from FBI and DHS agencies) take to the skies and slowly circle over American cities. Back in the day, the authors used CARTO Editor SQL and CartoCSS. Now because of BUILDER, you can do the same but in just a few minutes!
+* *Use case*: This use case is based on data journalism research published in [buzzfeed in April](https://www.buzzfeed.com/peteraldhous/spies-in-the-skies?utm_term=.hn2ryrBLb#.fgjgag9vG). The authors used data from [FlighRadar24](https://www.flightradar24.com/how-it-works), where thousands of collaborators upload flight information using automatic dependent surveillance-broadcast (ADS-B) technology. You can have a look at how they built the dataset in this github repository. The research reveals that each weekday, dozens of U.S. government aircraft (from FBI and DHS agencies) take to the skies and slowly circle over American cities. Back in the day, the authors used CARTO Editor SQL and CartoCSS. Now because of BUILDER, you can do the same but in just a few minutes!
 
 * *Features Highlighted*:
-	* Analysis: Filter by column, Connect with lines,Find centroid of geometries.
+	* Analysis: Filter by column, Connect with lines, Find centroid of geometries.
 	* Widgets: timeseries, point count(formula), altitude (histogram), avergage speed (formula).
 
-* *Datasests needed*:
-	* [`flights` dataset](https://builder-demo.carto.com/api/v2/sql?q=select+*+from+flights&format=gpkg&filename=flights.gpkg).
+* *Datasets needed*:
+	* [`flights_sampled` dataset](https://builder-demo.carto.com/api/v2/sql?q=select+*+from+flights_sampled&format=gpkg&filename=flights_sampled.gpkg).
 
 <!-- MarkdownTOC -->
 
 - 1. Import and create map
+	- 1. 1. Import ``flights_sampled`` geopackage.
+	- 1. 2. Dataset view
+	- 1. 3. Click on ``CREATE MAP`` from ``flights_sampled``
 - 2. Layers and styles
 - 3. Analysis
 - 4. Widgets
@@ -24,7 +27,7 @@
 
 ## 1. Import and create map
 
-### 1. 1. Import *flights* geopackage.
+### 1. 1. Import ``flights_sampled`` geopackage.
 
 * Don't download the dataset, instead you can directly put the url above into the URL box and CARTO will download an import it in one single step.
 
@@ -34,7 +37,7 @@
 
 Take a look on the dataset schema, the relevant fields are: `flight_id`, `timestamp`, `altitude` and `speed`
 
-### 1. 3. Click on *CREATE MAP* after selecting *flights* dataset
+### 1. 3. Click on ``CREATE MAP`` from ``flights_sampled``
 
 > Explore the visualization. Could you observe any clear pattern? The expected pattern are straight lines, but what about the circles?
 
@@ -46,7 +49,7 @@ Take a look on the dataset schema, the relevant fields are: `flight_id`, `timest
 
 ### 2. 1. Show the new ordering of the layers in the Builder
 
-* Every layer has a source. For instance, the source of the *flights* layer is the `flights` table, identified here as *A0*. This will be very important when adding analysis and widgets.
+* Every layer has a source. For instance, the source of the ``flights_sampled`` layer is the **``flights_sampled``** table, identified here as ``A0``. This will be very important when adding analysis and widgets.
 
 * Change basemap from Positron to Positron (labels below)
 
@@ -71,7 +74,7 @@ Each layer has 5 options: *DATA*, *ANALYSES*, *STYLE*, *POP-UPS* and *LEGENDS*.
 
 ### 3. 1. Filter by column Analysis
 
-* Back to the main menu of the layers, select the *flights* layer and click on *ADD ANALYSIS* option.
+* Back in the main menu of layers, select the ``flights_sampled`` layer and click on ``ADD ANALYSIS`` option.
 
 * From the analysis menu, select the *Filter by column* analysis and click on *ADD ANALYSIS*.
 
@@ -89,7 +92,7 @@ Each layer has 5 options: *DATA*, *ANALYSES*, *STYLE*, *POP-UPS* and *LEGENDS*.
 ![filter_param](imgs/spies_sky/filter_param.png)
 
 
-* After clicking *APPLY*, CARTO will return the result of the *Filter by column* analysis. After finishing the analysis, CARTO will return the number of points that have the `flight_id` value equal to `8366cde`.
+* After clicking *APPLY*, CARTO will return the result of the *Filter by column* analysis. After finishing the analysis, CARTO will return all of the points that have the flight_id value equal to ``8366cde``.
 
 
 ![filter_res](imgs/spies_sky/filter_res.png)
@@ -97,22 +100,22 @@ Each layer has 5 options: *DATA*, *ANALYSES*, *STYLE*, *POP-UPS* and *LEGENDS*.
 
 ### 3. 2. Connect with lines Analysis
 
-* We will apply the analysis to the  result of the *Filter by column*  analysis, so we will go back to the main menu and we will  click on the *ADD ANALYSIS* option of the *flights* layer.
+* We will apply the analysis to the  result of the ``Filter by column value``  analysis, so we will go back to the main menu and we will click on the ``ADD ANALYSIS`` option of the ``flights_sampled`` layer.
 * We will select the *Connect with lines* analysis.
 
 ![lines](imgs/spies_sky/lines.png)
 
-* In the *ANALYSES* tab of the layer, we have two sections:
-	* *Workflow*: Now, because we are applying a second analysis to the *flights* layer, the workflow has changed. *A1* represent the filter analysis, but now we have a new analysis named *A2* to indicate that is the second analysis applied to the layer.
-	* *Connect with lines*:
-		* *Source*: we indicate that we are using as the source, the results from the *Filter by column*  analysis. The source is not the original points of the layer, but the points that we got after the *Filter by column*  analysis (*A1*).
-		* *Type*: we indicate how we want to connect our points. We should select the *sequential* option.
-		* *Order by*: we indicate the column that we will use to define the order in which the points will be connected. We will use the `timestamp` column, to order our data by date.
+* In the ``ANALYSES`` tab of the layer, we have two sections:
+	* **Workflow**: Now, because we are applying a second analysis to the ``flights_sampled`` layer, the workflow has changed. ``A1`` represent the filter analysis, but now we have a new analysis named ``A2`` to indicate that is the second analysis applied to the layer.
+	* **Connect with lines**:
+		* *Source*: we indicate that we are using as the source, the results from the *Filter by column* analysis. The source is not the original points of the layer, but the points that we got after the *Filter by column value* analysis (A1).
+		* *Type*: we indicate how we want to connect our points. We select the ``sequential`` option.
+		* *Order by*: we indicate the column that we will use to define the order in which the points will be connected. We will use the ``timestamp`` column, to order our data by date.
 
 
 ![lines_params](imgs/spies_sky/lines_params.png)
 
-* After clicking *APPLY*, we should see a result where we can see the lines of the filtered points from the *Filter by column* analysis.
+* After clicking *APPLY*, we should see a result where we can see the lines of the filtered points from the *Filter by column value* analysis.
 
 ![lines_res](imgs/spies_sky/lines_res.png)
 
@@ -124,23 +127,22 @@ Each layer has 5 options: *DATA*, *ANALYSES*, *STYLE*, *POP-UPS* and *LEGENDS*.
 
 ![lines_drag](imgs/spies_sky/lines_drag.png)
 
-* Now, we change the name of the layers. The name of Layer *A* will be *Flights* and the name of layer *B* will be *Routes*.
+* Now, we change the name of the layers.The name of Layer A will be ``flights_sampled`` and the name of layer B will be ``Routes``.
 
 ![lines_rename](imgs/spies_sky/lines_rename.png)
 
 
 ### 3. 3. Find centroid of geometries analysis
 
-* We will apply the analysis to the result of the *Filter by column* analysis. We will go back to the *LAYERS* pane and we will click on the *ADD ANALYSIS* option of the *flights* layer (*A*).
+* We will apply the analysis to the  result of the Filter by column values Analysis. We will go back to the main menu and we will click on the ``ADD ANALYSIS`` option of the ``Flights`` layer (A).
 * We will select the *Find centroid of geometries* analysis.
 
 ![centroid](imgs/spies_sky/centroid.png)
 
-
-* In the *ANALYSES* tab of the layer, we have three sections:
-	* *Workflow*: Now, because we are applying a second analysis to the *filter* layer, the workflow has changed. *A1* represent the filter by column analysis, *A2* represent the new analysis that we are adding.
-	* *Centroid from geometries*:
-		* *Source*: we indicate that we are using as the input, the results from the *Filter by column* analysis. The input is not the original points of the layer, but the points that we got after the *Filter by column* analysis.
+* In the ``ANALYSES`` tab of the layer, we have three sections:
+	* **Workflow**: Now, because we are applying a second analysis to the ``filter`` layer, the workflow has changed. ``A1`` represent the filter by column analysis, ``A2`` represent the new analysis that we are adding.
+	* **Centroid from geometries**:
+		* *Source*: we indicate that we are using as the input, the results from the *Filter by column values* analysis. The input is not the original points of the layer, but the points that we got after the *Filter by column values* analysis.
 		* *Categorize*: we leave this checkbox uncheched.
 		* *Weighted by*: we don't want weighted centroids, so we leave this checkbox uncheched.
 	* *Value aggregation*: we don't aggregate the values, we don't check the *AGGREGATE* checkbox.
@@ -156,7 +158,7 @@ Each layer has 5 options: *DATA*, *ANALYSES*, *STYLE*, *POP-UPS* and *LEGENDS*.
 
 * Back to the main menu, in the *LAYERS* pane,we drag and drop the Centroid node analysis outside of layer (*A*) to create a new Data layer with the areas of influence (*C*). The new layer (*C*) will have the same name as the layer *A*, we will change the name of layer *C* to *Centroid*.
 
-* We also change the styles of the *Centroid* layer and *Flights* layer to highlight the points and their centroid.
+* We also change the styles of the Centroid, Flights and Routes layers to highlight the lines, points and their centroid.
 
 ![centroid_drag](imgs/spies_sky/centroid_drag.png)
 

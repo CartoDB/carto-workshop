@@ -2,7 +2,7 @@
 
 * *Degree of Difficulty*: ***
 
-* *Use case*: This use case is based on a data journalism research published in [buzzfeed in April](https://www.buzzfeed.com/peteraldhous/spies-in-the-skies?utm_term=.hn2ryrBLb#.fgjgag9vG). The authors used data from [FlighRadar24](https://www.flightradar24.com/how-it-works), where thousands of collaborators upload flight information using automatic dependent surveillance-broadcast (ADS-B) technology. You can have a look at how they built the dataset in this github repository. The research reveals that each weekday, dozens of U.S. government aircraft (from FBI and DHS agencies) take to the skies and slowly circle over American cities. Back in the day, the authors used CARTO Editor SQL and CartoCSS. Now because of BUILDER, you can do the same but in just a few minutes!
+* *Use case*: This use case is based on data journalism research published in [buzzfeed in April](https://www.buzzfeed.com/peteraldhous/spies-in-the-skies?utm_term=.hn2ryrBLb#.fgjgag9vG). The authors used data from [FlighRadar24](https://www.flightradar24.com/how-it-works), where thousands of collaborators upload flight information using automatic dependent surveillance-broadcast (ADS-B) technology. You can have a look at how they built the dataset in this github repository. The research reveals that each weekday, dozens of U.S. government aircraft (from FBI and DHS agencies) take to the skies and slowly circle over American cities. Back in the day, the authors used CARTO Editor SQL and CartoCSS. Now because of BUILDER, you can do the same but in just a few minutes!
 
 * *Features Highlighted*:
 	* Analysis: Filter by column, Connect with lines,Find centroid of geometries.

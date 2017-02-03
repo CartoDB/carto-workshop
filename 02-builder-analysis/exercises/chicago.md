@@ -9,7 +9,7 @@
   * Analysis: Find centroid from geometries & Connect with lines.
 
 * *Datasests needed*:
-  * Chicago Crimes (**`chicago_crimes_sampled`**): download it [from the `builder-demo` CARTO account](https://builder-demo.carto.com:443/api/v2/sql?q=select+*+from+chicago_crimes_sampled&format=gpkg&filename=chicago_crimes_sampled.gpkg) and import it into CARTO from your local machine..
+  * Chicago Crimes (**`chicago_crimes_sampled`**): download it [from the `builder-demo` CARTO account](https://builder-demo.carto.com:443/api/v2/sql?q=select+*+from+chicago_crimes_sampled&format=gpkg&filename=chicago_crimes_sampled.gpkg) and import it into CARTO from your local machine.
   * Chicago Police Stations (**`chicago_police_stations`**): download it [from the `builder-demo` CARTO account](https://builder-demo.carto.com:443/api/v2/sql?q=select+*+from+chicago_police_stations&format=gpkg&filename=chicago_police_stations.gpkg) and import it into CARTO from your local machine.
 
 <!-- MarkdownTOC -->
@@ -36,7 +36,9 @@
 
 ### 1. 1. Import datasets into CARTO
 
-* It's easy to import files into CARTO! Drag and drop in CARTO Datasets dashboard, first **`chicago_crimes_sampled`**, and then **`chicago_police_stations`** csv files. Explain the viewer the wide diversity of geodata supported in CARTO during the importing.
+* It's easy to import files into CARTO! Drag and drop the **`chicago_crimes_sampled`** csv file in your CARTO Datasets dashboard first, then the **`chicago_police_stations`** csv. 
+
+<!-- Explain to the viewer the wide diversity of geodata supported in CARTO during the importing. -->
 
 * Select `chicago_crimes_sampled` and `chicago_police_stations`, click on `Create map`.
 
@@ -64,7 +66,7 @@
 
 ### 3. 0. Optional: sample the dataset
 
-You can add the **Subsample percent of rows** analysis to the crimes dataste. This way you can design the analysis working with for example a 10% of the dataset and when you finish it then upgrade to the 100%.
+You can add the **Subsample percent of rows** analysis to the crimes dataset. This way you can design the analysis working with for example a 10% of the dataset and when you finish it then upgrade to the 100%.
 
 ### 3. 1. Create crimes centroids for district
 

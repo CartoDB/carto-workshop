@@ -5,10 +5,10 @@
 * *Use case*: This use case is based on data journalism research published in [buzzfeed in April](https://www.buzzfeed.com/peteraldhous/spies-in-the-skies?utm_term=.hn2ryrBLb#.fgjgag9vG). The authors used data from [FlighRadar24](https://www.flightradar24.com/how-it-works), where thousands of collaborators upload flight information using automatic dependent surveillance-broadcast (ADS-B) technology. You can have a look at how they built the dataset in this github repository. The research reveals that each weekday, dozens of U.S. government aircraft (from FBI and DHS agencies) take to the skies and slowly circle over American cities. Back in the day, the authors used CARTO Editor SQL and CartoCSS. Now because of BUILDER, you can do the same but in just a few minutes!
 
 * *Features Highlighted*:
-	* Analysis: Filter by column, Connect with lines,Find centroid of geometries.
+	* Analysis: Filter by column, Connect with lines, Find centroid of geometries.
 	* Widgets: timeseries, point count(formula), altitude (histogram), avergage speed (formula).
 
-* *Datasests needed*:
+* *Datasets needed*:
 	* [`flights_sampled` dataset](https://builder-demo.carto.com/api/v2/sql?q=select+*+from+flights_sampled&format=gpkg&filename=flights_sampled.gpkg).
 
 <!-- MarkdownTOC -->
@@ -92,7 +92,7 @@ Each layer has 5 options: *DATA*, *ANALYSES*, *STYLE*, *POP-UPS* and *LEGENDS*.
 ![filter_param](imgs/spies_sky/filter_param.png)
 
 
-* After clicking ``Apply``, CARTO will return the result of the ``Filter by column`` analysis. After finishing the analysis, CARTO will return all of the points that have the flight_id value equal to ``8366cde``.
+* After clicking *APPLY*, CARTO will return the result of the *Filter by column* analysis. After finishing the analysis, CARTO will return all of the points that have the flight_id value equal to ``8366cde``.
 
 
 ![filter_res](imgs/spies_sky/filter_res.png)
@@ -101,21 +101,21 @@ Each layer has 5 options: *DATA*, *ANALYSES*, *STYLE*, *POP-UPS* and *LEGENDS*.
 ### 3. 2. Connect with lines Analysis
 
 * We will apply the analysis to the  result of the ``Filter by column value``  analysis, so we will go back to the main menu and we will click on the ``ADD ANALYSIS`` option of the ``flights_sampled`` layer.
-* We will select the ``Connect with lines`` analysis.
+* We will select the *Connect with lines* analysis.
 
 ![lines](imgs/spies_sky/lines.png)
 
 * In the ``ANALYSES`` tab of the layer, we have two sections:
 	* **Workflow**: Now, because we are applying a second analysis to the ``flights_sampled`` layer, the workflow has changed. ``A1`` represent the filter analysis, but now we have a new analysis named ``A2`` to indicate that is the second analysis applied to the layer.
 	* **Connect with lines**:
-		* *Source*: we indicate that we are using as the source, the results from the ``Filter by column``  analysis. The source is not the original points of the layer, but the points that we got after the ``Filter by column value``  analysis (A1).
+		* *Source*: we indicate that we are using as the source, the results from the *Filter by column* analysis. The source is not the original points of the layer, but the points that we got after the *Filter by column value* analysis (A1).
 		* *Type*: we indicate how we want to connect our points. We select the ``sequential`` option.
 		* *Order by*: we indicate the column that we will use to define the order in which the points will be connected. We will use the ``timestamp`` column, to order our data by date.
 
 
 ![lines_params](imgs/spies_sky/lines_params.png)
 
-* After clicking ``Apply``, we should see a result where we can see the lines of the filtered points from the ``Filter by column value`` analysis.
+* After clicking *APPLY*, we should see a result where we can see the lines of the filtered points from the *Filter by column value* analysis.
 
 ![lines_res](imgs/spies_sky/lines_res.png)
 
@@ -135,14 +135,14 @@ Each layer has 5 options: *DATA*, *ANALYSES*, *STYLE*, *POP-UPS* and *LEGENDS*.
 ### 3. 3. Find centroid of geometries analysis
 
 * We will apply the analysis to the  result of the Filter by column values Analysis. We will go back to the main menu and we will click on the ``ADD ANALYSIS`` option of the ``Flights`` layer (A).
-* We will select the ``Find centroid of geometries`` analysis.
+* We will select the *Find centroid of geometries* analysis.
 
 ![centroid](imgs/spies_sky/centroid.png)
 
 * In the ``ANALYSES`` tab of the layer, we have three sections:
 	* **Workflow**: Now, because we are applying a second analysis to the ``filter`` layer, the workflow has changed. ``A1`` represent the filter by column analysis, ``A2`` represent the new analysis that we are adding.
 	* **Centroid from geometries**:
-		* *Source*: we indicate that we are using as the input, the results from the ``Filter by column values`` analysis. The input is not the original points of the layer, but the points that we got after the ``Filter by column values`` analysis.
+		* *Source*: we indicate that we are using as the input, the results from the *Filter by column values* analysis. The input is not the original points of the layer, but the points that we got after the *Filter by column values* analysis.
 		* *Categorize*: we leave this checkbox uncheched.
 		* *Weighted by*: we don't want weighted centroids, so we leave this checkbox uncheched.
 	* *Value aggregation*: we don't aggregate the values, we don't check the *AGGREGATE* checkbox.

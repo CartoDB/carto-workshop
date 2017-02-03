@@ -8,23 +8,24 @@
   * Widgets: Category, Time Series & Formula.
   * Analysis: Find centroid from geometries & Connect with lines.
 
-* *Datasests needed*:
+* *Datasets needed*:
 
-  * Chicago Crimes (**`chicago_crimes_sampled`**): download it [from the `builder-demo` CARTO account](https://builder-demo.carto.com:443/api/v2/sql?q=select+*+from+chicago_crimes_sampled&format=gpkg&filename=chicago_crimes_sampled.gpkg) and import it into CARTO from your local machine.
-  * Chicago Police Stations (**`chicago_police_stations`**): download it [from the `builder-demo` CARTO account](https://builder-demo.carto.com:443/api/v2/sql?q=select+*+from+chicago_police_stations&format=gpkg&filename=chicago_police_stations.gpkg) and import it into CARTO from your local machine.
+  * Chicago Crimes (`chicago_crimes_sampled`): download it [from the `builder-demo` CARTO account](https://builder-demo.carto.com:443/api/v2/sql?q=select+*+from+chicago_crimes_sampled&format=gpkg&filename=chicago_crimes_sampled.gpkg) and import it into CARTO from your local machine.
+  * Chicago Police Stations (`chicago_police_stations`): download it [from the `builder-demo` CARTO account](https://builder-demo.carto.com:443/api/v2/sql?q=select+*+from+chicago_police_stations&format=gpkg&filename=chicago_police_stations.gpkg) and import it into CARTO from your local machine.
 
-- 1. Import datasets and create a map
-- 2. Layers and widgets
-- 3. Add Analysis and styles
-    - 3. 0. Optional: sample the dataset
-- 4. Add a histogram widget for filtering by distance
-- 5. Extension
+
+  1. Import datasets and create a map
+  2. Layers and widgets
+  3. Add Analysis and styles
+    3. 0. Optional: sample the dataset
+  4. Add a histogram widget for filtering by distance
+  5. Extension
 
 ## 1. Import datasets and create a map
 
 ### 1. 1. Import datasets into CARTO
 
-* It's easy to import files into CARTO! Drag and drop the **`chicago_crimes_sampled`** csv file in your CARTO Datasets dashboard first, then the **`chicago_police_stations`** csv. 
+* It's easy to import files into CARTO! Drag and drop the `chicago_crimes_sampled` csv file in your CARTO Datasets dashboard first, then the `chicago_police_stations` csv. 
 
 <!-- Explain to the viewer the wide diversity of geodata supported in CARTO during the importing. -->
 
@@ -33,7 +34,7 @@
 
 ### 1. 3. Rename map title and layers
 
-* Rename map title to **`Police Stations Location Demo`**.
+* Rename map title to `Police Stations Location Demo`.
 * Rename layers:
   1. `chicago_crimes_sampled` as `Crimes`,
   2. `chicago_police_stations` as `Police Stations`,
@@ -42,7 +43,7 @@
 
 ### 2. 1. Show the different layer options
 
-* Click on the basemap layer and select *Dark Matter Lite*.
+* Click on the basemap layer and select `Dark Matter Lite`.
 * Each layer has 5 options: *DATA*, *ANALYSES*, *STYLE*, *POP-UPS* and *LEGENDS*.
 
 ### 2. 2. Add widgets in order to explore crimes layer
@@ -68,7 +69,7 @@ You can add the *Subsample percent of rows* analysis to the crimes dataset. We c
 
 ### 3. 2. Style crimes layer
 
-* After applying the analysis, drag and drop out the original node layer. Rename the analysis node layer as *Centroids*.
+* After applying the analysis, drag and drop out the original node layer. Rename the analysis node layer as `Centroids`.
 
 > Now you should have a mess of points, three layers equally styled.
 
@@ -83,7 +84,7 @@ You can add the *Subsample percent of rows* analysis to the crimes dataset. We c
 
 ### 3. 3. Connect police stations with centroids and calculate distances
 
-* Add a new analysis (to the *Centroids* layer).
+* Add a new analysis (to the `Centroids` layer).
 * Select *Connect with lines*.
 * Click on *ADD ANALYSIS*.
 * Set the parameters as follows:
@@ -99,14 +100,14 @@ You can add the *Subsample percent of rows* analysis to the crimes dataset. We c
 
 ### 3. 4. Style police stations, centroids and lines layers
 
-* After applying the analysis, drag and drop out the *Connect with lines* analysis node, on top of *Crimes* but below *Police Stations* and *Centroids*. Rename the new layer as *Lines*.
+* After applying the analysis, drag and drop out the *Connect with lines* analysis node, on top of `Crimes` but below `Police Stations` and `Centroids`. Rename the new layer as `Lines`.
 
 #### Lines style
 
-* In order to style *Lines* layer follow these steps:
-  * Click on *Lines* layer.
-  * Click on *STYLE*:
-    * *FILL*: set the line width value to `3` and color blue (`#40B4E5`).
+* In order to style `Lines` layer follow these steps:
+  * Click on `Lines` layer.
+  * Click on `STYLE`:
+    * `FILL`: set the line width value to `3` and color blue (`#40B4E5`).
 
 #### Centroids style
 
@@ -136,11 +137,11 @@ You can add the *Subsample percent of rows* analysis to the crimes dataset. We c
 
 ## 4. Add a histogram widget for filtering by distance
 
-### 4. 1. Add a widget for filtering by store id
+### 4. 1. Add a widget for filtering by distance
 
-* Back to *LAYERS* pane on main Bulder interface, click on *Lines* layer.
-* In the *DATA* tab. Activate the *Add as a widget* checkbox on `length` column.
-* Rename them as *Distance*.
+* Back to `LAYERS` pane on main Builder interface, click on `Lines` layer.
+* In the `DATA` tab. Activate the *Add as a widget* checkbox on `length` column.
+* Rename them as `Distance`.
 
 ![final](imgs/chicago/03-final.png)
 

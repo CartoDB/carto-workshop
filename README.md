@@ -1,45 +1,58 @@
-Capacitación Ciudad de México
-=====================================
+CARTO complete Training Course
+==============================
 
-> http://bit.ly/1612-cdmx-carto
+## [http://bit.ly/carto-workshop](http://bit.ly/carto-workshop)
 
-Este repositorio contiene todos los materiales y enlaces para la capacitación para el personal de Ciudad de México a realizar entre el 5 y 9 de Diciembre de 2016.
+This repository contains a complete training on CARTO technologies. The contents are separated into modules and are meant to be made sequentially going from the most basic usage for GIS and analysts up to the advanced development section for attendants with more knowledge about web mapping development and so on.
 
-[Block de notas](notas.md) compartido
+Moules can be easily combined to finally make a 1 week full training but they can be also split to make a longer training with half day duration.
 
-Facilitador: Jorge Sanz · jsanz@carto.com
+## [Module 0](00-intro-carto/). Introduction to CARTO
 
-Colaboradores:
+- Duration: 1.5 hour
+- Audience: General public interested in CARTO and location intelligence.
 
-* Ernesto Martínez · ernesto@carto.com
-* Oriol Boix · oboix@carto.com
-* Ramiro Aznar · ramiroaznar@carto.com
-* Michelle Chandra · mchandra@carto.com
+Introduction to the training sessions, GIS and webmapping and general explanation about CARTO as a platform: product positioning, general overview of the portfolio and examples of how CARTO can solve different use cases.
 
-## Acceso a las cuentas del taller
+## [Module 1](01-builder-visualization/). CARTO BUILDER I: Data visualizations and Styling
 
-* Repartir cuentas `cdmx01` a `cdmx20`. Se crearán más si fuera necesario
-* Acceder a las cuentas en la dirección web `https://cdmxAA.carto.com` donde `AA` será el número asignado anteriormente.
-* La contraseña será proporcionada por el instructor
+- Duration: 6.5 hours
+- Audience: General public with basic knowledge on geomatics, databases and data analysis.
 
+This course will cover different BUILDER (CARTO's web interface) workflows for generating cartographic data visualizations. We'll dig into new Builder features and some differences with old Editor. During this first part, we'll cover those aspects related to data visualizations, cartographic styles, legend's definition and dashboard creation with actionable Widgets that interact with the map.
 
-## [Día 1](01-builder-visualization/README.md). CARTO BUILDER I: Visualización y estilización de datos
+## [Module 2](02-builder-analysis/). CARTO BUILDER II: Geospatial analysis and prediction
 
-En este curso se cubrirá el uso de diferentes procedimientos en la interfaz web de CARTO, el BUILDER, para generar visualizaciones cartográficas de datos. Se profundizará en los nuevos aspectos del BUILDER y los cambios con respecto al antiguo Editor, especialmente en esta primera sesión los relacionados con la visualización de datos, estilos cartográficos, definición de leyendas y creación de dashboards donde los widgets interactúan con el mapa.
+- Duration: 8 hours
+- Audience: General public with basic knowledge on geomatics, databases and data analysis.
 
+This advanced workshop will let users know the most powerful analytic capabilities of CARTO BUILDER. Analysis workflows and its link with Widgets will occupy the central part of the course, along with a review of the different analyses that BUILDER currently offers.
 
-## [Día 2](02-builder-analysis/README.md). CARTO BUILDER II: Análisis y Predicción Geoespacial
+## [Module 3](03-cartography/). Cartography and advanced simbology
 
-Este taller avanzado dará a conocer las posibilidades de análisis más potentes de CARTO BUILDER, mediante el uso de las capacidades de SQL espacial que PostGIS ofrece. La parte central de la sesión será la introducción a la definición de flujos de ańalisis y su vinculación con los widgets así como el repaso de los diferentes procedimientos de análisis de datos que ofrece actualmente BUILDER.
+- Duration: 6 hours
+- Audience: Cartographers and geomatics technicians that work on web cartography design willing to go beyond BUILDER styling defaults.
 
-## [Día 3](03-cartography/README.md). Cartografía y simbología avanzada
+This session focuses on the advanced use of BUILDER, creating cartographic rules for powerful webmap visualizations. It also goes through our new tools for thematic mapping (TurboCARTO) and all the different options that Torque offers for creating dynamic maps.
 
-Esta sesión se enfoca en el uso avanzado de BUILDER en el área de creación de reglas cartográficas para diseño de potentes visualizaciones así como en las novedades introducidas para la generación de temáticos (TurboCARTO). Finalmente repasaremos las diferentes opciones que Torque ofrece para generar mapas dinámicos.
+## [Module 4](04-database/). Geospatial databases
 
-## [Día 4](04-database/README.md). Bases de datos geoespaciales
+- Duration: 5 hours
+- Audience: Data analysts and developers with none or small experience on Spatial SQL and geospatial databases in general.
 
-En este taller se cubre en profundidad el uso avanzado de Postgres y PostGIS para aquellos casos en los que BUILDER no es suficiente. Se revisarán los aspectos más interesantes del lenguaje SQL que suelen ser útiles en el desarrollo de análisis avanzados, así como las funcionalidades geoespaciales proporcionadas por PostGIS. Se cubrirán también algunos conceptos básicos de automatización de tareas con funciones y disparadores que pueden resultar muy útiles. En la segunda parte de la jornada se hará una introducción a la arquitectura de CARTO como plataforma de webmapping, opciones de despliegue y principales componentes. A continuación se describirán las diferentes API con las que interactuar con la plataforma, qué flujos de trabajo cubren y casos de uso habituales.
+This workshop extensively covers advanced use of PostgreSQL and PostGIS for those cases when Builder is not enough. We'll review the most relevant parts of SQL language, useful for advanced analysis development, as well as the geospatial capabilities brought by PostGIS. We'll also cover some basic concepts for task automation, as triggers and stored procedures.
 
-## [Día 5](05-sdks/README.md). Desarrollar con CARTO: CARTO.js, Mobile SDK y Python SDK
+## [Module 5](05-apis/). CARTO ENGINE I, platform and APIs
 
-Este taller tiene como objetivo cubrir los diferentes kits de desarrollo con los que crear aplicaciones con CARTO. El SDK de JavaScript es el más relevante y se cubrirá con mayor detalle, repasando los casos de uso habituales al desarrollar visores sobre las APIs de CARTO. A continuación se expondrá una introducción al nuevo CARTO Mobile SDK, que permite la creación de aplicaciones móviles nativas y se acabará la jornada exponiendo y haciendo ejercicios prácticos con el SDK para el lenguaje Python.
+- Duration: 3 hours
+- Audience: Data analysts and developers that need to build applications using CARTO ENGINE offering.
+
+This course will introduce CARTO architecture as a webmapping platform, deploying options and main components. The different APIs for interacting with the platform, most usual workflows and use cases will be covered too.
+
+## [Module 6](06-sdks/). CARTO ENGINE II, development kits
+
+- Duration: 8 hours
+- Audience: Developers that need to build applications using CARTO ENGINE development kits.
+
+In this last lesson, we'll cover different SDK's that we could use for developing applications with CARTO. Javascript SDK (CARTO.js) is the most relevant and will be covered in depth for creating web applications that work over CARTO APIs. A Mobile SDK introduction will follow, allowing the development of native CARTO mobile apps. Last but not least, we'll finish the course with some examples and exercise that make use of our Python SDK.
+

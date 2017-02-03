@@ -1,24 +1,29 @@
-CARTO BUILDER para visualización de datos
-==========================================
+CARTO BUILDER for Data Visualization
+====================================
 
 ## Agenda
 
-* Introducción a CARTO
-* El dashboard de CARTO: organización, grupos y usuarios
-* Mapas y datasets
-* La nueva interfaz: CARTO BUILDER vs Editor
-* Carga de datos
-* Estilización
-* Interactividad
-* Leyendas
+* CARTO dashboard: organization, groups and user roles
+* Maps and Datasets
+* New interface: CARTO BUILDER vs Editor
+* Loading data
+* Styling
+* Interactivity
+* Legends
 * Widgets
 
-## Recursos
+## Resources
 
-* [Introducción a los SIG en web](https://docs.google.com/a/cartodb.com/presentation/d/1IDDPqtgVJPuQOPaSAxqpd2ZlPbPuxiBQ0V3Qr5GOSs4/edit?usp=sharing)
-* [Introducción a CARTO](https://docs.google.com/a/cartodb.com/presentation/d/1YhMvOPFZ8OEeYgdiPhTXoWw9HSjn44rls_8yQtMhuvw/edit?usp=sharing)
-* Ejercicio: [cuadro de mando de arbolado de San Francisco](exercises/sf-trees.md)
-* Ejercicio: [datos agregados](exercises/aggregations.md)
-* Ejercicio: [categorías y burbujas](exercises/category-bubble.md)
-* Ejercicio: [datos dinámicos](exercises/torque.md)
+Exercises:
 
+* [San Francisco's trees dashboard](exercises/sf-trees.md)
+* [aggregated data](exercises/aggregations.md)
+* [category-bubbles](exercises/category-bubble.md)
+* [dynamic data](exercises/torque.md)
+
+Examples:
+* [Populated Places dashboard](https://cartoworkshops.carto.com/u/carto-workshops/builder/2e5f8efe-bb1e-11e6-935a-0e233c30368f/embed)
+* [Builder Demo maps](https://team.carto.com/u/builder-demo/maps)
+* [A more complex dynamic map](https://cartodb.github.io/reefers/#9120217/2/-11.01/62.58)
+* [CARTOcolors for meaningful visualizations](https://carto.com/carto-colors)
+* [ColorBrewer, the origins](http://colorbrewer2.org/#type=sequential&scheme=BuGn&n=)

@@ -18,17 +18,8 @@
 	- 1. 2. Dataset view
 	- 1. 3. Click on ``CREATE MAP`` from ``flights_sampled``
 - 2. Layers and styles
-	- 2. 1. Show the new ordering of the layers in the Builder
-	- 2. 2. Show the different options layers have
 - 3. Analysis
-	- 3. 1. Filter by column Analysis
-	- 3. 2. Connect with lines Analysis
-	- 3. 3. Find centroid of geometries analysis
 - 4. Widgets
-	- 4. 1. Timeseries widget
-	- 4. 2. Histogram widget
-	- 4. 3. Formula widget
-	- 4. 4. Modify widgets
 - 5. Publish
 - 6. Extension
 
@@ -52,7 +43,7 @@ Take a look on the dataset schema, the relevant fields are: `flight_id`, `timest
 
 ![first](imgs/spies_sky/first.png)
 
-**Hint**: try to use the `multiply` composite operation to see more clearly some patterns on the dataset.
+**Hint**: try to use the *multiply* composite operation to see more clearly some patterns on the dataset.
 
 ## 2. Layers and styles
 
@@ -64,16 +55,16 @@ Take a look on the dataset schema, the relevant fields are: `flight_id`, `timest
 
 ### 2. 2. Show the different options layers have
 
-Each layer has 5 options: `DATA`, `ANALYSES`, `STYLE`, `POP-UPS` and `LEGENDS`.
+Each layer has 5 options: *DATA*, *ANALYSES*, *STYLE*, *POP-UPS* and *LEGENDS*.
 
-* `DATA`:
+* *DATA*:
   * This interface gives a general view of the fields the layer, its name and its data type but also from there you can add them as widgets.
-  * Switch to `VALUES` to `SQL`. The SQL command line allows more advanced users to manage data in a more precise way.
-  * Finally, it's easy to change from map view to dataset view.
+  * Click the slider button from *VALUES* to *SQL*. The SQL view allows more advanced users to manage data in a more precise way.
+  * Finally, it's easy to change from Map view to Data view.
 
-* `STYLE`:
-  * Change the fill color to ``#f20000`` and set the size of the markers to 7.
-  * Switch to `VALUES` to `CARTOCSS`. CartoCSS panel allows more advanced users to layer style in a more precise way.
+* *STYLE*:
+  * Change the fill color to `#f20000` and set the size of the markers to `7`.
+  * Click the slider button from *VALUES* to *CARTOCSS*. CartoCSS view allows more advanced users to layer style in a more precise way.
 
 
 ![style](imgs/spies_sky/style.png)
@@ -85,16 +76,16 @@ Each layer has 5 options: `DATA`, `ANALYSES`, `STYLE`, `POP-UPS` and `LEGENDS`.
 
 * Back in the main menu of layers, select the ``flights_sampled`` layer and click on ``ADD ANALYSIS`` option.
 
-* From the analysis menu, select the ``Filter by column`` analysis and click on ``ADD ANALYSIS``.
+* From the analysis menu, select the *Filter by column* analysis and click on *ADD ANALYSIS*.
 
 ![filter](imgs/spies_sky/filter.png)
 
 
-* In the ``ANALYSES`` tab of the layer, we have several sections:
-	* **Workflow**: Is an overview of the analysis that we apply to the layer, so you can have more than one. The analysis should have the name ``A1`` to indicate that is the first analysis applied to the layer.
-	* **Filter by column value**: asks for the source layer where are the columns that you want to use to filter (**input parameter**) and the column that you want to use to filter. We select the column `flight_id`. A new section **Parameters** appears in the analysis menu.
-	* **Parameters**: We select the value of the column that we want to use to filter our data.
-	We select/write the value ``8366cde``.
+* In the *ANALYSES* tab of the layer, we have several sections:
+	* *Workflow*: Is an overview of the analysis that we apply to the layer, so you can have more than one. The analysis should have the name *A1* to indicate that is the first analysis applied to the layer.
+	* *Filter by column value*: asks for the source layer where are the columns that you want to use to filter (**input parameter**) and the column that you want to use to filter. We select the column `flight_id`. A new section *Parameters* appears in the analysis menu.
+	* *Parameters*: We select the value of the column that we want to use to filter our data.
+	We select/write the value `8366cde`.
 
 
 
@@ -132,7 +123,7 @@ Each layer has 5 options: `DATA`, `ANALYSES`, `STYLE`, `POP-UPS` and `LEGENDS`.
 #### 3. 2. 1. Improve visualization
 
 
-* Back to the main menu, in the ``Layers``tab,we drag and drop the ``Connect with lines`` node analysis outside of the layer (layer A2) to create a new data layer with lines (layer B).By doing this, we will have on the map a layer with the filtered points and a layer with lines that represent those connected points.
+* Back to the main menu, in the *Layers* tab, drag and drop the *Connect with lines* node analysis outside of the layer (node *A2*) to create a new data layer with lines (layer *B*). By doing this, we will have on the map a layer with the filtered points and a layer with lines that represent those connected points.
 
 ![lines_drag](imgs/spies_sky/lines_drag.png)
 
@@ -148,25 +139,24 @@ Each layer has 5 options: `DATA`, `ANALYSES`, `STYLE`, `POP-UPS` and `LEGENDS`.
 
 ![centroid](imgs/spies_sky/centroid.png)
 
-
 * In the ``ANALYSES`` tab of the layer, we have three sections:
 	* **Workflow**: Now, because we are applying a second analysis to the ``filter`` layer, the workflow has changed. ``A1`` represent the filter by column analysis, ``A2`` represent the new analysis that we are adding.
 	* **Centroid from geometries**:
 		* *Source*: we indicate that we are using as the input, the results from the ``Filter by column values`` analysis. The input is not the original points of the layer, but the points that we got after the ``Filter by column values`` analysis.
 		* *Categorize*: we leave this checkbox uncheched.
 		* *Weighted by*: we don't want weighted centroids, so we leave this checkbox uncheched.
-	* **Value aggregation**: we don't aggregate the values, we don't check the ``aggregate`` checkbox.
+	* *Value aggregation*: we don't aggregate the values, we don't check the *AGGREGATE* checkbox.
 
 ![centroid_params](imgs/spies_sky/centroid_params.png)
 
-* After clicking ``Apply``, we should see a result where we can see the centroid od our filtered data:
+* After clicking *APPLY*, we should see a result where we can see the centroid od our filtered data:
 
 ![centroid_res](imgs/spies_sky/centroid_res.png)
 
 
 #### 3. 3. 1. Improve visualization
 
-* Back to the main menu, in the ``Layers``tab,we drag and drop the Centroid node analysis outside of layer (A) to create a new Data layer with the areas of influence (C). The new layer (C) will have the same name as the layer A, we will change the name of layer C to ``Centroid``.
+* Back to the main menu, in the *LAYERS* pane,we drag and drop the Centroid node analysis outside of layer (*A*) to create a new Data layer with the areas of influence (*C*). The new layer (*C*) will have the same name as the layer *A*, we will change the name of layer *C* to *Centroid*.
 
 * We also change the styles of the Centroid, Flights and Routes layers to highlight the lines, points and their centroid.
 
@@ -177,8 +167,8 @@ Each layer has 5 options: `DATA`, `ANALYSES`, `STYLE`, `POP-UPS` and `LEGENDS`.
 
 ### 4. 1. Timeseries widget
 
-* Back to the main menu, select the WIDGETS tab and select the ADD WIDGET option.
-* In the options of the Timeseries tab, select the ``timestamp``column of the A1 layer and we click on ``CONTINUE``.
+* Open *WIDGETS* pane and select the *ADD WIDGET* option.
+* In the options of the *TIMESERIES* tab, select the `timestamp` column of the *A1* layer and we click on *CONTINUE*.
 
 ![widgets_timeseries](imgs/spies_sky/widgets_timeseries.png)
 
@@ -190,8 +180,8 @@ Each layer has 5 options: `DATA`, `ANALYSES`, `STYLE`, `POP-UPS` and `LEGENDS`.
 
 ### 4. 2. Histogram widget
 
-* Back to the main menu, select the WIDGETS tab and select the ADD WIDGET option.
-* In the options of the Histogram tab, select the ``altitude`` of the A1 layer and we click on ``CONTINUE``.
+* Open *WIDGETS* pane and select the *ADD WIDGET* option.
+* Within *HISTOGRAM* tab options, select *altitude* from *A1* layer and we click on *CONTINUE*.
 
 ![widget_histogram](imgs/spies_sky/widgets_histogram.png)
 
@@ -202,21 +192,21 @@ Each layer has 5 options: `DATA`, `ANALYSES`, `STYLE`, `POP-UPS` and `LEGENDS`.
 
 ### 4. 3. Formula widget
 
-* Back to the main menu, select the WIDGETS tab and select the ADD WIDGET option.
-* In the options of the Formula tab, select the ``point_count`` of the A1 layer and we click on ``CONTINUE``.
+* Open *WIDGETS* pane and select the *ADD WIDGET* option.
+* Within *FORMULA* tab options, select *point_count* of the *A1* layer and we click on *CONTINUE*.
 
 ![widget_formula_count](imgs/spies_sky/widgets_formula_count.png)
 
-* We will get a widgets that counts the number of points that are displayed on the map.
+* We will get a widget that counts the number of points that are displayed on the map.
 
 ![widget_formula_count_res](imgs/spies_sky/widgets_formula_count_res.png)
 
-* Back to the main menu, select the WIDGETS tab and select the ADD WIDGET option.
-* In the options of the Formula tab, select the ``speed`` of the A1 layer and we click on ``CONTINUE``.
+* Open *WIDGETS* pane and select the *ADD WIDGET* option.
+* Within *FORMULA* tab options, select *speed* from *A1* layer and we click on *CONTINUE*.
 
 ![widget_formula_avg](imgs/spies_sky/widget_formula_avg.png)
 
-* We will get a widgets that calculates the avergage speed of the number of points that are displayed on the map.
+* We will get a widget that calculates the avergage speed of the number of points that are displayed on the map.
 
 ![widget_formula_avg_res](imgs/spies_sky/widget_formula_avg_res.png)
 
@@ -226,7 +216,7 @@ Each layer has 5 options: `DATA`, `ANALYSES`, `STYLE`, `POP-UPS` and `LEGENDS`.
 
 ![widget_list](imgs/spies_sky/widget_list.png)
 
-* Click on the icon with three dots and a new dropdown menu will appear will appear. Select Rename widget and change the name of widgets.
+* Click on the icon with three dots and a new dropdown menu will appear will appear. Select *Rename widget* and change the name of widgets.
 
 ![widget_rename](imgs/spies_sky/widget_rename.png)
 
@@ -241,23 +231,23 @@ Each layer has 5 options: `DATA`, `ANALYSES`, `STYLE`, `POP-UPS` and `LEGENDS`.
 
 ## 5. Publish
 
-* At the bottom of the main menu, click the Share button.
+* At the bottom of the main menu, click the *SHARE* button.
 
-* Change the privacy of the map to "Only accessible with link".
+* Change the privacy of the map to *Only accessible with link*.
 
 ![privacy](imgs/spies_sky/privacy.png)
 
-* Select the Publish tab and click on the Publish button that is below the Map title in order to share our map.
+* Navigate to *PUBLISH* tab and click on *PUBLISH* below the Map title in order to share our map.
 
 ![publish_1](imgs/spies_sky/publish_1.png)
 
-* After clicking the Publish button, we can select the option that we want to share our map.
+* After clicking *PUBLISH*, we can select the option that we want to share our map.
 
 ![publish_1](imgs/spies_sky/publish_2.png)
 
 ## 6. Extension
 
-An extension of this exercise would be to add another analysis to the filtered points: connect them with the centroid. This is another version of the **Connect with lines** analysis where you use the `Source` option so all the points are connected to a different source, in this case the _Centroid_ layer. This analysis also gives to the resulting dataset a new field named `Length` that can be added as a histogram to be able to find that as our planes are doing circles we have a significant number of lines with the same length.
+An extension of this exercise would be to add another analysis to the filtered points: connect them with the centroid. This is another version of the *Connect with lines* analysis where you use the *Source* option so all the points are connected to a different source, in this case the *Centroid* layer. This analysis also gives to the resulting dataset a new field named `length` that can be added as a histogram to be able to find that as our planes are doing circles we have a significant number of lines with the same length.
 
 ![](imgs/spies_sky/extension.png)
 

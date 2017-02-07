@@ -9,6 +9,7 @@ CARTO ENGINE I: development kits
 
 # Resources
 
+* [Intro to webmapping with LeafletJS](exercises/leaflet.md)
 * [CARTO.js overview and exercises](exercises/cartojs.md)
 * [Mobile SDK Introduction slides](https://docs.google.com/a/cartodb.com/presentation/d/1RiNcVhPrUtCs4IMUqnkfwcHp9eK1mxmPCQxQfxpyHOU/edit?usp=sharing)
 * [Mobile SDK Android Samples](https://github.com/CartoDB/mobile-android-samples)

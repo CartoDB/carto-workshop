@@ -231,6 +231,5 @@ In this case, we make use of the event object (referenced with `e`), in order to
 
 ## [Play with a live example](http://plnkr.co/edit/N453u2wW6jSNCHks37OY?p=preview)
 
-![mapshot](../img/leafletmap.png)
 
 

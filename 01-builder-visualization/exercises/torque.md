@@ -71,7 +71,7 @@ Tweak the labels, suffixes, number of bins, etc so you get a nice map of the tra
 
 ## Adding category style
 
-Besides styling data by a time field, you can also style data by a column value to create an animated category map. Download the [cicloton category map .carto file]. Import the map to your account. Open the map, and select the "cicloton_animated" layer in the layer panel:
+Besides styling data by a time field, you can also style data by a column value to create an animated category map. Download the [cicloton category map .carto file](https://github.com/CartoDB/cdmx-training/blob/master/01-builder-visualization/exercises/maps/cicloton category map.carto). Import the map to your account. Open the map, and select the "cicloton_animated" layer in the layer panel:
 
 * Navigate to the *STYLE* tab
 * Select on the *Aggregation* section, choose "ANIMATED" for the aggregation
@@ -80,6 +80,6 @@ Besides styling data by a time field, you can also style data by a column value 
 * To see your data values better, select the color bar next to "Stroke" in the *Style* section. In the color picker, change the opacity from "1" (located in the lower right hand side) to "0"
 * Set the "COLUMN" form option to the "time" column
 * Play with the animated settings in the *Style* section. Try a longer or shorter duration, or longer or shorter steps. 
-* Set the *TRAILS* field to "0" remove the trailing markers
+* Set the "TRAILS" field to "0" remove the trailing markers
 
 ![](imgs/01-torque-04.png)

@@ -14,7 +14,7 @@ In order to access the complete training on CARTO technologies, you have to go t
 - Duration: 15 minutes
 - Audience: General public interested in CARTO and location intelligence.
 - Content:
-  * [Introduction to CARTO]()
+  * [Introduction to CARTO](https://docs.google.com/presentation/d/186WR7-Antv6CSNXzLnHHS3cAm2PoDEjOSVzHWl9SHuc/edit?usp=sharing)
 
 Introduction to CARTO as a platform: product positioning, general overview of the portfolio and examples of how CARTO can solve different use cases.
 

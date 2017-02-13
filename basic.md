@@ -91,6 +91,19 @@
 
 * To learn more about how this works behind the scenes check out the CartoCSS panel.
 
+<br>
+
+* Create a bivaraite map:
+  * Click on `marker-fill` column.
+  * Select **`BY VALUE`**.
+  * Select `featurecla` column.
+  * You can customize your map further removing the line stroke or giving more transparency from the CartoCSS panel.
+
+<br>
+
+![bivariate](imgs/basic/bivariate.png)
+<figcaption>A view of BUILDER bivariate map</figcaption>
+
 <hr>
 
 ### 1.4. Widgets <a name="widgets"></a>
@@ -106,7 +119,7 @@
   * Click on **`DATA`**.
   * Select `name` in order to filter by country name.
   * Click on **`EDIT`** in order to customize both widgets.
-* Now you can filter and autostyle by country and city name.
+* Now you can filter by country and city name. But as you can see cities are not filtered when filtering by their country. In order to solve this we are going to add an analysis.
 
 <br>
 
@@ -125,7 +138,7 @@
   * `FILTER BY LAYER`: "Countries".
   * `SOURCE COLUMN`: `sov_a3`.
   * `FILTER COLUMN`: `iso3`.
-* Now fitering by country, you are also filtering the cities within that country. 
+* Now fitering by country (for instance, Spain), you are also filtering the cities within that country. 
 
 <br>
 

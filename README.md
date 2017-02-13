@@ -3,7 +3,7 @@ CARTO Training Course
 
 ## [http://bit.ly/carto-4cities](http://bit.ly/carto-4cities)
 
-This training course was designed as a class of 2 hours for the [*4CITIES Euromaster in Urban Studies*](http://www.4cities.eu/).
+This training course was designed as a class of 2 hours for the **[4CITIES Euromaster in Urban Studies](http://www.4cities.eu/)**.
 
 In order to access the complete training on CARTO technologies, you have to go to [the master branch](http://bit.ly/carto-workshop). The contents are separated into modules and are meant to be made sequentially going from the most basic usage for GIS and analysts up to the advanced development section for attendants with more knowledge about web mapping development and so on. Modules can be easily combined to finally make a 1 week full training but they can be also split to make a longer training with half day duration.
 

@@ -57,7 +57,7 @@ Each point is categorized as `[continent="name"] {` and contains its own polygon
   ```
 
 <br>
-![category](https://github.com/CartoDB/carto-workshop/tree/master/03-cartography/exercises/img/category.png)
+![category](../exercises/img/category.png)
 <br>
 
 The following two styles are based on the same principle, but instead of using string fields, choropleth and bubbles styles use numeric ones.
@@ -117,7 +117,7 @@ It's also important to consider [quantification](https://carto.com/academy/cours
   ```
 
 <br>
-![choropleth](https://github.com/CartoDB/carto-workshop/tree/master/03-cartography/exercises/img/choropleth.png)
+![choropleth](../exercises/img/choropleth.png)
 <br>
 
 ## Bubbles
@@ -172,7 +172,7 @@ Bubble, or ‘graduated point symbol’ maps are another approach to mapping dat
   ```
 
 <br>
-![bubbles](https://github.com/CartoDB/carto-workshop/tree/master/03-cartography/exercises/img/bubbles.png)
+![bubbles](../exercises/img/bubbles.png)
 <br>
 
 ## Zoom-Based Styling
@@ -274,7 +274,7 @@ Torque is an efficient, fast, and styleable rendering method to bring data to li
     ```
 
 <br>
-![linear](https://github.com/CartoDB/carto-workshop/tree/master/03-cartography/exercises/img/linear.png)
+![linear](../exercises/img/linear.png)
 <br>
 
   * Cumulative
@@ -308,6 +308,6 @@ Torque is an efficient, fast, and styleable rendering method to bring data to li
     ```
 
 <br>
-![cumulative](https://github.com/CartoDB/carto-workshop/tree/master/03-cartography/exercises/img/cumulative.png)
+![cumulative](../exercises/img/cumulative.png)
 <br>
 

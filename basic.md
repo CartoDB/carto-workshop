@@ -34,7 +34,7 @@
 
 <br>
 
-![map](imgs/basics/map.png)
+![map](imgs/basic/map.png)
 <figcaption>A view of BUILDER main dashboard</figcaption>
 
 <hr>
@@ -56,7 +56,7 @@
 
 <br>
 
-![layer](imgs/basics/layer.png)
+![layer](imgs/basic/layer.png)
 <figcaption>A view of BUILDER layer main menu</figcaption>
 
 <hr>
@@ -71,7 +71,7 @@
 
 <br>
 
-![dots](imgs/basics/dots.png)
+![dots](imgs/basic/dots.png)
 <figcaption>A view of BUILDER bubble map</figcaption>
 
 <br>
@@ -84,7 +84,7 @@
 
 <br>
 
-![choropleth](imgs/basics/choropleth.png)
+![choropleth](imgs/basic/choropleth.png)
 <figcaption>A view of BUILDER bubble & choropleth map</figcaption>
 
 <br>
@@ -110,7 +110,7 @@
 
 <br>
 
-![widgets](imgs/basics/widgets.png)
+![widgets](imgs/basic/widgets.png)
 <figcaption>A view of BUILDER widgets</figcaption>
 
 <hr>
@@ -129,7 +129,7 @@
 
 <br>
 
-![filter](imgs/basics/filter.png)
+![filter](imgs/basic/filter.png)
 <figcaption>A view of BUILDER filtering and analysis power</figcaption>
 
 <hr>

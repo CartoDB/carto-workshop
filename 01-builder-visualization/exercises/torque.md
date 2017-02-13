@@ -5,7 +5,7 @@
 * *Goal*: Create a map based on animated data with BUILDER
 
 * *Features Highlighted*:
-	* Style: animated map
+	* Style: animated map, category map
 	* Widgets: time series, histograms
 
 * *Datasests needed*:
@@ -13,24 +13,25 @@
 
 <!-- MarkdownTOC -->
 
-- 1. Import and create map
-- 2. Change base map
-- 3. Animated map
-- 4. Positions layer
-- 5. Widgets
+- Import and create map
+- Change base map
+- Animated map
+- Positions layer
+- Widgets
+- Adding category style
 
 <!-- /MarkdownTOC -->
 
-## 1. Import and create map
+## Import and create map
 
 * Use the link above to download the dataset and import it to the account.
 * Just drag and drop the file into the CARTO Dashboard and wait for the dataset to be imported. The map should be automatically created.
 
-## 2. Change base map
+## Change base map
 
 * Select *Dark Matter* basemap
 
-## 3. Animated map
+## Animated map
 
 * Select the layer and move to the *STYLE* tab
 * Scroll horizontally on the *Aggregation* section to find *ANIMATED*
@@ -45,7 +46,7 @@
 
 ![](imgs/01-torque-01.png)
 
-## 4. Positions layer
+## Positions layer
 
 * Add again the dataset so you can have the track as a static image
 * Style it in a way it's easy to view. You probably want to remove the stroke, select a light color, etc.
@@ -53,7 +54,7 @@
 
 ![](imgs/01-torque-02.png)
 
-## 5. Widgets
+## Widgets
 
 Add the following widgets using the mentioned fields:
 
@@ -67,3 +68,18 @@ Tweak the labels, suffixes, number of bins, etc so you get a nice map of the tra
 
 ![](imgs/01-torque-03.png)
 
+
+## Adding category style
+
+Besides styling data by a time field, you can also style data by a column value to create an animated category map. Download the [cicloton category map .carto file](https://github.com/CartoDB/cdmx-training/blob/master/01-builder-visualization/exercises/maps/cicloton category map.carto). Import the map to your account. Open the map, and select the "cicloton_animated" layer in the layer panel:
+
+* Navigate to the *STYLE* tab
+* Select on the *Aggregation* section, choose "ANIMATED" for the aggregation
+* Click on the color fill bar next to "FILL" on the *Style* section
+* In the upper left hand side of the color picker, select "BY VALUE" (not "SOLID"). Choose the "up_or_down" column from the column list that appears.
+* To see your data values better, select the color bar next to "Stroke" in the *Style* section. In the color picker, change the opacity from "1" (located in the lower right hand side) to "0"
+* Set the "COLUMN" form option to the "time" column
+* Play with the animated settings in the *Style* section. Try a longer or shorter duration, or longer or shorter steps. 
+* Set the "TRAILS" field to "0" remove the trailing markers
+
+![](imgs/01-torque-04.png)

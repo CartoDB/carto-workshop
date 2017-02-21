@@ -28,7 +28,7 @@ Introduction to CARTO as a platform: product positioning, general overview of th
 
 This course will cover the basics and workflows of BUILDER (CARTO's web interface) for generating cartographic data visualizations. We'll dig into new Builder features and some differences with old Editor. During this first part, we'll cover those aspects related to data visualizations, cartographic styles, legend's and popups definition, analysis and dashboard creation with actionable Widgets that interact with the map.
 
-## Exercise: Green Area Acces in Madrid
+## Exercise: Green Space Acces in Madrid
 
 - Duration: 15 minutes
 - Audience: General public with basic knowledge on geomatics, databases and data analysis.

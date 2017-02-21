@@ -1,9 +1,10 @@
 # Green Area Access in Madrid<a name="access"></a>
 
 * *Degree of Difficulty*: **
-* *Goal*: detect 
+* *Goal*: detect the closest green areas to Madrid neighbourhood centroids.
 * *Features Highlighted*:
-  * Basic features
+  * Analysis: centroids, connect with lines and filter by layer.
+  * Drag nodes out.
 * *Datasests needed*:
   * Madrid neighborhoods: `barrios`. You can connect it to your account from CARTO Data Library.
   * Madrid green areas: `parques_jardines`. You can download it from [here](https://team.carto.com/u/ramirocartodb/tables/builder-demo.parques_jardines/public/table) as a csv file.

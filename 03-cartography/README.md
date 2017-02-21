@@ -35,6 +35,5 @@ Also, some other nice resources:
 * [CARTOCSS complete reference](https://carto.com/docs/carto-engine/cartocss/properties/)
 * [More on the same](https://tilemill-project.github.io/tilemill/docs/guides/selectors/)
 * [Dig into the Torque unknown](http://andrewxhill.com/blog/2015/04/17/torque-unknown) 
-* [Some Cesium experiments](https://cesium.cartodb.io/)
-  ![cesium](exercises/img/cesium.png)
-  code is [here](https://github.com/CartoDB/labs-cesiumjs)  
+* [Some Cesium experiments](https://cesium.cartodb.io/) code is [here](https://github.com/CartoDB/labs-cesiumjs)  
+* UK Ordnance Survey post about [composite operations](https://www.ordnancesurvey.co.uk/blog/2017/02/carto-tips-using-blend-modes-opacity-levels/)

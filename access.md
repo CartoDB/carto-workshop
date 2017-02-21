@@ -1,4 +1,4 @@
-# Green Area Access in Madrid<a name="access"></a>
+# Green Space Access in Madrid<a name="access"></a>
 
 * *Degree of Difficulty*: **
 * *Goal*: detect the closest green areas to Madrid neighbourhood centroids.

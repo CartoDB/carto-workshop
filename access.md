@@ -26,5 +26,4 @@
 
 Link: https://team.carto.com/u/ramirocartodb/builder/f1578f68-f81f-11e6-8d0e-0ecd1babdde5/embed
 
-<iframe width="100%" height="520" frameborder="0" src="https://team.carto.com/u/ramirocartodb/builder/f1578f68-f81f-11e6-8d0e-0ecd1babdde5/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
-
+![access](imgs/access/access.pg)

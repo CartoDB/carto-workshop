@@ -9,25 +9,20 @@
   * European cities: `europe_cities`. You can download it from [here](https://ramirocartodb.carto.com/api/v2/sql?q=SELECT * FROM europe_cities&format=csv&filename=europe_cities).
   * Eruopean countries: `europe_countries`. You can download it from [here](https://ramirocartodb.carto.com/api/v2/sql?q=SELECT * FROM europe_countries&format=shp&filename=europe_countries).
 
-<br>
-
 > Both datasets were generated from [Natural Earth Data](http://www.naturalearthdata.com/) that are freely available in CARTO Data Library. In order to download them to your local machines, you are using [CARTO SQL API](https://carto.com/docs/carto-engine/sql-api) behind the scenes.
 
 <hr>
 
 ## Contents
 
-<!-- MarkdownTOC -->
+1. [Create a map](#getting-started)
+2. [Layers](#layers)
+3. [Styling](#styling)
+4. [Widgets](#widgets)
+5. [Analysis](#analysis)
+6. [Publish](#publish)
 
-- 1. Create a map
-- 2. Layers
-- 3. Style layer
-- 4. Widgets
-- 5. Analysis
-- 6. Publish
-
-<!-- /MarkdownTOC -->
-
+<hr>
 
 ## 1. Getting started <a name="getting-started"></a>
 
@@ -64,7 +59,7 @@
 ![table](imgs/table.png)
 <figcaption>A view of BUILDER layer table mode</figcaption>
 
-<hr>
+<br>
 
   * **`ANALYSIS`**
   * **`STYLE`**
@@ -96,8 +91,6 @@
 
 <br>
 
-<br>
-
 ![bubbles](imgs/bubbles.png)
 <figcaption>A view of BUILDER bubble map</figcaption>
 
@@ -118,14 +111,14 @@
 
 <br>
 
-![choropleth](imgs/basic/choropleth.png)
+![choropleth](imgs/choropleth.png)
 <figcaption>A view of BUILDER bubble & choropleth map</figcaption>
 
 <br>
 
 * You can customize your map further changing (and flipping) a different [CARTOcolors](https://carto.com/carto-colors/), the number of buckets and quantification method.
 
-<br><
+<br>
 
 > To learn more about how this works behind the scenes check out the CartoCSS panel.
 
@@ -184,14 +177,10 @@
 * Now you can share the map:
   * Link: https://team.carto.com/u/ramirocartodb/builder/33b48b06-fdc3-11e6-b781-0ee66e2c9693/embed
   * iframe:
-	```html
-	<iframe width="100%" height="520" frameborder="0" src="https://team.carto.com/u/ramirocartodb/builder/33b48b06-fdc3-11e6-b781-0ee66e2c9693/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
-	```
-
-<br>
+```<iframe width="100%" height="520" frameborder="0" src="https://team.carto.com/u/ramirocartodb/builder/33b48b06-fdc3-11e6-b781-0ee66e2c9693/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+```
 
 > Remember to update your map everythime you make a change. Then refresh your embed or website where the map is hosted to see those changes.
 
-<br>
 
 <hr>

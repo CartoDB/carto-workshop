@@ -18,7 +18,7 @@ In order to access the complete training on CARTO technologies, you have to go t
 Introduction to CARTO as a platform, with special focus on BUILDER (CARTO's web interface).
 
 
-## Exercise: European Coutries & Cities Demo
+### Exercise: European Coutries & Cities Demo
 
 - Duration: 45 minutes
 - Audience: General public with basic knowledge on geomatics, databases and data analysis.
@@ -27,7 +27,7 @@ Introduction to CARTO as a platform, with special focus on BUILDER (CARTO's web 
 This course will cover the basics and workflows of BUILDER for generating cartographic data visualizations. During this part, we'll cover those aspects related to data visualizations, cartographic styles, legend's and popups definition, analysis and dashboard creation with actionable widgets that interact with the map.
 
 
-## Q&A
+### Q&A
 
 - Duration: 5 minutes
 - You can post (and check!) your questions in [GIS StackExchange forum adding `carto` tag](http://gis.stackexchange.com/questions/tagged/carto).

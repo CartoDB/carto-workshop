@@ -33,7 +33,7 @@
 * Click on `Don't show me this again` to avoid modals.
 * You can rename the map and layer title as "European Countries & Cities" and "Countries" respectively, doing double click over them.
 
-![map](imgs/map.png)
+![map](imgs/europe/map.png)
 <figcaption>A view of BUILDER main dashboard</figcaption>
 
 <hr>
@@ -50,7 +50,7 @@
 * Click on the layer to show its components: 
   * **`DATA`**: an overview of your table schema, from here you can also add widgets. If you want to have a look at your layer table, click on the table icon at the right bottom corner of BUILDER.
 
-![table](imgs/table.png)
+![table](imgs/europe/table.png)
 <figcaption>A view of BUILDER layer table mode</figcaption>
 
 <br>
@@ -64,7 +64,7 @@
 
 > Have a look at the letter and number the layer card has (`A`). This would be very useful for adding widgets and analysis.
 
-![layer](imgs/layer.png)
+![layer](imgs/europe/layer.png)
 <figcaption>A view of BUILDER layer main menu</figcaption>
 
 <hr>
@@ -81,7 +81,7 @@
 
 > Check how the legend is dynamically generated.
 
-![bubbles](imgs/bubbles.png)
+![bubbles](imgs/europe/bubbles.png)
 <figcaption>A view of BUILDER bubble map</figcaption>
 
 <br>
@@ -99,7 +99,7 @@
 
 > In this case, we have decided to use `country_pop_norm` instead of `country_pop` because when making a choropleth map, a good cartography practice is using normalized fields.
 
-![choropleth](imgs/choropleth.png)
+![choropleth](imgs/europe/choropleth.png)
 <figcaption>A view of BUILDER bubble & choropleth map</figcaption>
 
 <br>
@@ -131,7 +131,7 @@
 
 > But as you can see cities are not filtered when filtering by their country. In order to solve this we are going to add an analysis.
 
-![widgets](imgs/widgets.png)
+![widgets](imgs/europe/widgets.png)
 <figcaption>A view of BUILDER widgets</figcaption>
 
 <hr>
@@ -148,7 +148,7 @@
   * `FILTER COLUMN`: `iso3`.
 * Now fitering by country (for instance, Spain), you are also filtering the cities within that country. 
 
-![filter](imgs/filter.png)
+![filter](imgs/europe/filter.png)
 <figcaption>A view of BUILDER filtering and analysis power</figcaption>
 
 <hr>

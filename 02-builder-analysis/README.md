@@ -16,7 +16,7 @@ Geospatial Analysis with CARTO BUILDER
 Exercises:
 
 * [BUILDER Analysis](https://docs.google.com/a/cartodb.com/document/d/1EmuckitxKQFw0vrmoMa0rGk5cCtAEZ_hUFSl0WF9QTQ/edit?usp=sharing)
-* [European countries and cities](exerises/europe.md)
+* [European countries and cities](exercises/europe.md)
 * [Spies in the sky](exercises/spies_sky.md)
 * [Chicago Crimes](exercises/chicago.md)
 * [Market analysis](exercises/dominos.md)

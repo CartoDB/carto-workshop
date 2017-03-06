@@ -1,7 +1,7 @@
 # Madrid airbnb Demo
 
 * *Degree of Difficulty*: **
-* *Goal*: Learn the wide diversity of methods to visualize and analyze point data with BUILDER.
+* *Goal*: select Airbnb houses/rooms within 250 m from a Madrid metro line.
 * *Features Highlighted*:
   * Data edition and filter:
     * SQL console.
@@ -184,7 +184,7 @@ FROM
 ![widgets-edit](imgs/widgets-edit.png)
 
 * Now you can filter and display aggregate information with widgets.
-* We will add a last widget later.
+* Add a last widget for `name` field from "Metro Lines" layer.
 
 ![widgets](imgs/widgets.png)
 
@@ -192,29 +192,56 @@ FROM
 
 ### 6. Analysis <a name="analysis"></a>
 
+* In order to select the rooms or houses within 250 m from a metro line, first we need to create an area of 250 meters surrounding each line.
 * Go back to the main menu.
-* Click on **`ADD ANALYSIS`** just below "Cities".
-* Select **`Filter by layer`** analysis.
-* Click on **`ADD ANALYSIS`**.
-* Set the parameters as follows:
-  * `FILTER BY LAYER`: "Countries".
-  * `SOURCE COLUMN`: `iso3`.
-  * `FILTER COLUMN`: `iso3`.
-* Now fitering by country (for instance, Spain), you are also filtering the cities within that country. 
+* Click on "Metro Lines" layer.
+* Go to the `ANALYSIS` tab.
+* Click on `ADD ANALYSIS`.
+* Select `Create areas of influence` analysis.
+* Click on `ADD ANALYSIS`.
+
+![analysis-menu](imgs/analysis-menu.png)
+
+* Change `RADIUS` to `250` meters and `BOUNDARIES` to `Dissolve`.
+* Click on `APPLY`
+
+![areas](imgs/areas.png)
+
+* Secondly, we have to filter the points within those new areas.
+* Click on `+` to concatenate a new analysis.
+* Select `Filter points in polygons` analysis.
+* Click on `ADD ANALYSIS`.
+* Set "Airbnb" layer as `FILTERING LAYER`.
+* Click on `APPLY`.
+
+![filter-points](imgs/filter-points.png)
+
+* In order to recover the "Metro lines" original layer, drag the source node out.
+
+![source-node](imgs/source-node.png)
+
+* Rename the layer with the analysis attached as "Airbnb houses".
+* We can quickly restyle again copying, pasting and applying the CartoCSS code we have used before.
+
+> In order to display the legends, first change the styles from the UI and secondly apply the custom CartoCSS from the panel. Also, you can go to `LEGEND` tab and customize the legends information.
+
+* Now if you fiter by one line, you only get the Airbnb houses closer to that line.
 
 ![filter](imgs/filter.png)
-<figcaption>A view of BUILDER filtering and analysis power</figcaption>
 
 <hr>
 
 ### 7. Publish <a name="publish"></a>
 
-* Click on **`SHARE`**.
+* Click on `SHARE` blue bottom at the bottom left corner of BUILDER.
 * Set to `LINK` or `PUBLIC`.
-* Click on **`PUBLISH`**.
+* Click on `PUBLISH`.
+
+![publish](imgs/publish.png)
+
 * Now you can share the map:
-  * Link: https://team.carto.com/u/ramirocartodb/builder/33b48b06-fdc3-11e6-b781-0ee66e2c9693/embed
-  * iframe: `<iframe width="100%" height="520" frameborder="0" src="https://team.carto.com/u/ramirocartodb/builder/33b48b06-fdc3-11e6-b781-0ee66e2c9693/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>`
+  * Link: https://team.carto.com/u/builder-demo/builder/9233735a-0272-11e7-a028-0ecd1babdde5/embed
+  * iframe: `<iframe width="100%" height="520" frameborder="0" src="https://team.carto.com/u/builder-demo/builder/9233735a-0272-11e7-a028-0ecd1babdde5/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>`
 
 > Remember to update your map everythime you make a change. Then refresh your embed or website where the map is hosted to see those changes.
 

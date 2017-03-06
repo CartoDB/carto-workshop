@@ -184,9 +184,10 @@ FROM
 ![widgets-edit](imgs/widgets-edit.png)
 
 * Now you can filter and display aggregate information with widgets.
-* Add a last widget for `name` field from "Metro Lines" layer.
 
 ![widgets](imgs/widgets.png)
+
+* Add a last widget for `name` field from "Metro Lines" layer.
 
 <hr>
 

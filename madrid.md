@@ -175,13 +175,13 @@ FROM
 * Click on `FORMULA`.
 * Check `price_num`.
 
-![widgets-menu](imgs/metro-lines.png)
+![widgets-menu](imgs/widgets-menu.png)
 
 * Click on `CONTINUE`.
 * Edit widgets names and prefixes (adding a dollar sign). 
 * You can order the values from the category widgets with `AVG(price_num)` instead of `COUNT`.
 
-![widgets-edit](imgs/widgets.png)
+![widgets-edit](imgs/widgets-edit.png)
 
 * Now you can filter and display aggregate information with widgets.
 * We will add a last widget later.

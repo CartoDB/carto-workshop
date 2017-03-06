@@ -75,11 +75,11 @@
 
 ### 3. Data <a name="styling"></a>
 
-* The layer `DATA` tab shows you an overview of your table schema, from here you can also add widgets. If you want to have a look at your layer table, click on the table icon at the right bottom corner of BUILDER.
+* The layer **`DATA`** tab shows you an overview of your table schema, from here you can also add widgets. If you want to have a look at your layer table, click on the table icon at the right bottom corner of BUILDER.
 
 ![table](imgs/table.png)
 
-* We can check that the `price` column contains values like `$60`. In order to remove the dollar sign and convert the field into a numeric one, we need to use the `DATA` advanced mode.
+* We can check that the `price` column contains values like `$60`. In order to remove the dollar sign and convert the field into a numeric one, we need to use the **`DATA`** advanced mode.
 * Open the SQL panel clicking the switch at the bottom left corner of BUILDER:
 
 ![table](imgs/sql.png)
@@ -98,10 +98,10 @@ FROM
 
 ### 4. Styling <a name="styling"></a>
 
-* In order to style our layer with this new field, click on the `STYLE` tab.
+* In order to style our layer with this new field, click on the **`STYLE`** tab.
 * Create a bubble (proportional symbols) map:
   * Click on the point-size number (`7` is the default fixed value).
-  * Select **`BY VALUE`**.
+  * Select `BY VALUE`.
   * Select `price_num` column.
   * Set buckets to `7` and the classification method to `Jenks`.
   * Change the `min` to `3` and `max` to `15`
@@ -114,7 +114,7 @@ FROM
   * Go back to the main menu.
   * Click on "Countries" layer.
   * Click on the color bar (yellow/orange is the default fixed color for points).
-  * Select **`BY VALUE`**.
+  * Select `BY VALUE`.
   * Select `price_num` column.
   * Set buckets to `7` and the classification method to `Jenks`.
   * Last, remove the `STROKE`.
@@ -128,12 +128,12 @@ FROM
 * Click on "Metro Lines" layer.
 * Create a category map:
   * Click on the color bar (ligth blue is the default fixed color for lines).
-  * Select **`BY VALUE`**.
+  * Select `BY VALUE`.
   * Select `name` column.
 
 ![choropleth](imgs/category.png)
 
-* As you can see the lines are color based on the `name` column. But we want to be colored according to the real Madrid Metro Lines colors. In order to achieve this we are going to use the `STYLE` advanced mode.
+* As you can see the lines are color based on the `name` column. But we want to be colored according to the real Madrid Metro Lines colors. In order to achieve this we are going to use the **`STYLE`** advanced mode.
 * Open the CartoCSS panel clicking the switch at the bottom left corner of BUILDER: 
 
 ![cartocss](imgs/cartocss.png)
@@ -163,25 +163,30 @@ FROM
 
 ### 5. Widgets <a name="widgets"></a>
 
-* Add widgets to "Cities" layer:
+* In order to add widgets to "Airbnb" layer, go back to the main menu:
   * Click on **`DATA`**.
-  * Select `name` in order to filter by city name.
-  * Click on **`EDIT`** in order to customize both widgets.
-* Add widgets to "Countries" layer:
-  * Click on **`LAYERS`**.
-  * Click on "Countries" layer.
-  * Click on **`DATA`**.
-  * Select `name` in order to filter by country name.
-  * Select `country_pop` in order to filter by country population.
-  * Click on **`EDIT`** in order to customize both widgets.
-* Now you can filter by country and city name. 
+  * Activate the checkbox at the upper left side from the following fields: `point_count`, `price_num`,  `square_feet`, `street`, `neighbourhood` and `property_type`.
+* Go to the main menu.
+* Click on **`WIDGETS`**.
 
-<br>
+> In this menu you can see the list of all widgets you have just added.
 
-> But as you can see cities are not filtered when filtering by their country. In order to solve this we are going to add an analysis.
+* Click on `ADD`.
+* Click on `FORMULA`.
+* Check `price_num`.
+
+![widgets-menu](imgs/metro-lines.png)
+
+* Click on `CONTINUE`.
+* Edit widgets names and prefixes (adding a dollar sign). 
+* You can order the values from the category widgets with `AVG(price_num)` instead of `COUNT`.
+
+![widgets-edit](imgs/widgets.png)
+
+* Now you can filter and display aggregate information with widgets.
+* We will add a last widget later.
 
 ![widgets](imgs/widgets.png)
-<figcaption>A view of BUILDER widgets</figcaption>
 
 <hr>
 

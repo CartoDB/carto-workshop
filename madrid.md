@@ -7,7 +7,6 @@
     * SQL console.
     * Dynamic filtering by widgets.
   * Data Visualization:
-    * Blending methods.
     * Style `marker-width` by value (_bubbles_).
     * Style `marker-fill` by value (_choropleth_).
     * CartoCSS and TurboCARTO console.
@@ -15,7 +14,7 @@
     * Create areas of influence analysis (_buffers_).
     * Filter points in polygons analysis.
 * *Datasests needed*:
-  * Madrid Airbnb data: `airbnb_madrid`. You can download it from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT * FROM listings_madrid&format=csv&filename=listings_madrid).
+  * Madrid Airbnb data: `listings_madrid`. You can download it from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT * FROM listings_madrid&format=csv&filename=listings_madrid).
   * Madrid metro lines: `lineas_madrid`. You can download it from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT * FROM lineas_metro&format=shp&filename=lineas_madrid).
 
 > Both datasets were originally downloaded from the [Inside Airbnb](http://insideairbnb.com/get-the-data.html) and [Nomecalles](http://www.madrid.org/nomecalles/DescargaBDTCorte.icm) websites, respectively. In order to download them to your local machines, you are using [CARTO SQL API](https://carto.com/docs/carto-engine/sql-api) behind the scenes.
@@ -26,10 +25,11 @@
 
 1. [Create a map](#map)
 2. [Layers](#layers)
-3. [Styling](#styling)
-4. [Widgets](#widgets)
-5. [Analysis](#analysis)
-6. [Publish](#publish)
+3. [Data](#data)
+4. [Styling](#styling)
+5. [Widgets](#widgets)
+6. [Analysis](#analysis)
+7. [Publish](#publish)
 
 <hr>
 
@@ -37,7 +37,7 @@
 
 * Click on **`NEW MAP`**.
 * Clik on **`CONNECT DATASET`**.
-* Drag and drop `airbnb_madrid` file.
+* Drag and drop `listings_madrid` file.
 * Click on **`CREATE MAP`**.
 
 ![connect-dataset](imgs/connect-dataset.png)
@@ -62,36 +62,66 @@
   * Drag and drop `lineas_madrid` file.
   * Click on **`ADD LAYER`**.
 * You can rename the title of this new layer as "Metro Lines".
-* Click on the layer to show its components: 
-  * **`DATA`**: an overview of your table schema, from here you can also add widgets. If you want to have a look at your layer table, click on the table icon at the right bottom corner of BUILDER.
+
+<br>
+
+> You can order your layers. For instance, try to drag the "Airbnb" layer on top of the "Metro Lines" layer.
+
+* Click on any of the layers to show its components:
+  * **`DATA`** 
+  * **`ANALYSIS`**
+  * **`STYLE`** 
+  * **`POP-UP`**
+  * **`LEGEND`**
+
+![table](imgs/layer.png)
+<figcaption>A view of BUILDER layer tabs</figcaption>
+
+<br>
+
+> Have a look at the letter and number the layer card has (`A`). This would be very useful for adding widgets and analysis.
+
+<hr>
+
+### 3. Data <a name="styling"></a>
+
+* The layer `DATA` tab shows you an overview of your table schema, from here you can also add widgets. If you want to have a look at your layer table, click on the table icon at the right bottom corner of BUILDER.
 
 ![table](imgs/table.png)
 <figcaption>A view of BUILDER layer table mode</figcaption>
 
 <br>
 
-  * **`ANALYSIS`**
-  * **`STYLE`**
-  * **`POP-UP`**
-  * **`LEGEND`**
+* We can check that the `price` column contains values like `$60`. In order to remove the dollar sign and convert the field into a numeric one, we need to use the advanced mode.
+* Open the SQL panel clicking the switch at the bottom left corner of BUILDER:
+
+![table](imgs/sql.png)
+<figcaption>A view of BUILDER SQL panel</figcaption>
 
 <br>
 
-> Have a look at the letter and number the layer card has (`A`). This would be very useful for adding widgets and analysis.
+* Type the following query on your console in order to create a new numeric field called `price_num`:
 
-![layer](imgs/layer.png)
-<figcaption>A view of BUILDER layer main menu</figcaption>
+```sql
+SELECT 
+  *, 
+  substring(price FROM '[0-9]+')::numeric as price_num 
+FROM 
+  listings_madrid
+```
 
 <hr>
 
-### 3. Styling <a name="styling"></a>
+### 4. Styling <a name="styling"></a>
 
+* In order to style our layer with this new field, click on the `STYLE` tab.
 * Create a bubble (proportional symbols) map:
   * Click on **`STYLE`** tab.
   * Click on the point-size number (`7` is the default fixed value).
   * Select **`BY VALUE`**.
-  * Select `city_pop` column.
-
+  * Select `price_num` column.
+  * Set buckets to `7` and the classification method to `Jenks`.
+  * Change the `min` to `3` and `max` to `15`
 <br>
 
 > Check how the legend is dynamically generated.
@@ -107,12 +137,9 @@
   * Click on **`STYLE`** tab.
   * Click on the color bar (dark blue is the default fixed color).
   * Select **`BY VALUE`**.
-  * Select `country_pop_norm` column.
+  * Select `price_num` column.
   * Set buckets to `7` and the classification method to `Jenks`.
-
-<br>
-
-> In this case, we have decided to use `country_pop_norm` instead of `country_pop` because when making a choropleth map, a good cartography practice is using normalized fields.
+  * Last, remove the `STROKE`.
 
 ![choropleth](imgs/choropleth.png)
 <figcaption>A view of BUILDER bubble & choropleth map</figcaption>
@@ -127,7 +154,7 @@
 
 <hr>
 
-### 4. Widgets <a name="widgets"></a>
+### 5. Widgets <a name="widgets"></a>
 
 * Add widgets to "Cities" layer:
   * Click on **`DATA`**.
@@ -151,7 +178,7 @@
 
 <hr>
 
-### 5. Analysis <a name="analysis"></a>
+### 6. Analysis <a name="analysis"></a>
 
 * Go back to the main menu.
 * Click on **`ADD ANALYSIS`** just below "Cities".
@@ -168,7 +195,7 @@
 
 <hr>
 
-### 6. Publish <a name="publish"></a>
+### 7. Publish <a name="publish"></a>
 
 * Click on **`SHARE`**.
 * Set to `LINK` or `PUBLIC`.

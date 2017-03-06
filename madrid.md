@@ -41,7 +41,6 @@
 * Click on **`CREATE MAP`**.
 
 ![connect-dataset](imgs/connect-dataset.png)
-<figcaption>A view of Connect Dataset main interface</figcaption>
 
 <hr>
 
@@ -49,7 +48,6 @@
 * You can rename the map and layer title as "Madrid Airbnb Demo" and "Airbnb" respectively, doing double click over them.
 
 ![map](imgs/map.png)
-<figcaption>A view of BUILDER main dashboard</figcaption>
 
 <hr>
 
@@ -63,8 +61,6 @@
   * Click on **`ADD LAYER`**.
 * You can rename the title of this new layer as "Metro Lines".
 
-<br>
-
 > You can order your layers. For instance, try to drag the "Airbnb" layer on top of the "Metro Lines" layer.
 
 * Click on any of the layers to show its components:
@@ -75,7 +71,6 @@
   * **`LEGEND`**
 
 ![table](imgs/layer.png)
-<figcaption>A view of BUILDER layer tabs</figcaption>
 
 <br>
 
@@ -88,7 +83,6 @@
 * The layer `DATA` tab shows you an overview of your table schema, from here you can also add widgets. If you want to have a look at your layer table, click on the table icon at the right bottom corner of BUILDER.
 
 ![table](imgs/table.png)
-<figcaption>A view of BUILDER layer table mode</figcaption>
 
 <br>
 
@@ -96,7 +90,6 @@
 * Open the SQL panel clicking the switch at the bottom left corner of BUILDER:
 
 ![table](imgs/sql.png)
-<figcaption>A view of BUILDER SQL panel</figcaption>
 
 <br>
 
@@ -116,33 +109,28 @@ FROM
 
 * In order to style our layer with this new field, click on the `STYLE` tab.
 * Create a bubble (proportional symbols) map:
-  * Click on **`STYLE`** tab.
   * Click on the point-size number (`7` is the default fixed value).
   * Select **`BY VALUE`**.
   * Select `price_num` column.
   * Set buckets to `7` and the classification method to `Jenks`.
   * Change the `min` to `3` and `max` to `15`
-<br>
 
 > Check how the legend is dynamically generated.
 
 ![bubbles](imgs/bubbles.png)
-<figcaption>A view of BUILDER bubble map</figcaption>
 
 <br>
 
 * Create a chroropleth map:
   * Go back to the main menu.
   * Click on "Countries" layer.
-  * Click on **`STYLE`** tab.
-  * Click on the color bar (dark blue is the default fixed color).
+  * Click on the color bar (yellow/orange is the default fixed color for points).
   * Select **`BY VALUE`**.
   * Select `price_num` column.
   * Set buckets to `7` and the classification method to `Jenks`.
   * Last, remove the `STROKE`.
 
 ![choropleth](imgs/choropleth.png)
-<figcaption>A view of BUILDER bubble & choropleth map</figcaption>
 
 <br>
 
@@ -150,7 +138,17 @@ FROM
 
 <br>
 
-> To learn more about how this works behind the scenes check out the CartoCSS panel.
+* Time to style "Metro Lines" layer. 
+* Go back to the main menu.
+* Click on "Metro Lines" layer.
+* Create a category map:
+  * Click on the color bar (ligth blue is the default fixed color for lines).
+  * Select **`BY VALUE`**.
+  * Select `name` column.
+
+![choropleth](imgs/category.png)
+
+<br>
 
 <hr>
 

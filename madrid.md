@@ -37,10 +37,16 @@
 
 * Click on **`NEW MAP`**.
 * Clik on **`CONNECT DATASET`**.
-* Drag and drop.
+* Drag and drop `airbnb_madrid` file.
 * Click on **`CREATE MAP`**.
+
+![connect-dataset](imgs/connect-dataset.png)
+<figcaption>A view of Connect Dataset main interface</figcaption>
+
+<hr>
+
 * Click on `Don't show me this again` to avoid modals.
-* You can rename the map and layer title as "European Countries & Cities" and "Countries" respectively, doing double click over them.
+* You can rename the map and layer title as "Madrid Airbnb Demo" and "Airbnb" respectively, doing double click over them.
 
 ![map](imgs/map.png)
 <figcaption>A view of BUILDER main dashboard</figcaption>
@@ -53,9 +59,9 @@
 * Add a new layer:
   * Click on **`ADD`**.
   * Clik on **`CONNECT DATASET`**.
-  * Copy and paste this url `https://ramirocartodb.carto.com/api/v2/sql?q=SELECT * FROM europe_cities&format=csv` and click on **`SUBMIT`**.
+  * Drag and drop `lineas_madrid` file.
   * Click on **`ADD LAYER`**.
-* You can rename the title of this new layer as "Cities".
+* You can rename the title of this new layer as "Metro Lines".
 * Click on the layer to show its components: 
   * **`DATA`**: an overview of your table schema, from here you can also add widgets. If you want to have a look at your layer table, click on the table icon at the right bottom corner of BUILDER.
 

@@ -15,6 +15,7 @@
       * `building` properties.
   * Geospatial analysis:
     * Intersect with 2nd layer.
+    * Bonus: Detect outliers and clusters.
 * *Datasests needed*:
   * Barcelona Airbnb data: `airbnb_barcelona`. You can download it from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT * FROM listings_bcn&format=csv&filename=listings_barcelona).
   * Barcelona building footprint and neighborhoods: `barcelona_building_footprint` and `barris_barcelona` can be found in CARTO Data Library.

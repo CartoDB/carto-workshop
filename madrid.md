@@ -42,15 +42,12 @@
 
 ![connect-dataset](imgs/connect-dataset.png)
 
-<hr>
-
 * Click on `Don't show me this again` to avoid modals.
 * You can rename the map and layer title as "Madrid Airbnb Demo" and "Airbnb" respectively, doing double click over them.
 
 ![map](imgs/map.png)
 
 <hr>
-
 
 ### 2. Layers <a name="layers"></a>
 
@@ -72,8 +69,6 @@
 
 ![table](imgs/layer.png)
 
-<br>
-
 > Have a look at the letter and number the layer card has (`A`). This would be very useful for adding widgets and analysis.
 
 <hr>
@@ -84,14 +79,10 @@
 
 ![table](imgs/table.png)
 
-<br>
-
-* We can check that the `price` column contains values like `$60`. In order to remove the dollar sign and convert the field into a numeric one, we need to use the advanced mode.
+* We can check that the `price` column contains values like `$60`. In order to remove the dollar sign and convert the field into a numeric one, we need to use the `DATA` advanced mode.
 * Open the SQL panel clicking the switch at the bottom left corner of BUILDER:
 
 ![table](imgs/sql.png)
-
-<br>
 
 * Type the following query on your console in order to create a new numeric field called `price_num`:
 
@@ -119,8 +110,6 @@ FROM
 
 ![bubbles](imgs/bubbles.png)
 
-<br>
-
 * Create a chroropleth map:
   * Go back to the main menu.
   * Click on "Countries" layer.
@@ -132,11 +121,7 @@ FROM
 
 ![choropleth](imgs/choropleth.png)
 
-<br>
-
-* You can customize your map further changing (and flipping) a different [CARTOcolors](https://carto.com/carto-colors/), the number of buckets and quantification method.
-
-<br>
+> You can customize your map further changing (and flipping) a different [CARTOcolors](https://carto.com/carto-colors/), the number of buckets and quantification method.
 
 * Time to style "Metro Lines" layer. 
 * Go back to the main menu.
@@ -148,7 +133,31 @@ FROM
 
 ![choropleth](imgs/category.png)
 
-<br>
+* As you can see the lines are color based on the `name` column. But we want to be colored according to the real Madrid Metro Lines colors. In order to achieve this we are going to use the `STYLE` advanced mode.
+* Open the CartoCSS panel clicking the switch at the bottom left corner of BUILDER: 
+
+![cartocss](imgs/cartocss.png)
+
+* Type the following CartoCSS style to change the default colors to the ones you need:
+
+```css
+#layer {
+  line-width: 1;
+  line-color: ramp([name], (#01bff5, #014ea5, #01836b, #849a01, #fe1225, #fed201, #a75608, #34c83a, #949492, #fe862d, #fe82b0, #b91a8d, #014ea5, #b91a8d, #fe1225, #000000), category);
+}
+
+#layer [name = 'ML1']{
+	line-dasharray: 10, 4;
+}
+#layer [name = 'ML2']{
+	line-dasharray: 10, 4;
+}
+#layer [name = 'ML3']{
+	line-dasharray: 10, 4;
+}
+```
+
+![metro-lines](imgs/metro-lines.png)
 
 <hr>
 

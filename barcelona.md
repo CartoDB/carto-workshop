@@ -22,7 +22,7 @@
 
 <hr>
 
-## Guides
+## Workflow
 
 * Create a map with `airbnb_barcelona` (from your local machine), and `barcelona_building_footprint` and `barris_barcelona` datasets (from the Data Library).
 * Change the map title and layer names.

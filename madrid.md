@@ -1,4 +1,4 @@
-# Madrid airbnb Demo
+# Madrid Airbnb Demo
 
 * *Degree of Difficulty*: **
 * *Goal*: select Airbnb houses/rooms within 250 m from a Madrid metro line.

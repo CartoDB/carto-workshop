@@ -18,7 +18,7 @@ In order to access the complete training on CARTO technologies, you have to go t
 Introduction to CARTO as a platform, with special focus on BUILDER (CARTO's web interface).
 
 
-### Demo: Madrid airbnb
+### Demo: Madrid Airbnb
 
 - Duration: 1 hour and 30 minutes
 - Audience: General public with basic knowledge on geomatics, databases and data analysis.
@@ -26,7 +26,7 @@ Introduction to CARTO as a platform, with special focus on BUILDER (CARTO's web 
 
 This demo will cover the basics and workflows of BUILDER for generating cartographic data visualizations. During this part, we'll cover those aspects related to data visualizations, cartographic styles, legend's and popups definition, analysis and dashboard creation with actionable widgets that interact with the map using airbnb data from Madrid city.
 
-### Exercise: Barcelona airbnb
+### Exercise: Barcelona Airbnb
 
 - Duration: 1 hour
 - Audience: General public with basic knowledge on geomatics, databases and data analysis.

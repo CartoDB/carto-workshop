@@ -30,7 +30,7 @@ This demo will cover the basics and workflows of BUILDER for generating cartogra
 
 - Duration: 1 hour
 - Audience: General public with basic knowledge on geomatics, databases and data analysis.
-- Content: [Madrid Airbnb Exercise](barcelona.md)
+- Content: [Barcelona Airbnb Exercise](barcelona.md)
 
 Building from the last demo, in this practical exercise participants will practice BUILDER data visualization, basic geospatial analysis and dynamic filtering with widgets using this time airbnb data from Barcelona city.
 

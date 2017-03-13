@@ -10,11 +10,11 @@
 
 <!-- MarkdownTOC -->
 
-1. Import and create map (#map)
-2. Layer styling: first view (#styling)
-3. Analysis (#analysis)
-4. Widgets (#widgets)
-Extension (#extension)
+1. [Import and create map](#map)
+2. [Layer styling: first view](#styling)
+3. [Analysis](#analysis)
+4. [Widgets](#widgets)
+[Extension](#extension)
 
 <!-- /MarkdownTOC -->
 

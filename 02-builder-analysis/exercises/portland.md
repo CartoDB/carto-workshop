@@ -13,7 +13,7 @@
 1. [Import and create map](#map)
 2. [Layer styling: first view](#styling)
 3. [Analysis](#analysis)
-4. [Widgets](#widgets)
+4. [Widgets](#widgets)<br>
 [Extension](#extension)
 
 <!-- /MarkdownTOC -->

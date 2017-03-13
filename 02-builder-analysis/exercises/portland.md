@@ -10,16 +10,16 @@
 
 <!-- MarkdownTOC -->
 
-- 1. Import and create map
-- 2. Layer styling: first view
-- 3. Analysis
-- 4. Widgets
-- Extension
+1. Import and create map (#map)
+2. Layer styling: first view (#styling)
+3. Analysis (#analysis)
+4. Widgets (#widgets)
+Extension (#extension)
 
 <!-- /MarkdownTOC -->
 
 
-## 1. Import and create map
+## 1. Import and create map <a name="map"></a>
 
 ### 1. 1. Import *customer_home_locations* csv.
 
@@ -37,7 +37,7 @@
 ![first](imgs/portland/01-data.png)
 
 
-## 2. Layer styling: first view
+## 2. Layer styling: first view <a name="styling"></a>
 
 On this example we will start with a single color styling and fixed marker size.
 
@@ -47,7 +47,7 @@ On this example we will start with a single color styling and fixed marker size.
 
 ![style](imgs/portland/02-style.png)
 
-## 3. Analysis
+## 3. Analysis <a name="analysis"></a>
 
 ### 3. 1. Cluster Analysis
 
@@ -151,7 +151,7 @@ We select the column *value* to display its values in the pop-up.  We will also 
 
 ![fpp_result](imgs/portland/17-filter.png)
 
-## 4. Widgets
+## 4. Widgets <a name="widgets"></a>
 
 ### 4. 1. Formula widget
 
@@ -193,7 +193,7 @@ We select the column *value* to display its values in the pop-up.  We will also 
 ![filter](imgs/portland/24-filters.png)
 
 
-## Extension
+## Extension <a name="extension"></a>
 
 Check this screenshot carefully and see the different analysis and widgets applied. Can you get something like this?
 

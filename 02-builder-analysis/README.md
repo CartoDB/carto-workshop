@@ -23,7 +23,7 @@ Exercises:
 * [Risk analysis](exercises/railways.md)
 * [Sales territories](exercises/portland.md)
 * [Presenting sales data](exercises/stores.md)
-
+* [The L line and demographics](l_line.md)
 Examples:
 
 * [Some ideas on more complex analysis](https://carto.com/blog/author/abel-vazquez)

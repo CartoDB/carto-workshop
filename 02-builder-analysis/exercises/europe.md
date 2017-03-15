@@ -6,8 +6,8 @@
   * Basic features
   * Filter by layer analysis
 * *Datasests needed*:
-  * European cities: `europe_cities`. You can download it from [here](https://ramirocartodb.carto.com/api/v2/sql?q=SELECT * FROM europe_cities&format=csv&filename=europe_cities).
-  * Eruopean countries: `europe_countries`. You can download it from [here](https://ramirocartodb.carto.com/api/v2/sql?q=SELECT * FROM europe_countries&format=shp&filename=europe_countries).
+  * European cities: `europe_cities`. You can download it from [here](https://ramirocartodb.carto.com/api/v2/sql?q=SELECT+*+FROM+europe_cities&format=csv&filename=europe_cities).
+  * Eruopean countries: `europe_countries`. You can download it from [here](https://ramirocartodb.carto.com/api/v2/sql?q=SELECT+*+FROM europe_countries&format=shp&filename=europe_countries).
 
 > Both datasets were generated from [Natural Earth Data](http://www.naturalearthdata.com/) that are freely available in CARTO Data Library. In order to download them to your local machines, you are using [CARTO SQL API](https://carto.com/docs/carto-engine/sql-api) behind the scenes.
 

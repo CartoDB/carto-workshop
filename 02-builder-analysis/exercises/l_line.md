@@ -9,9 +9,9 @@
   * Intersect second layer analysis
   * Widgets and autostyling
 * *Datasests needed*:
-  * New York subway stations: `subway_nycstations_l`. You can download it from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT * FROM subway_nycstations_l&format=gpkg&filename=subway_nycstations_l).
-  * New York subway lines: `nyc_subway_lines`. You can download it from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT * FROM nyc_subway_lines&format=gpkg&filename=nyc_subway_lines`).
-  * New York block group census: `nyc_block_group_census`. You can download it from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT * FROM nyc_block_group_census&format=gpkg&filename=nyc_block_group_census).
+  * New York subway stations: `subway_nycstations_l`. You can download it from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM+subway_nycstations_l&format=gpkg&filename=subway_nycstations_l).
+  * New York subway lines: `nyc_subway_lines`. You can download it from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM+nyc_subway_lines&format=gpkg&filename=nyc_subway_lines).
+  * New York block group census: `nyc_block_group_census`. You can download it from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM+nyc_block_group_census&format=gpkg&filename=nyc_block_group_census).
 
 >  In order to download them to your local machines, you are using [CARTO SQL API](https://carto.com/docs/carto-engine/sql-api) behind the scenes.
 
@@ -29,11 +29,11 @@
 ### 1. Create a map <a name="map"></a>
 
 * Click on **`NEW MAP`**.
-* Clik on **`CONNECT DATASET`**.
-* Drag and drop.
-* Click on **`CREATE MAP`**.
+* Click on **`CONNECT DATASET`**.
+* Drag and drop `subway_nycstations_l.gpkg`.
+* Click on **`CONNECT DATASET`**.
 * Click on `Don't show me this again` to avoid modals.
-* You can rename the map title as "The L line and demographics" doing double click over it.
+* You can rename the map title as "The L line and demographics" by double-clicking on it.
 
 ![map](imgs/l_line/map.png)
 
@@ -44,9 +44,9 @@
 * Add new layers:
   * Click on **`ADD`**.
   * Clik on **`CONNECT DATASET`**.
-  * Copy and paste this url `https://builder-demo.carto.com/api/v2/sql?q=SELECT * FROM nyc_subway_lines&format=gpkg&filename=nyc_subway_lines` and click on **`SUBMIT`**.
+  * Copy and paste this url `https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM+nyc_subway_lines&format=gpkg&filename=nyc_subway_lines` and click on **`SUBMIT`**.
   * Click on **`ADD LAYER`**.
-  * Reapeat the previous steps but adding a dataset from this URL: `https://builder-demo.carto.com/api/v2/sql?q=SELECT * FROM nyc_block_group_census&format=gpkg&filename=nyc_block_group_census`
+  * Reapeat the previous steps but adding a dataset from this URL: `https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM+nyc_block_group_census&format=gpkg&filename=nyc_block_group_census`
 
 * Now, by moving the layers using drag and drop we can change the order in which the layers are being displayed. We move `subway_nycstations_l` to the top and `nyc_subway_lines` in the second position. The layer `nyc_block_group_census` woudl stay at the bottom of the map.
 
@@ -85,7 +85,7 @@
   * `COLUMN`: `route_id`.
   * `INPUT`: `L`.
   * `RESULT`: `show`.
-* Now click on *APPLY* to see the result of the filtering. This is the L lines of the subway.
+* Now click on **`APPLY`** to see the result of the filtering. This is the L subway line.
 
 ![filter](imgs/l_line/filter_column.png)
 
@@ -93,14 +93,14 @@
 
 #### 3.2 Areas of Influence analysis
 
-* We will apply the analysis to the layer `subway_nycstations_l`. We will go back to **LAYERS** pane on Builder interface and click on **`ADD ANALYSIS`**.
-* We will select the *Create areas of influence* analysis.
-* In the *ANALYIS* tab of the layer, we have three sections:
-  * *Your workflow*: Now, due to we are a first analysis to the `subway_nycstations_l` layer, node *A*, the analysis layer will be the node *A1* .
+* We will apply this analysis to the layer `subway_nycstations_l`. Go back to the **LAYERS** pane in Builder's interface and click on **`0 ANALYSES`** under subway_nycstations_l. Click on **`ANALYSIS`**, then on **`ADD ANALYSIS`**.
+* Select the *Create areas of influence* analysis. Click **`ADD ANALYSIS`**.
+* In the *ANALYSIS* tab of the layer, we have three sections:
+  * *Your workflow*: Since this is the first analysis we're adding to the `subway_nycstations_l` layer, node *A*, the analysis layer will be named node *A1*.
   * *Create areas of influence*:
-    * *Input*: Should be the layer `subway_nycstations_l`, node *A*.
-    * *Parameters*: define the distance of the area of influence, the type of units, the radius and the boundaries. The boundaries might be *Intact* or *Dissolved*. If we choose the *Intact* option, that means that if our areas of influence polygons overlap, then they will keep their original polygon borders. On the other hand, if we choose the *Dissolved* option, if the areas of influence polygons overlap, they will be merged so the result will be one big polygon with the outer shape of all AOIs polygons. We set the units to *mi*, set the radius to *1* and choose the *Intact* option for the *BOUNDARIES* parameter.
-* After clicking *APPLY*, we should see the result: areas of influence of 1 mile around the subway stations.
+    * *Input*: Should be the layer `subway_nycstations_l`, node *A* (*A0*).
+    * *Parameters*: define the distance of the area of influence, the type of units, the radius and the boundaries. The boundaries can be *Intact* or *Dissolved*. *Intact* means our areas of influence polygons will keep their original polygon borders even if they overlap. On the other hand, if we choose the *Dissolved* option, overlapping areas of influence polygons will be merged. The result will be one big polygon whose shape corresponds to the outer edges of the original overlapping AOI polygons. Set the units to *mi*, set the radius to *1* and choose the *Intact* option for the *BOUNDARIES* parameter.
+* After clicking *APPLY*, we should see this result: an area of influence of 1 mile around each subway station.
 
 ![aoi](imgs/l_line/aoi.png)
 
@@ -110,28 +110,28 @@
 * Click layer `nyc_block_group_census` and then select the `Analysis` tab. Finally, click on the `ADD ANALYSIS` button in order to add the analysis.
 * Select **`Intersect second layer`** analysis.
 * In the *ANALYIS* tab of the layer, we have three sections:
-  * *Your workflow*: Now, due to we are a first analysis to the `nyc_block_group_census` layer, node *C*, the analysis layer will be the node *C1* .
-  * *Intersect second layer*:
+  * *Your workflow*: Since this is the first analysis we're adding to the `nyc_block_group_census` layer, node *C*, this analysis layer will be named node *C1*.
+  * *Aggregate intersection*:
     * *Base Layer*: By default the base layer would be `nyc_block_group_census`.
     * *Intersect Layer*: select the result layer of the Area of Influence analysis *A1*
-* After clicking *APPLY*, we should see the result:
+* After clicking *APPLY*, we should see this result:
 
 ![intersect](imgs/l_line/intersect.png)
 
 #### 3.4 Extract and reorder AOI analysis layer
 
-Since we used our subway station layers as the input for the AOI analysis, the view of the data that we see are polygons. We want the AOI's to be underneath the subway lines and extract the original subway station points for display.
+Since we used our subway station layer as the input for the AOI analysis, the data appears as polygons. We want the AOI's to be underneath the subway lines, and to extract the original subway station points for display.
 
-* From the `subway_stations_l` layer, drag out the AOI sublayer and place it under the `nyc_subway_lines`
-* This will create a new layer D and you will see the subway stations drawing on top of the AOI and block group layers
+* From the `subway_stations_l` layer, drag out the AOI sublayer and place it under the `nyc_subway_lines` layer
+* This will create a new layer *D*, and you will see the subway stations drawn on top of the AOI and block group layers
 
 ![new_layer](imgs/l_line/new_layer.png)
 
 ### 4. Styling <a name="styling"></a>
 
-* Go to the edit pane, click on the `AOI` layer *D* and select the `STYLE` tab. Set the `Fill` color into a grey one and with high opacity and also set the stroke line to color grey.
+* Go to the edit pane, click on the `AOI` layer *D* and select the `STYLE` tab. Set the `Fill` color to a grey with high opacity, and make the stroke grey also.
 
-* Go to the edit pane, click on the `nyc_block_group_census` layer *D* and select the `STYLE` tab. Set the `Fill` color into a grey one that blends with the basemap layer.
+* Go to the edit pane, click on the `nyc_block_group_census` layer *D* and select the `STYLE` tab. Set the `Fill` color to a grey that blends with the basemap layer.
 
 ![style](imgs/l_line/style.png)
 
@@ -153,7 +153,7 @@ Since we used our subway station layers as the input for the AOI analysis, the v
 
 #### 5.1 Explore and style data with Widgets
 
-* Click on the tear drop icon inside of each widget to see Auto-style feature.
+* Click on the tear drop icon inside each widget to see the Auto-style feature.
 * Filter the data by interacting with the category and histogram widgets.
 
 ![widget_filter](imgs/l_line/widget_filter.png)
@@ -161,10 +161,10 @@ Since we used our subway station layers as the input for the AOI analysis, the v
 #### 5.2 Customize widgets
 
 * Reorder widgets: From `WIDGET` tab, drag and drop them into your preferred order.
-* Rename widgets: Rename each widget by clicking on the three blue dots on each widget and selecting the option to `Rename`.
+* Rename widgets: From `WIDGET` tab, rename each widget by clicking on its three blue dots and selecting the option to `Rename`.
 * Formula widget calculation:
   * By default, the formula widget for Total Population is calculating the avg we want to see the total population within our map view and of our filtered results.
-  * Click on the three blue dots next to the Total Population widget and select the option to 'Edit'
+  * Click on the three blue dots in the Total Population widget and select the option to 'Edit'
   * In the `OPERATION` parameter, select `sum`.
 
 ![custom_widget](imgs/l_line/custom_widget.png)  
@@ -172,12 +172,12 @@ Since we used our subway station layers as the input for the AOI analysis, the v
 ### 6. Publish <a name="publish"></a>
 
 * Click on **`SHARE`**.
-* Set to `LINK` or `PUBLIC`.
+* Set the map's privacy to `LINK` or `PUBLIC`.
 * Click on **`PUBLISH`**.
 * Now you can share the map:
   * Link: https://team.carto.com/u/builder-demo/builder/144826d6-0982-11e7-bdeb-0e233c30368f/embed
   * iframe: `<iframe width="100%" height="520" frameborder="0" src="https://team.carto.com/u/builder-demo/builder/144826d6-0982-11e7-bdeb-0e233c30368f/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>`
 
-> Remember to update your map everythime you make a change. Then refresh your embed or website where the map is hosted to see those changes.
+> Remember to update your map every time you make a change. To see those changes refresh your embed, or the web page where your map is hosted.
 
 <hr>

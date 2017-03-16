@@ -11,7 +11,7 @@
 * *Datasests needed*:
   * New York subway stations: `subway_nycstations_l`. You can download it from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM+subway_nycstations_l&format=gpkg&filename=subway_nycstations_l).
   * New York subway lines: `nyc_subway_lines`. You can download it from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM+nyc_subway_lines&format=gpkg&filename=nyc_subway_lines).
-  * New York block group census: `nyc_block_group_census`. You can download it from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM+nyc_block_group_census&format=gpkg&filename=nyc_block_group_census).
+  * New York block group census: `nyc_block_group_census`. You can download it from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM+nyc_block_group_census&format=csv&filename=nyc_block_group_census).
 
 >  In order to download them to your local machines, you are using [CARTO SQL API](https://carto.com/docs/carto-engine/sql-api) behind the scenes.
 
@@ -95,7 +95,7 @@
 
 * We will apply this analysis to the layer `subway_nycstations_l`. Go back to the **LAYERS** pane in Builder's interface and click on **`0 ANALYSES`** under subway_nycstations_l. Click on **`ANALYSIS`**, then on **`ADD ANALYSIS`**.
 * Select the *Create areas of influence* analysis. Click **`ADD ANALYSIS`**.
-* In the *ANALYSIS* tab of the layer, we have three sections:
+* In the **ANALYSIS** tab of the layer, we have three sections:
   * *Your workflow*: Since this is the first analysis we're adding to the `subway_nycstations_l` layer, node *A*, the analysis layer will be named node *A1*.
   * *Create areas of influence*:
     * *Input*: Should be the layer `subway_nycstations_l`, node *A* (*A0*).
@@ -163,7 +163,7 @@ Since we used our subway station layer as the input for the AOI analysis, the da
 * Reorder widgets: From `WIDGET` tab, drag and drop them into your preferred order.
 * Rename widgets: From `WIDGET` tab, rename each widget by clicking on its three blue dots and selecting the option to `Rename`.
 * Formula widget calculation:
-  * By default, the formula widget for Total Population is calculating the avg we want to see the total population within our map view and of our filtered results.
+  * By default, the formula widget for Total Population is calculating the average we want to see the total population within our map view and of our filtered results.
   * Click on the three blue dots in the Total Population widget and select the option to 'Edit'
   * In the `OPERATION` parameter, select `sum`.
 

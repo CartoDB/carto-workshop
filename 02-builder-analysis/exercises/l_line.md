@@ -163,7 +163,7 @@ Since we used our subway station layer as the input for the AOI analysis, the da
 * Reorder widgets: From `WIDGET` tab, drag and drop them into your preferred order.
 * Rename widgets: From `WIDGET` tab, rename each widget by clicking on its three blue dots and selecting the option to `Rename`.
 * Formula widget calculation:
-  * By default, the formula widget for Total Population is calculating the average we want to see the total population within our map view and of our filtered results.
+  * By default, the formula widget is calculating the average population. However, we want to see the sum of the total population's within our map view.
   * Click on the three blue dots in the Total Population widget and select the option to 'Edit'
   * In the `OPERATION` parameter, select `sum`.
 

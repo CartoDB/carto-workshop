@@ -23,6 +23,7 @@ Exercises:
 * [Risk analysis](exercises/railways.md)
 * [Sales territories](exercises/portland.md)
 * [Presenting sales data](exercises/stores.md)
+* [The L line and demographics](exercises/l_line.md)
 
 Examples:
 

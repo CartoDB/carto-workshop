@@ -47,7 +47,7 @@
   * Copy and paste this url `https://ramirocartodb.carto.com/api/v2/sql?q=SELECT * FROM europe_cities&format=csv` and click on **`SUBMIT`**.
   * Click on **`ADD LAYER`**.
 * You can rename the title of this new layer as "Cities".
-* Click on the layer to show its components: 
+* Click on the layer to show its components:
   * **`DATA`**: an overview of your table schema, from here you can also add widgets. If you want to have a look at your layer table, click on the table icon at the right bottom corner of BUILDER.
 
 ![table](imgs/europe/table.png)
@@ -125,7 +125,7 @@
   * Select `name` in order to filter by country name.
   * Select `country_pop` in order to filter by country population.
   * Click on **`EDIT`** in order to customize both widgets.
-* Now you can filter by country and city name. 
+* Now you can filter by country and city name.
 
 <br>
 
@@ -146,7 +146,7 @@
   * `FILTER BY LAYER`: "Countries".
   * `SOURCE COLUMN`: `iso3`.
   * `FILTER COLUMN`: `iso3`.
-* Now fitering by country (for instance, Spain), you are also filtering the cities within that country. 
+* Now fitering by country (for instance, Spain), you are also filtering the cities within that country.
 
 ![filter](imgs/europe/filter.png)
 <figcaption>A view of BUILDER filtering and analysis power</figcaption>

@@ -24,6 +24,7 @@ Exercises:
 * [Sales territories](exercises/portland.md)
 * [Presenting sales data](exercises/stores.md)
 * [The L line and demographics](exercises/l_line.md)
+* [Quercus diversity, habitat & distribution](exercises/quercus.md)
 
 Examples:
 

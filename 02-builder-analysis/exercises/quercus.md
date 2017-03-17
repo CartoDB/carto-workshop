@@ -14,8 +14,8 @@
 
 ## Sections
 
-A. [Quercus diversity](#diversity)
-B. [Quercus habitat](#habitat)
+A. [Quercus diversity](#diversity) <br>
+B. [Quercus habitat](#habitat) <br>
 C. [Quercus distribution](#distribution)
 
 <hr>

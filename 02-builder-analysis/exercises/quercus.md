@@ -1,4 +1,4 @@
-# Quercus diversity, distribution and habitat
+# Quercus diversity, habitat and distribution 
 
 * *Degree of Difficulty*: **
 * *Goal*: visualize Quercus spatial distribution, diversity and habitats in Spanish territory.

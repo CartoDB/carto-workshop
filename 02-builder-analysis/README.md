@@ -25,6 +25,7 @@ Exercises:
 * [Presenting sales data](exercises/stores.md)
 * [The L line and demographics](exercises/l_line.md)
 * [Quercus diversity, habitat & distribution](exercises/quercus.md)
+* [Madrid](exercises/madrid.md) & [Barcelona](exercises/barcelona.md) Airbnb analysis
 
 Examples:
 

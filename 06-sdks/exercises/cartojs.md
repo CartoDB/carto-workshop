@@ -224,3 +224,4 @@ The following list presents a number of running examples on doing many different
   * Highlight polygons on hover with Leaflet + `sql.execute` [bl.ocks](http://bl.ocks.org/javisantana/8313604)
   * Custom layer selector [bl.ocks](http://bl.ocks.org/jsanz/6a83dbae9d6e984ca938)
   * Aggregate content in SQL clusters [bl.ocks](http://bl.ocks.org/ernesmb/348b9eed9ee4c7038fd7)
+  * Get feature properties on Torque time [bl.ocks](http://bl.ocks.org/ernesmb/4939b3751d3be0cdd64b)

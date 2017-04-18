@@ -15,7 +15,7 @@
   * Geospatial analysis:
     * Intersect second layer.
 * *Datasests needed*:
-  * Barcelona Airbnb data: `airbnb_barcelona`. You can download it from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT * FROM listings_bcn&format=csv&filename=listings_barcelona).
+  * Barcelona Airbnb data: `airbnb_barcelona`. You can download it from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM listings_bcn&format=csv&filename=listings_barcelona).
   * Barcelona building footprint and neighborhoods: `barcelona_building_footprint` and `barris_barcelona` can be found in CARTO Data Library.
 
 > Barcelona Airbnb dataset was downloaded from the [Inside Airbnb](http://insideairbnb.com/get-the-data.html) website. In order to download them to your local machines, you are using [CARTO SQL API](https://carto.com/docs/carto-engine/sql-api) behind the scenes.

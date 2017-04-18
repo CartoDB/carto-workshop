@@ -14,8 +14,8 @@
     * Create areas of influence analysis (_buffers_).
     * Filter points in polygons analysis.
 * *Datasests needed*:
-  * Madrid Airbnb data: `listings_madrid`. You can download it from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT * FROM listings_madrid&format=csv&filename=listings_madrid).
-  * Madrid metro lines: `lineas_madrid`. You can download it from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT * FROM lineas_metro&format=shp&filename=lineas_madrid).
+  * Madrid Airbnb data: `listings_madrid`. You can download it from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM+listings_madrid&format=csv&filename=listings_madrid).
+  * Madrid metro lines: `lineas_madrid`. You can download it from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM+lineas_metro&format=shp&filename=lineas_madrid).
 
 > Both datasets were originally downloaded from the [Inside Airbnb](http://insideairbnb.com/get-the-data.html) and [Nomecalles](http://www.madrid.org/nomecalles/DescargaBDTCorte.icm) websites, respectively. In order to download them to your local machines, you are using [CARTO SQL API](https://carto.com/docs/carto-engine/sql-api) behind the scenes.
 

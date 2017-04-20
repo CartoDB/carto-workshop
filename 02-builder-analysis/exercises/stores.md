@@ -38,7 +38,7 @@ Drag and drop the zip file on your dashboard and both CSV files will be converte
 
 ## 3. Process the sales table to group the data
 
-* We want to group all the sales into a summarised table that we can join with the stores.
+* We want to group all the sales into a summarized table that we can join with the stores.
 * To do so go to the *Sales* layer and on the *DATA* tab open the SQL view and paste the following code:
 
 ```sql

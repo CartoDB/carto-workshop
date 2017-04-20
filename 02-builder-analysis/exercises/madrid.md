@@ -75,12 +75,12 @@
 
 ### 3. Data <a name="styling"></a>
 
-* The layer **`DATA`** tab shows you an overview of your table schema, from here you can also add widgets. If you want to have a look at your layer table, click on the table icon at the right bottom corner of BUILDER.
+* The layer **`DATA`** tab shows you an overview of your table schema, from here you can also add widgets. If you want to have a look at your Data View, click the Data View icon, located on the right bottom corner of BUILDER when a map layer is selected.
 
 ![table](imgs/airbnb/table.png)
 
-* We can check that the `price` column contains values like `$60`. In order to remove the dollar sign and convert the field into a numeric one, we need to use the **`DATA`** advanced mode.
-* Open the SQL panel clicking the switch at the bottom left corner of BUILDER:
+* We can check that the `price` column contains values like `$60`. In order to remove the dollar sign and convert the field into a numeric one, we need to use the **`DATA`** tab.
+* Switch the slider button, located at the bottom of the _DATA_ tab, from VALUES to SQL and apply the following SQL query:
 
 ![table](imgs/airbnb/sql.png)
 
@@ -133,8 +133,8 @@ FROM
 
 ![choropleth](imgs/airbnb/category.png)
 
-* As you can see the lines are color based on the `name` column. But we want to be colored according to the real Madrid Metro Lines colors. In order to achieve this we are going to use the **`STYLE`** advanced mode.
-* Open the CartoCSS panel clicking the switch at the bottom left corner of BUILDER: 
+* As you can see the lines are color based on the `name` column. But we want to be colored according to the real Madrid Metro Lines colors. In order to achieve this we are going to use the **`STYLE`** tab.
+* Switch the slider button, located at the bottom of the STYLE tab, from VALUES to _CARTOCSS_: 
 
 ![cartocss](imgs/airbnb/cartocss.png)
 
@@ -224,7 +224,7 @@ FROM
 * Rename the layer with the analysis attached as "Airbnb houses".
 * We can quickly restyle again copying, pasting and applying the CartoCSS code we have used before.
 
-> In order to display the legends, first change the styles from the UI and secondly apply the custom CartoCSS from the panel. Also, you can go to `LEGEND` tab and customize the legends information.
+> In order to display the legends, first change the styles from the UI and secondly apply the custom CartoCSS from the CartoCSS view. Also, you can go to `LEGEND` tab and customize the legends information.
 
 * Now if you fiter by one line, you only get the Airbnb houses closer to that line.
 

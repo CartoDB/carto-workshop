@@ -93,7 +93,7 @@ The map should now look like the following:
 
 > **Warning**: if the buffers (or AOIs) are not showing right on the map, refresh!
 
-* Go to table view in order to see the new three fields the analysis have created.
+* Go to the Data View in order to see the new three fields the analysis have created.
 
 ![3-2](https://cloud.githubusercontent.com/assets/5215798/17518748/6eb4c172-5e49-11e6-8dd3-433c690ba827.png)
 

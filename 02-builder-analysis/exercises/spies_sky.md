@@ -15,7 +15,7 @@
 
 - 1. Import and create map
 	- 1. 1. Import ``flights_sampled`` geopackage.
-	- 1. 2. Dataset view
+	- 1. 2. View _Your datasets_ dashboard
 	- 1. 3. Click on ``CREATE MAP`` from ``flights_sampled``
 - 2. Layers and styles
 - 3. Analysis
@@ -33,7 +33,7 @@
 
 ![](imgs/spies_sky/import.png)
 
-### 1. 2. Dataset view
+### 1. 2. View Dataset from Your datasets dashboard
 
 Take a look on the dataset schema, the relevant fields are: `flight_id`, `timestamp`, `altitude` and `speed`
 

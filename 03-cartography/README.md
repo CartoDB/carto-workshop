@@ -10,7 +10,7 @@ Cartography with CARTO
   * Zoom based symbology
   * Torque: maps with temporal data
 * Introduction to TurboCARTO
-* Exercises with Turbo CARTO
+* Exercises with TurboCARTO
 
 
 ## Resources

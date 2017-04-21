@@ -75,12 +75,12 @@
 
 ### 3. Data <a name="styling"></a>
 
-* The layer **`DATA`** tab shows you an overview of your table schema, from here you can also add widgets. If you want to have a look at your layer table, click on the table icon at the right bottom corner of BUILDER.
+* The layer **`DATA`** tab shows you an overview of your table schema, from here you can also add widgets. If you want to have a look at your Data View, click the Data View icon, located on the right bottom corner of BUILDER when a map layer is selected.
 
 ![table](imgs/airbnb/table.png)
 
-* We can check that the `price` column contains values like `$60`. In order to remove the dollar sign and convert the field into a numeric one, we need to use the **`DATA`** advanced mode.
-* Open the SQL panel clicking the switch at the bottom left corner of BUILDER:
+* We can check that the `price` column contains values like `$60`. In order to remove the dollar sign and convert the field into a numeric one, we need to use the **`DATA`** tab.
+* Switch the slider button, located at the bottom of the _DATA_ tab, from VALUES to SQL and apply the following SQL query:
 
 ![table](imgs/airbnb/sql.png)
 
@@ -113,7 +113,7 @@ FROM
 * Create a chroropleth map:
   * Go back to the main menu.
   * Click on "Countries" layer.
-  * Click on the color bar (yellow/orange is the default fixed color for points).
+  * Click on the FILL color (yellow/orange is the default fixed color for points).
   * Select `BY VALUE`.
   * Select `price_num` column.
   * Set buckets to `7` and the classification method to `Jenks`.
@@ -121,20 +121,20 @@ FROM
 
 ![choropleth](imgs/airbnb/choropleth.png)
 
-> You can customize your map further changing (and flipping) a different [CARTOcolors](https://carto.com/carto-colors/), the number of buckets and quantification method.
+> You can customize your map further changing (and inverting) a different [CARTOColors](https://carto.com/carto-colors/), the number of buckets and quantification method.
 
 * Time to style "Metro Lines" layer. 
 * Go back to the main menu.
 * Click on "Metro Lines" layer.
 * Create a category map:
-  * Click on the color bar (ligth blue is the default fixed color for lines).
+  * Click on the FILL color (light blue is the default fixed color for lines).
   * Select `BY VALUE`.
   * Select `name` column.
 
 ![choropleth](imgs/airbnb/category.png)
 
-* As you can see the lines are color based on the `name` column. But we want to be colored according to the real Madrid Metro Lines colors. In order to achieve this we are going to use the **`STYLE`** advanced mode.
-* Open the CartoCSS panel clicking the switch at the bottom left corner of BUILDER: 
+* As you can see the lines are color based on the `name` column. But we want to be colored according to the real Madrid Metro Lines colors. In order to achieve this we are going to use the **`STYLE`** tab.
+* Switch the slider button, located at the bottom of the STYLE tab, from VALUES to _CARTOCSS_: 
 
 ![cartocss](imgs/airbnb/cartocss.png)
 
@@ -224,7 +224,7 @@ FROM
 * Rename the layer with the analysis attached as "Airbnb houses".
 * We can quickly restyle again copying, pasting and applying the CartoCSS code we have used before.
 
-> In order to display the legends, first change the styles from the UI and secondly apply the custom CartoCSS from the panel. Also, you can go to `LEGEND` tab and customize the legends information.
+> In order to display the legends, first change the styles from the UI and secondly apply the custom CartoCSS from the CartoCSS view. Also, you can go to `LEGEND` tab and customize the legends information.
 
 * Now if you fiter by one line, you only get the Airbnb houses closer to that line.
 

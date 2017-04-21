@@ -34,7 +34,7 @@
 * You can rename the map and layer title as "European Countries & Cities" and "Countries" respectively, doing double click over them.
 
 ![map](imgs/europe/map.png)
-<figcaption>A view of BUILDER main dashboard</figcaption>
+<figcaption>An image of CARTO BUILDER</figcaption>
 
 <hr>
 
@@ -48,7 +48,7 @@
   * Click on **`ADD LAYER`**.
 * You can rename the title of this new layer as "Cities".
 * Click on the layer to show its components:
-  * **`DATA`**: an overview of your table schema, from here you can also add widgets. If you want to have a look at your layer table, click on the table icon at the right bottom corner of BUILDER.
+  * **`DATA` tab**: an overview of your table schema, from here you can also add widgets. If you want to have a look at your dataset, click the Data View icon, located on the bottom right corner of BUILDER when a map layer is selected.
 
 ![table](imgs/europe/table.png)
 <figcaption>A view of BUILDER layer table mode</figcaption>
@@ -90,7 +90,7 @@
   * Go back to the main menu.
   * Click on "Countries" layer.
   * Click on **`STYLE`** tab.
-  * Click on the color bar (dark blue is the default fixed color).
+  * Click on the FILL color (dark blue is the default fixed color).
   * Select **`BY VALUE`**.
   * Select `country_pop_norm` column.
   * Set buckets to `7` and the classification method to `Jenks`.
@@ -104,11 +104,11 @@
 
 <br>
 
-* You can customize your map further changing (and flipping) a different [CARTOcolors](https://carto.com/carto-colors/), the number of buckets and quantification method.
+* You can customize your map further changing (and flipping) a different [CARTOColors](https://carto.com/carto-colors/), the number of buckets and quantification method.
 
 <br>
 
-> To learn more about how this works behind the scenes check out the CartoCSS panel.
+> To learn more about how this works behind the scenes, check out the CartoCSS view.
 
 <hr>
 

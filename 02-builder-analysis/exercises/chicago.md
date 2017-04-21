@@ -96,7 +96,7 @@ You can add the *Subsample percent of rows* analysis to the crimes dataset. We c
 
 ![lines](imgs/chicago/02-lines.png)
 
-> Click on *DATA* and change to table view to see how the new fields have been created from this analysis, being specially interesting the `length` column.
+> Click on the *DATA* tab and switch to the Data View to see how the new fields have been created from this analysis, being specially interesting the `length` column.
 
 ### 3. 4. Style police stations, centroids and lines layers
 

@@ -59,7 +59,7 @@
   * Finally, it's easy to change from Map view to Data view by clicking on the button at the bottom right corner.
 
 * *STYLE*:
-  * *FILL*: click on the color bar, select *BY VALUE*, set `total_pop` as the variable and choose a nice color palette.
+  * *FILL*: click on the FILL color, select *BY VALUE*, set `total_pop` as the variable and choose a nice color scheme.
   * Change the *STROKE* to `0.2`.
   * Click the slider button from *VALUES* to *CARTOCSS*. The CartoCSS view allows more advanced users to style the layer in a more precise way.
 
@@ -93,12 +93,12 @@ The map should now look like the following:
 
 > **Warning**: if the buffers (or AOIs) are not showing right on the map, refresh!
 
-* Go to table view in order to see the new three fields the analysis have created.
+* Go to the Data View in order to see the new three fields the analysis have created.
 
 ![3-2](https://cloud.githubusercontent.com/assets/5215798/17518748/6eb4c172-5e49-11e6-8dd3-433c690ba827.png)
 
 * Improve the visualization styling the AOIs. Back to the *STYLE* tab:
-  * *FILL*: click on the color bar, select *BY VALUE*, set `carless_households` as the variable and choose a nice color palette with some contrast to the one used for *NYC blocks* layer. Set the number of buckets to `5`.
+  * *FILL*: click on the FILL color, select *BY VALUE*, set `carless_households` as the variable and choose a nice color scheme with some contrast to the one used for *NYC blocks* layer. Set the number of buckets to `5`.
   * Set *BLENDING* to *multiply*.
 
 ![3-3](https://cloud.githubusercontent.com/assets/5215798/17518751/707e4bcc-5e49-11e6-9206-ff566970f7e6.png)

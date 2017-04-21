@@ -1,17 +1,17 @@
 
 # Spatial SQL  <a name="postgis"></a>
 
-On this section you'll have the chance to test some of the most common [PostGIS](http://postgis.net/docs/reference.html) SQL procedures. To follow this section you only need to open a browser pointing to this url: [http://bl.ocks.org/jsanz/raw/fcb8394e084919a4135188b7c30504ad/](http://bl.ocks.org/jsanz/raw/fcb8394e084919a4135188b7c30504ad/) and change the Maps API entry point to `http://carto-workshops.carto.com/api/v1/map`. Alternatively, you can load the datasets listed below from CARTO Data Library into your account and use BUILDER SQL tray to experiment.
+On this section you'll have the chance to test some of the most common [PostGIS](http://postgis.net/docs/reference.html) SQL procedures. To follow this section you only need to open a browser pointing to this url: [http://bl.ocks.org/jsanz/raw/fcb8394e084919a4135188b7c30504ad/](http://bl.ocks.org/jsanz/raw/fcb8394e084919a4135188b7c30504ad/) and change the Maps API entry point to `http://carto-workshops.carto.com/api/v1/map`. Alternatively, you can load the datasets listed below from CARTO Data Library into your account and use BUILDER SQL view to experiment.
 
 ![](imgs/sql-block.png)
 
-From that point, you can place any valid query on the SQL panel that plays with the following datasets from [Natural Earth](http://www.naturalearthdata.com/)
+From that point, you can place any valid query on the SQL view that plays with the following datasets from [Natural Earth](http://www.naturalearthdata.com/)
 
 * `ne_50m_land`
 * `ne_adm0_europe`
 * `ne_10m_populated_places_simple`
 
-Over different examples we'll see how to make buffers, intersect or calculate lines between different features of those tables. You can paste the SQL presented on the panel, make changes and see how it works saving them using `Control+S` or `Command+S` depending on your operating system.
+Over different examples we'll see how to make buffers, intersect or calculate lines between different features of those tables. You can paste the SQL presented to the SQL view, make changes and see how it works saving them using `Control+S` or `Command+S` depending on your operating system.
 
 If no data shows on your map open the developer console and look for any errors. Usually when there's an error on your SQL statement the API will return a message that may help on finding the issue.
 

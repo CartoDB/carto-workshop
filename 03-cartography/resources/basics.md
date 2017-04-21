@@ -70,7 +70,7 @@ It is important to use a normalized (rate) attribute in a choropleth instead of 
 
 It's also important to consider [quantification](https://carto.com/academy/courses/intermediate-design/which-kind-of-map-should-i-make#quantification), since that's how your data is bucketed into choropleth bins. Each method can make your map look dramatically different.
 
-*Tip*: Prioritize legibility: Make sure to choose a color ramp that contrasts with your basemap colors enough to be easily readable.
+*Tip*: Prioritize legibility: Make sure to choose a color scheme that contrasts with your basemap colors enough to be easily readable.
 
 ### Style countries based upon normalized population
 

@@ -44,7 +44,7 @@ https://team.carto.com/u/ramirocartodb/builder/6c54e318-0a5f-11e7-9ccc-0e05a8b3e
 4. Add some widgets: `locality`, `event_date___parsed`, `month` and `year` (edit these last two from histograms to categories).
 5. Add `Group points into polygons` analysis to the layer, grouping by `scientific_name` and leaving the `OPERATION` as `COUNT`.
 6. Add some widgets: `count_vals` (change it from `avg` to `sum`) and `category`.
-7. Change layer style, make a category map using the `category` field. To make the visualization better, go to the CartoCSS panel and set the `polygon-opacity` to `0.5`.
+7. Change layer style, make a category map using the `category` field. To make the visualization better, go to the CartoCSS view and set the `polygon-opacity` to `0.5`.
 8. Publish and share your map.
 
 https://team.carto.com/u/ramirocartodb/builder/eacad866-0a63-11e7-8675-0e233c30368f/embed

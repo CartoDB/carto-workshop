@@ -84,7 +84,7 @@ Apply the `@` symbol to lists of all the color values for your categories. The C
 ![variables](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/img/variables.png)
 <br>
 
-*Note*: using CartoCSS variables inside TurboCARTO ramp funcions is not supported at the moment.
+*Note*: using CartoCSS variables inside TurboCARTO ramp functions is not supported at the moment.
 
 
 ## CartoCSS Comments
@@ -189,7 +189,7 @@ For instance, all the lines within this code are the same:
 <br>
 
 
-*Note*: You can ramp transparency with color inside Turbo CARTO by using rgba instead of hex colors.
+*Note*: You can ramp transparency with color inside TurboCARTO by using RGBA instead of HEX colors.
 
 *Note*: Using *HSL* [(hue, saturation, lightness)](http://mothereffinghsl.com/) color values are often easier than rgb()values. CARTO also includes several color functions [borrowed from Less, a CSS pre-processor](http://lesscss.org/#-color-functions):
 

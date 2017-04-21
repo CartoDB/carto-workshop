@@ -53,10 +53,10 @@
 ![layers_ordered](imgs/l_line/layers_ordered.png)
 
 * Click on one of the layers to show its components:
-  * **`DATA`**: an overview of your table schema, from here you can also add widgets. If you want to have a look at your layer table, click on the table icon at the right bottom corner of BUILDER.
+  * **`DATA` tab**: an overview of your table schema, from here you can also add widgets. If you want to have a look at your dataset, click the Data View icon, located on the bottom right of Builder when a map layer is selected.
 
 ![table](imgs/l_line/table.png)
-<figcaption>A view of BUILDER layer table mode</figcaption>
+<figcaption>The Data View of a selected layer in Builder</figcaption>
 
 <br>
 

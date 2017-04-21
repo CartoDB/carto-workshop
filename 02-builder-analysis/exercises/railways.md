@@ -25,7 +25,7 @@
 
 ## 1. Import and create a map
 
-* Import the *dot_rail_safety_data* csv file into your dataset dashboard.
+* Import the *dot_rail_safety_data* csv file into _Your datasets_ dashboard.
 * Create a new map with it
 * You should have a dashboard like this:
 
@@ -35,9 +35,9 @@
 
 * *FILL*: click on the marker size, select *BY VALUE*, set `total_damage` as the variable and choose a color.
 * Change the *STROKE* to `0`.
-* Click the slider button from *VALUES* to *CARTOCSS*. With the CartoCSS panel advanced users are allowed to layer style in a more precise way.
+* Click the slider button from *VALUES* to *CARTOCSS*. With the CartoCSS view, advanced users are allowed to layer style in a more precise way.
 
-> Switch to the CartoCSS view and check how the quantitative map has been defined. You'll see a `ramp()` function. This is TurboCarto, our CartoCSS pre-processor that helps creating parametric symbolization based on column values. Learn more about TurboCarto in this [awesome blog post](https://carto.com/blog/styling-with-turbo-carto/) by our senior cartographer [Mamata Akella](https://mamataakella.carto.com).
+> Switch to the CartoCSS view and check how the quantitative map has been defined. You'll see a `ramp()` function. This is TurboCARTO, our CartoCSS pre-processor that helps creating parametric symbolization based on column values. Learn more about TurboCARTO in this [awesome blog post](https://carto.com/blog/styling-with-turbo-carto/) by our senior cartographer [Mamata Akella](https://mamataakella.carto.com).
 
 ![2](imgs/railways/02-style.png)
 
@@ -81,7 +81,7 @@
 
 > **Warning**: if you have not run this analysis before, you could encounter a well known bug. This consist on that instead of polygons, you get points. You can get the right geometry changing the style of the layer.
 
-* First, using the map take a look on the results of the analysis: only the counties overlapping with data points are showed. Secondly, go to the dataset view to show the new column created with the previous analysis, `sum_total_damage`.
+* First, using the map take a look on the results of the analysis: only the counties overlapping with data points are showed. Secondly, switch to the Data View to see the new column created with the previous analysis, `sum_total_damage`.
 
 ![4-1](imgs/railways/06-table.png)
 
@@ -99,7 +99,7 @@
   * Select `sum_total_damage` as *TARGET COLUMN* and leave the rest of parameters with the default values. *APPLY*.
   * Again, when the analysis is done, an explanatory window will pop up. Click on *DONE*.
 
-* First, using the map show the viewer the results of the analysis: only the counties considered by the analysis as outliers or clusters are showed. Secondly, go to the dataset view to show the new columns created with the previous analysis, `quad` is the more interesting column because it contains the groups resulting from the analysis:
+* First, using the map show the viewer the results of the analysis: only the counties considered by the analysis as outliers or clusters are showed. Secondly, switch to the Data View to see the new columns created with the previous analysis, `quad` is the more interesting column because it contains the groups resulting from the analysis:
 
 * `HH` and `LL`: clusters of high or low values surrounded by similar values
 * `HL` and `LH`: outliers of high or low values surrounded by opposite values

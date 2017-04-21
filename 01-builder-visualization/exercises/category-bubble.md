@@ -35,7 +35,7 @@ Look for the dataset named `ne_10m_populated_places_simple` on the Data Library 
 
 ![01-cat-bub-01](imgs/01-cat-bub-01.png)
 
-* Click on the color bar and select *BY VALUE*. Then scroll down to find `featurecla` column. It has information about the kind of places there are.
+* Click on the FILL color and select *BY VALUE*. Then scroll down to find `featurecla` column. It has information about the kind of places there are.
 
 ![01-cat-bub-02](imgs/01-cat-bub-02.png)
 

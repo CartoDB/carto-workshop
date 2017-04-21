@@ -63,7 +63,7 @@ Each layer has 5 options: *DATA*, *ANALYSES*, *STYLE*, *POP-UPS* and *LEGENDS*.
   * Finally, it's easy to change from Map view to Data view.
 
 * *STYLE*:
-  * Change the fill color to `#f20000` and set the size of the markers to `7`.
+  * Change the FILL color to `#f20000` and set the size of the markers to `7`.
   * Click the slider button from *VALUES* to *CARTOCSS*. CartoCSS view allows more advanced users to layer style in a more precise way.
 
 

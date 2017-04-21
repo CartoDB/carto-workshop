@@ -53,7 +53,7 @@ FROM
 
 * Add `n_distri` and `n_barri` widgets from "Neighborhoods" layer. Order their categories based on `count_vals` (you can use any aggregate function but `COUNT`).
 * Add `ref_cadast` widget from "Blocks" layer. Order their categories based on `count_vals`. 
-* Style "Blocks" and "Neighborhoods" as a choropleth. For each layer, go to the **`STYLE`** tab. Secondly, click on the `polygon-fill` color bar and select `BY VALUE`. Select `count_vals_density`. Set the number of `buckets`, color palette (but flip the colors! Lighter colors should show higher values in contrast to the dark basemap) and classification method as you wish.
+* Style "Blocks" and "Neighborhoods" as a choropleth. For each layer, go to the **`STYLE`** tab. Secondly, click on the `polygon-fill` FILL color and select `BY VALUE`. Select `count_vals_density`. Set the number of `buckets`, color scheme (but invert the colors! Lighter colors should show higher values in contrast to the dark basemap) and classification method as you wish.
 
 > We have selected `count_vals_density` instead of `count_vals`, because when we make a choropleth map with polygon layers we need to use data which is normalized, in this case by the area.
 

@@ -113,7 +113,7 @@ FROM
 * Create a chroropleth map:
   * Go back to the main menu.
   * Click on "Countries" layer.
-  * Click on the color bar (yellow/orange is the default fixed color for points).
+  * Click on the FILL color (yellow/orange is the default fixed color for points).
   * Select `BY VALUE`.
   * Select `price_num` column.
   * Set buckets to `7` and the classification method to `Jenks`.
@@ -121,13 +121,13 @@ FROM
 
 ![choropleth](imgs/airbnb/choropleth.png)
 
-> You can customize your map further changing (and flipping) a different [CARTOcolors](https://carto.com/carto-colors/), the number of buckets and quantification method.
+> You can customize your map further changing (and inverting) a different [CARTOColors](https://carto.com/carto-colors/), the number of buckets and quantification method.
 
 * Time to style "Metro Lines" layer. 
 * Go back to the main menu.
 * Click on "Metro Lines" layer.
 * Create a category map:
-  * Click on the color bar (ligth blue is the default fixed color for lines).
+  * Click on the FILL color (light blue is the default fixed color for lines).
   * Select `BY VALUE`.
   * Select `name` column.
 

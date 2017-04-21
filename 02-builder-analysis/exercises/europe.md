@@ -90,7 +90,7 @@
   * Go back to the main menu.
   * Click on "Countries" layer.
   * Click on **`STYLE`** tab.
-  * Click on the color bar (dark blue is the default fixed color).
+  * Click on the FILL color (dark blue is the default fixed color).
   * Select **`BY VALUE`**.
   * Select `country_pop_norm` column.
   * Set buckets to `7` and the classification method to `Jenks`.
@@ -104,7 +104,7 @@
 
 <br>
 
-* You can customize your map further changing (and flipping) a different [CARTOcolors](https://carto.com/carto-colors/), the number of buckets and quantification method.
+* You can customize your map further changing (and flipping) a different [CARTOColors](https://carto.com/carto-colors/), the number of buckets and quantification method.
 
 <br>
 

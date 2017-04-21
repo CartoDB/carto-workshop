@@ -37,7 +37,7 @@
 * Change the *STROKE* to `0`.
 * Click the slider button from *VALUES* to *CARTOCSS*. With the CartoCSS view, advanced users are allowed to layer style in a more precise way.
 
-> Switch to the CartoCSS view and check how the quantitative map has been defined. You'll see a `ramp()` function. This is TurboCarto, our CartoCSS pre-processor that helps creating parametric symbolization based on column values. Learn more about TurboCarto in this [awesome blog post](https://carto.com/blog/styling-with-turbo-carto/) by our senior cartographer [Mamata Akella](https://mamataakella.carto.com).
+> Switch to the CartoCSS view and check how the quantitative map has been defined. You'll see a `ramp()` function. This is TurboCARTO, our CartoCSS pre-processor that helps creating parametric symbolization based on column values. Learn more about TurboCARTO in this [awesome blog post](https://carto.com/blog/styling-with-turbo-carto/) by our senior cartographer [Mamata Akella](https://mamataakella.carto.com).
 
 ![2](imgs/railways/02-style.png)
 

@@ -108,6 +108,6 @@ There are also other possibilities when it comes to visualizing aggregated data 
 
 ![adm-agg-08](imgs/01-adm-agg-08.png)
 
-* We could play with different ramps, number of buckets and classification methods to get the map that suits our needs.
+* We could play with different color schemes, number of buckets and classification methods to get the map that suits our needs.
 
 * **Exercise:** Create a grid map of your choice to show the average world citie's population. 

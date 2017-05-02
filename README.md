@@ -1,58 +1,59 @@
-CARTO complete Training Course
-==============================
+CARTO Training Course for Valencia Techfest 2017
+==================================================
 
-## [http://bit.ly/carto-workshop](http://bit.ly/carto-workshop)
+## [http://bit.ly/170503-carto-techfest](http://bit.ly/170503-carto-techfest)
 
-This repository contains a complete training on CARTO technologies. The contents are separated into modules and are meant to be made sequentially going from the most basic usage for GIS and analysts up to the advanced development section for attendants with more knowledge about web mapping development and so on.
+This training was designed as a **3** hours training for [Valencia Techfest 2017](http://www.ctranspa.webs.upv.es/techfest/).
 
-Moules can be easily combined to finally make a 1 week full training but they can be also split to make a longer training with half day duration.
+In order to access the complete training on CARTO technologies, you have to go to [the master branch](http://bit.ly/carto-workshop). The contents are separated into modules and are meant to be made sequentially going from the most basic usage for GIS and analysts up to the advanced development section for attendants with more knowledge about web mapping development and so on. Modules can be easily combined to finally make a 1 week full training but they can be also split to make a longer training with half day duration.
 
-## [Module 0](00-intro-carto/). Introduction to CARTO
+## Agenda
 
-- Duration: 1.5 hour
+### Introduction to CARTO
+
+- Duration: 15 minutes
 - Audience: General public interested in CARTO and location intelligence.
+- Content:
+  * [Introduction to CARTO](https://docs.google.com/presentation/d/1vJjkaCpaC6z-fwkeh5I0vqUP_eZtAcFQM0qVmreax58/pub?start=false&loop=true&delayms=60000&slide=id.g1cd7114fd1_0_194)
 
-Introduction to the training sessions, GIS and webmapping and general explanation about CARTO as a platform: product positioning, general overview of the portfolio and examples of how CARTO can solve different use cases.
+Introduction to CARTO as a platform: product positioning, general overview of the portfolio and examples of how CARTO can solve different use cases.
 
-## [Module 1](01-builder-visualization/). CARTO BUILDER I: Data visualizations and Styling
+### Introduction to CARTO BUILDER
 
-- Duration: 6.5 hours
+- Duration: 1 hour
 - Audience: General public with basic knowledge on geomatics, databases and data analysis.
+- Content:
+  * [Introduction to CARTO BUILDER](https://docs.google.com/presentation/d/1onz0nPvOsCge9SiaCunqlevcLDs-eQCSA3nl9ecja-c/pub?start=false&loop=true&delayms=60000)
+  * [Basic Demo](basic.md)
 
-This course will cover different BUILDER (CARTO's web interface) workflows for generating cartographic data visualizations. We'll dig into new Builder features and some differences with old Editor. During this first part, we'll cover those aspects related to data visualizations, cartographic styles, legend's definition and dashboard creation with actionable Widgets that interact with the map.
+This course will cover the basics and workflows of BUILDER (CARTO's web interface) for generating cartographic data visualizations. We'll dig into new BUILDER features and some differences with old Editor. During this first part, we'll cover those aspects related to data visualizations, cartographic styles, legend's and popups definition, analysis and dashboard creation with actionable Widgets that interact with the map.
 
-## [Module 2](02-builder-analysis/). CARTO BUILDER II: Geospatial analysis and prediction
+### Exercise: Valencia trees dashboard
 
-- Duration: 8 hours
+- Duration: 30 minutes
 - Audience: General public with basic knowledge on geomatics, databases and data analysis.
+- Content:
+  - [San Francisco tree map exercise](https://github.com/CartoDB/carto-workshop/blob/master/01-builder-visualization/exercises/sf-trees.md)
+  - [Arbolado](http://gobiernoabierto.valencia.es/en/resource/?ds=arbolado&id=4dbc28fc-48d8-42fd-89fc-936febb21624) at Valencia Open Data portal.
 
-This advanced workshop will let users know the most powerful analytic capabilities of CARTO BUILDER. Analysis workflows and its link with Widgets will occupy the central part of the course, along with a review of the different analyses that BUILDER currently offers.
+The idea of this exercise is to replicet the SF tree map using Valencia tree inventory from the city open data portal, so you create a map that allows to explore the different types of trees and their species, as well as the total number of trees. See the following screenshot to get an idea of the final result you should achieve.
 
-## [Module 3](03-cartography/). Cartography and advanced symbology
+![](imgs/trees.png)
 
-- Duration: 6 hours
-- Audience: Cartographers and geomatics technicians that work on web cartography design willing to go beyond BUILDER styling defaults.
 
-This session focuses on the advanced use of BUILDER, creating cartographic rules for powerful webmap visualizations. It also goes through our new tools for thematic mapping (TurboCARTO) and all the different options that Torque offers for creating dynamic maps.
+### Exercise: Valencia bikes dashboard
 
-## [Module 4](04-database/). Geospatial databases
+- Duration: 45 minutes
+- Audience: General public with basic knowledge on geomatics, databases and data analysis.
+- Content:
 
-- Duration: 5 hours
-- Audience: Data analysts and developers with none or small experience on Spatial SQL and geospatial databases in general.
+  - [Barrios](http://gobiernoabierto.valencia.es/en/resource/?ds=barrios&id=15befdeb-83ac-4b0f-98f6-0e17ea68ce37)
+  - [Aparcabicis](http://gobiernoabierto.valencia.es/en/resource/?ds=aparcabicis&id=6c38de72-598c-4e83-a093-73b17b08bbe1)
 
-This workshop extensively covers advanced use of PostgreSQL and PostGIS for those cases when Builder is not enough. We'll review the most relevant parts of SQL language, useful for advanced analysis development, as well as the geospatial capabilities brought by PostGIS. We'll also cover some basic concepts for task automation, as triggers and stored procedures.
 
-## [Module 5](05-apis/). CARTO ENGINE I, platform and APIs
 
-- Duration: 3 hours
-- Audience: Data analysts and developers that need to build applications using CARTO ENGINE offering.
+## Q&A
 
-This course will introduce CARTO architecture as a webmapping platform, deploying options and main components. The different APIs for interacting with the platform, most usual workflows and use cases will be covered too.
-
-## [Module 6](06-sdks/). CARTO ENGINE II, development kits
-
-- Duration: 8 hours
-- Audience: Developers that need to build applications using CARTO ENGINE development kits.
-
-In this last lesson, we'll cover different SDK's that we could use for developing applications with CARTO. Javascript SDK (CARTO.js) is the most relevant and will be covered in depth for creating web applications that work over CARTO APIs. A Mobile SDK introduction will follow, allowing the development of native CARTO mobile apps. Last but not least, we'll finish the course with some examples and exercise that make use of our Python SDK.
+- Duration: 15 minutes
+- You can post (and check!) your questions in [GIS StackExchange forum adding `carto` tag](http://gis.stackexchange.com/questions/tagged/carto).
 

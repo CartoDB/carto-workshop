@@ -1,6 +1,9 @@
 CARTO Training Course for Valencia Techfest 2017
 ==================================================
 
+![](imgs/other/header.jpg)
+
+
 ## [http://bit.ly/170503-carto-techfest](http://bit.ly/170503-carto-techfest)
 
 This training was designed as a **3** hours training for [Valencia Techfest 2017](http://www.ctranspa.webs.upv.es/techfest/).

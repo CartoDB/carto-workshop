@@ -44,7 +44,7 @@ This section will cover the basics and workflows of BUILDER (CARTO's web interfa
   - [Arbolado](http://gobiernoabierto.valencia.es/en/resource/?ds=arbolado&id=4dbc28fc-48d8-42fd-89fc-936febb21624) at Valencia Open Data portal.
   - [Result](https://xurxosanz.carto.com/builder/7acddb98-2f58-11e7-8edb-0ecd1babdde5/embed)
 
-The idea of this exercise is to replicet the SF tree map using Valencia tree inventory from the city open data portal, so you create a map that allows to explore the different types of trees and their species, as well as the total number of trees. See the following screenshot to get an idea of the final result you should achieve.
+The idea of this exercise is to replicate the SF tree map using Valencia tree inventory from the city open data portal. You will create a map that allows users to explore the different types of trees and their species, as well as the total number of trees. See the following screenshot to get an idea of the final result you should achieve.
 
 ![](imgs/trees/trees.png)
 
@@ -56,6 +56,9 @@ The idea of this exercise is to replicet the SF tree map using Valencia tree inv
 - Content:
   - [Valencia bikes](02-valencia-bikes.md)
   - [Result](https://xurxosanz.carto.com/builder/e5e528b0-2f75-11e7-a6ef-0e3ebc282e83/embed)
+
+
+This exercise goes deeper on BUILDER analysis and dashboard capabilities chaining a couple of different analysis nodes to allow the user to navigate over the spatial distribution of bike parking spots and the number of slots they have, taking also Valencia neighborhoods into account.
 
 ![](imgs/bikes/07-result.png)
 

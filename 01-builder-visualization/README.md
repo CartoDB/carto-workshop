@@ -17,9 +17,10 @@ CARTO BUILDER for Data Visualization
 Exercises:
 
 * [San Francisco's trees dashboard](exercises/sf-trees.md)
-* [aggregated data](exercises/aggregations.md)
-* [category-bubbles](exercises/category-bubble.md)
-* [dynamic data](exercises/torque.md)
+* [Aggregated data](exercises/aggregations.md)
+* [Category-bubbles](exercises/category-bubble.md)
+* [Dynamic data](exercises/torque.md)
+* [Show Economic and commerce data with auto-style](exercises/autostyle.md)
 
 Examples:
 * [Populated Places dashboard](https://cartoworkshops.carto.com/u/carto-workshops/builder/2e5f8efe-bb1e-11e6-935a-0e233c30368f/embed)

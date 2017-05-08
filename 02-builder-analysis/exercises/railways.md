@@ -6,7 +6,7 @@
   * Widgets: Category, Formula and Time Series.
   * Analysis: Intersect, Outliers & Cluster analysis.
 * *Datasests needed*:
-  * Railroad accidents (*dot_rail_safety_data*): download it [from the `builder-demo` CARTO account](https://team.carto.com/u/ramirocartodb/tables/builder-demo.dot_rail_safety_data_1/public/map?redirected=true) and import it into CARTO from your local machine.
+  * Railroad accidents (*railroad_data*): download it [from the `builder-demo` CARTO account](https://team.carto.com/u/builder-demo/tables/railroad_data/public/map?redirected=true) and import it into CARTO from your local machine. Or use [this url](https://builder-demo.carto.com/api/v2/sql?q=select%20*%20from%20%22builder-demo%22.railroad_data&format=gpkg&filename=railroad_data) directly.
   * US counties (*cb_2013_us_county_500k*): search and connect via Data Library.
 
 ## Contents
@@ -16,9 +16,15 @@
 - 1. Import and create a map
 - 2. Style layer
 - 3. Add widgets
+  - 3. 1. Back to the main menu, select *WIDGETS*
 - 4. Add US counties layer, start the analysis
+  - 4. 1. Back to *LAYERS* pane on Builder user interface, then *ADD*
+  - 4. 2. Click on *US Counties* layer, *ANALYSES*, *ADD ANALYSIS*
 - 5. Continue the analysis, get outliers and clusters
+  - 5. 1. Click on *ADD ANALYSIS* just below *US Counties*
 - 6. Share and export your results
+  - 6. 1. Back to *LAYERS* pane in Builder interface, click the three dots button to open *US Counties* layer menu.
+  - 6. 2. Back to the main menu, check the publish dialogs
 
 <!-- /MarkdownTOC -->
 
@@ -37,7 +43,7 @@
 * Change the *STROKE* to `0`.
 * Click the slider button from *VALUES* to *CARTOCSS*. With the CartoCSS view, advanced users are allowed to layer style in a more precise way.
 
-> Switch to the CartoCSS view and check how the quantitative map has been defined. You'll see a `ramp()` function. This is TurboCARTO, our CartoCSS pre-processor that helps creating parametric symbolization based on column values. Learn more about TurboCARTO in this [awesome blog post](https://carto.com/blog/styling-with-turbo-carto/) by our senior cartographer [Mamata Akella](https://mamataakella.carto.com).
+Switch to the CartoCSS view and check how the quantitative map has been defined. You'll see a `ramp()` function. This is TurboCARTO, our CartoCSS pre-processor that helps creating parametric symbolization based on column values. Learn more about TurboCARTO in this [awesome blog post](https://carto.com/blog/styling-with-turbo-carto/) by our senior cartographer [Mamata Akella](https://mamataakella.carto.com).
 
 ![2](imgs/railways/02-style.png)
 
@@ -79,7 +85,7 @@
   * Select "Railroad accidents" as *TARGET LAYER* and `SUM(total_damage)` as *OPERATION*. Apply.
   * When the analysis is done, an explanatory pop-up will appear. Click on *DONE*.
 
-> **Warning**: if you have not run this analysis before, you could encounter a well known bug. This consist on that instead of polygons, you get points. You can get the right geometry changing the style of the layer.
+**Warning**: if you have not run this analysis before, you could encounter a well known bug. This consist on that instead of polygons, you get points. You can get the right geometry changing the style of the layer.
 
 * First, using the map take a look on the results of the analysis: only the counties overlapping with data points are showed. Secondly, switch to the Data View to see the new column created with the previous analysis, `sum_total_damage`.
 
@@ -121,14 +127,14 @@
 
 ![6-1](imgs/railways/10-table.png)
 
-### 6. 2. Back to the main menu, show the publish dialogs
+### 6. 2. Back to the main menu, check the publish dialogs
 
 * Below the map title it should show *PRIVATE*, *ADD PEOPLE* and *Map not published yet*. Let's change that.
   * First, click on *PRIVATE*, and again. Select *Link*.
   * Secondly, click on *SHARE* (at the bottom of the *LAYERS* pane). Click on *PUBLISH*, and then *DONE*.
   * Get the link and past it into your browser.
 
-> The dashboard should show your *Railroad accidents* as green dots with sizes depending on the total damage. In addition, all the groups of counties will be displayed. This is because the filters and auto styling you did, it is not applied. Finally, you will have four widgets but in different order.
+The dashboard should show your *Railroad accidents* as green dots with sizes depending on the total damage. In addition, all the groups of counties will be displayed. This is because the filters and auto styling you did, it is not applied. Finally, you will have four widgets but in different order.
 
 ![6-2](imgs/railways/11-publish.png)
 

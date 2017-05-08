@@ -59,7 +59,7 @@
 
 ### 3. 1. Add widgets
 
-* Navigate back to  **WIDGETS* pane and click on **ADD WIDGET**.
+* Navigate back to  **WIDGETS** pane and click on **ADD WIDGET**.
   * In the options of the **CATEGORY** tab, check the *ccaa*. Make sure you are adding a widget from the `A1` layer node.
   * In the options of the **HISTOGRAM** tab, check `pib_per_capita_euros`, `importaciones_interregionales_porcentaje_pib` and `exportaciones_porcetaje_pib`.
   * In the options of the **FORMULA** tab, check `pib_millones_euros`.

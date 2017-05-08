@@ -1,27 +1,26 @@
-# San Francisco tree map
+# How to show two symbologies in the same layer
 
 * *Degree of Difficulty*: **
-* *Goal*: How to display several thematic maps in the same visualization thanks to BUILDER auto-style feature
+* *Goal*: How to display two different symbologies in the same layer
 * *Features Highlighted*:
-  * Analysis: `Georeference` by `Admin. Regions`.
-  * Widgets: category, formula and histograms.
-  * Auto-style
+  * Analysis: `Find centroids of geometries`
+  * Layers: how to work with layer nodes
+  * Style: choropleth and bubble maps
 * *Datasests needed*:
-  * `ccaa_2015_economia_comercio` dataset: data from Spanish CCAAs from 2015 about economy and commerce.
+  * `world_commerce` dataset: world country data from 2015 about economy and commerce.
 
 1. [Import and create map](#map) <br>
-2. [Georeference](#geo) <br>
-3. [Widgets](#widgets) <br>
-4. [Autostyle](#auto) <br>
-5. [Public and share map](#public) <br>
+2. [Get centroids](#centroids) <br>
+3. [Style](#style) <br>
+4. [Public and share map](#public) <br>
 
 <hr>
 
 ## 1. Import and create map <a name="map"></a> 
 
-### 1. 1. Import the `ccaa_2015_economia_comercio` as a `xlsx` file into your DATASETS dashboard.
+### 1. 1. Import `world_commerce` file into your DATASETS dashboard.
 
-* Download the dataset from [here]()
+* Download the dataset from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM+world_commerce&format=geojson&filename=world_commerce)
 * Go to your account and import it using the **NEW DATASET** options
 * Select **CONNECT DATASET**
 * Drag and drop the file
@@ -33,69 +32,49 @@
 
 ### 1. 3. Click on **CREATE MAP**
 
-* Change the name of the map to **Spanish CCAA Economic and Commerce Data (2015)** (double click!)
-* Change the name of the layer to **Spanish CCAA**
+* Change the name of the map to **World Economic and Commerce Data (2015)** (double click!)
+* Change the name of the layer to **World Countries**
 
 <hr>
 
-## 2. Georeference <a name="geo"></a> 
+## 2. Get centroids <a name="centroids"></a> 
 
-### 2. 1. Georeference by Admin. Regions
+### 2. 1. `Find centroids of geometries` analysis
 
-* After clicking on **Spanish CCAA** layer, it will direct you to the `STYLE` tab. But because the layer has not geometries, it is not possible to style it.
-* So we will click on **Georefence** and set the following parameters as follow:
-  * **TYPE**: `Admin. Regions`
-  * **ADMIN. REGION**: `ccaa`
-  * **COUNTRY**: click on the checkbox, type `Spain` and select this option
-  * Click on **APPLY**.
 
-![georeference](imgs/01-autostyle-01.png)
 
-* A new layer node was created: `A1 Georefence`.
+![centroids](imgs/01-centroids-01.png)
 
-<hr>
+### 2. 2. Recover the original layer
 
-## 3. Widgets <a name="widgets"></a> 
 
-### 3. 1. Add widgets
 
-* Navigate back to  **WIDGETS** pane and click on **ADD WIDGET**.
-  * In the options of the **CATEGORY** tab, check the *ccaa*. Make sure you are adding a widget from the `A1` layer node.
-  * In the options of the **HISTOGRAM** tab, check `pib_per_capita_euros`, `importaciones_interregionales_porcentaje_pib` and `exportaciones_porcetaje_pib`.
-  * In the options of the **FORMULA** tab, check `pib_millones_euros`.
-  * Click on **CONTINUE**.
-
-### 3. 2. Order and edit widgets
-
-* Reorder the position of widgets.
-* Double click on the widget title in order to change the title name.
-* Edit the category widget as follow:
-  * **OPERATION**: `AVG(pib_millones_euros)`
-  * **SUFFIX**: `mill. €`.
-
-![widget-options](imgs/01-autostyle-02.png)
+![node](imgs/01-node-02.png)
 
 <hr>
 
-## 4. Autostyle <a name="auto"></a> 
+## 3. Style <a name="style"></a> 
 
-### 4. 1. How to use auto-style
+### 3. 1. Style centroids as bubbles
 
-* Click on the droplet button at the right upper coner of a category or histogram widget.
 
-*If you want to know more about auto-style feature, check [this blog post](https://carto.com/blog/data-driven-maps-auto-style).
 
-![auto-style](imgs/01-autostyle-03.png)
+
+### 3. 2. Style polygons as thematic choropleth
+
+
+
+![style](imgs/01-centroids-03.png)
 
 <hr>
 
-## 5. Public and share map <a name="public"></a> 
+## 4. Public and share map <a name="public"></a> 
 
 * At the bottom of the main menu, click on **SHARE** at the right button corner.
 * Go to **PUBLISH** tab and click on **PUBLISH** button that is below the Map name in order to share our map.
 * After clicking on **PUBLISH**, we can select the options that we want to share our map.
-  * Get the link URL and paste it on other browser tab: https://team.carto.com/u/ramirocartodb/builder/b976e446-33c9-11e7-9d09-0e3ff518bd15/embed
+  * Get the link URL and paste it on other browser tab: 
 
-![map](imgs/01-autostyle-04.png)
+![map](imgs/01-centroids-04.png)
 
 <hr>

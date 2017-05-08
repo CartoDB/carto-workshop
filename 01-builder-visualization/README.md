@@ -20,7 +20,8 @@ Exercises:
 * [Aggregated data](exercises/aggregations.md)
 * [Category-bubbles](exercises/category-bubble.md)
 * [Dynamic data](exercises/torque.md)
-* [Show Economic and commerce data with auto-style](exercises/autostyle.md)
+* [Auto-style](exercises/autostyle.md)
+* [Choropleth and bubbles](exercises/centroids.md)
 
 Examples:
 * [Populated Places dashboard](https://cartoworkshops.carto.com/u/carto-workshops/builder/2e5f8efe-bb1e-11e6-935a-0e233c30368f/embed)

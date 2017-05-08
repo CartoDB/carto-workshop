@@ -3,11 +3,11 @@
 * *Degree of Difficulty*: **
 * *Goal*: How to display several thematic maps in the same visualization thanks to BUILDER auto-style feature
 * *Features Highlighted*:
-  * Analysis: `Georeference` by `Admin. Regions`.
-  * Widgets: category, formula and histograms.
-  * Auto-style
+  * Analysis: `Get centroids from geometry`
+  * Layers: how to work with layer nodes
+  * Style: choropleth and bubble maps
 * *Datasests needed*:
-  * `ccaa_2015_economia_comercio` dataset: data from Spanish CCAAs from 2015 about economy and commerce.
+  * `world_commerce` dataset: world country data from 2015 about economy and commerce.
 
 1. [Import and create map](#map) <br>
 2. [Georeference](#geo) <br>
@@ -19,9 +19,9 @@
 
 ## 1. Import and create map <a name="map"></a> 
 
-### 1. 1. Import the `ccaa_2015_economia_comercio` as a `xlsx` file into your DATASETS dashboard.
+### 1. 1. Import `world_commerce` file into your DATASETS dashboard.
 
-* Download the dataset from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM+ccaa_2015_economia_comercio&format=geojson&filename=ccaa_2015_economia_comercio)
+* Download the dataset from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM+world_commerce&format=csv&filename=world_commerce)
 * Go to your account and import it using the **NEW DATASET** options
 * Select **CONNECT DATASET**
 * Drag and drop the file

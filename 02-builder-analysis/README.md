@@ -13,9 +13,10 @@ Geospatial Analysis with CARTO BUILDER
 
 ## Resources
 
+[BUILDER Analysis](https://docs.google.com/a/cartodb.com/document/d/1EmuckitxKQFw0vrmoMa0rGk5cCtAEZ_hUFSl0WF9QTQ/edit?usp=sharing) nodes overviews.
+
 Exercises:
 
-* [BUILDER Analysis](https://docs.google.com/a/cartodb.com/document/d/1EmuckitxKQFw0vrmoMa0rGk5cCtAEZ_hUFSl0WF9QTQ/edit?usp=sharing)
 * [European countries and cities](exercises/europe.md)
 * [Spies in the sky](exercises/spies_sky.md)
 * [Chicago Crimes](exercises/chicago.md)
@@ -27,7 +28,7 @@ Exercises:
 * [Quercus diversity, habitat & distribution](exercises/quercus.md)
 * [Madrid](exercises/madrid.md) & [Barcelona](exercises/barcelona.md) Airbnb analysis
 
-Examples:
+Further information:
 
 * [Some ideas on more complex analysis](https://carto.com/blog/author/abel-vazquez)
 * [Spatial analysis with Python](https://pysal.readthedocs.io/en/v1.11.0/)

@@ -6,38 +6,45 @@
   * Analysis: Cluster Analysis, Weight Centroid Analysis, Area of influence analysis and Filter Points in polygons analysis.
   * Widgets: Formula widget and histogram widget.
 * *Datasests needed*:
-  * Customer locations dataset *customer_home_locations* from [Sales Territories (Portland) Demo](https://team.carto.com/u/builder-demo/tables/customer_home_locations/public).
+  * Customer locations dataset *customer_home_locations* from [Sales Territories (Portland) Demo](https://team.carto.com/u/builder-demo/tables/customer_home_locations/public) or use [this url](https://builder-demo.carto.com/api/v2/sql?q=select%20*%20from%20%22builder-demo%22.customer_home_locations&format=gpkg&filename=customer_home_locations.gpkg) directly.
+
+## Contents
 
 <!-- MarkdownTOC -->
 
-1. [Import and create map](#map)
-2. [Layer styling: first view](#styling)
-3. [Analysis](#analysis)
-4. [Widgets](#widgets)<br>
-[Extension](#extension)
+- Import and create map
+  - Import *customer_home_locations* csv.
+- Layer styling: first view
+- Analysis
+  - Cluster Analysis
+  - Weighted Centroid Analysis
+    - Improve visualization
+  - Area of influence analysis
+    - Improve visualization
+  - Filter Points in polygons analysis
+- Widgets
+  - Formula widget
+  - Histogram widget
+- Extension
 
 <!-- /MarkdownTOC -->
 
+## Import and create map <a name="map"></a>
 
-## 1. Import and create map <a name="map"></a>
-
-### 1. 1. Import *customer_home_locations* csv.
+### Import *customer_home_locations* csv.
 
 * Use the *NEW DATASET* wizard on *Your datasets* dashboard to import the table.
+* Select *customer_home_locations* and click on *CREATE MAP*
+* Rename the layer from *customer_home_locations* to *Customer Home Locations* and update the map name to *Sales Territories (Portland) Demo*.
 
-### 1. 2. Select *customer_home_locations* and click on *CREATE MAP*
+**Warning**: after renaming a layer a error could pop up saying *the map cannot be rendered*, don't worry about this. Refresh the page and it will dissapear.
 
-### 1. 3. Rename the layer from *customer_home_locations* to *Customer Home Locations* and update the map name to *Sales Territories (Portland) Demo*.
-
-> **Warning**: after renaming a layer a error could pop up saying *the map cannot be rendered*, don't worry about this. Refresh the page and it will dissapear.
-
-
-* You should have a dashboard like this:
+You should have a dashboard like this:
 
 ![first](imgs/portland/01-data.png)
 
 
-## 2. Layer styling: first view <a name="styling"></a>
+## Layer styling: first view <a name="styling"></a>
 
 On this example we will start with a single color styling and fixed marker size.
 
@@ -47,9 +54,9 @@ On this example we will start with a single color styling and fixed marker size.
 
 ![style](imgs/portland/02-style.png)
 
-## 3. Analysis <a name="analysis"></a>
+## Analysis <a name="analysis"></a>
 
-### 3. 1. Cluster Analysis
+### Cluster Analysis
 
 * Back to *LAYERS* pane on Builder user interface, select *Customer Home Locations* and click on *ADD ANALYSIS*.
 
@@ -72,7 +79,7 @@ On this example we will start with a single color styling and fixed marker size.
 ![style_cluster](imgs/portland/05-clusters.png)
 
 
-### 3. 2. Weighted Centroid Analysis
+### Weighted Centroid Analysis
 
 * Click on *Customer Home Locations*, go to *ANALYSIS* tab and click on *ADD ANALYSIS*.
 * Select the *Find centroid of geometries* analysis.
@@ -92,7 +99,7 @@ On this example we will start with a single color styling and fixed marker size.
 ![centroid_result](imgs/portland/08-centroids.png)
 
 
-#### 3. 2. 1. Improve visualization
+#### Improve visualization
 
 * We could style our resulting points by changing the size and the color according to the resulting aggregated values.
 
@@ -111,7 +118,7 @@ We select the column *value* to display its values in the pop-up.  We will also 
 
 ![style_2](imgs/portland/12-clusters.png)
 
-### 3. 3. Area of influence analysis
+### Area of influence analysis
 
 * We will apply the analysis to the result of the centroid analysis. We will go back to *LAYERS* pane on Builder interface and click *ADD ANALYSIS* on *Centroids* layer (*A*).
 * We will select the *Create areas of influence* analysis.
@@ -128,14 +135,14 @@ We select the column *value* to display its values in the pop-up.  We will also 
 
 ![aoi_result](imgs/portland/14-aois.png)
 
-#### 3. 3. 1. Improve visualization
+#### Improve visualization
 
 * Back to *LAYERS* pane, we drag and drop the Area of influence node analysis outside of layer *A3* to create a new layer *C* with the areas of influence. Change the name of layer *C* to *Areas of Influence*.
 
 ![areas](imgs/portland/15-centroids.png)
 
 
-### 3. 4. Filter Points in polygons analysis
+### Filter Points in polygons analysis
 
 * We will apply the analysis to the *Areas of Influence* layer, so we click *ADD ANALYSIS* option of that layer and select the *Filter points in polygons* option.
 
@@ -151,9 +158,9 @@ We select the column *value* to display its values in the pop-up.  We will also 
 
 ![fpp_result](imgs/portland/17-filter.png)
 
-## 4. Widgets <a name="widgets"></a>
+## Widgets <a name="widgets"></a>
 
-### 4. 1. Formula widget
+### Formula widget
 
 * Go to *WIDGETS* pane on the Builder interface and click on *ADD WIDGET*.
 * In the options of the *FORMULA* tab, select the `cartodb_id` column of the *B1* layer and we click on *CONTINUE*.
@@ -175,7 +182,7 @@ We select the column *value* to display its values in the pop-up.  We will also 
 
 ![wid2_result](imgs/portland/21-widgets.png)
 
-### 4. 2. Histogram widget
+### Histogram widget
 
 * Go to *WIDGETS* pane on the Builder interface and click on *ADD WIDGET*.
 * In the options of the *HISTOGRAM* tab, select `customer_value` column from *B1* layer and click on *CONTINUE*.

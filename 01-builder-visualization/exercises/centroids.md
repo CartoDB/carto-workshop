@@ -1,4 +1,4 @@
-# How to show different Economic and Commerce data using auto-style feature
+# San Francisco tree map
 
 * *Degree of Difficulty*: **
 * *Goal*: How to display several thematic maps in the same visualization thanks to BUILDER auto-style feature
@@ -21,7 +21,7 @@
 
 ### 1. 1. Import the `ccaa_2015_economia_comercio` as a `xlsx` file into your DATASETS dashboard.
 
-* Download the dataset from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM+ccaa_2015_economia_comercio&format=geojson&filename=ccaa_2015_economia_comercio)
+* Download the dataset from [here]()
 * Go to your account and import it using the **NEW DATASET** options
 * Select **CONNECT DATASET**
 * Drag and drop the file

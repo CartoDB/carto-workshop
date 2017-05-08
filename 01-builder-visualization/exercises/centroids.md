@@ -41,15 +41,27 @@
 
 ### 2. 1. `Find centroids of geometries` analysis
 
-
+* Click on **World Countries** layer and go to `ANALYSIS` tab
+* Click on `ADD ANALYSIS` button
+* Select `Find centroids of geometries` analysis
+* Click on `ADD ANALYSIS` button and set the analysis parameters as follow:
+  * **CATEGORIZE..**: `country`
+  * **AGGREGATE...**: `SUM(exports_total)`
+* Click on **APPLY**
 
 ![centroids](imgs/01-centroids-01.png)
 
 ### 2. 2. Recover the original layer
 
+* Go back to the main menu and click and drag the `A1 Centroid` analysis node out (on top)
+* Now there are two layers*: 
+  * `A World Countries` (connected to the original dataset) - POLYGONS
+  * `B Wolrd Countries` (conneceted to `A0` as the original layer in which the centrodis has been generated) - POINTS
+* Rename `B` layers to `Centroids`.
 
+![layer-nodes](imgs/01-nodes-02.png)
 
-![node](imgs/01-node-02.png)
+*To know more about map layers, check [this guide](https://carto.com/learn/guides/intro/understanding-map-layers-in-builder).
 
 <hr>
 
@@ -57,14 +69,21 @@
 
 ### 3. 1. Style centroids as bubbles
 
-
+* Click on `Centroids` layer
+* Click on marker width (is showing `7` by default), select `BY VALUE` and choose `value`.
+* Set the **MIN** and **MAX** as `5` and `20` respectively, and `jenks` as classification method.
 
 
 ### 3. 2. Style polygons as thematic choropleth
 
+* Click on color fill (is showing yellow/orange by default), select `BY VALUE` and choose `gdp`.
+* Choose a color palette and set `jenks` as classification method.
 
+![style](imgs/01-style-03.png)
 
-![style](imgs/01-centroids-03.png)
+* You can edit the legend and add widgets and popups.
+
+*To know more about style maps by value, check [this guide](https://carto.com/learn/guides/styling/style-by-value).
 
 <hr>
 
@@ -73,7 +92,7 @@
 * At the bottom of the main menu, click on **SHARE** at the right button corner.
 * Go to **PUBLISH** tab and click on **PUBLISH** button that is below the Map name in order to share our map.
 * After clicking on **PUBLISH**, we can select the options that we want to share our map.
-  * Get the link URL and paste it on other browser tab: 
+  * Get the link URL and paste it on other browser tab: https://team.carto.com/u/ramirocartodb/builder/f434a3ce-33e3-11e7-9d60-0e05a8b3e3d7/embed
 
 ![map](imgs/01-centroids-04.png)
 

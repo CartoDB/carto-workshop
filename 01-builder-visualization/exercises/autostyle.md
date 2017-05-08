@@ -81,7 +81,7 @@
 
 ### 4. 1. How to use auto-style
 
-* Click on the droplet button at the right upper coner of a category or histogram widget.
+* Click on the droplet button* at the right upper coner of a category or histogram widget.
 
 *If you want to know more about auto-style feature, check [this blog post](https://carto.com/blog/data-driven-maps-auto-style).
 

@@ -59,7 +59,7 @@
   * `B Wolrd Countries` (conneceted to `A0` as the original layer in which the centrodis has been generated) - POINTS
 * Rename `B` layers to `Centroids`.
 
-![layer-nodes](imgs/01-nodes-02.png)
+![layer-nodes](imgs/01-centroids-02.png)
 
 *To know more about map layers, check [this guide](https://carto.com/learn/guides/intro/understanding-map-layers-in-builder).
 
@@ -79,7 +79,7 @@
 * Click on color fill (is showing yellow/orange by default), select `BY VALUE` and choose `gdp`.
 * Choose a color palette and set `jenks` as classification method.
 
-![style](imgs/01-style-03.png)
+![style](imgs/01-centroids-03.png)
 
 * You can edit the legend and add widgets and popups.
 

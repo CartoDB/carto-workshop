@@ -21,7 +21,7 @@
 
 ### 1. 1. Import `world_commerce` file into your DATASETS dashboard.
 
-* Download the dataset from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM+world_commerce&format=csv&filename=world_commerce)
+* Download the dataset from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM+ccaa_2015_economia_comercio&format=csv&filename=world_commerce)
 * Go to your account and import it using the **NEW DATASET** options
 * Select **CONNECT DATASET**
 * Drag and drop the file

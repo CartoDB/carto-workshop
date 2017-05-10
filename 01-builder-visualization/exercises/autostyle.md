@@ -19,9 +19,9 @@
 
 ## 1. Import and create map <a name="map"></a> 
 
-### 1. 1. Import `world_commerce` file into your DATASETS dashboard.
+### 1. 1. Import `ccaa_2015_economia_comercio` file into your DATASETS dashboard.
 
-* Download the dataset from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM+ccaa_2015_economia_comercio&format=csv&filename=world_commerce)
+* Download the dataset from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM+ccaa_2015_economia_comercio&format=csv&filename=ccaa_2015_economia_comercio)
 * Go to your account and import it using the **NEW DATASET** options
 * Select **CONNECT DATASET**
 * Drag and drop the file

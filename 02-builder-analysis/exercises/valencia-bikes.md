@@ -12,14 +12,14 @@
 
 <!-- MarkdownTOC -->
 
-1. [Create a map](#map)
-2. [Adding a virtual field to a source layer](#addfield)
-3. [Analysis 1: Filter the bike parkings inside the neighborhoods](#filter)
-4. [Analysis 2: Intersect bikes and neighborhoods](#intersect)
-5. [Styling](#style)
-6. [Widgets](#widget)
-7. [Legends and interactivity](#legend)
-8. [Map options and publish](#publish)
+- Create a map
+- Adding a virtual field to a source layer
+- Analysis 1: Filter the bike parkings inside the neighborhoods
+- Analysis 2: Intersect bikes and neighborhoods
+- Styling
+- Widgets
+- Legends and interactivity
+- Map options and publish
 
 <!-- /MarkdownTOC -->
 

@@ -28,7 +28,7 @@
 * Click on **`NEW MAP`**.
 * Click on **`CONNECT DATASET`**. Submit this url, choose any `Sync my data` option if sync table feature is available for your account, and make sure the `Let CARTO automatically guess data types and content on import` box is checked: [http://mapas.valencia.es/lanzadera/opendata/Barrios/JSON](http://mapas.valencia.es/lanzadera/opendata/Barrios/JSON). Click **`CONNECT DATASET`** button.
 * Click on **`CREATE MAP`**.
-* From the map's **`LAYERS`** panel click **`ADD`**. Click **`CONNECT DATASET`**. Connect the `aparcabicis` dataset using the same steps as above, with this url: [http://mapas.valencia.es/lanzadera/opendata/aparcabicis/JSON](http://mapas.valencia.es/lanzadera/opendata/aparcabicis/JSON)
+* From the map's **`LAYERS`** pane click **`ADD`**. Click **`CONNECT DATASET`**. Connect the `aparcabicis` dataset using the same steps as above, with this url: [http://mapas.valencia.es/lanzadera/opendata/aparcabicis/JSON](http://mapas.valencia.es/lanzadera/opendata/aparcabicis/JSON)
 * Double-click on the map layer titles to rename them "Bike parking" and "Neighborhoods". You can also rename the map this way.
 
 ![map](imgs/bikes/01-load-layers.png)
@@ -40,7 +40,7 @@
 * Select the original Bike parking (aparcabicis) map layer (`A0` or `B0`)
 * Click on the **`DATA`** tab
 * Switch the toggle to **`SQL`**
-* Aparacibis dataset's `plaza` column contains the number of parking spots at each point location, but as a `string` (text). To turn that data into a number we can create a new integer-type plazas_int column by pasting the query below into the map layer's SQL panel. After clicking **`APPLY`** click the Map View's columns-icon button to switch to Data View. Check that `plazas_int` is there.
+* Aparacibis dataset's `plaza` column contains the number of parking spots at each point location, but as a `string` (text). To turn that data into a number we can create a new integer-type plazas_int column by pasting the query below into the map layer's SQL view. After clicking **`APPLY`** click the Map View's columns-icon button to switch to Data View. Check that `plazas_int` is there.
 
 ```sql
 SELECT *,
@@ -53,9 +53,9 @@ SELECT *,
 * Click on the Neighborhoods layer to open it
 * Click the layer's **`ANALYSIS`** tab, then click **`ADD ANALYSIS`**. Select a `Filter points in polygons` analysis and click **`ADD ANALYSIS`**
 * Select the "Bike parking" layer as the `Filtering layer` and click **`APPLY`**
-* Click the back arrow next to the Neighborhoods title to return to the main map panel. Hide the original Bike parking layer by clicking it's eye icon.
+* Click the back arrow next to the Neighborhoods title to return to the LAYERS pane. Hide the original Bike parking layer by clicking it's eye icon.
 * Drag the (A1) or (B1) `Filter points in polygons` analysis out of the Neighborhoods layer card. Drop it to see the neighborhood polygons again. Drag this layer on top of the original Neighborhoods layer.
-* Click on the **`WIDGETS`** tab, and **`ADD WIDGET`**. Check the box for `nombre` & click **`CONTINUE`** to add a Category widget for neighborhood names. Make a widget selection to check how it filters parking points in addition to neighborhood polygons. Make sure you choose a neighborhood that contains bike parking, like `CAMPANAR`.
+* Click on the **`WIDGETS`** pane, and **`ADD WIDGET`**. Check the box for `nombre` & click **`CONTINUE`** to add a Category widget for neighborhood names. Make a widget selection to check how it filters parking points in addition to neighborhood polygons. Make sure you choose a neighborhood that contains bike parking, like `CAMPANAR`.
 
 ![map](imgs/bikes/02-filter.png)
 <figcaption>Filtering parking points by neighborhood</figcaption>
@@ -77,7 +77,7 @@ SELECT *,
 
 * Create a choropleth map for the Neighborhoods polygon layer illustrating how many parking spots are available per neighborhood
 * Create a bubble map for the point layer using the number of parking spots as a measure
-* To learn more about how to do this and how this styling works behind the scenes, check out the CartoCSS panel and consider doing this [cartography workshop lesson](https://github.com/CartoDB/carto-workshop/tree/master/03-cartography).
+* To learn more about how to do this and how this styling works behind the scenes, check out the CartoCSS view and consider doing this [cartography workshop lesson](https://github.com/CartoDB/carto-workshop/tree/master/03-cartography).
 
 ![map](imgs/bikes/04-styling.png)
 <figcaption>Styling the datasets</figcaption>

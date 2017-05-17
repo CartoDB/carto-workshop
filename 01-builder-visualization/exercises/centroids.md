@@ -77,7 +77,7 @@
 ### 3. 2. Style polygons as thematic choropleth
 
 * Click on color fill (is showing yellow/orange by default), select `BY VALUE` and choose `gdp`.
-* Choose a color palette and set `jenks` as classification method.
+* Choose a color scheme and set `jenks` as classification method.
 
 ![style](imgs/01-centroids-03.png)
 

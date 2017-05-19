@@ -2,7 +2,7 @@ CARTO Training for ACTIG
 =========================
 http://bit.ly/2q4sBW3
 
-![](img/actig.png)
+![](img/ACTIG.png)
 
 
 This training was designed as a training of 3/4 hours for [TALLER OBERT EINES GEO of ACTIG](http://www.actig.cat/taller-obert-eines-geo/).

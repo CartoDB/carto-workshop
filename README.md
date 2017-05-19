@@ -1,6 +1,9 @@
 CARTO Training for ACTIG
 =========================
 
+![](/img/actig.png)
+
+
 This training was designed as a training of 3/4 hours for [TALLER OBERT EINES GEO of ACTIG](http://www.actig.cat/taller-obert-eines-geo/).
 
 In order to access the complete training on CARTO technologies, you have to go to the master branch. The contents are separated into modules and are meant to be made sequentially going from the most basic usage for GIS and analysts up to the advanced development section for attendants with more knowledge about web mapping development and so on. Modules can be easily combined to finally make a 1 week full training but they can be also split to make a longer training with half day duration.

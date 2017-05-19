@@ -23,33 +23,36 @@ Introduction to CARTO as a platform: product positioning, general overview of th
 * Content:
   * [Introduction to CARTO Builder](https://docs.google.com/presentation/d/1vbgbKqQRv5YB5T1aaTw924Q-KXocpo2tTDBZ0w1HALk/present?usp=sharing).
   * Let's dive into CARTO !
-  * Mapping maps!
 
 <hr>
 
 ### CARTO exercise 1: Sales Territory
 
-* Duration: 30 min
+In this exercise we will see how to use CARTO analysis and widgets to find a new location to create a store depending on the location and value of the clients of Portland.
+
+
+* Duration: 45 min
 * Audience: General public with basic knowledge on geomatics, databases and data analysis.
 * Content:
-  * Sales Territory exercise
-  * Result
+  * [Sales Territory exercise](https://github.com/CartoDB/carto-workshop/blob/master/02-builder-analysis/exercises/portland.md)
 
 ### CARTO exercise 2: L-train
 
-* Duration: 30 min
-* Audience: General public with basic knowledge on geomatics, databases and data analysis.
-* Content:
- * L-train exercise
- * Result
-
-### CARTO exercise 3: L-train
+In this exercise we will apply auto-styling feature to make the invisible of our data visible.
 
 * Duration: 30 min
 * Audience: General public with basic knowledge on geomatics, databases and data analysis.
 * Content:
-  * Risk analysis exercise
-  * Result
+ * [L-train exercise](https://github.com/CartoDB/carto-workshop/blob/master/02-builder-analysis/exercises/l_line.md)
+
+### CARTO exercise 3: Risk analysis
+
+In this exercise we will apply analysis and widgets to detect outliers of our data.
+
+* Duration: 30 min
+* Audience: General public with basic knowledge on geomatics, databases and data analysis.
+* Content:
+  * [Risk analysis exercise](https://github.com/CartoDB/carto-workshop/blob/master/02-builder-analysis/exercises/railways.md)
 
 ## Q&A
   * Duration: 15 min

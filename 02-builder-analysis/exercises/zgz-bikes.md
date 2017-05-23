@@ -1,7 +1,7 @@
 # Zaragoza Bikes
 
 * *Degree of Difficulty*: ***
-* *Goal*: Getting started with CARTO BUILDER.
+* *Goal*: analyze public available bikes and anchors in Zaragoza, and the population around bikes anchors
 * *Features Highlighted*:
   * Import: connect datasets from links
   * Analysis: Create areas of influence, Intersect with second layer, Enrich with Data Observatory.

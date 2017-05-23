@@ -1,4 +1,4 @@
-# Bicing Barcelona
+# Biking Barcelona
 
 * *Degree of Difficulty*: ***
 * *Goal*: Getting started with CARTO BUILDER.
@@ -7,7 +7,7 @@
   * Data observatory analysis
   * Widgets
 * *Datasests needed*:
-  * New York subway stations: `bicing_sheet1`. You can download it from [here](https://carto-workshops.carto.com/api/v2/sql?q=SELECT+*+FROM+bicing_sheet1&format=gpkg&filename=bicing_sheet1).
+  * New York subway stations: `biking_sheet1`. You can download it from [here](https://carto-workshops.carto.com/api/v2/sql?q=SELECT+*+FROM+biking_sheet1&format=gpkg&filename=biking_sheet1).
 
 >  In order to download them to your local machines, you are using [CARTO SQL API](https://carto.com/docs/carto-engine/sql-api) behind the scenes.
 
@@ -26,31 +26,31 @@
 
 * Click on **`NEW MAP`**.
 * Click on **`CONNECT DATASET`**.
-* Drag and drop `bicing_sheet1`.
+* Drag and drop `biking_sheet1`.
 * Click on **`CONNECT DATASET`**.
 * Click on `Don't show me this again` to avoid modals.
-* You can rename the map title as "Bicing Barcelona" by double-clicking on it.
+* You can rename the map title as "Biking Barcelona" by double-clicking on it.
 
-![map](imgs/bicing_barcelona/map.png)
+![map](imgs/biking_barcelona/map.png)
 
 <hr>
 
 ### 2. Layers <a name="layers"></a>
 
 * Add new layer:
-  * We are going to click on the button `ADD` in order to add a new layer on the map. In the add layer menu, we will click on the `DATA LIBRARY` and will look for `barcelona`. We will seelct the `Barris of Barcelona` dataset. Finally we will drag and drop layer B below layer A in order to have the Bicing stations as the top layer and the neighbourhoods of Barcelona as a low layer.
+  * We are going to click on the button `ADD` in order to add a new layer on the map. In the add layer menu, we will click on the `DATA LIBRARY` and will look for `barcelona`. We will seelct the `Barrios de Barcelona` dataset. Finally we will drag and drop layer B below layer A in order to have the biking stations as the top layer and the neighbourhoods of Barcelona as a low layer.
 
-![layers_ordered](imgs/bicing_barcelona/layers_ordered.png)
+![layers_ordered](imgs/biking_barcelona/layers_ordered.png)
 
 * Click on one of the layers to show its components:
-  * **`DATA` tab**: an overview of your table schema, from here you can also add widgets. If you want to have a look at your dataset, click the Data View icon, located on the bottom right of Builder when a map layer is selected.
+  * **`DATA` tab**: an overview of your table schema; from here you can also add widgets. If you want to have a look at your dataset, click the Data View icon, located on the bottom right of Builder when a map layer is selected.
   * **`ANALYSIS`**: Add analysis.
   * **`STYLE`**: Change styles.
   * **`POP-UP`**: Add pop-up.
   * **`LEGEND`**: Add legend
 
 
-> Have a look at the letter and number the layers card has (`A` or `B`). This would be very useful for adding widgets and analysis. Depending on the order in which you added your data, your layer letters could be different than the screenshots. In this example, bicing stations were layer A, and neighbourhouds of Barcelona are layer B.
+> Have a look at the letter and number the layers card has (`A` or `B`). This would be very useful for adding widgets and analysis. Depending on the order in which you added your data, your layer letters could be different than the screenshots. In this example, biking stations are layer A, and neighbourhoods of Barcelona are layer B.
 
 
 
@@ -69,9 +69,9 @@
   * `COUNTRY`: `SPAIN`.
   * `MEASUREMENT`: `Age and Gender`.
   * `SEGMENTS`: `Total Population`.
-* Now click on **`APPLY`** to see the result of the analysis. If we open the table view of the layer `population` we will see the new column added to the layer.
+* Now click on **`APPLY`** to see the result of the analysis. If we open the table view of the layer `barris_barcelona` we will see the new `population` column added to the layer.
 
-![filter](imgs/bicing_barcelona/population_column.png)
+![filter](imgs/biking_barcelona/population_column.png)
 
 <hr>
 
@@ -79,11 +79,11 @@
 
 * Go to the edit pane, click on the `barris_barcelona` layer *B* and select the `STYLE` tab. Set the `Fill` color `BY VALUE` and select the `population` column to style the polygons using the population.
 
-![style](imgs/bicing_barcelona/style_polygons.png)
+![style](imgs/biking_barcelona/style_polygons.png)
 
-* Then, go to the edit pane, click on the `bicing_sheet1` layer *A* and select the `STYLE` tab. Set the `Fill` color to `BY VALUE` and select the `type` column. Finally, set the `Fill` size to `BY VALUE` and select the `bikes` column to see the number of bikes for each station visually.
+* Then, go to the edit pane, click on the `biking_sheet1` layer *A* and select the `STYLE` tab. Set the `Fill` color to `BY VALUE` and select the `type` column. Finally, set the `Fill` size to `BY VALUE` and select the `bikes` column to see the number of bikes for each station visually.
 
-![style](imgs/bicing_barcelona/style_points.png)
+![style](imgs/biking_barcelona/style_points.png)
 
 
 ### 5. Widgets <a name="widgets"></a>
@@ -98,7 +98,7 @@
 <br>
 
 
-![widgets](imgs/bicing_barcelona/widgets.png)
+![widgets](imgs/biking_barcelona/widgets.png)
 
 
 <hr>

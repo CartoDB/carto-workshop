@@ -29,15 +29,33 @@
 * From the map's **`LAYERS`** pane click **`ADD`**. Click **`CONNECT DATASET`**. Connect the `Zaragoza blocks` dataset using the same steps as above, with this url: [https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM+manzana&format=shp&filename=manzanas)
 * Double-click on the map layer titles to rename them "Bike anchors" and "Blocks". You can also rename the map this way.
 
-![map](imgs/zgzbikes/01-layers.png)
-<figcaption>A view of BUILDER main dashboard. Our layer order might be different than yours depending on which file you imported first.</figcaption>
+![layers](imgs/zgzbikes/01-layers.png)
 
 
 ## Create areas of influence from bikes anchors <a name="aoi"></a>
 
+* Click on "Bike anchors" layer.
+* Go to **`ANALYSIS`** tab.
+* Click on **`ADD ANALYSIS`**.
+* Select `Create areas of influence` analysis and click on **`ADD ANALYSIS`**.
+* Set `RADIUS` to `250` meters and `BOUNDARIES` to `Dissolved`, and click on **`APPLY`**.
+
+![aoi](imgs/zgzbikes/02-aoi.png)
+
+* Finally, in order to recover our points layer, drag the layer source node out.
+
+![aoi](imgs/zgzbikes/03-node.png)
+
+
 ## Intersect areas and city blocks <a name="intersect"></a>
 
+![intersect](imgs/zgzbikes/04-intersect.png)
+
+
 ## Assign total population to city blocks <a name="do"></a>
+
+![do](imgs/zgzbikes/05-do.png)
+
 
 ## Widgets and auto-styling <a name="widgets"></a>
 
@@ -49,6 +67,9 @@ Consider adding the following widgets:
 * category for the parking types
 * category for the original neighborhoods dataset
 * category for the aggregated neighborhoods dataset, so you can order by number of parking slots
+
+![widgets](imgs/zgzbikes/06-widgets.png)
+
 
 ## Publish and share options <a name="publish"></a>
 
@@ -68,5 +89,4 @@ Consider adding the following widgets:
 ```
 
 
-![map](imgs/bikes/07-result.png)
-<figcaption>Final result</figcaption>
+![result](imgs/zgzbikes/07-result.png)

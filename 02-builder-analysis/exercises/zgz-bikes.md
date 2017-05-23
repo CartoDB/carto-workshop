@@ -52,18 +52,31 @@
 ## Intersect areas and city blocks <a name="intersect"></a>
 
 * Click on "Blocks" layer.
-* Click it's **`ANALYSIS`** tab, and **`ADD ANALYSIS`**. Select the `Intersect second layer` analysis and click **`ADD ANALYSIS`**
+* Click it's **`ANALYSIS`** tab, and click on **`ADD ANALYSIS`**. Select the `Intersect second layer` analysis and click **`ADD ANALYSIS`**.
 * In the `INTERSECT LAYER` field, select the `AOI` node
 * Let the rest of parameters as default.
 * Click on **`APPLY`**.
 
 ![intersect](imgs/zgzbikes/04-intersect.png)
 
+* To improve the visualization, we will remove the fill from the "AOIs" layer.
+* Go back to the main menu and select "AOIs" layer.
+* Go to the **`STYLE`** tab, click on the color `FILL` and set the opacity parameter (`A`) to `0`).
+* You can set the `STROKE` color to red.
+
+![style](imgs/zgzbikes/05-style.png)
 
 ## Assign total population to city blocks <a name="do"></a>
 
-![do](imgs/zgzbikes/05-do.png)
+* Go to the main menu and click on the "Blocks" layer.
+* Click it's **`ANALYSIS`** tab, and click on **`+`** to add a new analysis to the workflow chain. Select the `Enrich with Data Observatory` analysis and click **`ADD ANALYSIS`**.
+* Type "population" into the `NEW COL. NAME`, and select `Spain`, `Age and Gender` and `Total population` from the other parameters forms.
+* Click on **`APPLY`**.
 
+![do](imgs/zgzbikes/06-do.png)
+
+
+*If your account is free, this analysis would not be available.
 
 ## Widgets and auto-styling <a name="widgets"></a>
 
@@ -76,7 +89,7 @@ Consider adding the following widgets:
 * category for the original neighborhoods dataset
 * category for the aggregated neighborhoods dataset, so you can order by number of parking slots
 
-![widgets](imgs/zgzbikes/06-widgets.png)
+![widgets](imgs/zgzbikes/07-widgets.png)
 
 
 ## Publish and share options <a name="publish"></a>
@@ -97,4 +110,4 @@ Consider adding the following widgets:
 ```
 
 
-![result](imgs/zgzbikes/07-result.png)
+![result](imgs/zgzbikes/08-result.png)

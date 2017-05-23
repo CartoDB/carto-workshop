@@ -28,7 +28,7 @@ Exercises:
 * [Quercus diversity, habitat & distribution](exercises/quercus.md)
 * [Valencia bikes](exercises/valencia-bikes.md)
 * [Madrid](exercises/madrid.md) & [Barcelona](exercises/barcelona.md) Airbnb analysis
-* [Biking barcelona](exercises/bicing_barcelona.md)
+* [Bicing barcelona](exercises/bicing_barcelona.md)
 
 Further information:
 

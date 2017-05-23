@@ -42,12 +42,20 @@
 
 ![aoi](imgs/zgzbikes/02-aoi.png)
 
-* Finally, in order to recover our points layer, drag the layer source node out.
+* In order to recover our points layer, go to the main menu and drag the layer source node out.
 
 ![aoi](imgs/zgzbikes/03-node.png)
 
+* Rename the other layer to "AOI" to distinguish the areas of influences and the original points.
+
 
 ## Intersect areas and city blocks <a name="intersect"></a>
+
+* Click on "Blocks" layer.
+* Click it's **`ANALYSIS`** tab, and **`ADD ANALYSIS`**. Select the `Intersect second layer` analysis and click **`ADD ANALYSIS`**
+* In the `INTERSECT LAYER` field, select the `AOI` node
+* Let the rest of parameters as default.
+* Click on **`APPLY`**.
 
 ![intersect](imgs/zgzbikes/04-intersect.png)
 

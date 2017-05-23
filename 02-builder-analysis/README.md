@@ -29,6 +29,7 @@ Exercises:
 * [Valencia bikes](exercises/valencia-bikes.md)
 * [Zaragoza bikes](exercises/zgz-bikes.md)
 * [Madrid](exercises/madrid.md) & [Barcelona](exercises/barcelona.md) Airbnb analysis
+* [Bicing barcelona](exercises/bicing_barcelona.md)
 
 Further information:
 

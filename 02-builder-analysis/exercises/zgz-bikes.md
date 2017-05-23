@@ -80,17 +80,26 @@
 
 ## Widgets and auto-styling <a name="widgets"></a>
 
-Consider adding the following widgets:
+* Go to the main menu and click on **`WIDGETS`**.
+* Click on **`ADD WIDGET`**.
+* Consider adding the following widgets:
 
-* formula widget for the sum of parking spots
-* formula widget for the average of parking spots per point
-* histogram for the parking spots
-* category for the parking types
-* category for the original neighborhoods dataset
-* category for the aggregated neighborhoods dataset, so you can order by number of parking slots
+  * formula widget for the sum of `population` from `Age and Gender` analysis node,
+  * formula widget for the sum of `anclajesdisponibles` from the original `Bikes anchors` layer node,
+  * formula widget for the sum of `bicisdisponibles` from the original `Bikes anchors` layer node,
+  * histogram widget for `population` from `Age and Gender` analysis node,
+  * category widget for `title` from the original `Bikes anchors` layer node.
+* Click on **`CONTINUE`**.
+* Go back to the widgets layout and select the `title` category widget. Set the `OPERATION` to `SUM(bicisdisponibles)` in order to order it based on the number of available bikes. You can add a suffix.
 
 ![widgets](imgs/zgzbikes/07-widgets.png)
 
+* Order, rename and edit the rest of the widgets. 
+* Now, if you click on the **`Auto style`** buttom at the upper right corner of the histogram widget to show the population variability* amongst city blocks from a 250m distance from a public bike anchor.
+
+![auto-style](imgs/zgzbikes/08-auto-style.png)
+
+*This is a exploratory visualization, a better practice would be visualizing population divided by the block area.
 
 ## Publish and share options <a name="publish"></a>
 
@@ -98,16 +107,18 @@ Consider adding the following widgets:
   * Click on **`SHARE`**.
   * Set privacy to `LINK` or `PUBLIC`.
   * Click on **`PUBLISH`**.
-  * Now you can share the map as a [link](https://team.carto.com/u/builder-demo/builder/608968d1-3353-4184-833d-e1c67428beff/embed) or embed it.
+  * Now you can share the map as a [link](https://team.carto.com/u/builder-demo/builder/a50792fa-3fbb-11e7-a868-0ee66e2c9693/embed) or embed it.
 
 
 ```html
 <iframe width="100%" height="520" frameborder="0"
-  src="https://team.carto.com/u/builder-demo/builder/608968d1-3353-4184-833d-e1c67428beff/embed"
+  src="https://team.carto.com/u/builder-demo/builder/a50792fa-3fbb-11e7-a868-0ee66e2c9693/embed"
   allowfullscreen webkitallowfullscreen mozallowfullscreen
   oallowfullscreen msallowfullscreen>
 </iframe>
 ```
 
 
-![result](imgs/zgzbikes/08-result.png)
+![result](imgs/zgzbikes/09-result.png)
+
+<hr>

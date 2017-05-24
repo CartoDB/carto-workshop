@@ -17,20 +17,40 @@ Geospatial Analysis with CARTO BUILDER
 
 Exercises:
 
-* [European countries and cities](exercises/europe.md)
-* [Spies in the sky](exercises/spies_sky.md)
-* [Chicago Crimes](exercises/chicago.md)
-* [Market analysis](exercises/dominos.md)
-* [Risk analysis](exercises/railways.md)
-* [Sales territories](exercises/portland.md)
-* [Presenting sales data](exercises/stores.md)
-* [The L line and demographics](exercises/l_line.md)
-* [Quercus diversity, habitat & distribution](exercises/quercus.md)
-* [Valencia bikes](exercises/valencia-bikes.md)
-* [Madrid](exercises/madrid.md) & [Barcelona](exercises/barcelona.md) Airbnb analysis
+| Title                               |     Difficulty     | Analysis |
+| ---                                 |        :--:        | ---      |
+| [European countries and cities][1]  | :star:             | Filter by layer                                 |
+| [Barcelona Airbnb analysis][12]     | :star:             | Intersect                                       |
+| [Chicago Crimes][3]                 | :star::star:       | Connect with lines, Centroid                    |
+| [Market analysis][4]                | :star::star:       | Areas of Interest, Data Observatory             |
+| [Presenting sales data][7]          | :star::star:       | Georeference, Centroid and Join                 |
+| [Quercus habitat & distribution][9] | :star::star:       | Georeference, Group points in polygons          |
+| [Valencia bikes][10]                | :star::star:       | Filter points in polygon, Intersect             |
+| [Madrid Airbnb analysis][11]        | :star::star:       | AOI, Filter points in polygon                   |
+| [Spies in the sky][2]               | :star::star::star: | Filter by column, Connect with lines, Centroid  |
+| [Risk analysis][5]                  | :star::star::star: | Intersect, Clusters & Outliers                  |
+| [Sales territories][6]              | :star::star::star: | Cluster, Centroid, AOI, Filter point in polygon |
+| [The L line and demographics][8]    | :star::star::star: | Filter by column, AOI, Intersect                |
+
+
 
 Further information:
 
 * [Some ideas on more complex analysis](https://carto.com/blog/author/abel-vazquez)
 * [Spatial analysis with Python](https://pysal.readthedocs.io/en/v1.11.0/)
 * [Complex Analysis <3 Good cartography](https://team.carto.com/u/mamataakella/me)
+
+
+[1]:  exercises/europe.md
+[2]:  exercises/spies_sky.md
+[3]:  exercises/chicago.md
+[4]:  exercises/dominos.md
+[5]:  exercises/railways.md
+[6]:  exercises/portland.md
+[7]:  exercises/stores.md
+[8]:  exercises/l_line.md
+[9]:  exercises/quercus.md
+[10]: exercises/valencia-bikes.md
+[11]: exercises/madrid.md
+[12]: exercises/barcelona.md
+

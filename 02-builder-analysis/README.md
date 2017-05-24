@@ -22,7 +22,7 @@ Exercises:
 | [European countries and cities][1]  | :star:             | Filter by layer                                 |
 | [Barcelona Airbnb analysis][12]     | :star:             | Intersect                                       |
 | [Chicago Crimes][3]                 | :star::star:       | Connect with lines, Centroid                    |
-| [Market analysis][4]                | :star::star:       | Areas of Interest, Data Observatory             |
+| [Market analysis][4]                | :star::star:       | Areas of Interest (AOI), Data Observatory       |
 | [Presenting sales data][7]          | :star::star:       | Georeference, Centroid and Join                 |
 | [Quercus habitat & distribution][9] | :star::star:       | Georeference, Group points in polygons          |
 | [Valencia bikes][10]                | :star::star:       | Filter points in polygon, Intersect             |
@@ -31,8 +31,8 @@ Exercises:
 | [Risk analysis][5]                  | :star::star::star: | Intersect, Clusters & Outliers                  |
 | [Sales territories][6]              | :star::star::star: | Cluster, Centroid, AOI, Filter point in polygon |
 | [The L line and demographics][8]    | :star::star::star: | Filter by column, AOI, Intersect                |
-
-
+| [Zaragoza bikes][13]                | :star::star::star: | AOI, Intersect, Data Observatory                |
+| [Bicing barcelona][14]              | :star::star::star: | Data Observatory                                |
 
 Further information:
 
@@ -53,4 +53,8 @@ Further information:
 [10]: exercises/valencia-bikes.md
 [11]: exercises/madrid.md
 [12]: exercises/barcelona.md
+[13]: exercises/zgz-bikes.md
+[14]: exercises/bicing_barcelona.md
+
+
 

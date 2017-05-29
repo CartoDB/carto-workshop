@@ -4,7 +4,7 @@ CARTO BUILDER Training for SIG LIBRE 2017
 
 ![](img/banner_jornadas.png)
 
-<span style="text-size:2em;"><a href="http://bit.ly/170602-siglibre-builder">http://bit.ly/170602-siglibre-builder</a></span>
+## [http://bit.ly/170602-siglibre-builder](http://bit.ly/170602-siglibre-builder)
 
 
 This training was designed as a 4 hours training for [11as Jornadas de SIG Libre](http://www.sigte.udg.edu/jornadassiglibre/).

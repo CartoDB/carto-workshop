@@ -4,6 +4,8 @@ CARTO BUILDER Training for SIG LIBRE 2017
 
 ![](img/banner_jornadas.png)
 
+<span style="text-size:2em;"><a href="http://bit.ly/170602-siglibre-builder">http://bit.ly/170602-siglibre-builder</a></span>
+
 
 This training was designed as a 4 hours training for [11as Jornadas de SIG Libre](http://www.sigte.udg.edu/jornadassiglibre/).
 
@@ -31,15 +33,19 @@ Introduction to the main BUILDER features and User Interface element.
 
 ### BUILDER exercise 1: Data Visaulization with CARTO
 
-* Duration: 30 minutes
-* Content: To Be Defined
+The goal of this first exercise is to display on a dashboard the different kinds of trees in San Francisco and when they were planted.
 
+* Duration: 45 minutes
+* Content:
+  * [San Francisco Tree Map](https://github.com/CartoDB/carto-workshop/blob/master/01-builder-visualization/exercises/sf-trees.md)
+
+![SF Trees](img/sf-trees.png)
 
 ### BUILDER exercise 2: Geospatial Analysis
 
 In this exercise we will see how to use CARTO analysis and widgets to find a new location to create a store depending on the location and value of the clients of Portland.
 
-* Duration: 1 hour
+* Duration: 45 minutes
 * Content:
   * [Sales Territory exercise](https://github.com/CartoDB/carto-workshop/blob/master/02-builder-analysis/exercises/portland.md)
 
@@ -49,7 +55,7 @@ In this exercise we will see how to use CARTO analysis and widgets to find a new
 
 In this exercise we will apply auto-styling feature to make the invisible of our data visible.
 
-* Duration: 30 minutes
+* Duration: 45 minutes
 * Content:
  * [L-train exercise](https://github.com/CartoDB/carto-workshop/blob/master/02-builder-analysis/exercises/l_line.md)
 
@@ -59,7 +65,7 @@ In this exercise we will apply auto-styling feature to make the invisible of our
 
 In this exercise we will go further of default UI to define cartography symbololgy and will use CartoCSS and TurboCARTO to create a beautiful map.
 
-* Duration: 1 hour
+* Duration: 45 minutes
 * Content:
   * [Risk analysis exercise](https://github.com/CartoDB/carto-workshop/blob/master/02-builder-analysis/exercises/railways.md)
 

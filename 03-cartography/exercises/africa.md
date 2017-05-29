@@ -3,7 +3,7 @@
 + Based on [Mamata Akella](https://team.carto.com/u/mamataakella/me)'s CARTO Summit workshop inspired by this "Submarine Cable Map":
 
 <br>
-![submarine cable map](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/submarinecablemap.png)
+![submarine cable map](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/img/submarinecablemap.png)
 <br>
 
 ## Resources
@@ -31,7 +31,7 @@
   5. Click on *APPLY*
 
 <br>
-![filter by column value](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/filterbycolval.png)
+![filter by column value](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/img/filterbycolval.png)
 <br>
 
 + Create coastal ripple effect:
@@ -47,7 +47,7 @@
   5. Hit *APPLY*
 
 <br>
-![ripples](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/ripples.png)
+![ripples](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/img/ripples.png)
 <br>
 
 * Style:
@@ -84,7 +84,7 @@
   ```
 
 <br>
-![global](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/global.png)
+![global](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/img/global.png)
 <br>
 
 ### Style for Africa
@@ -119,7 +119,7 @@
 ```
 
 <br>
-![africa](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/africa.png)
+![africa](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/img/africa.png)
 <br>
 
 ## Ocean
@@ -140,7 +140,7 @@
 ```
 
 <br>
-![ocean](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/ocean.png)
+![ocean](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/img/ocean.png)
 <br>
 
 ## Basemap
@@ -151,7 +151,7 @@
   3. Set `#c3d1c7` as *HEX* value.
 
 <br>
-![basemap](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/basemap.png)
+![basemap](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/img/basemap.png)
 <br>
 
 ## Publish
@@ -163,6 +163,6 @@
   3. Copy the link and paste it in a new browser tab: [https://team.carto.com/u/ramirocartodb/builder/9dc51d07-da6b-4694-a6ba-953cdaec9552/embed](https://team.carto.com/u/ramirocartodb/builder/9dc51d07-da6b-4694-a6ba-953cdaec9552/embed)
 
 <br>
-![map](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/map.png)
+![map](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/img/map.png)
 <br>
 

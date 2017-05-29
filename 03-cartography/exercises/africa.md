@@ -2,9 +2,7 @@
 
 + Based on [Mamata Akella](https://team.carto.com/u/mamataakella/me)'s CARTO Summit workshop inspired by this "Submarine Cable Map":
 
-<br>
 ![submarine cable map](img/submarinecablemap.png)
-<br>
 
 ## Resources
 
@@ -30,9 +28,7 @@
     * *RESULT*: *Show*
   5. Click on *APPLY*
 
-<br>
-![filter by column value](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/img/filterbycolval.png)
-<br>
+![filter by column value](img/filterbycolval.png)
 
 + Create coastal ripple effect:
   1. Click on *+* symbol button to add a new analysis 
@@ -46,9 +42,7 @@
     * *BOUNDARIES*: *Intact*
   5. Hit *APPLY*
 
-<br>
-![ripples](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/img/ripples.png)
-<br>
+![ripples](img/ripples.png)
 
 * Style:
   1. Go to *STYLE* tab
@@ -83,9 +77,7 @@
   }
   ```
 
-<br>
-![global](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/img/global.png)
-<br>
+![global](img/global.png)
 
 ### Style for Africa
 
@@ -118,9 +110,7 @@
   }
 ```
 
-<br>
-![africa](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/img/africa.png)
-<br>
+![africa](img/africa.png)
 
 ## Ocean
 
@@ -139,9 +129,7 @@
 }
 ```
 
-<br>
-![ocean](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/img/ocean.png)
-<br>
+![ocean](img/ocean.png)
 
 ## Basemap
 
@@ -150,9 +138,7 @@
   2. Set *COLOR* as *Source*
   3. Set `#c3d1c7` as *HEX* value.
 
-<br>
-![basemap](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/img/basemap.png)
-<br>
+![basemap](img/basemap.png)
 
 ## Publish
 
@@ -162,7 +148,5 @@
   3. Click on *PUBLISH* (below)
   3. Copy the link and paste it in a new browser tab: [https://team.carto.com/u/ramirocartodb/builder/9dc51d07-da6b-4694-a6ba-953cdaec9552/embed](https://team.carto.com/u/ramirocartodb/builder/9dc51d07-da6b-4694-a6ba-953cdaec9552/embed)
 
-<br>
-![map](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/img/map.png)
-<br>
+![map](img/map.png)
 

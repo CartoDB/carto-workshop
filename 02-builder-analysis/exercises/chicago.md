@@ -60,7 +60,8 @@ You can add the *Subsample percent of rows* analysis to the crimes dataset. We c
 
 ### 3. 1. Create crimes centroids by district
 
-* Back to the main menu, click on `ADD ANALYSIS` just below `Crimes` layer.
+* Back to the main menu, click on the `Crimes` layer.
+* Click on the `ANALYSIS` tab and `ADD ANALYSIS`.
 * Select `Find centroid from geometries` analysis.
 * Click on `ADD ANALYSIS`.
 * Set the parameters as follows:
@@ -145,7 +146,7 @@ You can add the *Subsample percent of rows* analysis to the crimes dataset. We c
 
 ![final](imgs/chicago/03-final.png)
 
-[Link](https://builder-demo.carto.com/builder/0876e726-e73f-11e6-82a3-0e233c30368f) to the map.
+[Link](https://builder-demo.carto.com/builder/7d4c6b1e-416e-11e7-b6cb-0e3ff518bd15) to the map.
 
 # 5. Extension
 

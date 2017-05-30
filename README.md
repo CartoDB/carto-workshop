@@ -67,10 +67,10 @@ In this exercise we will go further of default UI to define cartography symbolol
 
 * Duration: 45 minutes
 * Content:
-  * [Risk analysis exercise](https://github.com/CartoDB/carto-workshop/blob/master/02-builder-analysis/exercises/railways.md)
+  * [Africa vintage exercise](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/africa.md)
 
 ![Africa](img/africa.png)
 
 ## Q&A
   * Duration: 15 min
-  * You can post (and check!) your questions in [GIS StackExchange forum adding carto tag](https://gis.stackexchange.com/questions/tagged/carto)
+  * You can post (and check!) your questions in [GIS StackExchange forum adding `carto` tag](https://gis.stackexchange.com/questions/tagged/carto)

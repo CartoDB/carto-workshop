@@ -20,16 +20,16 @@ Introduction to CARTO as a platform: product positioning, general overview of th
 * Duration: 15 minutes
 * Audience: General public interested in CARTO and location intelligence.
 * Content:
-  * [Introduction to CARTO](https://docs.google.com/presentation/d/1o_Mh1xdkYG0fJys_VUVh_FGehkZXOa39ZF-g62n40Q0/present?usp=sharing)
+  * [Introduction to CARTO](https://docs.google.com/presentation/d/17GWeAWsNtzBHnw4eh7x9p7I_73S55BaUShskVZ5ykyc/edit?usp=sharing)
 
 
 ### Introduction to CARTO BUILDER
 
 Introduction to the main BUILDER features and User Interface element.
 
-* Duration: 30 minutes
+* Duration: 15 minutes
 * Content:
-  * [Introduction to CARTO Builder](https://docs.google.com/presentation/d/1vbgbKqQRv5YB5T1aaTw924Q-KXocpo2tTDBZ0w1HALk/present?usp=sharing).
+  * [Introduction to CARTO Builder](https://docs.google.com/presentation/d/1K5SUcOGcwSWaE_Ap_uLMRUjwZ58oYTL8aZNEFVnwZoM/edit?usp=sharing)
 
 ### BUILDER exercise 1: Data Visaulization with CARTO
 
@@ -72,5 +72,5 @@ In this exercise we will go further of default UI to define cartography symbolol
 ![Africa](img/africa.png)
 
 ## Q&A
-  * Duration: 15 min
+  * Duration: 30 min
   * You can post (and check!) your questions in [GIS StackExchange forum adding `carto` tag](https://gis.stackexchange.com/questions/tagged/carto)

@@ -9,6 +9,18 @@
 * [Backbone.js](http://backbonejs.org/)
 * It can use either [Google Maps API](https://developers.google.com/maps/) or [Leaflet](http://leafletjs.com/)
 
+The current version of CARTO.js is the version 3 and is the version explained in this document.
+
+There are several versions available and are defined in [this section](https://github.com/CartoDB/cartodb.js/blob/2983b2fdcef914afdb1f4fdae173471143930452/scripts/publish.js#L15-L24) of the CARTO.js code. Some of them are:
+
+* CartoDB.js core: If you are not using Leaflet and you want to implement your own layer object. <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.core.js"></script>. More information in [this section](https://carto.com/docs/carto-engine/carto-js/core-api) of CartoDB.js documentation.
+
+* CartoDB.js without JQuery: If you don't want to load the big JQuery library. https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb_nojquery.js
+
+* CartoDB.js without Leaflet: If you don't want to use Leaflet.js with CartoDB.js https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb_noleaflet.js
+
+* HTTPS version of the CartoDB.js library. https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js
+
 Know more about CARTO.js on the [official documentation](https://carto.com/docs/carto-engine/carto-js/) and this [academy tutorial](https://carto.com/academy/courses/cartojs-ground-up/).
 
 Next sections and an excerpt of the documentation with the most useful methods and a the end you'll find live examples of them that you can modify and hack in real time.
@@ -75,6 +87,51 @@ var vizjson = 'link from share panel';
 cartodb.createLayer(map, vizjson).addTo(map);
 ```
 
+#### Leaflet vs Google Maps in CARTO.js
+
+By default, when you create a map with CartoDB.js you are also using [Leaflet.js](http://leafletjs.com/) library
+  to create the map. 
+
+With Leaflet, the steps to create the map are:
+
+1. Define map class object with [L.map](http://leafletjs.com/reference.html#map-class) method and its properties.
+2. Add basemap object with [L.tileLayer](http://leafletjs.com/reference.html#tilelayer) method.
+3. Add CartoDB layers with [createLayer](http://docs.cartodb.com/cartodb-platform/cartodb-js/api-methods/#cartodbcartodblayer) method.
+4. Define Leaflet [event methods](http://leafletjs.com/reference.html#events)
+
+However, with the Google Maps API, the ways to create the map are a bit different:
+
+1. Define and add map class object and its options with [google.maps.Map](https://developers.google.com/maps/documentation/javascript/reference#Map)
+2. Define Google Maps event methods with [google.maps.event.addListener](https://developers.google.com/maps/documentation/javascript/events#EventsOverview) method.
+Example [here](http://bl.ocks.org/oriolbx/1fc7914e1887e102314a)
+
+## Interactivity
+
+When creating a map, you can activate the interactivity in order to show a popup when a user click or hover a geometry. When you activate the interactivity on a map, the UTF grid layer is loaded.
+
+### What is UTF grid?
+
+A UTF grid is a grid where each map tile has a compressed file of attributes registered to its pixel space. As tiles are loaded into the map, the attribute information is accessible after moving or clicking the mouse on the map/tile.
+
+### UTF grid and CARTO
+
+In CARTO, there is just one UTF grid for the whole CARTO layer.
+
+ If you add more than one CARTO layer to a Leaflet or Google map, only the top layer will get the events. The tiles from the UTF grid of different layers are not mixed, CARTO.js gets all the UTF grids tiles separately and loads them into the map. For example, if you load 8 layers on your map, that means that you also are loading 8 UTF grids (one per layer).
+
+### Interaction vs Interactivity
+
+* **Interaction** (`setInteraction(true)`): the user input (= mouse event) is tracked/registered.
+* **Interactivity** (`setInteractivity(columnName)`): get values of the geometry from a mouse event. The values come form the column or columns that have the interactivity enabled.
+
+
+## Static Maps API with CARTO.js
+
+Static views of CartoDB maps can be generated using the [Static Maps API](https://carto.com/docs/carto-engine/maps-api/static-maps-api) within CartoDB.js. The map’s style, including the zoom and bounding box, follows from what was set in the viz.json file, but you can change the zoom, center, and size of your image with a few lines of code.
+
+In [this section](https://carto.com/docs/carto-engine/carto-js/static-maps) of our documentation you can find detailed information to use the Static Maps API with CARTO.js.
+
+
 ## UI Functions
 
 ### Tooltips
@@ -100,6 +157,48 @@ Second, add tooltip to the map:
 ```javascript
      $('body').append(tooltip.render().el);
 ```
+
+If the version of CARTO.js is lower than 3.14 (betweem 3.11 and 3.13), then the way to define a tooltip can be done this way:
+
+```js
+sublayer.set({ 'interactivity': ['cartodb_id', 'name'] }); // set interactivity
+
+// define tooltip element
+var i = new cdb.geo.ui.Tooltip({
+    layer: layer,
+    template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><h3>{{name}}</h3><p>more info</p></div></div>',
+    width: 200,
+    position: 'bottom|right'
+});
+
+// add tooltip element to the map
+$('body').append(i.render().el);
+```
+
+### Infobox
+
+Similar to a tooltip, an infobox displays a small box when you hover your mouse over a map feature. When viewing an infobox on a map, the position of the infobox is fixed, and always appears in the same position.
+
+To add a tooltip to a map you need to do two steps:
+
+* Define infobox variable:
+
+```js
+var infoBox = layer.leafletMap.viz.addOverlay({
+          type: 'infobox',
+          layer: layer,
+          template: '<div class="cartodb-tooltip-content-wrapper"><h3>Maximum Population</h3><p>{{pop_max}}<span> hab</span></p></div>',
+          width: 150,
+          position: 'top|right'
+        });
+```
+
+* Add infobox element to map
+
+```js
+ $('body').append(infoBox.render().el);
+```
+
 
 ### Infowindows
 
@@ -141,6 +240,60 @@ cdb.vis.Vis.addInfowindow(
              infowindowTemplate: $('#infowindow_template').html()
           });
 ```
+
+
+On the other hand, we can use [underscore.js](http://underscorejs.org/) to create infowindow. The underscore.js library allows use functions inside the infowindows (the functions must be global). An example of custom infowindow template could be this one, where the customTimeFunction() function is to get the current timestamp and display it inside the infowindow everytime that the geometry is clicked. In order to do that you would need to disable the sanitizeTemplate attribute of the infowindow when you create the HTML map. This is done by setting the value to false, disabling the infowindow security setting.
+
+In this case, there is no need tu use Mustache tags to get the values from the dataset. By using <%= columnName %> you can get each value of the geometry.
+
+```js
+<!-- HTML template for custom infowindow -->
+  <script type="infowindow/html" id="infowindow_template">
+      <div class="cartodb-popup header blue v2">
+        <a href="#close" class="cartodb-popup-close-button close">x</a>
+         <div class="cartodb-popup-content-wrapper">
+
+            <ul>
+              <li><%= 'Country: '  + adm0name %></li>
+              <li><%= 'City: ' + name %></li>
+              <li><%= customTimeFunction() %></li>
+            </ul>
+
+            </div>
+        </div>
+        <div class="cartodb-popup-tip-container"></div>
+      </div>
+  </script>
+```
+
+```js
+/* define function to be used inside Infowindow */
+   function customTimeFunction(){
+       var today = new Date();
+       return ("You have clicked this point at: " + today.getUTCDay() + '/'+today.getUTCMonth() + '/'
+       +today.getFullYear() + ' ' + today.getHours() +':'+ today.getMinutes() + ':' + today.getSeconds());
+   }
+```
+
+Then, when you add the infowindow with underscore.js [_template](http://underscorejs.org/#template) function:
+
+```js
+cdb.vis.Vis.addInfowindow(
+          map,
+          layer,
+          ['name','adm0name','pop_max'],
+          {
+            'sanitizeTemplate':false
+          }).model.set({
+            'template' :  function(object){
+                    return _.template($('#infowindow_template').html())(object);
+              }
+            });        
+        });
+```
+
+In [this example](http://bl.ocks.org/oriolbx/80216cfc465ffd6152c2) we have used the underscore.js to add a javascript function that is executed everytime that the infowindow is opened.
+
 
 ### Legends
 

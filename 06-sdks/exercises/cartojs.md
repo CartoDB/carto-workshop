@@ -90,7 +90,7 @@ cartodb.createLayer(map, vizjson).addTo(map);
 #### Leaflet vs Google Maps in CARTO.js
 
 By default, when you create a map with CartoDB.js you are also using [Leaflet.js](http://leafletjs.com/) library
-  to create the map. 
+  to create the map.
 
 With Leaflet, the steps to create the map are:
 
@@ -378,3 +378,6 @@ The following list presents a number of running examples on doing many different
   * Custom layer selector [bl.ocks](http://bl.ocks.org/jsanz/6a83dbae9d6e984ca938)
   * Aggregate content in SQL clusters [bl.ocks](http://bl.ocks.org/ernesmb/348b9eed9ee4c7038fd7)
   * Get feature properties on Torque time [bl.ocks](http://bl.ocks.org/ernesmb/4939b3751d3be0cdd64b)
+  * Dynamic graph using Chart.js & CARTO.js [bl.ocks](http://bl.ocks.org/ernesmb/4939b3751d3be0cdd64b)
+  * Create graph using CSS and mustache template: [bl.ocks](http://bl.ocks.org/jsanz/1bd917d87f4f606fe778)
+  * Google API graph [GitHub code](https://github.com/CartoDB/cartodb.js/blob/develop/examples/infowindow_with_graph.html) and its working [here](http://cartodb.github.io/cartodb.js/examples/infowindow_with_graph.html)

@@ -11,7 +11,7 @@
 
 The current version of CARTO.js is the version 3 and is the version explained in this document.
 
-There are several versions available and are defined in [this section](https://github.com/CartoDB/cartodb.js/blob/2983b2fdcef914afdb1f4fdae173471143930452/scripts/publish.js#L15-L24) of the CARTO.js code. Some of them are:
+There are several versions available and are defined in [this section](https://github.com/CartoDB/cartodb.js/blob/release-3.15.11/scripts/publish.js#L15-L24) of the CARTO.js code. Some of them are:
 
 * CartoDB.js core: If you are not using Leaflet and you want to implement your own layer object. <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.core.js"></script>. More information in [this section](https://carto.com/docs/carto-engine/carto-js/core-api) of CartoDB.js documentation.
 

@@ -341,6 +341,21 @@ Second, `cartodb-legend category`, applied in simple or category maps:
       </div>
 ```
 
+## Torque
+
+In CARTO Builder or CartoDB.js, the formatter/slider of animated maps will show different information depending on the date range -- the technical details are available [here](https://github.com/CartoDB/cartodb.js/blob/develop/src/geo/ui/time_slider.js).
+
+The details are as follows:
+  * Range is less than 1 day: `time`
+  * Range is less than 3 days: `day + time`
+  * More than 3 days but less than a year: `month/day/year`
+  * Range is more than a year: `month/year`
+  
+On the other hand, there are known issues for torque performance in Firefox browsers. The workarounds to solve those issue are:
+  * Disable hardware acceleration in Firefox
+  * Reduce the torque resolution.
+  	***An accumulated torque at maximum resolution is the most CPU demanding set up***
+
 ## Examples
 
 Each example points to a real time viewer showcasing a different procedure using CARTO.js. Feel free to change and play with the code and refresh the webpage to return to the initial state.

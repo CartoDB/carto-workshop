@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Named Map example | CartoDB</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+    
+    <style>
+      html, body, #map {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        position:relative;
+      }
+     
+      #bar{
+        position:absolute;
+        z-index: 11;
+        top:0;
+        right:0;
+        margin: 4px;
+        background-color: rgba(255,255,255,0.9);
+        text-align:center;
+      }
+
+    </style>
+
+    <link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="bar">
+      <button id="blue">blue</button>
+      <button id="green">green</button>
+      <button id="red">red</button>
+      <p>Population >= <input type ="text" id="pop_filter"/>
+      <button id="apply_filter">apply</button></p>
+    </div>
+
+   <!-- include cartodb.js library -->
+   <script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script>
+    
+   <!-- Drop your code between the script tags below! -->
+   <script type="infowindow/html" id="infowindow_template">
+      <div class="cartodb-popup">
+        <a href="#close" class="cartodb-popup-close-button close">x</a>
+         <div class="cartodb-popup-content-wrapper">
+           <div class="cartodb-popup-content">
+             <h4>this is</h4>
+             <p>{{content.data.name}}</p>
+             <h4>has a Population of</h4>
+             <p>{{content.data.pop2005}}</p>
+           </div>
+         </div>
+         <div class="cartodb-popup-tip-container"></div>
+      </div>
+    </script> 
+
+   <script>
+    var map=L.map('map', {center: [36,0],zoom:2});
+    function main(){
+    
+    cartodb.createLayer(map, {
+      user_name:'ernestomb',
+      type:'namedmap',
+      named_map:{
+        name: 'world_borders',
+        layers:[{
+          layer_name:'l',
+          interactivity: "cartodb_id, name, pop2005"
+          }
+        ]
+      }
+    },
+    {https:true})
+    .on('done', function(layer){
+      layer.setAuthToken('ernesto');
+
+      $('#red').click(function(){
+        layer.setParams('color','red');
+      });
+      $('#blue').click(function(){
+        layer.setParams('color','blue');
+      });
+      $('#green').click(function(){
+        layer.setParams('color','green');
+      });
+      $('#apply_filter').click(function(){
+        var filter=$('#pop_filter').val();
+        console.log(filter)
+        layer.setParams('population_filter',filter);
+      });
+
+      cdb.vis.Vis.addInfowindow(map, layer.getSubLayer(0), ['cartodb_id','name','pop2005'],{infowindowTemplate: $('#infowindow_template').html()});
+    })
+    .addTo(map);
+    }
+    window.onload = main; 
+
+    </script>
+
+  </body>
+</html>

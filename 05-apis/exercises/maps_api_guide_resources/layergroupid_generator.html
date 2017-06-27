@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    html, body{
+    	height: 100%;
+    	width:100%;
+    	margin:0;
+    	padding:0;
+    }
+    .wrapper{
+    	text-align:center;
+    	padding:5px;
+    	font-family: Helvetica;
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+	<h2>MAP INSTANTIATOR</h2>
+	<p>CartoDB Username</p>
+	<textarea id="username" rows=1 col=60></textarea>
+	<p>SQL data definition</p>
+	<textarea id="sql_editor" rows=6 col=60></textarea>
+	<p>CartoCSS style</p>
+	<textarea id="cartocss_editor" rows=6 col=60></textarea>
+	<p><button id="clickme"> CLICK ME TO INSTANTIATE MAP</button></p>
+	<div id="content"></div>
+</div>
+
+<script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+<script>
+ 	var SQL= "SELECT * FROM world_borders";
+ 	var cartoCSS="#layer {polygon-fill: #F00;}";
+ 	var username
+ 	$('#sql_editor').val(SQL);
+ 	$('#cartocss_editor').val(cartoCSS);
+	$('#clickme').click(function(){
+		SQL=$('#sql_editor').val();
+		cartoCSS=$('#cartocss_editor').val();
+		username=$('#username').val()
+		
+		var mapconfig = {
+		  "version": "1.3.1",
+		  "layers": [{
+		    "type": "cartodb",
+		    "options": {
+		      "cartocss_version": "2.1.1",
+		      "cartocss": cartoCSS,
+		      "sql": SQL,
+		      "interactivity":"cartodb_id"
+		    }
+		  }]
+		}
+		console.log(cartoCSS)
+		console.log(SQL)
+		$.ajax({
+			crossOrigin: true,
+			type: 'POST',
+			dataType: 'json',
+			contentType: 'application/json',
+			url: "https://"+username+".cartodb.com/api/v1/map",
+			data: JSON.stringify(mapconfig),
+			success: function(data) {
+				var tileURL = "https://"+username+".cartodb.com/api/v1/map/"+data.layergroupid+"/0/0/0.png"
+				var gridJsonURL = "https://"+username+".cartodb.com/api/v1/map/"+data.layergroupid+"/0/0/0/0.grid.json"
+				document.getElementById("content").innerHTML=
+				"<p><h3>Maps API tile URL</h3></p>"+
+				"<a href="+tileURL+">"+tileURL+"</a>"+
+				"</br><img src="+tileURL+">"+
+				"<p><h3>layergroupid</h3></p>"+
+				"<p>"+data.layergroupid+"</p>"+
+				"<p><a href="+gridJsonURL+">click to see <b>grid.json</b> file</a></p>"+
+				"<p><h2>STATIC MAP GENERATOR</h2></p>"+
+				"<p><h3>Center+Zoom</h3></p>"+
+				"center Lat <input type='number' id='c_lat' rows=1 col=6>"+
+				" center Lon <input type='number' id='c_lon' rows=1 col=6>"+
+				" zoom level <input type='number' id='c_zoom' rows=1 col=6>"+
+				"</br> resolution x/y"+
+				"<input type='number' id='c_xres' rows=1 col=6>"+
+				"<input type='number' id='c_yres' rows=1 col=6>"+
+				"<button id='click_center_zoom'>Generate map</button>"+
+				"<div id='center_zoom_static'></div>"+
+				"<p><h3>BoundingBox</h3></p>"+
+				"N</br><input type='number' id='b_north' rows=1 col=4>"+
+				"</br>W<input type='number' id='b_west' rows=1 col=4>"+
+				"<input type='number' id='b_east' rows=1 col=4> E"+
+				"</br><input type='number' id='b_south' rows=1 col=4></br>S"+
+				"</br> resolution x/y"+
+				"<input type='number' id='b_xres' rows=1 col=6>"+
+				"<input type='number' id='b_yres' rows=1 col=6>"+
+				"<button id='click_bbox'>Generate map</button>"+
+				"<div id='bbox_static'></div>"
+				$('#click_center_zoom').click(function(){
+					var cLat=$('#c_lat').val()
+					var cLon=$('#c_lon').val()
+					var cZoom=$('#c_zoom').val()
+					var cXres=$('#c_xres').val()
+					var cYres=$('#c_yres').val()
+					document.getElementById("center_zoom_static").innerHTML=
+					"<img src='http://"+username+".cartodb.com/api/v1/map/static/center/"+data.layergroupid+
+					"/"+cZoom+"/"+cLat+"/"+cLon+"/"+cXres+"/"+cYres+".png'>"
+				})
+				$('#click_bbox').click(function(){
+					var bNorth=$('#b_north').val()
+					var bWest=$('#b_west').val()
+					var bEast=$('#b_east').val()
+					var bSouth=$('#b_south').val()
+					var bXres=$('#b_xres').val()
+					var bYres=$('#b_yres').val()
+					document.getElementById("bbox_static").innerHTML=
+					"<img src='http://"+username+".cartodb.com/api/v1/map/static/bbox/"+data.layergroupid+
+					"/"+bWest+","+bSouth+","+bEast+","+bNorth+"/"+bXres+"/"+bYres+".png'>"
+				})
+			}
+		})
+	})
+</script>
+
+</body>
+</html>

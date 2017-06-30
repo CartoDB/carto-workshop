@@ -5,6 +5,8 @@
 
 - What is a stored procedure?
 - Basic structure of a PL/pgSQL function
+- Errors and message
+- Dynamic PL/pgSQL functions
 - Functions that doesn't return any row
 - Function that returns a table
 - Functions with Security Definer
@@ -42,6 +44,11 @@ Where:
 3. ``RETURNS`` specifies the return type of the function.
 4. Place the block of code inside inside the ``BEGIN`` and ``END;``.
 5. Indicate the procedural language of the function. For PostgreSQL is usually ``plpgsql``.
+6. The conditions can be ``STRICT``, ``IMMUTABLE`` or ``VOLATILE``.
+
+    * ``STRICT``: write ``STRICT`` when the input arguments have ``NULL`` values. The function is not evaluated and returns a ``NULL`` value.
+    * ``IMMUTABLE``: The function ensures the same result (it caches it) if the same value is put as an input arguments. This function can't change the database.
+    * ``VOLATILE``: opposite of ``IMMUTABLE``. The function has a result that changes the result even when you write the same input values.
 
 To call the created function you could use:
 
@@ -89,7 +96,7 @@ $$ LANGUAGE plpgsql;
 
 Then the function can be called as: ``SELECT * FROM sum_n_product(1,2)``, where you only need to pass the `IN` arguments to the function.
 
-Notice that if we use IN and OUT arguments, we don't use the ``RETURNS`` statement in the function definition.
+Notice that if we use IN and OUT arguments, we don't use the ``RETURNS`` statement in the function definition. Also, if you define the arguments with IN or OUT, there is no need to put both. You can define IN arguments without the need to put OUT arguments or viceversa. 
 
 On the other hand, there are different ways to refer to the input arguments within the function.
 
@@ -151,6 +158,127 @@ END;
 LANGUAGE language_name;
 ```
 
+## Errors and messages
+
+To raise a message, you use the ``RAISE`` statement: ```RAISE level format;``` the ``level`` option specifies the error severity. There are the following levels:
+
+* DEBUG
+* LOG
+* NOTICE
+* INFO
+* WARNING
+* EXCEPTION
+
+For example:
+
+```sql
+  RAISE INFO 'information message %', now() ;
+  RAISE LOG 'log message %', now();
+  RAISE DEBUG 'debug message %', now();
+  RAISE WARNING 'warning message %', now();
+  RAISE NOTICE 'notice message %', now();
+```
+
+However, the only error that would raise in the CartoDB Editor is RAISE EXCEPTION. 
+
+For example:
+
+```sql
+CREATE OR REPLACE FUNCTION sum_n_product3(IN x int,IN y int, OUT sum int, OUT prod int) AS $$
+BEGIN
+    IF x < 2 THEN
+      RAISE EXCEPTION 'information message %', now();
+    END IF;  
+    sum := x + y;
+    prod := x * y;
+END;
+$$ LANGUAGE plpgsql
+```
+
+If we call this function wihtin the CartoDB Editor, we will get the message of the RAISE EXCEPTION.
+
+On the other hand, the message errors RAISE NOTICE, RAISE WARNING and RAISE INFO only will appear if you use the SQL API outsite the editor. If we modify the previous function to add those error messages:
+
+```sql
+CREATE OR REPLACE FUNCTION sum_n_product3(IN x int,IN y int, OUT sum int, OUT prod int) AS $$
+BEGIN
+    IF x < 2 THEN
+      RAISE WARNING 'information message %', now();
+      RAISE NOTICE 'information message %', now();
+      RAISE INFO 'information message %', now();
+    END IF;  
+    sum := x + y;
+    prod := x * y;
+END;
+$$ LANGUAGE plpgsql
+```
+And then we call the function using the SQL API as a URL:
+
+```https://username.carto.com/api/v2/sql?q=SELECT * FROM sum_n_product3(1,2)&api_key=API_KEY```
+
+We get the next response with the three error messages:
+
+```json
+{
+  rows: [
+    {
+      sum: 3,
+      prod: 2
+    }
+  ],
+  time: 0.001,
+  fields: {
+    sum: {
+      type: "number"
+    },
+    prod: {
+      type: "number"
+    }
+  },
+  total_rows: 1,
+  warnings: [
+    "information message 2016-06-08 09:43:33.923025+00"
+  ],
+  notices: [
+    "information message 2016-06-08 09:43:33.923025+00"
+  ],
+  infos: [
+    "information message 2016-06-08 09:43:33.923025+00"
+  ]
+}
+```
+The error RAISE LOG and RAISE DEBUG error messages are not returned in the client side, that's because those messages are not showed to the client by default, they are
+displayed in the server side. The configuration of these error messages are controlled by the client_min_messages and log_min_messages configuration parameters. (more information [here](https://www.postgresql.org/docs/9.5/static/runtime-config-logging.html))
+
+If the level is not specified, the defaults level will be ``EXCEPTION`` that raises an error and stops the current transaction. 
+
+A transaction is a unit of work that is performed against a database. Transactions are units or sequences of work accomplished in a logical order, whether in a manual fashion by a user or automatically by some sort of a database program. A transaction is the propagation of one or more changes to the database. 
+For example, if you are creating or updating or deleting a record from the table, then you are performing transaction on the table. It is important to control transactions to ensure data integrity and to handle database errors.
+
+## Dynamic PL/pgSQL functions
+
+In order to write dynamic PL/pgSQL queries the ``EXECUTE 'sql';`` is used. The ``EXECUTE`` coommand it is used to generate dynamic commands inside the PL/pgSQL function. EXECUTE command it is used when the function involves different tables or different data types each time that the function is executed.
+
+Syntax of EXECUTE command:
+
+```sql
+EXECUTE command-string [ INTO [STRICT] target ] [ USING expression [, ... ] ];
+```
+
+1. ``command-string`` is an expression that contains que query to be executed.
+2. The ``target`` statement is optional. Is a record variable, row variable or a comma-separated list of simple variables and record/row fields, into which the results of the command will be stored.
+3. The ``using`` statement is optional. Supply values to be inserted into the command.
+
+Features:
+
+* There is no plan caching for commands executed via EXECUTE. The command is always planned each time the statements are running.
+* Any required variable values must be inserted in the command string as it is constructed.
+* The INTO clause specifies where the results of a SQL command returning rows should be assigned. If a row or variable list is provided, it must exactly match the structure of the query's results (when a record variable is used, it will configure itself to match the result structure automatically). If multiple rows are returned, only the first will be assigned to the INTO variable. If no rows are returned, NULL is assigned to the INTO variable(s). If no INTO clause is specified, the query results are discarded.
+* If the STRICT option is given, an error is reported unless the query produces exactly one row.
+
+For more information and examples look at [this section](http://www.postgresql.org/docs/current/static/plpgsql-statements.html#PLPGSQL-STATEMENTS-EXECUTING-DYN) of the PostgreSQL documentation.
+
+
 ## Functions that doesn't return any row
 
 If we create a function that doesn't return any row, but performs a writing operation, such as an `UPDATE`, `INSERT` or `DELETE`, we need to set the `RETURNS TYPE` statement as `RETURNS void`
@@ -164,7 +292,32 @@ CREATE OR REPLACE FUNCTION logfunc1(logtxt text) RETURNS void AS $$
     END;
 $$ LANGUAGE plpgsql
 ```
-We could call this function with `SELECT logfunc1('coolestWordEver')` and postgreSQL will return no rows, but if you go to your table you will see that there is a new row with values in `description` and `currentime` columns.
+We could call this function with `SELECT logfunc1('coolestWordEver')` or ``SELECT * FROM logfunc1('someCoolWord')`` and postgreSQL will return no rows, but if you go to your table you will see that there is a new row with values in `description` and `currentime` columns.
+
+You can apply the `RETURNS void` to UPDATE OR DELETE a row.
+
+For example, this function when it's called, updates the the description column that has the cartodb_id that you put as an argument:
+
+```sql
+CREATE OR REPLACE FUNCTION upfunc(logtxt text, id numeric) RETURNS void AS $$
+    BEGIN
+        UPDATE coooltable
+		    SET description = logtxt
+		    WHERE cartodb_id = id;
+    END;
+$$ LANGUAGE plpgsql
+```
+
+And in this other example, the function will delete the row that have the cartodb_id that you put as an input.
+
+```sql
+CREATE OR REPLACE FUNCTION delfunc(id numeric) RETURNS void AS $$
+    BEGIN
+      DELETE FROM coooltable
+		  WHERE cartodb_id = id;
+    END;
+$$ LANGUAGE plpgsql
+```
 
 ## Function that returns a table
 

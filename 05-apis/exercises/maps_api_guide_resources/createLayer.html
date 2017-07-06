@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CartoTemplate | CartoDB</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+  
+  <style>
+    html, body, #map {
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+    /*.cartodb-logo{
+      display:none!important;
+    }*/
+  </style>
+
+  <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+  <!-- 
+  <link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+  -->
+</head>
+<body>
+
+  <div id="map"></div>
+
+  <!-- include cartodb.js library -->
+  <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+  <!--
+  <script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script> 
+  -->
+     
+  
+  <!-- Drop your code between the script tags below! -->
+  <script>
+
+  layerSource={
+    user_name: 'ernestomb',
+    type: 'cartodb',
+    sublayers: [{
+       sql: 'SELECT * FROM world_borders',
+       cartocss: '#layer {polygon-fill: #F00;}',
+       interactivity: 'cartodb_id'
+    }]
+  }
+
+  map= new L.Map('map', {
+    zoom:1,
+    center:[0,0]
+  });
+
+  cartodb.createLayer(map, layerSource,{
+    	//options
+  }).addTo(map)
+  .done(function(layer){
+      //do stuff
+    });
+  
+  </script>
+
+</body>
+</html>

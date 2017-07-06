@@ -1,0 +1,42 @@
+{
+  "version": "0.0.1",
+  "name": "world_borders",
+  "auth": {
+    "method": "token",
+    "valid_tokens": [
+      "ernesto"
+    ]
+  },
+  "placeholders": {
+    "color": {
+      "type": "css_color",
+      "default": "red"
+    },
+    "population_filter": {
+      "type": "number",
+      "default": 1
+    }
+
+  },
+  "layergroup": {
+    "version": "1.0.1",
+    "layers": [
+      {
+        "type": "cartodb",
+        "options": {
+          "cartocss_version": "2.1.1",
+          "cartocss": "#layer { polygon-fill: <%= color %>; }",
+          "sql": "select * from world_borders WHERE pop2005 >= <%= population_filter %>",
+          "interactivity" : ["cartodb_id","name","pop2005"]
+        }
+      }
+    ]
+  },
+  "view": {
+    "zoom": 3,
+    "center": {
+      "lng": 0,
+      "lat": 36
+    }
+  }
+}

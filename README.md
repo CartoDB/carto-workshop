@@ -1,13 +1,13 @@
-CARTO BUILDER Training for SIG LIBRE 2017
+FOSS4G Europe 2017 CARTO BUILDER workshop
 ============================================
 
 
-![](img/banner_jornadas.png)
+![](img/banner.png)
 
-## [http://bit.ly/170602-siglibre-builder](http://bit.ly/170602-siglibre-builder)
+## [http://bit.ly/170718-foss4ge-builder](http://bit.ly/170718-foss4ge-builder)
 
 
-This training was designed as a 4 hours training for [11as Jornadas de SIG Libre](http://www.sigte.udg.edu/jornadassiglibre/).
+This training was designed as a 4 hours training for [FOSS4G Europe 2017](https://europe.foss4g.org/2017/).
 
 In order to access the complete training on CARTO technologies, you have to go to the [master branch](https://github.com/CartoDB/carto-workshop). The contents are separated into modules and are meant to be made sequentially going from the most basic usage for GIS and analysts up to the advanced development section for attendants with more knowledge about web mapping development and so on. Modules can be easily combined to finally make a 1 week full training but they can be also split to make a longer training with half day duration.
 
@@ -18,9 +18,8 @@ In order to access the complete training on CARTO technologies, you have to go t
 Introduction to CARTO as a platform: product positioning, general overview of the portfolio and examples of how CARTO can solve different use cases.
 
 * Duration: 15 minutes
-* Audience: General public interested in CARTO and location intelligence.
 * Content:
-  * [Introduction to CARTO](https://docs.google.com/presentation/d/1o_Mh1xdkYG0fJys_VUVh_FGehkZXOa39ZF-g62n40Q0/present?usp=sharing)
+  * [Introduction to CARTO](https://docs.google.com/presentation/d/1epfHq4TYhEp__WsUOtFNYGOqPtMLFwdarWr-7xCAyRE/pub)
 
 
 ### Introduction to CARTO BUILDER
@@ -29,7 +28,7 @@ Introduction to the main BUILDER features and User Interface element.
 
 * Duration: 30 minutes
 * Content:
-  * [Introduction to CARTO Builder](https://docs.google.com/presentation/d/1vbgbKqQRv5YB5T1aaTw924Q-KXocpo2tTDBZ0w1HALk/present?usp=sharing).
+  * [Introduction to CARTO Builder](https://docs.google.com/presentation/d/1cvENuNqK7HoOvqcbHHATXFIBUx968yI43wFxj5MG8x4/pub).
 
 ### BUILDER exercise 1: Data Visaulization with CARTO
 

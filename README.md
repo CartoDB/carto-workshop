@@ -4,7 +4,7 @@ FOSS4G Europe 2017 CARTO BUILDER workshop
 
 ![](img/banner.png)
 
-## [http://bit.ly/170718-foss4ge-builder](http://bit.ly/170718-foss4ge-builder)
+## [http://bit.ly/170718-builder-foss4ge](http://bit.ly/170718-builder-foss4ge)
 
 
 This training was designed as a 4 hours training for [FOSS4G Europe 2017](https://europe.foss4g.org/2017/).

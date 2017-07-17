@@ -22,6 +22,7 @@ Exercises:
 * [Dynamic data](exercises/torque.md)
 * [Auto-style](exercises/autostyle.md)
 * [Choropleth and bubbles](exercises/centroids.md)
+* [Dogs of Twitter: pop-ups and time-enabled data](exercises/twitter-dogs.md)
 
 Examples:
 * [Populated Places dashboard](https://cartoworkshops.carto.com/u/carto-workshops/builder/2e5f8efe-bb1e-11e6-935a-0e233c30368f/embed)

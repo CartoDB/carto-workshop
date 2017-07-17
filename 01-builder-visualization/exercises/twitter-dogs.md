@@ -23,8 +23,7 @@
 
 ### 1. 1. Import `twitter_dogs` file into your DATASETS dashboard.
 
-* Download the dataset from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM+ccaa_2015_economia_comercio&format=csv&filename=ccaa_2015_economia_comercio)
-// ***UPDATE THIS LINK***
+* Download the dataset from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM+twitter_dogs&format=csv&filename=twitter_dogs)
 * Go to your account and import it using the **NEW DATASET** options
 * Select **CONNECT DATASET**
 * Drag and drop the file

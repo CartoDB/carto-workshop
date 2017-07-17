@@ -1,7 +1,7 @@
 # Twitter Pop-Ups & Time Slider Visualization
 
-* *Degree of Difficulty*: **
-* *Goal*: Create a time-enabled visualization that includes pop-ups using data pulled from Twitter with BUILDER
+* *Degree of Difficulty*: :star::star::star:
+* *Goal*: Create a time-enabled visualization that includes useful pop-ups using data pulled from Twitter with BUILDER
 * *Features Highlighted*:
   * Style:
     - Enabling time-based elements of your data for advanced visualization;
@@ -15,8 +15,7 @@
 1. [Import and create map](#map) <br>
 2. [Style](#sty) <br>
 3. [Widgets](#widgets) <br>
-4. [Autostyle](#auto) <br>
-5. [Public and share map](#public) <br>
+4. [Publish and share map](#pub) <br>
 
 <hr>
 
@@ -141,50 +140,61 @@ and alter it as follows:
 
 <hr>
 
-# HAVE NOT EDITED BELOW THIS - ASR 7/11/17
-
-
 ## 3. Widgets <a name="widgets"></a>
 
 ### 3. 1. Add widgets
 
-* Navigate back to  **WIDGETS** pane and click on **ADD WIDGET**.
-  * In the options of the **CATEGORY** tab, check the *ccaa*. Make sure you are adding a widget from the `A1` layer node.
-  * In the options of the **HISTOGRAM** tab, check `pib_per_capita_euros`, `importaciones_interregionales_porcentaje_pib` and `exportaciones_porcetaje_pib`.
-  * In the options of the **FORMULA** tab, check `pib_millones_euros`.
-  * Click on **CONTINUE**.
+* Navigate to  the **WIDGETS** pane.
+  * You will notice that your time slider is already present.
+* Click `ADD`.
+  * In the options of the **CATEGORY** tab, check the *category_terms* widget. Make sure you are adding a widget from the `A0` layer node.
+  * In the options of the **FORMULA** tab, check `retweetcount` and `actor_followerscount`, again making sure you are adding the widget with the source as `A0`.
+* Click on `CONTINUE`.
 
 ### 3. 2. Order and edit widgets
 
-* Reorder the position of widgets.
-* Double click on the widget title in order to change the title name.
-* Edit the category widget as follow:
-  * **OPERATION**: `AVG(pib_millones_euros)`
-  * **SUFFIX**: `mill. €`.
+* Navigate back to the **WIDGETS** pane.
+* **Click the *time widget*.**
+  - Change the title to **When are people tweeting?**.
+  - You can change the color of the widget bars now too if you'd like.
 
-![widget-options](imgs/01-autostyle-02.png)
+* **Click the *retweetcount* widget.**
+  - Change the title to **How popular are these tweets?**
+  - Make sure the type is set to `FORMULA`.
+  - Change the **OPERATION** to `SUM(retweetcount)`
+  - Add the **SUFFIX**: ` retweets` to let your viewers know what the number they are looking at means.
+  - Widgets are only as good as the data you provide to them. You don't always want the viewers to interpret what each item means. Go ahead and add a description for the widget. In this case, I am going to explain the purpose of a retweet. Here's what I am saying:
+    - `A tweet's life cycle isn't done  after it's been sent. Someone who sees a tweet and likes it can retweet it, and share it with all of their followers too! Talk about exponential spread!`
+
+* **Click the *category_terms* widget.**
+  - Change the title to **What breed is most popular?**
+  - Make sure the type is set to `CATEGORY`.
+  - Make sure your settings for the following are correct:
+    - **AGGREGATE BY**: `category_terms`
+    - **OPERATION**: `COUNT`
+  - You can change the color of the widget bars now too if you'd like.
+
+* **Click the *actor_followerscount*  widget.**
+  - Change the title to **How many people saw these?**
+  - Make sure the type is set to `FORMULA`.
+  - Change the **OPERATION** to `SUM(actor_followerscount)`.
+  - Add the **SUFFIX**: ` people`.
+  - Add a helpful description, here is mine:
+    - `If someone sends out a tweet, all of their followers get to see it on their timelines.`
+
+* Reorder the position of widgets as you see fit.
+
+![widget-options](imgs/01-dog-06.png)
 
 <hr>
 
-## 4. Autostyle <a name="auto"></a>
-
-### 4. 1. How to use auto-style
-
-* Click on the droplet button* at the right upper coner of a category or histogram widget.
-
-*If you want to know more about auto-style feature, check [this blog post](https://carto.com/blog/data-driven-maps-auto-style).
-
-![auto-style](imgs/01-autostyle-03.png)
-
-<hr>
-
-## 5. Public and share map <a name="public"></a>
+## 4. Publish and share map <a name="pub"></a>
 
 * At the bottom of the main menu, click on **SHARE** at the right button corner.
 * Go to **PUBLISH** tab and click on **PUBLISH** button that is below the Map name in order to share our map.
 * After clicking on **PUBLISH**, we can select the options that we want to share our map.
-  * Get the link URL and paste it on other browser tab: https://team.carto.com/u/ramirocartodb/builder/b976e446-33c9-11e7-9d09-0e3ff518bd15/embed
+  * Get the link URL and paste it on other browser tab: https://team.carto.com/u/aroth-carto/builder/d2dc57b2-017f-46d7-a9b5-5236ac1dfdda/embed
 
-![map](imgs/01-autostyle-04.png)
+![map](imgs/01-dog-07.png)
 
 <hr>

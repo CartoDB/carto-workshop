@@ -51,7 +51,7 @@ In this exercise we will see how to use CARTO analysis and widgets to find a new
 In this exercise we will apply auto-styling feature to make the invisible of our data visible.
 
 * Duration: 45 minutes
-*[L-train exercise](https://github.com/CartoDB/carto-workshop/blob/master/02-builder-analysis/exercises/l_line.md)
+* [L-train exercise](https://github.com/CartoDB/carto-workshop/blob/master/02-builder-analysis/exercises/l_line.md)
 
 ![l-train](img/l-train.png)
 

@@ -35,11 +35,12 @@
 
 ### 1. 3. Click on **CREATE MAP**
 
-* Change the name of the map to **Dogs of Twitter**.
+* Change the name of the map to `Dogs of Twitter`.
   - To change the name of the map, double click the title, enter your new title, and hit enter to save the new title.
-* Change the name of the layer to **Dogs of Twitter**.
+* Change the name of the layer to `Dogs of Twitter`.
   - To change the name of the layer, double click the title, enter your new title, and hit enter to save the new title.
-* Change the Basemap **STYLE** to `Dark Matter (Labels Below)`
+* Click on the **Basemap** layer. Change the **STYLE** to `Dark Matter (Labels Below)`.
+* In the top left corner, press the back arrow to navigate back to the **LAYERS** pane.
 
 <hr>
 
@@ -47,32 +48,33 @@
 
 ### 2. 1. Styling Time-Based Elements
 
-* After clicking on **Dogs of Twitter** layer, it will direct you to the `STYLE` tab.
-* Change the **aggregation style** to `Animated`
+* After clicking on the **Dogs of Twitter** layer, it will direct you to the **STYLE** tab.
+* Change the **aggregation style** to `Animated`.
 * Set the style options as follows:
   * **FILL**: click on the orange color bar, in the color wheel that opens, select `BY VALUE`, style by `category_terms`. Color these as you see fit by clicking on the color in line with the term you want to change.
-  * **COLUMN**: `postedtime`
+  * **COLUMN**: `postedtime`.
 
 ![animated settings](imgs/01-dog-01.png)
 
-* Click on the `LEGEND` tab. Set the style to `CUSTOM`. Check the box to add title and enter `By breed` to give your legend enough detail to be useful.
+* Click on the **LEGEND** tab. Set the style to `CUSTOM`. Check the box to add title and enter `By breed` to give your legend enough detail to be useful.
 
 ### 2. 2. Styling Pop-ups
 
 * Pop ups can't be added to animated map layer, so we will need to add our `twitter_dogs` layer again in order to enable pop ups in the new layer.
-* In the top left corner, press the back arrow to navigate back to the `LAYERS` menu.
-* Click on `ADD`.
-* Click on `twitter_dogs`, click `ADD LAYER` in bottom right.
-* A new layer `B` has been added.
+* In the top left corner, press the back arrow to navigate back to the **LAYERS** pane.
+* Click on **ADD**.
+* Click on `twitter_dogs`, click **ADD LAYER** in bottom right.
+* A new layer **B** has been added.
 * Click into this new layer, rename it `dog pop-ups`
-* set the **FILL SIZE** to `4`, set the **FILL COLOR HEX** to `#ffffff` (white).
+* Set the **FILL SIZE** to `4`, set the **FILL COLOR HEX** to `#ffffff` (white).
 
 ![pop-up point settings](imgs/01-dog-02.png)
 
-* Click on the `POP-UP` tab
-* In the `CLICK` pop-up menu, set style to `IMAGE`
+* Click on the **POP-UP** tab
+* In the **CLICK** pop-up menu, set style to `IMAGE`
 * Check off the following items, and drag them into the order they are listed:
   * `actor_image`
+    - This field needs to be first to make sure that it is read first as the image URL.
   * `actor_displayname`
   * `actor_preferredusername`
   * `body`
@@ -80,7 +82,7 @@
 
 ![pop-up click settings](imgs/01-dog-03.png)
 
-* In the `HOVER` pop-up menu, set style to `LIGHT`
+* In the **HOVER** pop-up menu, set style to `LIGHT`
 * Check the box for `actor_displayname` and change the type field next to it to `Who is Tweeting?`
 
 ![pop-up click settings](imgs/01-dog-04.png)

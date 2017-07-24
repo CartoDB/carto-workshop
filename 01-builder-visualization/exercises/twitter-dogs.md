@@ -8,8 +8,8 @@
     - Making the most of your data by adding and altering pop-ups to display useful information at a glance.
   * Layers: how to work with layer nodes
   * Widgets: Formulas + Histograms
-* *Datasests needed*:
-  * `twitter_dogs` dataset: twitter data on based on dog breed search terms from 6/11/2017 - 7/10/17.
+* *Datasets needed*:
+  * `twitter_dogs` dataset: twitter data based on dog breed search terms from 6/11/2017 - 7/10/17.
 
 
 1. [Import and create map](#map) <br>
@@ -30,8 +30,8 @@
 
 ### 1. 2. Dataset view
 
-* Take a look on the dataset.
-* Take note of which columns seem to be the most useful/interesting things in the dataset.
+* Review the dataset.
+* Take note of which columns seem to be the most useful/interesting things to display.
 
 ### 1. 3. Click on **CREATE MAP**
 
@@ -134,7 +134,7 @@ and alter it as follows:
     <h4 class="CDB-infowindow-title"><a href="{{link}}" target="_blank">View Tweet</a></h4>
 ```
 
-* Click `APPLY`.
+* Click **APPLY**.
 
 ![pop-up click HTML](imgs/01-dog-05.png)
 
@@ -146,10 +146,10 @@ and alter it as follows:
 
 * Navigate to  the **WIDGETS** pane.
   * You will notice that your time slider is already present.
-* Click `ADD`.
-  * In the options of the **CATEGORY** tab, check the *category_terms* widget. Make sure you are adding a widget from the `A0` layer node.
+* Click **ADD**.
+  * In the options of the **CATEGORY** tab, check the `category_terms` widget. Make sure you are adding a widget from the `B0` layer node.
   * In the options of the **FORMULA** tab, check `retweetcount` and `actor_followerscount`, again making sure you are adding the widget with the source as `A0`.
-* Click on `CONTINUE`.
+* Click on **CONTINUE**.
 
 ### 3. 2. Order and edit widgets
 
@@ -175,18 +175,21 @@ and alter it as follows:
     - **AGGREGATE BY**: `category_terms`
     - **OPERATION**: `COUNT`
   - You can change the color of the widget bars now too if you'd like.
+  - Check the box for `CUSTOM COLORS`, then click on the bar of colors that appears to the right. Pick 4 colors that you are able to differentiate at a glance for the first 4 categories. Since you only have 4 categories, the rest won't matter.
+    - What you have just set up is called ***Auto style***. In the top right corner of this widget will be a **blue water drop icon**. Click it in order to change the styling of the white dots to show what category the tweets are in at a glance. Click it again to change the dots back.
 
 * **Click the *actor_followerscount*  widget.**
   - Change the title to **How many people saw these?**
   - Make sure the type is set to `FORMULA`.
   - Change the **OPERATION** to `SUM(actor_followerscount)`.
   - Add the **SUFFIX**: ` people`.
+    - Be sure to include a space before `people` so your values will read `12345 people`, not `12345people`.
   - Add a helpful description, here is mine:
     - `If someone sends out a tweet, all of their followers get to see it on their timelines.`
 
 * From the widgets pane, you can reorder the widgets and how they are displayed on the map by dragging and dropping each widget option in the pane.
 
-![widget-options](imgs/01-dog-06.png)
+![widget-options](imgs/01-dog-06.gif)
 
 <hr>
 
@@ -195,8 +198,8 @@ and alter it as follows:
 * At the bottom of the layer pane, click on **SHARE** at the right button corner.
 * Click on **PUBLISH** below the map name, then navigate to the **PUBLISH** tab in order to share our map.
 * Once in the **PUBLISH** tab, we can see the different options for sharing the map, including a URL to a public map page and iframe embed code for sharing the map on an external website.
-  * Get the link URL and paste it on other browser tab: https://team.carto.com/u/aroth-carto/builder/d2dc57b2-017f-46d7-a9b5-5236ac1dfdda/embed
+  * Get the link URL and paste it on other browser tab: https://team.carto.com/u/aroth-carto/builder/c10438bf-43ac-4648-8cc5-e1560254fba6/embed
 
-![map](imgs/01-dog-07.png)
+![map](imgs/01-dog-07.gif)
 
 <hr>

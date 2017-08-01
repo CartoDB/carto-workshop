@@ -5,7 +5,7 @@ CARTO complete Training Course
 
 This repository contains a complete training on CARTO technologies. The contents are separated into modules and are meant to be made sequentially going from the most basic usage for GIS and analysts up to the advanced development section for attendants with more knowledge about web mapping development and so on.
 
-Moules can be easily combined to finally make a 1 week full training but they can be also split to make a longer training with half day duration.
+Modules can be easily combined to finally make a 1 week full training but they can be also split to make a longer training with half day duration.
 
 ## [Module 0](00-intro-carto/). Introduction to CARTO
 

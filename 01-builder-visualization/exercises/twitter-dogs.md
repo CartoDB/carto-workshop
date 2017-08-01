@@ -1,22 +1,21 @@
 # Twitter Pop-Ups & Time Slider Visualization
 
-* *Degree of Difficulty*: **
-* *Goal*: Create a time-enabled visualization that includes pop-ups using data pulled from Twitter with BUILDER
+* *Degree of Difficulty*: :star::star::star:
+* *Goal*: Create a time-enabled visualization that includes useful pop-ups using data pulled from Twitter with BUILDER.
 * *Features Highlighted*:
   * Style:
     - Enabling time-based elements of your data for advanced visualization;
-    - Making the most of your data by adding and altering pop-ups to display useful information at a glance
+    - Making the most of your data by adding and altering pop-ups to display useful information at a glance.
   * Layers: how to work with layer nodes
   * Widgets: Formulas + Histograms
-* *Datasests needed*:
-  * `twitter_dogs` dataset: twitter data on based on dog breed search terms from 6/11/2017 - 7/10/17.
+* *Datasets needed*:
+  * `twitter_dogs` dataset: twitter data based on dog breed search terms from 6/11/2017 - 7/10/17.
 
 
 1. [Import and create map](#map) <br>
 2. [Style](#sty) <br>
 3. [Widgets](#widgets) <br>
-4. [Autostyle](#auto) <br>
-5. [Public and share map](#public) <br>
+4. [Publish and share map](#pub) <br>
 
 <hr>
 
@@ -24,22 +23,24 @@
 
 ### 1. 1. Import `twitter_dogs` file into your DATASETS dashboard.
 
-* Download the dataset from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM+ccaa_2015_economia_comercio&format=csv&filename=ccaa_2015_economia_comercio)
-// ***UPDATE THIS LINK***
-* Go to your account and import it using the **NEW DATASET** options
-* Select **CONNECT DATASET**
-* Drag and drop the file
+* Download the dataset from [here](https://builder-demo.carto.com/api/v2/sql?q=SELECT+*+FROM+twitter_dogs&format=csv&filename=twitter_dogs).
+* Go to your account and import it using the **NEW DATASET** options.
+* Select **CONNECT DATASET**.
+* Drag and drop the file.
 
 ### 1. 2. Dataset view
 
-* Take a look on the dataset
-* Take note of which columns seem to be the most useful/interesting things in the dataset
+* Review the dataset.
+* Take note of which columns seem to be the most useful/interesting things to display.
 
 ### 1. 3. Click on **CREATE MAP**
 
-* Change the name of the map to **Dogs of Twitter** (double click!)
-* Change the name of the layer to **Dogs of Twitter**
-* Change the Basemap to **Dark Matter (Labels Below)**
+* Change the name of the map to `Dogs of Twitter`.
+  - To change the name of the map, double click the title, enter your new title, and hit enter to save the new title.
+* Change the name of the layer to `Dogs of Twitter`.
+  - To change the name of the layer, double click the title, enter your new title, and hit enter to save the new title.
+* Click on the **Basemap** layer. Change the **STYLE** to `Dark Matter (Labels Below)`.
+* In the top left corner, press the back arrow to navigate back to the **LAYERS** pane.
 
 <hr>
 
@@ -47,35 +48,33 @@
 
 ### 2. 1. Styling Time-Based Elements
 
-* After clicking on **Dogs of Twitter** layer, it will direct you to the `STYLE` tab.
-* Change the **aggregation style** to `Animated`
+* After clicking on the **Dogs of Twitter** layer, it will direct you to the **STYLE** tab.
+* Change the **aggregation style** to `Animated`.
 * Set the style options as follows:
-  * **FILL**:click on the color, click on `BY VALUE`, style by `category_terms`. Color these as you see fit by clicking on the color in line with the term you want to change.
-  * **COLUMN**: `postedtime`
-  * **DURATION**: `30`
-  * **STEPS**: `256`
-  * **TRAILS**: `2`
-  * **RESOLUTION**: `4`
+  * **FILL**: click on the orange color bar, in the color wheel that opens, select `BY VALUE`, style by `category_terms`. Color these as you see fit by clicking on the color in line with the term you want to change.
+  * **COLUMN**: `postedtime`.
 
 ![animated settings](imgs/01-dog-01.png)
 
-* Click on the `LEGEND` tab. Set the style to `CUSTOM`. Check the box to add title and enter `By breed` to give your legend enough detail to be useful.
+* Click on the **LEGEND** tab. Set the style to `CUSTOM`. Check the box to add title and enter `By breed` to give your legend enough detail to be useful.
 
 ### 2. 2. Styling Pop-ups
 
-* In order to add pop-ups to our map, we will need to add the `twitter_dogs` layer again. In the top left corner, press the back arrow to navigate back to the `LAYERS` menu.
-* Click on `ADD`
-* Click on `twitter_dogs`, click `ADD LAYER` in bottom right.
-* A new layer `B` has been added.
+* Pop ups can't be added to animated map layer, so we will need to add our `twitter_dogs` layer again in order to enable pop ups in the new layer.
+* In the top left corner, press the back arrow to navigate back to the **LAYERS** pane.
+* Click on **ADD**.
+* Click on `twitter_dogs`, click **ADD LAYER** in bottom right.
+* A new layer **B** has been added.
 * Click into this new layer, rename it `dog pop-ups`
-* set the **FILL SIZE** to `4`, set the **FILL COLOR HEX** to `#ffffff`.
+* Set the **FILL SIZE** to `4`, set the **FILL COLOR HEX** to `#ffffff` (white).
 
 ![pop-up point settings](imgs/01-dog-02.png)
 
-* Click on the `POP-UP` tab
-* In the `CLICK` pop-up menu, set style to `IMAGE`
+* Click on the **POP-UP** tab
+* In the **CLICK** pop-up menu, set style to `IMAGE`
 * Check off the following items, and drag them into the order they are listed:
   * `actor_image`
+    - This field needs to be first to make sure that it is read first as the image URL.
   * `actor_displayname`
   * `actor_preferredusername`
   * `body`
@@ -83,7 +82,7 @@
 
 ![pop-up click settings](imgs/01-dog-03.png)
 
-* In the `HOVER` pop-up menu, set style to `LIGHT`
+* In the **HOVER** pop-up menu, set style to `LIGHT`
 * Check the box for `actor_displayname` and change the type field next to it to `Who is Tweeting?`
 
 ![pop-up click settings](imgs/01-dog-04.png)
@@ -135,56 +134,72 @@ and alter it as follows:
     <h4 class="CDB-infowindow-title"><a href="{{link}}" target="_blank">View Tweet</a></h4>
 ```
 
-* Click `APPLY`.
+* Click **APPLY**.
 
 ![pop-up click HTML](imgs/01-dog-05.png)
 
 <hr>
 
-# HAVE NOT EDITED BELOW THIS - ASR 7/11/17
-
-
 ## 3. Widgets <a name="widgets"></a>
 
 ### 3. 1. Add widgets
 
-* Navigate back to  **WIDGETS** pane and click on **ADD WIDGET**.
-  * In the options of the **CATEGORY** tab, check the *ccaa*. Make sure you are adding a widget from the `A1` layer node.
-  * In the options of the **HISTOGRAM** tab, check `pib_per_capita_euros`, `importaciones_interregionales_porcentaje_pib` and `exportaciones_porcetaje_pib`.
-  * In the options of the **FORMULA** tab, check `pib_millones_euros`.
-  * Click on **CONTINUE**.
+* Navigate to  the **WIDGETS** pane.
+  * You will notice that your time slider is already present.
+* Click **ADD**.
+  * In the options of the **CATEGORY** tab, check the `category_terms` widget. Make sure you are adding a widget from the `B0` layer node.
+  * In the options of the **FORMULA** tab, check `retweetcount` and `actor_followerscount`, again making sure you are adding the widget with the source as `A0`.
+* Click on **CONTINUE**.
 
 ### 3. 2. Order and edit widgets
 
-* Reorder the position of widgets.
-* Double click on the widget title in order to change the title name.
-* Edit the category widget as follow:
-  * **OPERATION**: `AVG(pib_millones_euros)`
-  * **SUFFIX**: `mill. €`.
+* Navigate back to the **WIDGETS** pane.
+* **Click the *time_date_t* widget.**
+  - Change the title to **When are people tweeting?**.
+    - To change the name of the widget, double click the title, enter your new title, and hit enter to save the new title.
+  - You can also change the color of the widget time series bars if you would like by selecting the **FILL** color option at the bottom of the widget pane
 
-![widget-options](imgs/01-autostyle-02.png)
+* **Click the *retweetcount* widget.**
+  - Change the title to **How popular are these tweets?**
+  - Make sure the type is set to `FORMULA`.
+  - Change the **OPERATION** to `SUM(retweetcount)`
+  - Add the **SUFFIX**: ` retweets` to let your viewers know what the number they are looking at means.
+    - Be sure to include a space before `retweets` so your values will read `12345 retweets`, not `12345retweets`.
+  - Widgets are only as good as the data you provide to them. You don't always want the viewers to interpret what each item means. Go ahead and add a description for the widget. In this case, I am going to explain the purpose of a retweet. Here's what I am saying:
+    - `A tweet's life cycle isn't done  after it's been sent. Someone who sees a tweet and likes it can retweet it, and share it with all of their followers too! Talk about exponential spread!`
+
+* **Click the *category_terms* widget.**
+  - Change the title to **What breed is most popular?**
+  - Make sure the type is set to `CATEGORY`.
+  - Make sure your settings for the following are correct:
+    - **AGGREGATE BY**: `category_terms`
+    - **OPERATION**: `COUNT`
+  - You can change the color of the widget bars now too if you'd like.
+  - Check the box for `CUSTOM COLORS`, then click on the bar of colors that appears to the right. Pick 4 colors that you are able to differentiate at a glance for the first 4 categories. Since you only have 4 categories, the rest won't matter.
+    - What you have just set up is called ***Auto style***. In the top right corner of this widget will be a **blue water drop icon**. Click it in order to change the styling of the white dots to show what category the tweets are in at a glance. Click it again to change the dots back.
+
+* **Click the *actor_followerscount*  widget.**
+  - Change the title to **How many people saw these?**
+  - Make sure the type is set to `FORMULA`.
+  - Change the **OPERATION** to `SUM(actor_followerscount)`.
+  - Add the **SUFFIX**: ` people`.
+    - Be sure to include a space before `people` so your values will read `12345 people`, not `12345people`.
+  - Add a helpful description, here is mine:
+    - `If someone sends out a tweet, all of their followers get to see it on their timelines.`
+
+* From the widgets pane, you can reorder the widgets and how they are displayed on the map by dragging and dropping each widget option in the pane.
+
+![widget-options](imgs/01-dog-06.gif)
 
 <hr>
 
-## 4. Autostyle <a name="auto"></a>
+## 4. Publish and share map <a name="pub"></a>
 
-### 4. 1. How to use auto-style
+* At the bottom of the layer pane, click on **SHARE** at the right button corner.
+* Click on **PUBLISH** below the map name, then navigate to the **PUBLISH** tab in order to share our map.
+* Once in the **PUBLISH** tab, we can see the different options for sharing the map, including a URL to a public map page and iframe embed code for sharing the map on an external website.
+  * Get the link URL and paste it on other browser tab: https://team.carto.com/u/aroth-carto/builder/c10438bf-43ac-4648-8cc5-e1560254fba6/embed
 
-* Click on the droplet button* at the right upper coner of a category or histogram widget.
-
-*If you want to know more about auto-style feature, check [this blog post](https://carto.com/blog/data-driven-maps-auto-style).
-
-![auto-style](imgs/01-autostyle-03.png)
-
-<hr>
-
-## 5. Public and share map <a name="public"></a>
-
-* At the bottom of the main menu, click on **SHARE** at the right button corner.
-* Go to **PUBLISH** tab and click on **PUBLISH** button that is below the Map name in order to share our map.
-* After clicking on **PUBLISH**, we can select the options that we want to share our map.
-  * Get the link URL and paste it on other browser tab: https://team.carto.com/u/ramirocartodb/builder/b976e446-33c9-11e7-9d09-0e3ff518bd15/embed
-
-![map](imgs/01-autostyle-04.png)
+![map](imgs/01-dog-07.gif)
 
 <hr>

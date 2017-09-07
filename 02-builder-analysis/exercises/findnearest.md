@@ -94,7 +94,7 @@
 * Set the parameters as follows:
   * `TYPE`: `To Source`.
   * `TARGET`: `B0 Source playgrounds`
-  * 'CLOSEST': `To closest`
+  * `CLOSEST`: `To closest`
 * Click on `APPLY`
 
 ### 3. 2. Style Your Map
@@ -121,8 +121,6 @@
 * In the `DATA` tab. Activate the *Add as a widget* checkbox on `review_scores_rating` column.
 * Click on blue `edit` link
 * Rename the widget to `AirBnB Rating`
-
-![final](imgs/findnearest/02-style.png)
 
 ### 4. 2. Add a category widget to filter by the airbnb cancellation policies
 

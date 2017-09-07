@@ -8,6 +8,9 @@
   - San Francisco AirBnBs: download it from the [builder-demo](https://builder-demo.carto.com:443/api/v2/sql?q=select+*+from+san_francisco_airbnbs&format=gpkg&filename=san_francisco_airbnbs.gpkg) CARTO account
   - San Francisco Playgrounds: download it from the [builder-demo](https://builder-demo.carto.com:443/api/v2/sql?q=select+*+from+san_francisco_playgrounds&format=gpkg&filename=san_francisco_playgrounds.gpkg) CARTO account
 
+  > San Francisco Airbnb dataset was downloaded from the [Inside Airbnb](http://insideairbnb.com/get-the-data.html) website. In order to download the data to your local machines, you are using [CARTO SQL API](https://carto.com/docs/carto-engine/sql-api) behind the scenes.
+  > San Francisco playground dataset provided by the [City and County of San Francisco]](http://sfgov.org/)
+
 ## Contents
 
 <!-- MarkdownTOC -->

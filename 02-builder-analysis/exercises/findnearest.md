@@ -5,8 +5,8 @@
 * *Features Highlighted*:
   * Analysis
 * *Datasests needed*
-  - San Francisco AirBnBs: download it from the [builder-demo]() CARTO account
-  - San Francisco Playgrounds: download it from the [builder-demo]() CARTO account
+  - San Francisco AirBnBs: download it from the [builder-demo](https://builder-demo.carto.com:443/api/v2/sql?q=select+*+from+san_francisco_airbnbs&format=gpkg&filename=chicago_crimes_sampled.gpkg) CARTO account
+  - San Francisco Playgrounds: download it from the [builder-demo](https://builder-demo.carto.com:443/api/v2/sql?q=select+*+from+san_francisco_playgrounds&format=gpkg&filename=chicago_crimes_sampled.gpkg) CARTO account
 
 ## Contents
 

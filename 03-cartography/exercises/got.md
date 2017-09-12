@@ -18,8 +18,8 @@
 ### 0. Resources <a name="resources"></a>
 
 * [Template .carto file](https://drive.google.com/file/d/0B9k_lcYQZACgOVJsRlQ3ZUZQeGM/view?usp=sharing)
-* [Final .carto file](https://drive.google.com/file/d/0B9k_lcYQZACgdzVwRXhkRGpSQ3M/view?usp=sharing)
-<br>
+* [Final .carto file](https://drive.google.com/file/d/0B9k_lcYQZACgMHU1aXlmdW9ac00/view?usp=sharing)
+
 *All thematic data was built from the gvSIG’s ebook, [*Learning GIS with Game of Thrones*](http://downloads.gvsig.org/download/documents/books/GoT_book_GIS_gvSIG.pdf).
 
 ### 1. Getting started <a name="getting-started"></a>
@@ -76,6 +76,32 @@
 ![ripples](img/got-ripples.png)
 
 ### 3. Continents and islands <a name="continents"></a>
+
+* Disable the view from all your layers but *Continents and islands*
+* In order to style the land, follow these steps:
+  1. Click on *Continents and islands* layer
+  2. Switch from VALUES to CARTOCSS
+  3. Replace the default style with the following one:
+
+  ```css
+  #layer {
+  polygon-pattern-file:
+  url('https://s3.amazonaws.com/com.cartodb.users-assets.production/production/mamataakella/assets/20170822202613TexturesCom_PaperDecorative0061_1_seamless_S.jpg');
+
+    polygon-pattern-opacity: 0.4;
+    polygon-fill:mix(#6ea92f,#CCBE9A,40);
+    polygon-opacity: 0.8;
+    polygon-comp-op: multiply;
+    line-width: 5;
+    line-color: fadeout(#fff,85);
+    
+    [zoom<=4]{line-width: 2.5;}
+     
+  }
+  ```
+  4. Hit on APPLY
+
+![continents](img/got-continents.png)
 
 ### 4. Lakes and mountains <a name="lakes"></a>
 

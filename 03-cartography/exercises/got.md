@@ -18,7 +18,8 @@
 ### 0. Resources <a name="resources"></a>
 
 * [Template .carto file](https://drive.google.com/file/d/0B9k_lcYQZACgOVJsRlQ3ZUZQeGM/view?usp=sharing)
-* [Final .carto file](https://drive.google.com/file/d/0B9k_lcYQZACgdzVwRXhkRGpSQ3M/view?usp=sharing)<br>
+* [Final .carto file](https://drive.google.com/file/d/0B9k_lcYQZACgdzVwRXhkRGpSQ3M/view?usp=sharing)
+<br>
 *All thematic data was built from the gvSIG’s ebook, [*Learning GIS with Game of Thrones*](http://downloads.gvsig.org/download/documents/books/GoT_book_GIS_gvSIG.pdf).
 
 ### 1. Getting started <a name="getting-started"></a>

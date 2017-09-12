@@ -1,6 +1,6 @@
 # How to create a Game of Thrones basemap
 
-* Goal: create a basemap of Game of Thrones.
+* Goal: create a basemap based on Game of Thrones world.
 * Based on [*Our Game of Thrones Basemap is here to unite the Seven Kingdoms* blogpost](https://carto.com/blog/game-of-thrones-basemap/).
 
 ## Guide
@@ -17,7 +17,7 @@
 
 ### 0. Resources <a name="resources"></a>
 
-* [Template .carto file](https://drive.google.com/file/d/0B9k_lcYQZACgVE4zS2h5X2Z3OEU/view?usp=sharing)
+* [Template .carto file](https://drive.google.com/file/d/0B9k_lcYQZACgOVJsRlQ3ZUZQeGM/view?usp=sharing)
 * [Final .carto file](https://drive.google.com/file/d/0B9k_lcYQZACgdzVwRXhkRGpSQ3M/view?usp=sharing)
 *All thematic data was built from the gvSIG’s ebook, [*Learning GIS with Game of Thrones*](http://downloads.gvsig.org/download/documents/books/GoT_book_GIS_gvSIG.pdf).
 
@@ -36,8 +36,25 @@
   7. `continents_and_islands` > *Continents and islands*
   8. `continents_and_islands` > *Ripples*
 
-
 ### 2. Ocean and ripples <a name="ocean"></a>
+
+* First, change the basemap:
+  1. Click on the *Positron* basemap
+  2. Select `COLOR`
+  3. Replace the default color with `#98b4ae`
+
+* In order to create a coastal ripple effect, follow these instructions:
+  1. Click on the *Ripples* layer and go to the ANALYSIS tab
+  2. Click on ADD ANALYSIS button to add a new analysis 
+  2. Select *Create Areas of influence*
+  3. Click on ADD ANALYSIS
+  4. Set parameters as folows:
+    * *TYPE*: `Distance`
+    * *UNITS*:  `mi` (miles)
+    * *RADIUS*: `60`
+    * *TRACTS*: `4`
+    * *BOUNDARIES*: *Dissolved*
+  5. Hit on APPLY
 
 ### 3. Continents and islands <a name="continents"></a>
 

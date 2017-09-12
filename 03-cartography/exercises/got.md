@@ -62,7 +62,8 @@
   5. Hit on APPLY
   6. Go to the STYLE tab and switch from VALUES to CARTOCSS
   7. Replace the default style with the following one:
-<br>
+
+
   ```css
   #layer {
     line-width: 1;
@@ -71,6 +72,7 @@
     line-comp-op: soft-light;
   }
   ```
+  
   8. Hit on APPLY
 
 ![ripples](img/got-ripples.png)
@@ -82,7 +84,8 @@
   1. Click on *Continents and islands* layer
   2. Switch from VALUES to CARTOCSS
   3. Replace the default style with the following one:
-<br>
+
+
   ```css
   #layer {
   polygon-pattern-file:
@@ -96,9 +99,9 @@
     line-color: fadeout(#fff,85);
     
     [zoom<=4]{line-width: 2.5;}
-
   }
   ```
+
   4. Hit on APPLY
 
 ![continents](img/got-continents.png)
@@ -110,7 +113,7 @@
   1. Click on *Continents and islands* layer
   2. Switch from VALUES to CARTOCSS
   3. Replace the default style with the following one:
-<br>
+
   ```css
   #layer [type = 'mountain']{
    polygon-pattern-file:
@@ -123,15 +126,15 @@
     polygon-opacity: 0.7;
     line-width: 1;
     line-color: rgba(255,255,255,0.1);
-
   }
 
   #layer[type='swamp']{
     polygon-opacity: 0.4;
     polygon-fill: mix(#6ea92f,#718c9f,30);
   }
-  
+
   ```
+
   4. Hit on APPLY
 
 ![mountains](img/got-mountains.png)

@@ -9,7 +9,7 @@
 1. [Getting started](#getting-started)
 2. [Ocean and ripples](#ocean)
 3. [Continents and islands](#continents)
-4. [Lakes and mountains](#lakes)
+4. [Mountains and lakes](#mountains)
 5. [Rivers and roads](#rivers)
 6. [The Ice Wall and beyond](#wall)
 7. [Regions and towns](#locations)
@@ -62,7 +62,7 @@
   5. Hit on APPLY
   6. Go to the STYLE tab and switch from VALUES to CARTOCSS
   7. Replace the default style with the following one:
-
+<br>
   ```css
   #layer {
     line-width: 1;
@@ -96,14 +96,45 @@
     line-color: fadeout(#fff,85);
     
     [zoom<=4]{line-width: 2.5;}
-     
+
   }
   ```
   4. Hit on APPLY
 
 ![continents](img/got-continents.png)
 
-### 4. Lakes and mountains <a name="lakes"></a>
+### 4. Mountains and lakes <a name="mountains"></a>
+
+* Enable the view from the *Mountains and lakes* layer
+* Again, follow these instructions to style this layer:
+  1. Click on *Continents and islands* layer
+  2. Switch from VALUES to CARTOCSS
+  3. Replace the default style with the following one:
+<br>
+  ```css
+  #layer [type = 'mountain']{
+   polygon-pattern-file:
+  url('https://s3.amazonaws.com/com.cartodb.users-assets.production/production/mamataakella/assets/20170823212836mountain-range.png');
+    polygon-pattern-opacity: 0.3;
+
+  }
+  #layer[type='lake'] {
+    polygon-fill: #718c9f;
+    polygon-opacity: 0.7;
+    line-width: 1;
+    line-color: rgba(255,255,255,0.1);
+
+  }
+
+  #layer[type='swamp']{
+    polygon-opacity: 0.4;
+    polygon-fill: mix(#6ea92f,#718c9f,30);
+  }
+  
+  ```
+  4. Hit on APPLY
+
+![mountains](img/got-mountains.png)
 
 ### 5. Rivers and roads <a name="rivers"></a>
 

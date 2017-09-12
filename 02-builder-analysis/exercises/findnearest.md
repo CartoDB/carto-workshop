@@ -116,6 +116,8 @@
   * In the `STYLE` tab:
     * `STROKE`: set color to #3e7db (`#3e7db`).
 
+![style](imgs/findnearest/02-styles.png)
+
 ## 4. Filter your map with widgets to gain more insight into your analysis
 
 ### 4. 1. Add a histogram widget to filter by the airbnb score rating distribution

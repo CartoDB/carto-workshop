@@ -82,7 +82,7 @@
   1. Click on *Continents and islands* layer
   2. Switch from VALUES to CARTOCSS
   3. Replace the default style with the following one:
-
+<br>
   ```css
   #layer {
   polygon-pattern-file:

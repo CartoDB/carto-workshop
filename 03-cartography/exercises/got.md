@@ -72,7 +72,7 @@
     line-comp-op: soft-light;
   }
   ```
-  
+
   8. Hit on APPLY
 
 ![ripples](img/got-ripples.png)
@@ -140,6 +140,51 @@
 ![mountains](img/got-mountains.png)
 
 ### 5. Rivers and roads <a name="rivers"></a>
+
+* Enable the view from the *Rivers and roads* layer
+* Again, follow these instructions to style this layer:
+  1. Click on *Rivers and roads* layer
+  2. Switch from VALUES to CARTOCSS
+  3. Replace the default style with the following one:
+
+  ```css
+  #layer {
+    
+    [type='river']{
+      line-width: 1;
+      line-color: #718c9f;
+      line-opacity: 0.9;
+      [zoom<=4]{line-width: 0.5;}
+      [zoom>=6]{line-width: 1.5;}
+  }
+    
+   [type='road']{
+      ::case {
+          line-width: 4;
+          line-color: #3b3b3b;
+          line-opacity: 0.3;
+      
+            [zoom<=4]{line-width: 0;}
+            [zoom>=6]{line-width: 5;}
+        }
+
+      ::fill{
+          line-width: 2;
+          line-color: lighten(#8C9F71,10);
+          line-opacity: 0.9;
+      
+            [zoom<=4]{line-width: 0;}
+            [zoom>=6]{line-width: 3;}
+        }
+    }
+    
+  }
+
+  ```
+
+  4. Hit on APPLY
+
+![rivers](img/got-rivers.png)
 
 ### 6. The Ice Wall and beyond <a name="wall"></a>
 

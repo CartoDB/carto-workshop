@@ -58,7 +58,7 @@
     * *UNITS*:  `mi` (miles)
     * *RADIUS*: `60`
     * *TRACTS*: `4`
-    * *BOUNDARIES*: *Dissolved*
+    * *BOUNDARIES*: `Dissolved`
   5. Hit on APPLY
   6. Go to the STYLE tab and switch from VALUES to CARTOCSS
   7. Replace the default style with the following one:
@@ -84,7 +84,6 @@
   1. Click on *Continents and islands* layer
   2. Switch from VALUES to CARTOCSS
   3. Replace the default style with the following one:
-
 
   ```css
   #layer {
@@ -187,6 +186,36 @@
 ![rivers](img/got-rivers.png)
 
 ### 6. The Ice Wall and beyond <a name="wall"></a>
+
+* In order to create a 2.5 effect, follow these instructions:
+  1. Click on the *The Ice Wall* layer and go to the ANALYSIS tab
+  2. Click on ADD ANALYSIS button to add a new analysis 
+  2. Select *Create Areas of influence*
+  3. Click on ADD ANALYSIS
+  4. Set parameters as folows:
+    * *TYPE*: `Distance`
+    * *UNITS*:  `km` (kilometers)
+    * *RADIUS*: `9`
+    * *TRACTS*: `1`
+    * *BOUNDARIES*: `Intact`
+  5. Hit on APPLY
+  6. Go to the STYLE tab and switch from VALUES to CARTOCSS
+  7. Replace the default style with the following one:
+
+  ```css
+  #layer {
+    line-width: 0.25;
+    line-color: #FFF;
+    line-opacity: 0.5;
+    building-fill: #ffffff;
+    building-fill-opacity: 1;
+    building-height: 55000;
+  }
+  ```
+
+  8. Hit on APPLY
+
+![wall](img/got-wall.png)
 
 ### 7. Regions and towns <a name="locations"></a>
 

@@ -72,7 +72,7 @@
 }
 ```
 
-  viii. Hit on APPLY
+* Hit on APPLY
 
 ![ripples](img/got-ripples.png)
 
@@ -99,7 +99,7 @@
 }
 ```
 
-  iv. Hit on APPLY
+* Hit on APPLY
 
 ![continents](img/got-continents.png)
 
@@ -130,7 +130,7 @@
 }
 ```
 
-  iv. Hit on APPLY
+* Hit on APPLY
 
 ![mountains](img/got-mountains.png)
 
@@ -174,7 +174,7 @@
 }
 ```
 
-  iv. Hit on APPLY
+* Hit on APPLY
 
 ![rivers](img/got-rivers.png)
 
@@ -206,7 +206,7 @@
 }
 ```
 
-  viii. Hit on APPLY
+* Hit on APPLY
 
 ![wall](img/got-wall.png)
 
@@ -223,7 +223,7 @@
 }
 ```
 
-    iv. Hit on APPLY
+* Hit on APPLY
 
 ![beyond](img/got-beyond.png)
 
@@ -271,7 +271,7 @@ Map{
 }
 ```
 
-  iv. Hit on APPLY
+* Hit on APPLY
 
 ![locations](img/got-locations.png)
 
@@ -313,7 +313,7 @@ Map{
 }
 ```
 
-  iv. Hit on APPLY
+* Hit on APPLY
 
 ![regions](img/got-regions.png)
 

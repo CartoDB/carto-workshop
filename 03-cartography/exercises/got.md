@@ -72,7 +72,7 @@
 }
 ```
 
-  8. Hit on APPLY
+  viii. Hit on APPLY
 
 ![ripples](img/got-ripples.png)
 
@@ -99,7 +99,7 @@
 }
 ```
 
-  4. Hit on APPLY
+  iv. Hit on APPLY
 
 ![continents](img/got-continents.png)
 
@@ -130,7 +130,7 @@
 }
 ```
 
-  4. Hit on APPLY
+  iv. Hit on APPLY
 
 ![mountains](img/got-mountains.png)
 
@@ -174,7 +174,7 @@
 }
 ```
 
-  4. Hit on APPLY
+  iv. Hit on APPLY
 
 ![rivers](img/got-rivers.png)
 
@@ -206,7 +206,7 @@
 }
 ```
 
-  8. Hit on APPLY
+  viii. Hit on APPLY
 
 ![wall](img/got-wall.png)
 
@@ -223,7 +223,7 @@
 }
 ```
 
-    4. Hit on APPLY
+    iv. Hit on APPLY
 
 ![beyond](img/got-beyond.png)
 
@@ -271,7 +271,7 @@ Map{
 }
 ```
 
-  4. Hit on APPLY
+  iv. Hit on APPLY
 
 ![locations](img/got-locations.png)
 
@@ -313,7 +313,7 @@ Map{
 }
 ```
 
-  4. Hit on APPLY
+  iv. Hit on APPLY
 
 ![regions](img/got-regions.png)
 
@@ -335,11 +335,11 @@ Map{
 
 ![request](img/got-request.png)
 
-  3. Replace your user name and template id in the following URL:
+  iii. Replace your user name and template id in the following URL:
 
   `https://cartocdn-ashbu.global.ssl.fastly.net/USERNAME/api/v1/map/named/TEMPLATE_ID/all/{z}/{x}/{y}.png`
 
-  4. You will end up with a URL similar to this one:
+  iv. You will end up with a URL similar to this one:
 
   `https://cartocdn-ashbu.global.ssl.fastly.net/ramirocartodb/api/v1/map/named/tpl_4dd30d45_4fb8_4dd5_ba4a_f7a92c6c16ac/all/{z}/{x}/{y}.png`
 

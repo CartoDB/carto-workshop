@@ -94,6 +94,7 @@
   polygon-comp-op: multiply;
   line-width: 5;
   line-color: fadeout(#fff,85);
+  
   [zoom<=4]{line-width: 2.5;}
 }
 ```
@@ -115,6 +116,7 @@
   polygon-pattern-file: url('https://s3.amazonaws.com/com.cartodb.users-assets.production/production/mamataakella/assets/20170823212836mountain-range.png');
   polygon-pattern-opacity: 0.3;
 }
+
 #layer[type='lake'] {
   polygon-fill: #718c9f;
   polygon-opacity: 0.7;
@@ -146,6 +148,7 @@
     line-width: 1;
     line-color: #718c9f;
     line-opacity: 0.9;
+
     [zoom<=4]{line-width: 0.5;}
     [zoom>=6]{line-width: 1.5;}
 }
@@ -154,13 +157,16 @@
       line-width: 4;
       line-color: #3b3b3b;
       line-opacity: 0.3;
+
         [zoom<=4]{line-width: 0;}
         [zoom>=6]{line-width: 5;}
       }
+
     ::fill{
       line-width: 2;
       line-color: lighten(#8C9F71,10);
       line-opacity: 0.9;
+
         [zoom<=4]{line-width: 0;}
         [zoom>=6]{line-width: 3;}
     }
@@ -240,6 +246,7 @@ Map{
     text-dx:-5;
     text-dy:-4;
     text-character-spacing: 0;
+
       [zoom>=5]{text-size: 12;}
       [zoom>=6]{text-size: 13;}
       [zoom>=7]{text-size: 15;}
@@ -251,12 +258,54 @@ Map{
 
 ![locations](img/got-locations.png)
 
+* Enable the view from the *Locations* layer
+* Again, follow these instructions to style this layer:
+  1. Click on *Locations* layer
+  2. Switch from VALUES to CARTOCSS
+  3. Replace the default style with the following one:
+
+```css
+#layer [zoom>=4] {
+  text-name: [name];
+  text-face-name: "Lato Bold Italic";
+  text-size: 11;
+  text-fill: lighten(#7E9968,35);
+  text-halo-fill: fadeout(darken(#7E9968,12),70);
+  text-halo-radius: 1.5;
+  text-allow-overlap: true;
+  text-character-spacing: 1.5;
+  text-transform: uppercase;
+  
+  [zoom>=5]{
+    text-size: 12;
+    text-halo-radius: 2;
+    text-character-spacing: 3;
+  }
+  
+  [zoom>=6]{
+    text-size: 14;
+    text-character-spacing: 4;
+
+  }
+  
+  [zoom>=7]{
+    text-size: 16;
+    text-character-spacing: 6;
+
+  }
+}
+```
+
+  4. Hit on APPLY
+
+![regions](img/got-regions.png)
+
 ### 8. You know nothing! <a name="basemap"></a>
 
 * Finally, share your map following these instructions:
   1. Click on SHARE
   2. Click on PUBLISH
-    a. Share the URL of your map: `https://team.carto.com/u/ramirocartodb/builder/155a1d3a-1a49-4cbc-8908-1a648cb3d5c5/embed`
-    b. Embed the iframe into your website:
 
-<iframe width="100%" height="520" frameborder="0" src="https://team.carto.com/u/ramirocartodb/builder/4dd30d45-4fb8-4dd5-ba4a-f7a92c6c16ac/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+    a. Share the URL of your map: `https://team.carto.com/u/ramirocartodb/builder/155a1d3a-1a49-4cbc-8908-1a648cb3d5c5/embed`
+
+    b. Embed the iframe into your website: `<iframe width="100%" height="520" frameborder="0" src="https://team.carto.com/u/ramirocartodb/builder/4dd30d45-4fb8-4dd5-ba4a-f7a92c6c16ac/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>`

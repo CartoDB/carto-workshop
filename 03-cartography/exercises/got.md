@@ -54,11 +54,11 @@
   2. Select *Create Areas of influence*
   3. Click on ADD ANALYSIS
   4. Set parameters as folows:
-    * *TYPE*: `Distance`
-    * *UNITS*:  `mi` (miles)
-    * *RADIUS*: `60`
-    * *TRACTS*: `4`
-    * *BOUNDARIES*: `Dissolved`
+      * *TYPE*: `Distance`
+      * *UNITS*:  `mi` (miles)
+      * *RADIUS*: `60`
+      * *TRACTS*: `4`
+      * *BOUNDARIES*: `Dissolved`
   5. Hit on APPLY
   6. Go to the STYLE tab and switch from VALUES to CARTOCSS
   7. Replace the default style with the following one:
@@ -86,16 +86,14 @@
 
 ```css
 #layer {
-polygon-pattern-file:
-url('https://s3.amazonaws.com/com.cartodb.users-assets.production/production/mamataakella/assets/20170822202613TexturesCom_PaperDecorative0061_1_seamless_S.jpg');
-
+  polygon-pattern-file:
+  url('https://s3.amazonaws.com/com.cartodb.users-assets.production/production/mamataakella/assets/20170822202613TexturesCom_PaperDecorative0061_1_seamless_S.jpg');
   polygon-pattern-opacity: 0.4;
   polygon-fill:mix(#6ea92f,#CCBE9A,40);
   polygon-opacity: 0.8;
   polygon-comp-op: multiply;
   line-width: 5;
   line-color: fadeout(#fff,85);
-  
   [zoom<=4]{line-width: 2.5;}
 }
 ```
@@ -114,10 +112,8 @@ url('https://s3.amazonaws.com/com.cartodb.users-assets.production/production/mam
 
 ```css
 #layer [type = 'mountain']{
- polygon-pattern-file:
-url('https://s3.amazonaws.com/com.cartodb.users-assets.production/production/mamataakella/assets/20170823212836mountain-range.png');
+  polygon-pattern-file: url('https://s3.amazonaws.com/com.cartodb.users-assets.production/production/mamataakella/assets/20170823212836mountain-range.png');
   polygon-pattern-opacity: 0.3;
-
 }
 #layer[type='lake'] {
   polygon-fill: #718c9f;
@@ -184,11 +180,11 @@ url('https://s3.amazonaws.com/com.cartodb.users-assets.production/production/mam
   2. Select *Create Areas of influence*
   3. Click on ADD ANALYSIS
   4. Set parameters as folows:
-    * *TYPE*: `Distance`
-    * *UNITS*:  `km` (kilometers)
-    * *RADIUS*: `9`
-    * *TRACTS*: `1`
-    * *BOUNDARIES*: `Intact`
+      * *TYPE*: `Distance`
+      * *UNITS*:  `km` (kilometers)
+      * *RADIUS*: `9`
+      * *TRACTS*: `1`
+      * *BOUNDARIES*: `Intact`
   5. Hit on APPLY
   6. Go to the STYLE tab and switch from VALUES to CARTOCSS
   7. Replace the default style with the following one:
@@ -209,5 +205,50 @@ url('https://s3.amazonaws.com/com.cartodb.users-assets.production/production/mam
 ![wall](img/got-wall.png)
 
 ### 7. Regions and towns <a name="locations"></a>
+
+* Enable the view from the *Locations* layer
+* Again, follow these instructions to style this layer:
+  1. Click on *Locations* layer
+  2. Switch from VALUES to CARTOCSS
+  3. Replace the default style with the following one:
+
+```css
+Map{
+  buffer-size: 512;
+}
+#layer[type='City'][zoom>=4]{
+  ::inner{
+    marker-fill-opacity: 1;
+    marker-fill:#2b2b2b;
+    marker-line-width: 0;
+    marker-line-opacity: 0.65;
+    marker-placement: point;
+    marker-type: ellipse;
+    marker-width: 5;
+    marker-line-color: #2b2b2b;
+    marker-allow-overlap: true;
+  } 
+  ::labels {
+    text-name: [name];
+    text-face-name: "Lato Bold Italic";
+    text-size: 11;
+    text-fill: #2b2b2b;
+    text-halo-fill:fadeout(lighten(#7E9968,12),70);
+    text-halo-radius: 1.5;
+    text-placement-type: simple;
+    text-placements: "E,W,NW,NE,SE,8";
+    text-dx:-5;
+    text-dy:-4;
+    text-character-spacing: 0;
+      [zoom>=5]{text-size: 12;}
+      [zoom>=6]{text-size: 13;}
+      [zoom>=7]{text-size: 15;}
+  }
+}
+```
+
+  4. Hit on APPLY
+
+![locations](img/got-locations.png)
 
 ### 8. You know nothing! <a name="basemap"></a>

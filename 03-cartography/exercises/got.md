@@ -94,7 +94,7 @@
   polygon-comp-op: multiply;
   line-width: 5;
   line-color: fadeout(#fff,85);
-  
+
   [zoom<=4]{line-width: 2.5;}
 }
 ```
@@ -209,6 +209,23 @@
   8. Hit on APPLY
 
 ![wall](img/got-wall.png)
+
+* Enable the view from the *Beyond the Wall* layer
+* Again, follow these instructions to style this layer:
+  1. Click on *Beyond the Wall* layer
+  2. Switch from VALUES to CARTOCSS
+  3. Replace the default style with the following one: 
+
+```css
+#layer[cartodb_id=3] {
+  polygon-fill: #fff;
+  polygon-opacity: 0.65;
+}
+```
+
+    4. Hit on APPLY
+
+![beyond](img/got-beyond.png)
 
 ### 7. Regions and towns <a name="locations"></a>
 

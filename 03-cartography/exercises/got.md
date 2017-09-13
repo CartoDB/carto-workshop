@@ -63,15 +63,14 @@
   6. Go to the STYLE tab and switch from VALUES to CARTOCSS
   7. Replace the default style with the following one:
 
-
-  ```css
-  #layer {
-    line-width: 1;
-    line-color: #FFF;
-    line-opacity: 0.2;
-    line-comp-op: soft-light;
-  }
-  ```
+```css
+#layer {
+  line-width: 1;
+  line-color: #FFF;
+  line-opacity: 0.2;
+  line-comp-op: soft-light;
+}
+```
 
   8. Hit on APPLY
 
@@ -85,21 +84,21 @@
   2. Switch from VALUES to CARTOCSS
   3. Replace the default style with the following one:
 
-  ```css
-  #layer {
-  polygon-pattern-file:
-  url('https://s3.amazonaws.com/com.cartodb.users-assets.production/production/mamataakella/assets/20170822202613TexturesCom_PaperDecorative0061_1_seamless_S.jpg');
+```css
+#layer {
+polygon-pattern-file:
+url('https://s3.amazonaws.com/com.cartodb.users-assets.production/production/mamataakella/assets/20170822202613TexturesCom_PaperDecorative0061_1_seamless_S.jpg');
 
-    polygon-pattern-opacity: 0.4;
-    polygon-fill:mix(#6ea92f,#CCBE9A,40);
-    polygon-opacity: 0.8;
-    polygon-comp-op: multiply;
-    line-width: 5;
-    line-color: fadeout(#fff,85);
-    
-    [zoom<=4]{line-width: 2.5;}
-  }
-  ```
+  polygon-pattern-opacity: 0.4;
+  polygon-fill:mix(#6ea92f,#CCBE9A,40);
+  polygon-opacity: 0.8;
+  polygon-comp-op: multiply;
+  line-width: 5;
+  line-color: fadeout(#fff,85);
+  
+  [zoom<=4]{line-width: 2.5;}
+}
+```
 
   4. Hit on APPLY
 
@@ -113,26 +112,25 @@
   2. Switch from VALUES to CARTOCSS
   3. Replace the default style with the following one:
 
-  ```css
-  #layer [type = 'mountain']{
-   polygon-pattern-file:
-  url('https://s3.amazonaws.com/com.cartodb.users-assets.production/production/mamataakella/assets/20170823212836mountain-range.png');
-    polygon-pattern-opacity: 0.3;
+```css
+#layer [type = 'mountain']{
+ polygon-pattern-file:
+url('https://s3.amazonaws.com/com.cartodb.users-assets.production/production/mamataakella/assets/20170823212836mountain-range.png');
+  polygon-pattern-opacity: 0.3;
 
-  }
-  #layer[type='lake'] {
-    polygon-fill: #718c9f;
-    polygon-opacity: 0.7;
-    line-width: 1;
-    line-color: rgba(255,255,255,0.1);
-  }
+}
+#layer[type='lake'] {
+  polygon-fill: #718c9f;
+  polygon-opacity: 0.7;
+  line-width: 1;
+  line-color: rgba(255,255,255,0.1);
+}
 
-  #layer[type='swamp']{
-    polygon-opacity: 0.4;
-    polygon-fill: mix(#6ea92f,#718c9f,30);
-  }
-
-  ```
+#layer[type='swamp']{
+  polygon-opacity: 0.4;
+  polygon-fill: mix(#6ea92f,#718c9f,30);
+}
+```
 
   4. Hit on APPLY
 
@@ -146,40 +144,33 @@
   2. Switch from VALUES to CARTOCSS
   3. Replace the default style with the following one:
 
-  ```css
-  #layer {
-    
-    [type='river']{
-      line-width: 1;
-      line-color: #718c9f;
+```css
+#layer {
+  [type='river']{
+    line-width: 1;
+    line-color: #718c9f;
+    line-opacity: 0.9;
+    [zoom<=4]{line-width: 0.5;}
+    [zoom>=6]{line-width: 1.5;}
+}
+ [type='road']{
+    ::case {
+      line-width: 4;
+      line-color: #3b3b3b;
+      line-opacity: 0.3;
+        [zoom<=4]{line-width: 0;}
+        [zoom>=6]{line-width: 5;}
+      }
+    ::fill{
+      line-width: 2;
+      line-color: lighten(#8C9F71,10);
       line-opacity: 0.9;
-      [zoom<=4]{line-width: 0.5;}
-      [zoom>=6]{line-width: 1.5;}
-  }
-    
-   [type='road']{
-      ::case {
-          line-width: 4;
-          line-color: #3b3b3b;
-          line-opacity: 0.3;
-      
-            [zoom<=4]{line-width: 0;}
-            [zoom>=6]{line-width: 5;}
-        }
-
-      ::fill{
-          line-width: 2;
-          line-color: lighten(#8C9F71,10);
-          line-opacity: 0.9;
-      
-            [zoom<=4]{line-width: 0;}
-            [zoom>=6]{line-width: 3;}
-        }
+        [zoom<=4]{line-width: 0;}
+        [zoom>=6]{line-width: 3;}
     }
-    
   }
-
-  ```
+}
+```
 
   4. Hit on APPLY
 
@@ -202,16 +193,16 @@
   6. Go to the STYLE tab and switch from VALUES to CARTOCSS
   7. Replace the default style with the following one:
 
-  ```css
-  #layer {
-    line-width: 0.25;
-    line-color: #FFF;
-    line-opacity: 0.5;
-    building-fill: #ffffff;
-    building-fill-opacity: 1;
-    building-height: 55000;
-  }
-  ```
+```css
+#layer {
+  line-width: 0.25;
+  line-color: #FFF;
+  line-opacity: 0.5;
+  building-fill: #ffffff;
+  building-fill-opacity: 1;
+  building-height: 55000;
+}
+```
 
   8. Hit on APPLY
 

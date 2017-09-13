@@ -20,7 +20,7 @@
 * [Template .carto file](https://drive.google.com/file/d/0B9k_lcYQZACgOVJsRlQ3ZUZQeGM/view?usp=sharing)
 * [Final .carto file](https://drive.google.com/file/d/0B9k_lcYQZACgMHU1aXlmdW9ac00/view?usp=sharing)
 
-*All thematic data was built from the gvSIG’s ebook, [*Learning GIS with Game of Thrones*](http://downloads.gvsig.org/download/documents/books/GoT_book_GIS_gvSIG.pdf).
+*All thematic data was built from the gvSIG’s ebook, [*Learning GIS with Game of Thrones*](http://downloads.gvsig.org/download/documents/books/GoT_book_GIS_gvSIG.pdf). Textures and icons were made from [Textures](https://www.textures.com/) and [The Noun Project](https://thenounproject.com/) websites.
 
 ### 1. Getting started <a name="getting-started"></a>
 
@@ -319,10 +319,28 @@ Map{
 
 ### 8. You know nothing! <a name="basemap"></a>
 
-* Finally, share your map following these instructions:
+* Share your map following these instructions:
   1. Click on SHARE
   2. Click on PUBLISH
 
     a. Share the URL of your map: `https://team.carto.com/u/ramirocartodb/builder/155a1d3a-1a49-4cbc-8908-1a648cb3d5c5/embed`
 
     b. Embed the iframe into your website: `<iframe width="100%" height="520" frameborder="0" src="https://team.carto.com/u/ramirocartodb/builder/4dd30d45-4fb8-4dd5-ba4a-f7a92c6c16ac/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>`
+
+![embed](img/got-embed.png)
+
+* As a bonus, we are going to convert this BUILDER map into a basemap. This will allow us to put on top character thematic data:
+  1. Open the `Network` tab from your browser developer tools console.
+  2. Look for the call that starts with `json` and get the template id from the `Request URL`:
+
+![request](img/got-request.png)
+
+  3. Replace your user name and template id in the following URL:
+
+  `https://cartocdn-ashbu.global.ssl.fastly.net/USERNAME/api/v1/map/named/TEMPLATE_ID/all/{z}/{x}/{y}.png`
+
+  4. You will end up with a URL similar to this one:
+
+  `https://cartocdn-ashbu.global.ssl.fastly.net/ramirocartodb/api/v1/map/named/tpl_4dd30d45_4fb8_4dd5_ba4a_f7a92c6c16ac/all/{z}/{x}/{y}.png`
+
+* Finally, you can add this custom basempa following [this guide](https://carto.com/learn/guides/styling/inserting-external-basemaps).

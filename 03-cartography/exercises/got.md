@@ -252,3 +252,11 @@ Map{
 ![locations](img/got-locations.png)
 
 ### 8. You know nothing! <a name="basemap"></a>
+
+* Finally, share your map following these instructions:
+  1. Click on SHARE
+  2. Click on PUBLISH
+    a. Share the URL of your map: `https://team.carto.com/u/ramirocartodb/builder/155a1d3a-1a49-4cbc-8908-1a648cb3d5c5/embed`
+    b. Embed the iframe into your website:
+
+<iframe width="100%" height="520" frameborder="0" src="https://team.carto.com/u/ramirocartodb/builder/4dd30d45-4fb8-4dd5-ba4a-f7a92c6c16ac/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>

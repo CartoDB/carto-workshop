@@ -1,7 +1,7 @@
 # How to create a Game of Thrones basemap
 
-* Goal: create a basemap based on Game of Thrones world.
-* Based on [*Our Game of Thrones Basemap is here to unite the Seven Kingdoms* blogpost](https://carto.com/blog/game-of-thrones-basemap/).
+* Goal: create a basemap based on the Game of Thrones world.
+* Based on [_*Our Game of Thrones Basemap is here to unite the Seven Kingdoms* blogpost](https://carto.com/blog/game-of-thrones-basemap/).
 
 ## Guide
 
@@ -20,11 +20,11 @@
 * [Template .carto file](https://drive.google.com/file/d/0B9k_lcYQZACgOVJsRlQ3ZUZQeGM/view?usp=sharing)
 * [Final .carto file](https://drive.google.com/file/d/0B9k_lcYQZACgMHU1aXlmdW9ac00/view?usp=sharing)
 
-*All thematic data was built from the gvSIG’s ebook, [*Learning GIS with Game of Thrones*](http://downloads.gvsig.org/download/documents/books/GoT_book_GIS_gvSIG.pdf). Textures and icons were made from [Textures](https://www.textures.com/) and [The Noun Project](https://thenounproject.com/) websites.
+*All thematic data was built from the gvSIG’s ebook, [*Learning GIS with Game of Thrones*](http://downloads.gvsig.org/download/documents/books/GoT_book_GIS_gvSIG.pdf). Textures and icons were created from [Textures](https://www.textures.com/) and [The Noun Project](https://thenounproject.com/) websites.
 
 ### 1. Getting started <a name="getting-started"></a>
 
-* Import the template .carto file into your account.
+* Import the template .carto file to your account.
 * Open the map.
 * Rename your map as *Game of Thrones Basemap*.
 * Make sure that the order and names of your layers are as follows:<br>
@@ -53,13 +53,13 @@
   2. Click on ADD ANALYSIS button to add a new analysis 
   2. Select *Create Areas of influence*
   3. Click on ADD ANALYSIS
-  4. Set parameters as folows:
+  4. Set the parameters as follows:
       * *TYPE*: `Distance`
       * *UNITS*:  `mi` (miles)
       * *RADIUS*: `60`
       * *TRACTS*: `4`
       * *BOUNDARIES*: `Dissolve` (try to use `Intact`!)
-  5. Hit on APPLY
+  5. Click APPLY
   6. Go to the STYLE tab and switch from VALUES to CARTOCSS
   7. Replace the default style with the following one:
 
@@ -74,17 +74,17 @@
 
 > `soft-light` composite operation will soften the parts where two lines overlap when unsing `Intact` buffers. 
 
-* Hit on APPLY
+* Click APPLY
 
 ![ripples](img/got-ripples.png)
 
 ### 3. Continents and islands <a name="continents"></a>
 
-* Disable the view from all your layers but *Continents and islands*
+* Hide all layers from your Map View except for *Continents and islands*
 * In order to style the land, follow these steps:
   1. Click on *Continents and islands* layer
   2. Switch from VALUES to CARTOCSS
-  3. Replace the default style with the following one:
+  3. Replace the default style with the following:
 
 ```css
 #layer {
@@ -103,17 +103,17 @@
 
 > As you can see, the pattern we have given to the land has a feeling of rugosity. Also, mixing two colors in the `polygon-fill` property and using `fadeout` to simulate the end of the land masses are good cartography tricks.
 
-* Hit on APPLY
+* Click APPLY
 
 ![continents](img/got-continents.png)
 
 ### 4. Mountains and lakes <a name="mountains"></a>
 
-* Enable the view from the *Mountains and lakes* layer
+* Show the *Mountains and lakes* layers from the Map View
 * Again, follow these instructions to style this layer:
   1. Click on *Continents and islands* layer
   2. Switch from VALUES to CARTOCSS
-  3. Replace the default style with the following one:
+  3. Replace the default style with the following:
 
 ```css
 #layer [type = 'mountain']{
@@ -136,17 +136,17 @@
 
 > We are using a pattern with a grid of mountain icons to emulate mountain ranges. In addition, swamps were colored mixing water and ground colors.
 
-* Hit on APPLY
+* Click APPLY
 
 ![mountains](img/got-mountains.png)
 
 ### 5. Rivers and roads <a name="rivers"></a>
 
 * Enable the view from the *Rivers and roads* layer
-* Again, follow these instructions to style this layer:
+* Follow these instructions to style this layer:
   1. Click on *Rivers and roads* layer
   2. Switch from VALUES to CARTOCSS
-  3. Replace the default style with the following one:
+  3. Replace the default style with the following:
 
 ```css
 #layer {
@@ -182,7 +182,7 @@
 
 > Rivers and roads were styled based on zoom.
 
-* Hit on APPLY
+* Click APPLY
 
 ![rivers](img/got-rivers.png)
 
@@ -193,15 +193,15 @@
   2. Click on ADD ANALYSIS button to add a new analysis 
   2. Select *Create Areas of influence*
   3. Click on ADD ANALYSIS
-  4. Set parameters as folows:
+  4. Set the parameters as follows:
       * *TYPE*: `Distance`
       * *UNITS*:  `km` (kilometers)
       * *RADIUS*: `9`
       * *TRACTS*: `1`
       * *BOUNDARIES*: `Intact`
-  5. Hit on APPLY
+  5. Click APPLY
   6. Go to the STYLE tab and switch from VALUES to CARTOCSS
-  7. Replace the default style with the following one:
+  7. Replace the default style with the following:
 
 ```css
 #layer {
@@ -214,17 +214,17 @@
 }
 ```
 
-> The 2.5D effect was made because of the `building` properties. Check [CartoCSS documentation](https://carto.com/docs/carto-engine/cartocss/properties/#building) for more detail information about this method.
+> The 2.5D effect was made because of the `building` properties. Check [CartoCSS documentation](https://carto.com/docs/carto-engine/cartocss/properties/#building) for more detailed information about this method.
 
-* Hit on APPLY
+* Click APPLY
 
 ![wall](img/got-wall.png)
 
-* Enable the view from the *Beyond the Wall* layer
+* Show the *Beyond the Wall* layer from the Map View
 * Again, follow these instructions to style this layer:
   1. Click on *Beyond the Wall* layer
   2. Switch from VALUES to CARTOCSS
-  3. Replace the default style with the following one: 
+  3. Replace the default style with the following: 
 
 ```css
 #layer[cartodb_id=3] {
@@ -233,17 +233,17 @@
 }
 ```
 
-* Hit on APPLY
+* Click APPLY
 
 ![beyond](img/got-beyond.png)
 
 ### 7. Regions and towns <a name="locations"></a>
 
-* Enable the view from the *Locations* layer
-* Again, follow these instructions to style this layer:
+* Show the *Locations* layer from the Map View
+* Follow these instructions to style this layer:
   1. Click on *Locations* layer
   2. Switch from VALUES to CARTOCSS
-  3. Replace the default style with the following one:
+  3. Replace the default style with the following:
 
 ```css
 Map{
@@ -283,15 +283,15 @@ Map{
 
 > Location labels are also styled based on zoom. Labels work nicely because of the font, size, halo and placement.
 
-* Hit on APPLY
+* Click APPLY
 
 ![locations](img/got-locations.png)
 
-* Enable the view from the *Locations* layer
-* Again, follow these instructions to style this layer:
+* Show the *Locations* layer from the Map View
+* Follow these instructions to style this layer:
   1. Click on *Locations* layer
   2. Switch from VALUES to CARTOCSS
-  3. Replace the default style with the following one:
+  3. Replace the default style with the following:
 
 ```css
 #layer [zoom>=4] {
@@ -323,9 +323,9 @@ Map{
 }
 ```
 
-> As we have done with location labels, regions were also styled based upon zoom. A very cool effect is giving some spaces between the word characters and transforming them into `uppercase`.
+> Regions were styled based upon zoom, similar to how location labels were styled. A very cool effect is giving some spaces between the word characters and transforming them into `uppercase`.
 
-* Hit on APPLY
+* Click APPLY
 
 ![regions](img/got-regions.png)
 
@@ -355,4 +355,4 @@ Map{
 
   `https://cartocdn-ashbu.global.ssl.fastly.net/ramirocartodb/api/v1/map/named/tpl_4dd30d45_4fb8_4dd5_ba4a_f7a92c6c16ac/all/{z}/{x}/{y}.png`
 
-* Finally, you can add this custom basempa following [this guide](https://carto.com/learn/guides/styling/inserting-external-basemaps).
+* Finally, you can add this custom basemap following [this guide](https://carto.com/learn/guides/styling/inserting-external-basemaps).

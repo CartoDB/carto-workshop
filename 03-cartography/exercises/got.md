@@ -58,7 +58,7 @@
       * *UNITS*:  `mi` (miles)
       * *RADIUS*: `60`
       * *TRACTS*: `4`
-      * *BOUNDARIES*: `Dissolved`
+      * *BOUNDARIES*: `Dissolve` (try to use `Intact`!)
   5. Hit on APPLY
   6. Go to the STYLE tab and switch from VALUES to CARTOCSS
   7. Replace the default style with the following one:
@@ -71,6 +71,8 @@
   line-comp-op: soft-light;
 }
 ```
+
+> `soft-light` composite operation will soften the parts where two lines overlap when unsing `Intact` buffers. 
 
 * Hit on APPLY
 
@@ -98,6 +100,8 @@
   [zoom<=4]{line-width: 2.5;}
 }
 ```
+
+> As you can see, the pattern we have given to the land has a feeling of rugosity. Also, mixing two colors in the `polygon-fill` property and using `fadeout` to simulate the end of the land masses are good cartography tricks.
 
 * Hit on APPLY
 
@@ -129,6 +133,8 @@
   polygon-fill: mix(#6ea92f,#718c9f,30);
 }
 ```
+
+> We are using a pattern with a grid of mountain icons to emulate mountain ranges. In addition, swamps were colored mixing water and ground colors.
 
 * Hit on APPLY
 
@@ -174,13 +180,15 @@
 }
 ```
 
+> Rivers and roads were styled based on zoom.
+
 * Hit on APPLY
 
 ![rivers](img/got-rivers.png)
 
 ### 6. The Ice Wall and beyond <a name="wall"></a>
 
-* In order to create a 2.5 effect, follow these instructions:
+* In order to create a 2.5D effect, follow these instructions:
   1. Click on the *The Ice Wall* layer and go to the ANALYSIS tab
   2. Click on ADD ANALYSIS button to add a new analysis 
   2. Select *Create Areas of influence*
@@ -205,6 +213,8 @@
   building-height: 55000;
 }
 ```
+
+> The 2.5D effect was made because of the `building` properties. Check [CartoCSS documentation](https://carto.com/docs/carto-engine/cartocss/properties/#building) for more detail information about this method.
 
 * Hit on APPLY
 
@@ -271,6 +281,8 @@ Map{
 }
 ```
 
+> Location labels are also styled based on zoom. Labels work nicely because of the font, size, halo and placement.
+
 * Hit on APPLY
 
 ![locations](img/got-locations.png)
@@ -302,16 +314,16 @@ Map{
   [zoom>=6]{
     text-size: 14;
     text-character-spacing: 4;
-
   }
   
   [zoom>=7]{
     text-size: 16;
     text-character-spacing: 6;
-
   }
 }
 ```
+
+> As we have done with location labels, regions were also styled based upon zoom. A very cool effect is giving some spaces between the word characters and transforming them into `uppercase`.
 
 * Hit on APPLY
 

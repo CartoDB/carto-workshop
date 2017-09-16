@@ -21,6 +21,7 @@ Cartography with CARTO
 * [TurboCARTO slides](https://docs.google.com/a/cartodb.com/presentation/d/1v4IYwOXSfUMwv6_X5pbDPBr5SaHLS6GUaa74HSMG3-8/edit?usp=sharing)
 * [Exercise: TurboCARTO workshop](http://bit.ly/turboviewer-cartosummit)
 * [Exercise: Africa vintage map](exercises/africa.md)
+* [Exercise: Game of Thrones basemap](exercises/got.md)
 
 Additionally, these lessons about colors in Cartography are also very useful:
 

@@ -18,7 +18,7 @@
 
 * URL: `https://{{USER_NAME}}.carto.com/dashboard/dataset`
 
-![maps-dashboard](/imgs/maps-dashboard.png)
+![maps-dashboard](imgs/maps-dashboard.png)
 
 * CARTO Maps Dashboard shows BUILDER maps ordered by `date` (default), `visits` or `likes`, users can `SEARCH` and switch to the maps with `likes`. 
 * When a map is selected, users can duplicate, delete or lock it, or change its privacy settings.
@@ -29,7 +29,7 @@
 
 * URL: `https://{{USER_NAME}}.carto.com/dashboard`
 
-![datasets-dashboard](/imgs/datasets-dashboard.png)
+![datasets-dashboard](imgs/datasets-dashboard.png)
 
 * CARTO Datasets Dashboard shows BUILDER datasets ordered by `date` (default), `visits`, `likes` or `size`, users can `SEARCH`, switch to the datasets with `likes` and go to CARTO `DATA LIBRARY`. 
 * When a dataset is selected, users can duplicate, delete or lock it, change its privacy settings or create a map.
@@ -41,7 +41,7 @@
 
 * URL: `https://{{USER_NAME}}.carto.com/dataset/{{TABLE_NAME}}`
 
-![dataset-view](/imgs/dataset-view.png)
+![dataset-view](imgs/dataset-view.png)
 
 * CARTO users can rename, duplicate, edit metadata, lock or delete it.
 * They can also change it profile settings.
@@ -60,4 +60,4 @@
 
 * URL: `https://{{USER_NAME}}.carto.com/me`
 
-![profile](/imgs/profile.png)
+![profile](imgs/profile.png)

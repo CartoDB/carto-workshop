@@ -8,4 +8,4 @@ Introduction to CARTO
 
 ## Exercise
 
-* [CARTO BUILDER, Dataset View and Dashboards UI](/exercises/intro.md)
+* [CARTO BUILDER, Dataset View and Dashboards UI](exercises/intro.md)

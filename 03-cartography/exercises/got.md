@@ -1,7 +1,7 @@
 # How to create a Game of Thrones basemap
 
 * Goal: create a basemap based on the Game of Thrones world.
-* Based on [_*Our Game of Thrones Basemap is here to unite the Seven Kingdoms* blogpost](https://carto.com/blog/game-of-thrones-basemap/).
+* Based on [*Our Game of Thrones Basemap is here to unite the Seven Kingdoms* blogpost](https://carto.com/blog/game-of-thrones-basemap/).
 
 ## Guide
 

@@ -27,5 +27,5 @@ CARTO ENGINE I: development kits
 * Python workshops
     * [Python SDK Introduction](http://nbviewer.jupyter.org/github/CartoDB/carto-workshop/blob/master/06-sdks/exercises/python_SDK/Python_SDK.ipynb)
     * [New SDK Introduction](http://nbviewer.jupyter.org/github/CartoDB/carto-workshop/blob/master/06-sdks/exercises/python_SDK/Python_SDK_2.ipynb)
-    * [Python SDK Introduction workshop](http://nbviewer.jupyter.org/github/CartoDB/carto-workshop/blob/master/06-sdks/exercises/python_SDK/CARTO_Frames.ipynb)
+    * [CARTO Frames Introduction workshop](http://nbviewer.jupyter.org/github/CartoDB/carto-workshop/blob/master/06-sdks/exercises/python_SDK/CARTO_Frames.ipynb)
 

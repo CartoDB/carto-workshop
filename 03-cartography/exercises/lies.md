@@ -10,13 +10,13 @@
 
 1. [Projections](#projections)
 2. [Choropleth maps](#choropleths)
-3. [TurboCARTO and CARTOcolors](#carto)
-3.1. [TurboCARTO](#turbo)
-3.2. [CARTOcolors](#colors)
-4. [Interactivity](#interactivity)
-4.1. [Widgets](#widgets)
-4.2. [Legends](#legends)
-4.3. [Popus](#popups)
+3. [TurboCARTO and CARTOcolors](#carto)<br>
+	3.1. [TurboCARTO](#turbo)<br>
+	3.2. [CARTOcolors](#colors)<br>
+4. [Interactivity](#interactivity)<br>
+	4.1. [Widgets](#widgets)<br>
+	4.2. [Legends](#legends)<br>
+	4.3. [Popus](#popups)
 
 ### 1. Projections <a name="projections"></a>
 

@@ -30,7 +30,7 @@
 
 ![agg_squares](img/agg_squares.png)
 
-![mercator-bubbles](img/bubbles.png)
+![mercator-bubbles](img/mercator_bubbles.png)
 
 > **Tip**: try not to use bubble maps or square/hexbins with world maps, use it for areas sharing the same latitude.
 
@@ -143,7 +143,7 @@ b. CARTOcolors:
 * Designed for web maps, work nicely with CARTO basemaps.
 * Useful resources: [CARTOcolors landing page](https://carto.com/carto-colors/) & [GitHub repository](https://github.com/CartoDB/CartoColor)
 
-> **Tip**: 
+> **Tip**: you should take into account what the thematic data represents, the interaction between other layers and basemap, the visual hierarchy, your audience, the device where the map will be shared...
 
 #### 4. Interactivity <a name="interactivity"></a>
 

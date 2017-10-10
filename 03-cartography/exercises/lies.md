@@ -16,7 +16,7 @@
 4. [Interactivity](#interactivity)<br>
 	4.1. [Widgets](#widgets)<br>
 	4.2. [Legends](#legends)<br>
-	4.3. [Popus](#popups)
+	4.3. [Popups](#popups)
 
 ### 1. Projections <a name="projections"></a>
 

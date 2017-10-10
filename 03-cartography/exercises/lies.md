@@ -16,7 +16,7 @@
 4. [Interactivity](#interactivity)<br>
 	4.1. [Widgets](#widgets)<br>
 	4.2. [Legends](#legends)<br>
-	4.3. [Popus](#popups)
+	4.3. [Popups](#popups)
 
 ### 1. Projections <a name="projections"></a>
 
@@ -149,10 +149,20 @@ b. CARTOcolors:
 
 #### 4.1. Widgets <a name="widgets"></a>
 
+> **Tip**: you can use widgets as legends, using auto style as explained in [this guide](https://carto.com/blog/data-driven-maps-auto-style/)
+
+![damage](img/damage.png)
+
+![speed](img/speed.png)
+
+![type](img/type.png)
+
+![company](img/company.png)
+
 #### 4.2. Legends <a name="legends"></a>
+
+> **Tip**: first use style `BY VALUE` from BUILDER UI, and then switch to CartoCSS and change the TurboCARTO ramps.
 
 #### 4.3. Popups <a name="popus"></a>
 
-##### Click
-
-##### Hover
+> **Tip**: show little information when hovering, show more detail information when click!

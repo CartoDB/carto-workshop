@@ -19,6 +19,7 @@ Cartography with CARTO
 * [CartoCSS foundations](resources/cartocss.md)
 * [CartoCSS basics](resources/basics.md)
 * [TurboCARTO slides](https://docs.google.com/a/cartodb.com/presentation/d/1v4IYwOXSfUMwv6_X5pbDPBr5SaHLS6GUaa74HSMG3-8/edit?usp=sharing)
+* [How (not) to lie with CARTO](exercises/lies.md)
 * [Exercise: TurboCARTO workshop](http://bit.ly/turboviewer-cartosummit)
 * [Exercise: Africa vintage map](exercises/africa.md)
 * [Exercise: Game of Thrones basemap](exercises/got.md)

@@ -1,6 +1,6 @@
 # How (not) to lie with CARTO
 
-## http://bit.ly/171017-carto-geoinq
+## http://bit.ly/171010-carto-geoinq
 
 ## Slides
 
@@ -150,6 +150,8 @@ b. CARTOcolors:
 #### 4.1. Widgets <a name="widgets"></a>
 
 > **Tip**: you can use widgets as legends, using auto style as explained in [this guide](https://carto.com/blog/data-driven-maps-auto-style/)
+
+https://team.carto.com/u/ramirocartodb/builder/16efa7c0-84b0-40a4-8374-df10f490903e/embed
 
 ![damage](img/damage.png)
 

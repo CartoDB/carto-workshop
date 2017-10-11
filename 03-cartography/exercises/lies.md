@@ -1,7 +1,5 @@
 # How (not) to lie with CARTO
 
-## http://bit.ly/171010-carto-geoinq
-
 ## Slides
 
 [How (not) to lie with CARTO](https://docs.google.com/presentation/d/19a5e7SlAkPKjL1u_S7NuacBLhOcHEPG-MmYma8darPo/edit?usp=sharing)

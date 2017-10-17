@@ -1,69 +1,58 @@
-FOSS4G Europe 2017 CARTO BUILDER workshop
-============================================
+# Taller BUILDER - FOSS4G Argentina 2017
 
+![](img/banner.jpg)
 
-![](img/banner.png)
+## [http://bit.ly/171024-foss4g-ar](http://bit.ly/170718-foss4g-ar)
 
-## [http://bit.ly/170718-foss4ge-builder](http://bit.ly/170718-foss4ge-builder)
+Este training se ha diseñado para ser impartido en 4 horas durante el [FOSS4G Argentina 2017](http://www.foss4g-ar.org/).
 
-
-This training was designed as a 4 hours training for [FOSS4G Europe 2017](https://europe.foss4g.org/2017/).
-
-In order to access the complete training on CARTO technologies, you have to go to the [master branch](https://github.com/CartoDB/carto-workshop). The contents of the full workshop are separated into modules and are meant to be made sequentially going from the most basic usage for GIS and analysts up to the advanced development section for attendants with more knowledge about web mapping development and so on. Modules can be easily combined to finally make a 1 week full training but they can be also split to make a longer training with half day duration.
+Puedes acceder a todo nuestro material de formación en la [rama `master` de este repositorio](https://github.com/CartoDB/carto-workshop). Los contenidos están separados en diferentes módulos que van de forma incremental avanzando desde el uso más básico para todo tipo de técnicos SIG y analistas hasta desarrolladores y usuarios avanzados con conocimientos de aplicaciones web, bases de datos, desarrollo de aplicaciones móviles, etc. Los módulos se pueden combinar fácilmente para conformar hasta una semana completa de formación.
 
 ## Agenda
 
-### Introduction to CARTO
+### Introducción a CARTO
 
-Introduction to CARTO as a platform: product positioning, general overview of the portfolio.
+Breve introducción a CARTO como plataforma: posicionamiento y revisión general del portfolio.
 
-* Duration: 15 minutes
+
+* Duración: 15 minutos
 * [Introduction to CARTO](https://docs.google.com/presentation/d/1epfHq4TYhEp__WsUOtFNYGOqPtMLFwdarWr-7xCAyRE/pub)
 
 
-### Introduction to CARTO BUILDER
+### Introducción a CARTO BUILDER
 
-Introduction to the main BUILDER features and User Interface elements.
+Introducción a las principales características y elementos de interfaz de usuario de BUILDER.
 
-* Duration: 30 minutes
+* Duración: 30 minutos
 * [Introduction to CARTO Builder](https://docs.google.com/presentation/d/1cvENuNqK7HoOvqcbHHATXFIBUx968yI43wFxj5MG8x4/pub).
 
-### BUILDER exercise 1: Data Visaulization with CARTO
+### Ejercicio 1 de BUILDER exercise 1: Visualización de datos
 
-The goal of this first exercise is to display on a dashboard the different kinds of trees in San Francisco and when they were planted.
+El objetivo de este primer ejercicio es mostrar en un cuadro de mando (*dashboard*) los diferentes tipos de árboles de la ciudad de San Farncisco, así cómo cuándo fueron plantados.
 
-* Duration: 45 minutes
+* Duración: 60 minutos
 * [San Francisco Tree Map](https://github.com/CartoDB/carto-workshop/blob/master/01-builder-visualization/exercises/sf-trees.md)
 
 ![SF Trees](img/sf-trees.png)
 
-### BUILDER exercise 2: Geospatial Analysis
+### Ejercicio 2 de BUILDER: Análisis geográfico
 
-In this exercise we will see how to use CARTO analysis and widgets to find a new location to create a store depending on the location and value of the clients of Portland.
+En este ejercicio vamos a ver cómo usar las capacidades de análisis y de creación de *dashboards* en BUILDER para determinar la localización de tiendas ficticias basadas en la localización y valor de un grupo de clientes potenciales en la ciudad de Portland.
 
-* Duration: 45 minutes
+* Duración: 60 minutos
 * [Sales Territory exercise](https://github.com/CartoDB/carto-workshop/blob/master/02-builder-analysis/exercises/portland.md)
 
 ![sales](img/sales.png)
 
-### BUILDER exercise 3: Geospatial Analysis and auto-styling
+### Ejercicio 3 de BUILDER: Visualización cartográfica
 
-In this exercise we will apply auto-styling feature to make the invisible of our data visible.
+En este ejercicio vamos a ir más allá de las funcionalidades de la interfaz de usuario y vamos a crear un mapa basado en las novelas de *Canción de Hielo y Fuego*.
 
-* Duration: 45 minutes
-*[L-train exercise](https://github.com/CartoDB/carto-workshop/blob/master/02-builder-analysis/exercises/l_line.md)
+* Duración: 60 minutos
+* [Cartography exercise](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/got.md)
 
-![l-train](img/l-train.png)
-
-### BUILDER exercise 4: Cartography visualization
-
-In this exercise we will go further of default UI to define cartography symbololgy and will use CartoCSS and TurboCARTO to create a beautiful map.
-
-* Duration: 45 minutes
-* [Cartography exercise](https://github.com/CartoDB/carto-workshop/blob/master/02-builder-analysis/exercises/railways.md)
-
-![Africa](img/africa.png)
+![Game Of Thrones](img/got.png)
 
 ## Q&A
-  * Duration: 15 min
-  * You can post (and check!) your questions in [GIS StackExchange forum adding carto tag](https://gis.stackexchange.com/questions/tagged/carto)
+  * Duración: 15 minutos
+  * Más allá del taller os invitamos a pasaros por la etiqueta `carto` de [GIS StackExchange](https://gis.stackexchange.com/questions/tagged/carto) y participar preguntando y esperamos también respondiendo :smile:.

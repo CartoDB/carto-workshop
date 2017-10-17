@@ -2,7 +2,7 @@
 
 ![](img/banner.jpg)
 
-## [http://bit.ly/171024-foss4g-ar](http://bit.ly/170718-foss4g-ar)
+## [http://bit.ly/171024-builder](http://bit.ly/171024-builder)
 
 Este training se ha diseñado para ser impartido en 4 horas durante el [FOSS4G Argentina 2017](http://www.foss4g-ar.org/).
 

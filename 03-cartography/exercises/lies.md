@@ -1,20 +1,21 @@
 # How (not) to lie with CARTO
 
-## Slides
-
-[How (not) to lie with CARTO](https://docs.google.com/presentation/d/19a5e7SlAkPKjL1u_S7NuacBLhOcHEPG-MmYma8darPo/edit?usp=sharing)
-
 ### Index
 
 1. [Projections](#projections)
+
 2. [Choropleth maps](#choropleths)
+
 3. [TurboCARTO and CARTOcolors](#carto)<br>
-	3.1. [TurboCARTO](#turbo)<br>
-	3.2. [CARTOcolors](#colors)<br>
+  3.1. [TurboCARTO](#turbo)<br>
+  3.2. [CARTOcolors](#colors)<br>
+
 4. [Interactivity](#interactivity)<br>
-	4.1. [Widgets](#widgets)<br>
-	4.2. [Legends](#legends)<br>
-	4.3. [Popups](#popups)
+  4.1. [Widgets](#widgets)<br>
+  4.2. [Legends](#legends)<br>
+  4.3. [Popups](#popups)
+
+  ​
 
 ### 1. Projections <a name="projections"></a>
 
@@ -24,13 +25,12 @@
 
 > Be careful when making world maps!
 
-![mercator](img/mercator.png)
-
 ![agg_squares](img/agg_squares.png)
 
 ![mercator-bubbles](img/mercator_bubbles.png)
 
 > **Tip**: try not to use bubble maps or square/hexbins with world maps, use it for areas sharing the same latitude.
+
 
 
 ### 2. Choropleth maps <a name="choropleths"></a>
@@ -68,6 +68,7 @@ b. Making maps aggregating custom fields within polygons:
 * Normalized maps:
 
 ![sum-value-norm](img/sum_value_norm.png)
+
 
 
 ### 3. TurboCARTO and CARTOcolors <a name="carto"></a>
@@ -142,6 +143,8 @@ b. CARTOcolors:
 * Useful resources: [CARTOcolors landing page](https://carto.com/carto-colors/) & [GitHub repository](https://github.com/CartoDB/CartoColor)
 
 > **Tip**: you should take into account what the thematic data represents, the interaction between other layers and basemap, the visual hierarchy, your audience, the device where the map will be shared...
+
+
 
 #### 4. Interactivity <a name="interactivity"></a>
 

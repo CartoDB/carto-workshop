@@ -15,20 +15,20 @@
 
 1. Import and create a map
 2. Styling
- 2.1. *SIZE/COLOR*
- 2.2. *STROKE*
- 2.3. Exploring the cartoCSS
+ - 2.1. *SIZE/COLOR*
+ - 2.2. *STROKE*
+ - 2.3. Exploring the cartoCSS
 3. Widgets
- 3.1. Adding *WIDGETS*
- 3.2. Customizing *WIDGETS*
+ - 3.1. Adding *WIDGETS*
+ - 3.2. Customizing *WIDGETS*
 4. Add US counties layer, start the analysis
- 4.1. Back to *LAYERS* pane on Builder user interface, then *ADD*
- 4.2. Click on *US Counties* layer, *ANALYSES*, *ADD ANALYSIS*
+ - 4.1. Back to *LAYERS* pane on Builder user interface, then *ADD*
+ - 4.2. Click on *US Counties* layer, *ANALYSES*, *ADD ANALYSIS*
 5. Continue the analysis, get outliers and clusters
- 5.1. Click on *ADD ANALYSIS* just below *US Counties*
+ - 5.1. Click on *ADD ANALYSIS* just below *US Counties*
 6. Share and export your results
-  6.1. Back to *LAYERS* pane in Builder interface, click the three dots button to open *US Counties* layer menu.
-  6.2. Back to the main menu, check the publish dialogs
+  - 6.1. Back to *LAYERS* pane in Builder interface, click the three dots button to open *US Counties* layer menu.
+  - 6.2. Back to the main menu, check the publish dialogs
 
 <!-- /MarkdownTOC -->
 

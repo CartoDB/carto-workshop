@@ -14,9 +14,13 @@
 <!-- MarkdownTOC -->
 
 - 1. Import and create a map
-- 2. Style layer
-- 3. Add widgets
-  - 3. 1. Back to the main menu, select *WIDGETS*
+- 2. Styling
+  - 2. 1. *SIZE/COLOR*
+  - 2. 2. *STROKE*
+  - 2. 3. Exploring the cartoCSS
+- 3. Widgets
+  - 3. 1. Adding *WIDGETS*
+  - 3. 2. Customizing *WIDGETS*
 - 4. Add US counties layer, start the analysis
   - 4. 1. Back to *LAYERS* pane on Builder user interface, then *ADD*
   - 4. 2. Click on *US Counties* layer, *ANALYSES*, *ADD ANALYSIS*
@@ -35,42 +39,76 @@
 * Create a new map with it
 * You should have a dashboard like this:
 
-![1](imgs/railways/01-import.png)
+![1](imgs/railways/201-import.png)
 
-## 2. Style layer
+## 2. Styling
 
-* *FILL*: click on the marker size, select *BY VALUE*, set `total_damage` as the variable and choose a color.
-* Change the *STROKE* to `0`.
-* Click the slider button from *VALUES* to *CARTOCSS*. With the CartoCSS view, advanced users are allowed to layer style in a more precise way.
+Click on layer A (our only layer) and navigate to the *STYLE* pane.
 
-Switch to the CartoCSS view and check how the quantitative map has been defined. You'll see a `ramp()` function. This is TurboCARTO, our CartoCSS pre-processor that helps creating parametric symbolization based on column values. Learn more about TurboCARTO in this [awesome blog post](https://carto.com/blog/styling-with-turbo-carto/) by our senior cartographer [Mamata Akella](https://mamataakella.carto.com).
+### 2. 1.  *SIZE/COLOR*:
 
-![2](imgs/railways/02-style.png)
+* Click on the marker size (number). At the top of the pop-up, select *BY VALUE*, select `total_damage` as the variable. Set *MIN* to `2` and set *MAX* to `12`.
+* Click on the color selector (bar). Select any color. Set the opacity slider (or use the *A* text field) to be between `.5` and `.4`
 
-## 3. Add widgets
+### 2. 2. *STROKE*:
 
-### 3. 1. Back to the main menu, select *WIDGETS*
+* Click on the stroke width (number). Set to `0`.
 
-* *ADD WIDGET*:
-  * *Railroad Companies Category Widget*: select *CATEGORY*, choose *railroad*, and click on *CONTINUE*. In order to rename the widget, come back to the list of widgets and double click on the name and rename it as *Railroad Companies*.
-    * Take a look on how CARTO Builder sets a connection between vizualization and widgets. This connection is bidirectional, the map changes widgets values and clicking on categories changes the map.
-    * Click on the *Auto style* droplet button to see how each dot is colored according to its category.
-    * Disable the *Auto style* to come back to the default visualization.
+### 2. 3. Exploring the cartoCSS
+
+More advanced users can access the cartoCSS of their map by clicking on the slider at the bottom of the style pane to toggle from `VALUES` to `CARTOCSS`.
+
+Switch to the cartoCSS view and check how the quantitative map has been defined. You'll see a `ramp()` function. This is TurboCARTO, our cartoCSS pre-processor that helps creating parametric symbolization based on column values. Learn more about TurboCARTO in this [awesome blog post](https://carto.com/blog/styling-with-turbo-carto/) by our senior cartographer [Mamata Akella](https://mamataakella.carto.com).
+
+![2](imgs/railways/202-style.png)
+
+## 3. Widgets
+
+Click the *Back* button to navigate to the layers pane, and switch to the widgets pane
+
+### 3. 1. Adding *WIDGETS*
+
+Click on *ADD NEW WIDGET* and add the following:
+
+* *CATEGORY*: `railroad`
+* *FORMULA*: `total_damage`
+* *TIME SERIES*: `date`
+
+Click on *CONTINUE*
+
+### 3. 2. Customizing *WIDGETS*
+
+Click the *Back* button to navigate to the widgets pane. From here, you can drag the widgets into the order you would like them to appear on your map. To rename a widget, either double click on it's name, alter the text and hit enter, or click the three buttons on the right of the widget tiles and select `Rename`. Give the widgets meaningful names:
+* `railroad` -> `Railroad Companies`
+* `total_damge` -> `Total Damage Costs`
+* `date` -> `Date of Incident`
+
+Customize the widgets in the following ways:
+
+#### *Railroad Companies Category Widget*:
+* Notice how CARTO Builder relates map visualizations to widgets. This connection is bidirectional, the map changes widgets values and clicking on categories changes the map.
+* Click on the *Auto style* droplet button to see how each dot is colored according to its category.
+* Disable the *Auto style* to come back to the default visualization.
 
 
-![3-1](imgs/railways/03-widgets.png)
+![3-1](imgs/railways/203-widgets.png)
 
-* *Total Damage Formula Widget*: select *FORMULA*, choose *total_damage*, and click on *CONTINUE* and set *OPERATION* to *SUM* and add `$` as *PREFIX*. In order to rename the widget, come back to the list of widgets and double click on the name and rename it as *Total damage*.
-    * Again, experimient with the connection between visualization and widgets.
-    * Try to filter by company and see how the total damage widget is updated automatically.
-    * Change the order of the widgets, you can prioritize visually one over another.
+#### *Total Damage Costs Formula Widget*:
+* Set *OPERATION* to *SUM* and add `$` as *PREFIX*.
+* Again, Take note of the relationship between map visualization and widgets.
+* Try to filter by company by clicking on a category from the `Railroad Companies` widget and see how the `Total Damage Costs` widget is updated automatically.
 
-![3-2](imgs/railways/04-widgets.png)
+![3-2](imgs/railways/204-widgets.png)
 
-* *Date Time Series Widget*: select *TIME SERIES*, choose *date*, and click on *CONTINUE* in order to rename the widget.
+##### *Date Time Series Widget*:
+* Set *COLUMN* to `date`
+* Set *BUCKETS* to `month`
 
-![3-3](imgs/railways/05-widgets.png)
+![3-3](imgs/railways/205-widgets.png)
 
+You can now explore how filtering widgets can quickly provide powerful insights.
+
+![3-4](imgs/railways/205x-widgets.gif)
 
 ## 4. Add US counties layer, start the analysis
 
@@ -143,5 +181,3 @@ The dashboard should show your *Railroad accidents* as green dots with sizes dep
 * Now if you go back to your browser tab where you have pasted the link nothing has changed. But if you refresh the page, voilá! The colors have been modified.
 
 ![6-3](imgs/railways/12-publish.png)
-
-

@@ -11,27 +11,32 @@
 
 ## Contents
 
-<!-- MarkdownTOC -->
 
-1. Import and create a map
-2. Styling
- - 2.1. *SIZE/COLOR*
- - 2.2. *STROKE*
- - 2.3. Exploring the cartoCSS
-3. Widgets
- - 3.1. Adding *WIDGETS*
- - 3.2. Customizing *WIDGETS*
-4. Add US counties layer, start the analysis
- - 4.1. Back to *LAYERS* pane on Builder user interface, then *ADD*
- - 4.2. Click on *US Counties* layer, *ANALYSES*, *ADD ANALYSIS*
-5. Continue the analysis, get outliers and clusters
- - 5.1. Click on *ADD ANALYSIS* just below *US Counties*
-6. Share and export your results
-  - 6.1. Back to *LAYERS* pane in Builder interface, click the three dots button to open *US Counties* layer menu.
-  - 6.2. Back to the main menu, check the publish dialogs
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-<!-- /MarkdownTOC -->
+- [Analysis exercise: railways risk analysis<a name="railways"></a>](#analysis-exercise-railways-risk-analysisa-namerailwaysa)
+	- [Contents](#contents)
+	- [1. Import and create a map](#1-import-and-create-a-map)
+	- [2. Styling](#2-styling)
+		- [2. 1.  *SIZE/COLOR*:](#2-1-sizecolor)
+		- [2. 2. *STROKE*:](#2-2-stroke)
+		- [2. 3. Exploring the cartoCSS](#2-3-exploring-the-cartocss)
+	- [3. Widgets](#3-widgets)
+		- [3. 1. Adding *WIDGETS*](#3-1-adding-widgets)
+		- [3. 2. Customizing *WIDGETS*](#3-2-customizing-widgets)
+			- [*Railroad Companies Category Widget*:](#railroad-companies-category-widget)
+			- [*Total Damage Costs Formula Widget*:](#total-damage-costs-formula-widget)
+				- [*Date Time Series Widget*:](#date-time-series-widget)
+	- [4. Add US counties layer, start the analysis](#4-add-us-counties-layer-start-the-analysis)
+		- [4. 1. Back to *LAYERS* pane on Builder user interface, then *ADD*](#4-1-back-to-layers-pane-on-builder-user-interface-then-add)
+		- [4. 2. Click on *US Counties* layer, *ANALYSES*, *ADD ANALYSIS*](#4-2-click-on-us-counties-layer-analyses-add-analysis)
+	- [5. Continue the analysis, get outliers and clusters](#5-continue-the-analysis-get-outliers-and-clusters)
+		- [5. 1. Click on *ADD ANALYSIS* just below *US Counties*](#5-1-click-on-add-analysis-just-below-us-counties)
+	- [6. Share and export your results](#6-share-and-export-your-results)
+		- [6. 1. Back to *LAYERS* pane in Builder interface, click the three dots button to open *US Counties* layer menu.](#6-1-back-to-layers-pane-in-builder-interface-click-the-three-dots-button-to-open-us-counties-layer-menu)
+		- [6. 2. Back to the main menu, check the publish dialogs](#6-2-back-to-the-main-menu-check-the-publish-dialogs)
 
+<!-- /TOC -->
 
 ## 1. Import and create a map
 

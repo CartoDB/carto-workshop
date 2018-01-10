@@ -3,11 +3,15 @@ CARTO ENGINE I: development kits
 
 ## Agenda
 
+* SDKs overview
 * CARTO.js v3: layer creation, interactivity, feature customization
 * Mobile SDK Introduction
 * Python SDK
 
 ## Resources
+
+[SDKs overview slides](https://docs.google.com/presentation/d/e/2PACX-1vR_rNoN50hLmd6-kr0hxoTUPSz7ifcPVsKNSF5aZIlch6-e7_2Z93memuUMUN8gp8zv-GvJVz3jAX37/pub?slide=id.g2f7e358705_1_93)
+
 
 ### JavaScript
 

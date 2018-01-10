@@ -7,6 +7,8 @@ This repository contains a complete training on CARTO technologies. The contents
 
 Modules can be easily combined to finally make a 1 week full training but they can be also split to make a longer training with half day duration.
 
+There is a slide deck used in the intro, BUILDER and ENGINE modules, available at http://bit.ly/carto-workshop-slides
+
 ## [Module 0](00-intro-carto/). Introduction to CARTO
 
 - Duration: 1.5 hour

@@ -3,6 +3,7 @@ CARTO BUILDER for Data Visualization
 
 ## Agenda
 
+* BUILDER Intro
 * CARTO dashboard: organization, groups and user roles
 * Maps and Datasets
 * New interface: CARTO BUILDER vs Editor
@@ -13,6 +14,11 @@ CARTO BUILDER for Data Visualization
 * Widgets
 
 ## Resources
+
+Slides:
+
+* [BUILDER intro](https://docs.google.com/presentation/d/e/2PACX-1vR_rNoN50hLmd6-kr0hxoTUPSz7ifcPVsKNSF5aZIlch6-e7_2Z93memuUMUN8gp8zv-GvJVz3jAX37/pub?slide=id.g2f7e358705_1_216)
+
 
 Exercises:
 

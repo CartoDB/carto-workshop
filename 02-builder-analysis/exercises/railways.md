@@ -71,7 +71,7 @@ Switch to the cartoCSS view and check how the quantitative map has been defined.
 
 Click the *Back* button to navigate to the layers pane, and switch to the widgets pane
 
-### 3. 1. Adding *WIDGETS*
+### 3. 1. Adding Widgets
 
 Click on *ADD NEW WIDGET* and add the following:
 
@@ -81,7 +81,7 @@ Click on *ADD NEW WIDGET* and add the following:
 
 Click on *CONTINUE*
 
-### 3. 2. Customizing *WIDGETS*
+### 3. 2. Customizing Widgets
 
 Click the *Back* button to navigate to the widgets pane. From here, you can drag the widgets into the order you would like them to appear on your map. To rename a widget, either double click on it's name, alter the text and hit enter, or click the three buttons on the right of the widget tiles and select `Rename`. Give the widgets meaningful names:
 * `railroad` -> `Railroad Companies`
@@ -90,7 +90,7 @@ Click the *Back* button to navigate to the widgets pane. From here, you can drag
 
 Customize the widgets in the following ways:
 
-#### *Railroad Companies Category Widget*:
+#### *Railroad Companies* Category Widget:
 * Notice how CARTO Builder relates map visualizations to widgets. This connection is bidirectional, the map changes widgets values and clicking on categories changes the map.
 * Click on the *Auto style* droplet button to see how each dot is colored according to its category.
 * Disable the *Auto style* to come back to the default visualization.
@@ -98,14 +98,14 @@ Customize the widgets in the following ways:
 
 ![3-1](imgs/railways/203-widgets.png)
 
-#### *Total Damage Costs Formula Widget*:
+#### *Total Damage Costs* Formula Widget:
 * Set *OPERATION* to *SUM* and add `$` as *PREFIX*.
-* Again, Take note of the relationship between map visualization and widgets.
+* Again, take note of the relationship between map visualization and widgets.
 * Try to filter by company by clicking on a category from the `Railroad Companies` widget and see how the `Total Damage Costs` widget is updated automatically.
 
 ![3-2](imgs/railways/204-widgets.png)
 
-##### *Date Time Series Widget*:
+##### *Date* Time Series Widget:
 * Set *COLUMN* to `date`
 * Set *BUCKETS* to `month`
 
@@ -115,38 +115,58 @@ You can now explore how filtering widgets can quickly provide powerful insights.
 
 ![3-4](imgs/railways/205x-widgets.gif)
 
-## 4. Add US counties layer, start the analysis
+## 4. Analysis Add US counties layer, start the analysis
 
-### 4. 1. Back to *LAYERS* pane on Builder user interface, then *ADD*
+Click the *Back* button to navigate to the layers pane, then click *ADD*
 
-* Click on *DATA LIBRARY*, type `counties` on the *SEARCH* bar, select the  *cb_2013_us_county_500k* dataset and finally, click on *ADD LAYER*.
-* Rename the new layer to "US Counties".
+### 4. 1. Adding Layers
 
-### 4. 2. Click on *US Counties* layer, *ANALYSES*, *ADD ANALYSIS*
+* In order to add a common dataset, such as USA Counties, use the data library.
+* From the dataset selection window, click on *DATA LIBRARY*
+* Click on the magnifying glass while in the data library tab in order to expand the search bar and search within the library.
+* Type `counties` in the *SEARCH* bar
+* Select the *cb_2013_us_county_500k* (it may be called USA Counties) dataset. Click *ADD LAYER*.
+* Rename the new layer to `US Counties`.
+* Drag `US Counties` below `Railroad Accidents`.
 
-* Select *Intersect second layer*: this analysis performs a spatial intersection and aggregates the geometry values from the target layer that intersect with the geometry of the source layer..
-  * Select "Railroad accidents" as *TARGET LAYER* and `SUM(total_damage)` as *OPERATION*. Apply.
-  * When the analysis is done, an explanatory pop-up will appear. Click on *DONE*.
+### 4. 2. Perform Analysis
 
-**Warning**: if you have not run this analysis before, you could encounter a well known bug. This consist on that instead of polygons, you get points. You can get the right geometry changing the style of the layer.
+* Click on *US Counties* layer
+* Navigate to the *ANALYSIS* tab
+* Click *ADD NEW ANALYSIS*
 
-* First, using the map take a look on the results of the analysis: only the counties overlapping with data points are showed. Secondly, switch to the Data View to see the new column created with the previous analysis, `sum_total_damage`.
+#### *Intersect second layer* Analysis:
+* Select `Intersect second layer`: this analysis performs a spatial intersection and aggregates the geometry values from the target layer that intersect with the geometry of the source layer.
+* Click *ADD ANALYSIS*
+  * Set *TARGET LAYER* to `A0 Source railroad_data`
+  * Set *OPERATION* to `SUM(total_damage)`
+  * Click *APPLY*.
 
-![4-1](imgs/railways/06-table.png)
+* Notice that only the counties overlapping with data points are showed. Switch to the Data View to see the new column created with the analysis, `sum_total_damage`.
 
-* *Sum Total Damage Histogram Widget*: from the same *DATA* section, click the *Add as a widget* checkbox of the *sum_total_damage* field and *EDIT*. This will create a new histogram widget. Set the buckets to `7` and rename it as *Sum Total Damage*.
+![4-1](imgs/railways/206-table.png)
 
-* Use the autostyling and removing the visibility of the *Railroad accidents* layer. Remove auto style again. Go back to the main menu.
+#### *Sum Total Damage Histogram Widget*:
 
-![4-2](imgs/railways/07-counties.png)
+* Navigate to the *DATA* pane
+* Click the *Add as a widget* checkbox of the *sum_total_damage* field, click the *EDIT* button that appears.
+  * Set the *BUCKETS* to `7`
+  * Rename widget to `Sum Total Damage`.
 
-## 5. Continue the analysis, get outliers and clusters
+* Click the eye icon to hide `Railroad Accidents`
+* Click on the *Auto style* droplet button to see how each polygon is colored according to its value.
 
-### 5. 1. Click on *ADD ANALYSIS* just below *US Counties*
+![4-2](imgs/railways/207-counties.png)
 
+#### *Detect outliers and clusters* Analysis:
+
+* Click the *Back* button to navigate to the layers pane
+* Click on *US Counties* layer
+* Navigate to the *ANALYSIS* pane
+* Click *ADD NEW ANALYSIS*, near the top of the pane
 * Select *Detect outliers and clusters*: this analysis finds areas in your data where clusters of high values or low values exist, as well as areas which are dissimilar from their neighbors.
-  * Select `sum_total_damage` as *TARGET COLUMN* and leave the rest of parameters with the default values. *APPLY*.
-  * Again, when the analysis is done, an explanatory window will pop up. Click on *DONE*.
+  * Set *TARGET COLUMN* to `sum_total_damage`
+  * Click *APPLY*.
 
 * First, using the map show the viewer the results of the analysis: only the counties considered by the analysis as outliers or clusters are showed. Secondly, switch to the Data View to see the new columns created with the previous analysis, `quad` is the more interesting column because it contains the groups resulting from the analysis:
 

@@ -11,7 +11,6 @@
 
 ## Contents
 
-
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Analysis exercise: railways risk analysis<a name="railways"></a>](#analysis-exercise-railways-risk-analysisa-namerailwaysa)
@@ -22,19 +21,21 @@
 		- [2. 2. *STROKE*:](#2-2-stroke)
 		- [2. 3. Exploring the cartoCSS](#2-3-exploring-the-cartocss)
 	- [3. Widgets](#3-widgets)
-		- [3. 1. Adding *WIDGETS*](#3-1-adding-widgets)
-		- [3. 2. Customizing *WIDGETS*](#3-2-customizing-widgets)
-			- [*Railroad Companies Category Widget*:](#railroad-companies-category-widget)
-			- [*Total Damage Costs Formula Widget*:](#total-damage-costs-formula-widget)
-				- [*Date Time Series Widget*:](#date-time-series-widget)
-	- [4. Add US counties layer, start the analysis](#4-add-us-counties-layer-start-the-analysis)
-		- [4. 1. Back to *LAYERS* pane on Builder user interface, then *ADD*](#4-1-back-to-layers-pane-on-builder-user-interface-then-add)
-		- [4. 2. Click on *US Counties* layer, *ANALYSES*, *ADD ANALYSIS*](#4-2-click-on-us-counties-layer-analyses-add-analysis)
-	- [5. Continue the analysis, get outliers and clusters](#5-continue-the-analysis-get-outliers-and-clusters)
-		- [5. 1. Click on *ADD ANALYSIS* just below *US Counties*](#5-1-click-on-add-analysis-just-below-us-counties)
-	- [6. Share and export your results](#6-share-and-export-your-results)
-		- [6. 1. Back to *LAYERS* pane in Builder interface, click the three dots button to open *US Counties* layer menu.](#6-1-back-to-layers-pane-in-builder-interface-click-the-three-dots-button-to-open-us-counties-layer-menu)
-		- [6. 2. Back to the main menu, check the publish dialogs](#6-2-back-to-the-main-menu-check-the-publish-dialogs)
+		- [3. 1. Adding Widgets](#3-1-adding-widgets)
+		- [3. 2. Customizing Widgets](#3-2-customizing-widgets)
+			- [*Railroad Companies* Category Widget:](#railroad-companies-category-widget)
+			- [*Total Damage Costs* Formula Widget:](#total-damage-costs-formula-widget)
+			- [*Date* Time Series Widget:](#date-time-series-widget)
+	- [4. Analysis Add US counties layer, start the analysis](#4-analysis-add-us-counties-layer-start-the-analysis)
+		- [4. 1. Adding Layers](#4-1-adding-layers)
+		- [4. 2. Perform Analysis](#4-2-perform-analysis)
+			- [*Intersect second layer* Analysis:](#intersect-second-layer-analysis)
+			- [*Sum Total Damage Histogram Widget*:](#sum-total-damage-histogram-widget)
+			- [*Detect outliers and clusters* Analysis:](#detect-outliers-and-clusters-analysis)
+			- [*Sum Total Damage* Histogram Widget:](#sum-total-damage-histogram-widget)
+	- [5. Publishing](#5-publishing)
+		- [5. 1. Exporting Data](#5-1-exporting-data)
+		- [5. 2. Publish Map](#5-2-publish-map)
 
 <!-- /TOC -->
 
@@ -105,7 +106,7 @@ Customize the widgets in the following ways:
 
 ![3-2](imgs/railways/204-widgets.png)
 
-##### *Date* Time Series Widget:
+#### *Date* Time Series Widget:
 * Set *COLUMN* to `date`
 * Set *BUCKETS* to `month`
 
@@ -173,36 +174,37 @@ Click the *Back* button to navigate to the layers pane, then click *ADD*
 * `HH` and `LL`: clusters of high or low values surrounded by similar values
 * `HL` and `LH`: outliers of high or low values surrounded by opposite values
 
-![5-1](imgs/railways/08-table.png)
+![4-3](imgs/railways/208-table.png)
 
-* We are going to add a last widget, *Sum Total Damage Histogram Widget*: click on *WIDGETS*, *ADD*, *Category* and select *quads*. *CONTINUE*. Rename it as *Groups*.
+#### *Sum Total Damage* Histogram Widget:
+* Navigate to the *DATA* pane
+* Click the *Add as a widget* checkbox of the *quads* field, click the *EDIT* button that appears.
+* Rename widget to `Groups`.
 
-* Filter by `HH` and `HL` counties. Those are counties with high value of total damage surrounded by counties with also high values, and counties with high value of total damage surrounded by counties with low values. Click on the autostyling droplet to better distinguish them. Remove the autostyle.
+* Filter by `HH` and `HL` counties. Those are counties with high value of total damage surrounded by counties with also high values, and counties with high value of total damage surrounded by counties with low values.
+* Click on the *Auto style* droplet button to see how each polygon is colored according to its category.
 
-![5-2](imgs/railways/09-moran.png)
+![4-4](imgs/railways/209-moran.png)
 
-## 6. Share and export your results
+## 5. Publishing
 
-### 6. 1. Back to *LAYERS* pane in Builder interface, click the three dots button to open *US Counties* layer menu.
+### 5. 1. Exporting Data
 
+* Click the *Back* button to navigate to the layers pane
+* On the *US Counties* layer tile, click the three vertical dots `More options` button
 * Select *Export data*, choose *CSV*.
 * Open (with Excel or another similar software) the csv file you just download *US_Counties.csv*. Collapse `the_geom` column. You should have 39 counties/rows, containing only `HH` and `HL` values.
 
 ![6-1](imgs/railways/10-table.png)
 
-### 6. 2. Back to the main menu, check the publish dialogs
+### 5. 2. Publish Map
 
-* Below the map title it should show *PRIVATE*, *ADD PEOPLE* and *Map not published yet*. Let's change that.
-  * First, click on *PRIVATE*, and again. Select *Link*.
+* On the left blue bar, click on the *switches* button.
+* Click the *LAYER SELECTOR* checkbox. A floating layer selector box will appear in the top left of your map.
+* On the left blue bar, click on the *pencil* button.
+* Below the map title should show *PRIVATE*, *ADD PEOPLE* and *Unpublished map*. Let's change that.
+  * First, click on *PRIVATE*, and again. Select `Link`.
   * Secondly, click on *SHARE* (at the bottom of the *LAYERS* pane). Click on *PUBLISH*, and then *DONE*.
   * Get the link and past it into your browser.
 
-The dashboard should show your *Railroad accidents* as green dots with sizes depending on the total damage. In addition, all the groups of counties will be displayed. This is because the filters and auto styling you did, it is not applied. Finally, you will have four widgets but in different order.
-
-![6-2](imgs/railways/11-publish.png)
-
-* Back to the main menu, click on *US Counties* layer. Go to the *STYLE* tab. Style the layer with a *FILL* styled *BY VALUE*. Select `quads` as variable and choose a couple of colors that can be easily distinguished.
-* Click again on *SHARE* and now in *UPDATE*.
-* Now if you go back to your browser tab where you have pasted the link nothing has changed. But if you refresh the page, voilá! The colors have been modified.
-
-![6-3](imgs/railways/12-publish.png)
+Notice that the state your map is published in will be the default view that the link for the map opens as. If you alter your map (try changing the zoom level, pan the map around, turn off a layer) and do not republish your map, your link will remain the same as when you initially published. However, next to the *PUBLISH* button, you will see text that says *Unpublished changes* to let you know you have altered your map. When you republish your map, the link will automatically update to match your latest changes. 

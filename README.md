@@ -124,5 +124,5 @@ group by sov_a3
 
 ![](img/json-aggregation.png)
 
-Using `::text` to allow display in Franchise, in real applications your postgres client will convert it into text for you.
+We are casting the JSON field to a string using `::text` at the result of `json_agg` function. This allows displaying the result in Franchise, however in real applications your postgres client will convert it into text for you.
 

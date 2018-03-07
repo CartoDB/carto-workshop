@@ -21,6 +21,16 @@ This is a **one hour** training about the [Postgres database](https://www.postgr
 * A performance advice
 
 
+## Objective
+
+The main objective of this workshop is to showcase a few features from Postgres and Postgis that are not usually seen on typical GIS applications.
+
+If at the end of this content you think you are still interested in more, we recommend:
+
+* [Modern SQL](https://modern-sql.com/slides) in commercial and Open Source databases 
+* Abel Vázquez [awesome blogpost](https://abelvm.github.io/sql/sql-tricks/) about tips and tricks. You may want to explore more contents on his blog
+* Talk by Paul Ramsey about Scaling PostGIS · [slides and script](http://s3.cleverelephant.ca/2017-cdb-postgis.pdf) and [video](https://vimeo.com/250498574)
+
 ## Set up
 
 For this workshop we will use [CARTO](https://carto.com) as a convenient way to interact with Postgres, no installation or configuration for you. You don't even need an account because we'll use some public demo datasets.

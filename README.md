@@ -126,3 +126,78 @@ group by sov_a3
 
 We are casting the JSON field to a string using `::text` at the result of `json_agg` function. This allows displaying the result in Franchise, however in real applications your postgres client will convert it into text for you.
 
+
+## `LATERAL`
+
+In modern SQL there's a keyword to allow access the result of a query inside the next one, something like a `for loop`.
+
+### Exercise: count points in polygons
+
+This is a very typical scenario, where you want to count points that fall inside polygons and maybe also take other calculations. We use `CROSS JOIN LATERAL` to get access to every row of the main query (countries) and for each row access different metrics. 
+
+```sql
+/* count cities inside countries */
+select c.cartodb_id,
+       c.the_geom_webmercator,
+       c.name,
+       pp_agg.count,
+       pp_agg.sum_pop
+  from ne_110m_admin_0_countries c
+cross join lateral(
+    select count(*) as count,
+           sum(pop_max) as sum_pop
+      from ne_10m_populated_places_simple p
+     where st_intersects(c.the_geom, p.the_geom)
+    ) pp_agg
+```
+
+![](img/count-points-polygons.png)
+
+## Subdividing
+
+Checking points inside polygons can be very costly if those polygons have many vertices. If we try to count the number of points that are inside the a more detailed countries dataset called `ne_10m_admin_0_countries` it takes quite a lot and the query cannot be improved directly.
+
+Franchise has a nice feature, if we prepend our query with a certain flavor of the `EXPLAIN` query, that is asking to Postgres to give details on the execution plan, it renders a nice graph of the cost of the different parts of our query.
+
+```sql
+explain (analyze, costs, verbose, buffers, format json) 
+ select count(*)
+   from ne_10m_admin_0_countries countries 
+   join ne_10m_populated_places_simple places 
+     on ST_Contains(countries.the_geom, places.the_geom)
+```
+
+![](img/explain-1.png)
+
+This query then takes **21 seconds** to execute, it's using indexes and all the optimizations that Postgres can leverage from the data itself.
+
+But for this question we can break our countries polygons into a different set of polygons that are simpler, but still all together cover the exactly same area.
+
+```sql
+create table ne_10m_admin_0_countries_subdivided as
+      select st_subdivide(the_geom) as the_geom, 
+             admin 
+        from ne_10m_admin_0_countries;
+
+create index ne_10m_admin_0_countries_subdivided_idx 
+          on ne_10m_admin_0_countries_subdivided 
+       using gist (the_geom);
+``` 
+
+This work was already did for you
+
+![](img/subdivided.png)
+
+So now if you run the same query than before:
+
+```sql
+explain (analyze, costs, verbose, buffers, format json) 
+ select count(*)
+   from ne_10m_admin_0_countries_subdivided countries 
+   join ne_10m_populated_places_simple places 
+     on ST_Contains(countries.the_geom, places.the_geom)
+```
+
+![](img/explain-2.png)
+
+That took **167 ms** which is more than **two orders of magnitude** better!

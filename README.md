@@ -69,4 +69,60 @@ You'll get a typical table view of the response, that allows you to explore the 
 
  CartoCSS and TurboCARTO are out of the scope of this training, you can find more training materials on the [cartography section](https://github.com/CartoDB/carto-workshop/tree/master/03-cartography) of this repository.
 
- 
+ ## Functionality
+
+ ### Rendering one to many relationships or clustering
+
+ In many ocasions we need to display geometries that
+
+ - Represent a one to many relationship like having a stores dataset to join to a table with monthly sales reports, or a countries dataset with evolution over time of an index.
+ - Represent dense datasets where we need to aggregate geometries to understand how they are distributed
+
+ In both cases we are displaying a geometry that has many records associated to it, but still we want to be able to see those individual records in our applications (for example on popups).
+
+#### Exercise: Aggregate cities
+
+```sql
+  select row_number() over () as cartodb_id, /* fake autonumeric */
+         sov_a3,                             /* group */
+         ST_Centroid(
+           ST_Collect(
+             the_geom_webmercator
+          )) as the_geom_webmercator,        /* centroid of the aggregation of geoms */
+         count(*) as count,                  /* count of cities */
+         sum(pop_max) as sum_pop,            /* sum of population */
+         string_agg(name,', ') as cities     /* aggregation of names */
+    from ne_10m_populated_places_simple
+group by sov_a3
+```
+
+![](img/string-aggregation.png)
+
+Concatenating strings can be enough, but sometimes our data can have more complex structures, or we want to have more fields. We can leverage the support in Postgres for JavaScript objects. This is actually also convenient for web development.
+
+
+
+```sql
+  select row_number() over () as cartodb_id, /* fake autonumeric */
+         sov_a3,                             /* group */
+         st_centroid(
+           st_collect(
+             the_geom_webmercator
+          )) as the_geom_webmercator,        /* centroid of the aggregation of geoms */
+         count(*) as count,                  /* count of cities */
+         sum(pop_max) as sum_pop,            /* sum of population */
+         json_agg(row_to_json((
+             select r
+               from (
+                 select name,
+                        pop_max
+             ) r
+           ),true))::text as data            /* aggregation of names and population*/
+    from ne_10m_populated_places_simple
+group by sov_a3
+```
+
+![](img/json-aggregation.png)
+
+Using `::text` to allow display in Franchise, in real applications your postgres client will convert it into text for you.
+

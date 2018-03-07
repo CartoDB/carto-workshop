@@ -1,58 +1,72 @@
-# Taller BUILDER - FOSS4G Argentina 2017
+# FOSS4G UK 2018 Postgres - PostGIS workshop
 
-![](img/banner.jpg)
+![](img/banner.png) ![](img/postgis.jpg)
 
-## [http://bit.ly/171024-builder](http://bit.ly/171024-builder)
+## [http://bit.ly/180309-postgis](http://bit.ly/180309-postgis)
 
-Este training se ha diseñado para ser impartido en 4 horas durante el [FOSS4G Argentina 2017](http://www.foss4g-ar.org/).
+This is a **one hour** training about the [Postgres database](https://www.postgresql.org/) and [PostGIS](http://postgis.net/) the extension to allow to work with geospatial information. This is not an introduction so if you are not familiar with SQL, Postgres and PostGIS we recommend you to start with these resources:
 
-Puedes acceder a todo nuestro material de formación en la [rama `master` de este repositorio](https://github.com/CartoDB/carto-workshop). Los contenidos están separados en diferentes módulos que van de forma incremental avanzando desde el uso más básico para todo tipo de técnicos SIG y analistas hasta desarrolladores y usuarios avanzados con conocimientos de aplicaciones web, bases de datos, desarrollo de aplicaciones móviles, etc. Los módulos se pueden combinar fácilmente para conformar hasta una semana completa de formación.
+* [SQL for non-techies](https://docs.google.com/presentation/d/1LRa6HHdtUCrxl7Kh4wjgTktkigoihVekuhwH-dW5jv8/edit#slide=id.p)
+* [Simple SQL operations](https://github.com/CartoDB/carto-workshop/blob/master/04-database/exercises/sql-easy.md)
+* [Spatial SQL](https://github.com/CartoDB/carto-workshop/blob/master/04-database/exercises/sql-spatial.md)
+
+
 
 ## Agenda
 
-### Introducción a CARTO
+* Set up
+* Functionality
+* Performance
 
-Breve introducción a CARTO como plataforma: posicionamiento y revisión general del portfolio.
+## Set up
 
+For this workshop we will use [CARTO](https://carto.com) as a convenient way to interact with Postgres, no installation or configuration for you. You don't even need an account because we'll use some public demo datasets.
 
-* Duración: 15 minutos
-* [Introduction to CARTO](https://docs.google.com/presentation/d/1epfHq4TYhEp__WsUOtFNYGOqPtMLFwdarWr-7xCAyRE/pub)
+As a client for this workshop we will use a web application that can interact with CARTO, it's called [Franchise]() and you can access to an instance of it with the CARTO connector enabled here: [https://franchise.carto.io/](https://franchise.carto.io/).
 
+Use the following parameters:
 
-### Introducción a CARTO BUILDER
+* Host name: `carto.com`
+* User name: `carto-workshops`
+* API key: you can leave this empty
 
-Introducción a las principales características y elementos de interfaz de usuario de BUILDER.
+![](img/franchise-setup.png)
 
-* Duración: 30 minutos
-* [Introduction to CARTO Builder](https://docs.google.com/presentation/d/1cvENuNqK7HoOvqcbHHATXFIBUx968yI43wFxj5MG8x4/pub).
+Once connected you can run `SELECT` queries against any public dataset from that account.
 
-### Ejercicio 1 de BUILDER exercise 1: Visualización de datos
+Some tables you have available are:
 
-El objetivo de este primer ejercicio es mostrar en un cuadro de mando (*dashboard*) los diferentes tipos de árboles de la ciudad de San Farncisco, así cómo cuándo fueron plantados.
+* `ne_10m_populated_places_simple`: Natural Earth populated places
+* `ne_110m_admin_0_countries`: Natural Earth country boundaries
+* `railroad_data`: Railroad accidents in the USA
+* `barcelona_building_footprints`: Barcelona blocks
+* `lineas_madrid`: Madrid metro lines
+* `listings_madrid`: Madrid Airbnb listings
 
-* Duración: 60 minutos
-* [San Francisco Tree Map](https://github.com/CartoDB/carto-workshop/blob/master/01-builder-visualization/exercises/sf-trees.md)
+You can try for example a simple query like this one and hit `Control+Enter` or the `play` button in the bottom right corner of the SQL panel.
 
-![SF Trees](img/sf-trees.png)
+```sql
+select * 
+  from listings_madrid
+ where bathrooms >= 3
+ ```
 
-### Ejercicio 2 de BUILDER: Análisis geográfico
+You'll get a typical table view of the response, that allows you to explore the different fields and rows of your query result.
 
-En este ejercicio vamos a ver cómo usar las capacidades de análisis y de creación de *dashboards* en BUILDER para determinar la localización de tiendas ficticias basadas en la localización y valor de un grupo de clientes potenciales en la ciudad de Portland.
+ ![](img/franchise-table.png)
 
-* Duración: 60 minutos
-* [Sales Territory exercise](https://github.com/CartoDB/carto-workshop/blob/master/02-builder-analysis/exercises/portland.md)
+ If you hit the small CARTO icon in the bottom right of the result panel, Franchise switches to a geographical result.
 
-![sales](img/sales.png)
+ ![](img/franchise-map.png)
 
-### Ejercicio 3 de BUILDER: Visualización cartográfica
+ This map uses the [CartoCSS](https://carto.com/docs/carto-engine/cartocss/properties/) language to define how data is rendered. By default it just accepts all three geometry types (points, lines, polygons) with a simple red symbology, but you are free to change it, just press `Control+Enter` or `Cmd+Enter` to apply the new settings. You can even leverage [TurboCARTO](https://github.com/CartoDB/turbo-carto) to generate legends quickly, for example you can render those listings by the number of bathrooms changing the default `marker-width` property by this expression:
 
-En este ejercicio vamos a ir más allá de las funcionalidades de la interfaz de usuario y vamos a crear un mapa basado en las novelas de *Canción de Hielo y Fuego*.
+ ```css
+ marker-width: ramp([bathrooms], range(5, 20), quantiles(5));
+ ```
 
-* Duración: 60 minutos
-* [Cartography exercise](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/got.md)
+ ![](img/franchise-style.png)
 
-![Game Of Thrones](img/got.png)
+ CartoCSS and TurboCARTO are out of the scope of this training, you can find more training materials on the [cartography section](https://github.com/CartoDB/carto-workshop/tree/master/03-cartography) of this repository.
 
-## Q&A
-  * Duración: 15 minutos
-  * Más allá del taller os invitamos a pasaros por la etiqueta `carto` de [GIS StackExchange](https://gis.stackexchange.com/questions/tagged/carto) y participar preguntando y esperamos también respondiendo :smile:.
+ 

@@ -17,7 +17,7 @@ This is a **one hour** training about the [Postgres database](https://www.postgr
 * Rendering one-to-many relationships
 * `LATERAL`
 * Subdividing
-* Window Function
+* Window Functions
 * A performance advice
 
 

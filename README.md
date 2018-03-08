@@ -18,6 +18,7 @@ This is a **one hour** training about the [Postgres database](https://www.postgr
 * `LATERAL`
 * Subdividing
 * Window Functions
+* Indexes for functions
 * A performance advice
 
 
@@ -267,6 +268,45 @@ You can use the following CartoCSS to render your points by speed
 ```
 
 ![](img/speed.png)
+
+## Indexes over functions
+
+We normally think on accelerating queries creating indexes on fields so the database can do lookups on the table in a very performant way. Bet we can do more with indexes, we can generate indexes that operate over function calls, meaning that the queries that use them will be much faster.
+
+### Example: Counting centroids in polygons
+
+Imagine we have a building footprints table and a neighborhoods table, and we are asked to count the number of footprints per neighborhood but based on the centroid of every polygon. As we saw in the `LATERAL` example we would do a similar query but instead of using `the_geom` we would use `ST_Centroid(the_geom)`. The issue here is that we are not being able to use the default index we had on that field, and that means the database needs to do full scans on the table **a lot**.
+
+You can try this query on your database, and confirm it takes an incredible amount of time to finish:
+
+```sql
+ÈXPLAIN (ANALYZE, COSTS, VERBOSE, BUFFERS, FORMAT JSON)
+select bb.cartodb_id,
+       bb.the_geom_webmercator,
+       bc.count_b
+  from barris_barcelona bb
+ cross join lateral(
+    select count(*) as count_b
+      from barcelona_building_footprints bf
+     where st_intersects(bb.the_geom, ST_Centroid(bf.the_geom))
+    ) bc
+```
+
+![](img/index-1.png)
+
+We duplicated the table on the CARTO account and then we created on that table an index on the `ST_Centroid(the_geom)` expression using the following query:
+
+```sql
+create index barcelona_building_footprints_2_idx_centroid 
+          on barcelona_building_footprints_2 
+       using gist(st_centroid(the_geom))
+```
+
+So if we run the same query again, but with this duplicated table we can confirm how it goes from **40 seconds** to just **1.5 seconds**.
+
+![](img/index-2.png).
+
+Another really common scenario for this is when we have geometries in une coordinate system but we need for a number of use cases to transform it to another coordinate system.
 
 ## Getting better execution plans
 

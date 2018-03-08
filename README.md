@@ -217,7 +217,7 @@ explain (analyze, costs, verbose, buffers, format json)
 
 ![](img/explain-2.png)
 
-That took **167 ms** which is more than **two orders of magnitude** better!
+That took **167 ms** which is more than **two orders of magnitude** better, even with the same execution plan!!
 
 ## Window Functions
 

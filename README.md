@@ -10,6 +10,12 @@ This is a **one hour** training about the [Postgres database](https://www.postgr
 * [Simple SQL operations](https://github.com/CartoDB/carto-workshop/blob/master/04-database/exercises/sql-easy.md)
 * [Spatial SQL](https://github.com/CartoDB/carto-workshop/blob/master/04-database/exercises/sql-spatial.md)
 
+Workshop facilitator:
+
+* Jorge Sanz
+* Solutions Engineer and Support Team Manager at CARTO
+* jorge@carto.com
+* [@xurxosanz](https://twitter.com/xurxosanz)
 
 ## Agenda 
 
@@ -141,6 +147,7 @@ group by sov_a3
 
 We are casting the JSON field to a string using `::text` at the result of `json_agg` function. This allows displaying the result in Franchise, however in real applications your postgres client will convert it into text for you.
 
+You can read a bit more about this on this [blog post](https://geomaticblog.net/2017/02/20/aggregating-points/) on the topic.
 
 ## `LATERAL`
 

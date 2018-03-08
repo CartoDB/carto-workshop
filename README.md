@@ -97,6 +97,8 @@ You'll get a typical table view of the response, that allows you to explore the 
 
 ### Exercise: Aggregate cities
 
+Let's start with a query that aggregates a populated places dataset by country computing the centroid as the resulting geometry and also doing a few aggregations: counting records, adding all the populations and finally concatenating the names using a comma character as the separator.
+
 ```sql
   select row_number() over () as cartodb_id, /* fake autonumeric */
          sov_a3,                             /* group */

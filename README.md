@@ -1,8 +1,8 @@
-<h1>FOSS4G UK 2018 Postgres - PostGIS workshop</h1>
+# FOSS4G UK 2018 Postgres - PostGIS workshop
 
 ![](img/banner.png) ![](img/postgis.jpg)
 
-<h3><a href="http://bit.ly/180309-postgis">bit.ly/180309-postgis</a></h3>
+### http://bit.ly/180309-postgis
 
 This is a **one hour** training about the [Postgres database](https://www.postgresql.org/) and [PostGIS](http://postgis.net/) the extension to allow to work with geospatial information. This is not an introduction so if you are not familiar with SQL, Postgres and PostGIS we recommend you to start with these resources:
 
@@ -49,12 +49,15 @@ Once connected you can run `SELECT` queries against any public dataset from that
 
 Some tables you have available are:
 
-* `ne_10m_populated_places_simple`: Natural Earth populated places
-* `ne_110m_admin_0_countries`: Natural Earth country boundaries
-* `railroad_data`: Railroad accidents in the USA
-* `barcelona_building_footprints`: Barcelona blocks
-* `lineas_madrid`: Madrid metro lines
-* `listings_madrid`: Madrid Airbnb listings
+* [`ne_10m_populated_places_simple`](https://cartoworkshops.carto.com/u/carto-workshops/tables/ne_10m_populated_places_simple/public): Natural Earth populated places
+* [`ne_110m_admin_0_countries`](https://cartoworkshops.carto.com/u/carto-workshops/tables/ne_110m_admin_0_countries/public): Natural Earth country boundaries
+* [`railroad_data`](https://cartoworkshops.carto.com/u/carto-workshops/tables/railroad_data/public): Railroad accidents in the USA
+* [`barcelona_building_footprints`](https://cartoworkshops.carto.com/u/carto-workshops/tables/barcelona_building_footprints/public): Barcelona blocks
+* [`lineas_madrid`](https://cartoworkshops.carto.com/u/carto-workshops/tables/lineas_madrid/public): Madrid metro lines
+* [`listings_madrid`](https://cartoworkshops.carto.com/u/carto-workshops/tables/listings_madrid/public): Madrid Airbnb listings
+* [`madrid_tracks`](https://cartoworkshops.carto.com/u/carto-workshops/tables/madrid_tracks/public): GPS points from a few rides around Madrid
+
+**Note**: We won't use all those datasets here, but you are encouraged to play with them. You can also download them and put them in your own database, just follow the links.
 
 You can try for example a simple query like this one and hit `Control+Enter` or the `play` button in the bottom right corner of the SQL panel.
 
@@ -330,4 +333,3 @@ select _filter.*,
 Making that change in the original query gave the following plan, which is actually more complex but executes way faster, from 5 seconds to 61 ms.
 
 ![](img/pev-2.png)
-

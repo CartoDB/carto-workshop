@@ -167,6 +167,8 @@ cross join lateral(
 
 ## Subdividing
 
+**Note**: this exercise is taken from this [awesome blog post](https://carto.com/blog/subdivide-all-things/) by Paul Ramsey.
+
 Checking points inside polygons can be very costly if those polygons have many vertices. If we try to count the number of points that are inside the a more detailed countries dataset called `ne_10m_admin_0_countries` it takes quite a lot and the query cannot be improved directly.
 
 Franchise has a nice feature, if we prepend our query with a certain flavor of the `EXPLAIN` query, that is asking to Postgres to give details on the execution plan, it renders a nice graph of the cost of the different parts of our query.

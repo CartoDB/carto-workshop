@@ -1,6 +1,6 @@
 # Advanced Postgres - PostGIS workshop
 
-This is a **one hour** training about the [Postgres database](https://www.postgresql.org/) and [PostGIS](http://postgis.net/) the extension to allow to work with geospatial information. This is not an introduction so if you are not familiar with SQL, Postgres and PostGIS we recommend you to start with these resources:
+This is a **one hour** training about the [Postgres database](https://www.postgresql.org/) and the [PostGIS](http://postgis.net/) extension to allow to work with geospatial information. This is not an introduction, so if you are not familiar with SQL, Postgres and PostGIS, we recommend you start with these resources:
 
 * [SQL for non-techies](https://docs.google.com/presentation/d/1LRa6HHdtUCrxl7Kh4wjgTktkigoihVekuhwH-dW5jv8/edit#slide=id.p)
 * [Simple SQL operations](./sql-easy.md)
@@ -21,19 +21,19 @@ This is a **one hour** training about the [Postgres database](https://www.postgr
 
 The main objective of this workshop is to showcase a few features from Postgres and Postgis that are not usually seen on typical GIS applications.
 
-If at the end of this content you think you are still interested in more, we recommend:
+If you loved this workshop and want to learn more about Postgres/PostGIS, check out:
 
-* [Modern SQL](https://modern-sql.com/slides) in commercial and Open Source databases 
-* Abel Vázquez [awesome blogpost](https://abelvm.github.io/sql/sql-tricks/) about tips and tricks. You may want to explore more contents on his blog
-* Talk by Paul Ramsey about Scaling PostGIS · [slides and script](http://s3.cleverelephant.ca/2017-cdb-postgis.pdf) and [video](https://vimeo.com/250498574)
+* this [presentation](https://modern-sql.com/slides) on Modern SQL in commercial and Open Source databases.
+* this [awesome blogpost](https://abelvm.github.io/sql/sql-tricks/) from Abel Vázquez on "Some little known PostgreSQl/PostGIS tips & tricks". Explore the rest of his [blog](https://abelvm.github.io/) for more great content.
+* this [talk](https://vimeo.com/250498574) from Paul Ramsey on Scaling PostGIS · [slides and script](http://s3.cleverelephant.ca/2017-cdb-postgis.pdf)
 
 ## Set up
 
-For this workshop we will use [CARTO](https://carto.com) as a convenient way to interact with Postgres, no installation or configuration for you. You don't even need an account because we'll use some public demo datasets.
+For this workshop, we will use [CARTO](https://carto.com) as a convenient way to interact with Postgres, which will require no installation or configuration by you. You won't even need an account; we're using public demo datasets.
 
-As a client for this workshop we will use a web application that can interact with CARTO, it's called [Franchise](https://franchise.cloud/) and you can access to an instance of it with the CARTO connector enabled here: [https://franchise.carto.io/](https://franchise.carto.io/).
+As a client for this workshop, we will use a web application that can interact with CARTO: [Franchise](https://franchise.cloud/). You can access to an instance of it, with the CARTO connector enabled, here: [https://franchise.carto.io/](https://franchise.carto.io/).
 
-Use the following parameters:
+From the side menu, navigate to 'CARTO', then use the following parameters to connect:
 
 * Host name: `carto.com`
 * User name: `carto-workshops`
@@ -41,9 +41,9 @@ Use the following parameters:
 
 ![](imgs/franchise-setup.png)
 
-Once connected you can run `SELECT` queries against any public dataset from that account.
+Once connected, you can run `SELECT` queries against any public dataset from that account.
 
-Some tables you have available are:
+Some tables you have available to you from this account are:
 
 * `ne_10m_populated_places_simple`: Natural Earth populated places
 * `ne_110m_admin_0_countries`: Natural Earth country boundaries
@@ -52,7 +52,7 @@ Some tables you have available are:
 * `lineas_madrid`: Madrid metro lines
 * `listings_madrid`: Madrid Airbnb listings
 
-You can try for example a simple query like this one and hit `Control+Enter` or the `play` button in the bottom right corner of the SQL panel.
+Try entering a simple query like the one below. To run the query, type `Control+Enter` on PCs, `Command+Enter`/`Cmd+Return` on macs, or the green `play` button in the bottom right corner of the SQL panel.
 
 ```sql
 select * 
@@ -60,7 +60,7 @@ select *
  where bathrooms >= 3
  ```
 
-You'll get a typical table view of the response, that allows you to explore the different fields and rows of your query result.
+The results of your query will be displayed in a typical table view, which will allow you to explore all returned fields and rows.
 
  ![](imgs/franchise-table.png)
 
@@ -68,7 +68,13 @@ You'll get a typical table view of the response, that allows you to explore the 
 
  ![](imgs/franchise-map.png)
 
- This map uses the [CartoCSS](https://carto.com/docs/carto-engine/cartocss/properties/) language to define how data is rendered. By default it just accepts all three geometry types (points, lines, polygons) with a simple red symbology, but you are free to change it, just press `Control+Enter` or `Cmd+Enter` to apply the new settings. You can even leverage [TurboCARTO](https://github.com/CartoDB/turbo-carto) to generate legends quickly, for example you can render those listings by the number of bathrooms changing the default `marker-width` property by this expression:
+This map uses the [CartoCSS](https://carto.com/docs/carto-engine/cartocss/properties/) language to define how data is rendered. By default, all three geometry types (points, lines, polygons) are rendered with default symbology, defined in the panel to the left. You can, however, alter the cartoCSS at any point. After making your edits, apply them by typing `Control+Enter` or `Cmd+Enter`. You can even leverage [TurboCARTO](https://github.com/CartoDB/turbo-carto) to generate style ramps quickly. For example, if we wanted to style our points' size by the number of bathrooms at each point, we can change the default `marker-width` from this:
+
+ ```css
+ marker-width: 7;
+ ```
+
+to this:
 
  ```css
  marker-width: ramp([bathrooms], range(5, 20), quantiles(5));
@@ -76,16 +82,16 @@ You'll get a typical table view of the response, that allows you to explore the 
 
  ![](imgs/franchise-style.png)
 
- CartoCSS and TurboCARTO are out of the scope of this training, you can find more training materials on the [cartography section](https://github.com/CartoDB/carto-workshop/tree/master/03-cartography) of this repository.
+Both CartoCSS and TurboCARTO are out of the scope of this training, but you can find more training materials on the [cartography section](https://github.com/CartoDB/carto-workshop/tree/master/03-cartography) of this repository.
 
 ## Rendering one to many relationships or clustering
 
- In many ocasions we need to display geometries that
+ In many occasions we need to display geometries that:
 
- - Represent a one to many relationship like having a stores dataset to join to a table with monthly sales reports, or a countries dataset with evolution over time of an index.
+ - Represent a one to many relationship such as having a stores dataset to join to a table with monthly sales reports, or a countries dataset with evolution over time of an index.
  - Represent dense datasets where we need to aggregate geometries to understand how they are distributed
 
- In both cases we are displaying a geometry that has many records associated to it, but still we want to be able to see those individual records in our applications (for example on popups).
+ In both cases, we are displaying a geometry that has many records associated to it, while we still want to be able to see those individual records in our applications (e.g. in popups).
 
 ### Exercise: Aggregate cities
 
@@ -105,7 +111,7 @@ group by sov_a3
 
 ![](imgs/string-aggregation.png)
 
-Concatenating strings can be enough, but sometimes our data can have more complex structures, or we want to have more fields. We can leverage the support in Postgres for JavaScript objects. This is actually also convenient for web development.
+Concatenating strings can be enough, but sometimes our data can have more complex structures, or we want to have more fields. We can leverage the support in Postgres for JavaScript objects. This is also convenient for web development.
 
 ```sql
   select row_number() over () as cartodb_id, /* fake autonumeric */
@@ -138,7 +144,7 @@ In modern SQL there's a keyword to allow access the result of a query inside the
 
 ### Exercise: count points in polygons
 
-This is a very typical scenario, where you want to count points that fall inside polygons and maybe also take other calculations. We use `CROSS JOIN LATERAL` to get access to every row of the main query (countries) and for each row access different metrics. 
+This is a very typical scenario, where you want to count points that fall inside polygons, while also taking other calculations. We use `CROSS JOIN LATERAL` to get access to every row of the main query (countries) and for each row access different metrics. 
 
 ```sql
 /* count cities inside countries */

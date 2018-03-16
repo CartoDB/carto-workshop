@@ -12,8 +12,8 @@ Geospatial Databases
 * [Introduction to  SQL](https://docs.google.com/a/cartodb.com/presentation/d/1LRa6HHdtUCrxl7Kh4wjgTktkigoihVekuhwH-dW5jv8/edit?usp=sharing)
 * [Easy exercises with SQL](exercises/sql-easy.md)
 * [Spatial SQL](exercises/sql-spatial.md)
+* [Advanced Postgres & PostGIS workshop](exercises/sql-advanced.md)
 * [Stored procedures and triggers examples](exercises/sql_stored_procedures.md)
-* [Stored procedures that return the Antipode's point for an input geometry](https://github.com/geoinquietosvlc/antipodes-map/blob/master/pgsql/funciones.sql)
 
 Other useful links:
 
@@ -30,6 +30,7 @@ Other useful links:
   * http://epsg.io/
   * http://spatialreference.org/
 * [Free your maps from Web Mercator](https://carto.com/blog/free-your-maps-web-mercator/)
+* [Stored procedures that return the Antipode's point for an input geometry](https://github.com/geoinquietosvlc/antipodes-map/blob/master/pgsql/funciones.sql)
 
 Extra ball: 
 

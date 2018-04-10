@@ -2,7 +2,7 @@
 
 * *Degree of Difficulty*: **
 
-* *Goal*: explore the sourrounding areas of Dominos Pizza store, getting key insighsts such as total population, total households and carless households.
+* *Goal*: explore the sourrounding areas of Dominos Pizza store, getting key insights such as total population, total households and carless households.
 
 * *Features Highlighted*:
   * Widgets: Category & Category.

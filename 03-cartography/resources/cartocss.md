@@ -56,7 +56,7 @@ Units for sizes are in pixels unless stated differenetly. Check the documentatio
 ```
 
 <br>
-![style](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/img/style.png)
+![style](../exercises/img/style.png)
 <br>
 
 ## CartoCSS variables
@@ -81,7 +81,7 @@ Apply the `@` symbol to lists of all the color values for your categories. The C
 ```
 
 <br>
-![variables](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/img/variables.png)
+![variables](../exercises/img/variables.png)
 <br>
 
 *Note*: using CartoCSS variables inside TurboCARTO ramp functions is not supported at the moment.
@@ -117,7 +117,7 @@ In the following example, there are user comments entered in the `marker-line-co
 ```
 
 <br>
-![comments](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/img/comments.png)
+![comments](../exercises/img/comments.png)
 <br>
 
 
@@ -161,7 +161,7 @@ Suppose you have a point symbol and want to put a glowing halo around it. You ne
 * The default, top layer describes the style elements that you are applying to the point
 
 <br>
-![multiple](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/img/multiple.png)
+![multiple](../exercises/img/multiple.png)
 <br>
 
 *Note*: Similar to how map layers are rendered, symbolizers are rendered from bottom to top. To see an example, view this live map which is using [multiple symbolizers](https://mamataakella.carto.com/builder/36cb22c8-3334-11e6-ad49-0ecfd53eb7d3/embed) applied to point styles.
@@ -185,7 +185,7 @@ For instance, all the lines within this code are the same:
 ```
 
 <br>
-![yellow](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/img/yellow.png)
+![yellow](../exercises/img/yellow.png)
 <br>
 
 
@@ -228,7 +228,7 @@ Each of above examples uses color variables, literal colors, or is the result of
 ```
 
 <br>
-![lighten](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/img/lighten.png)
+![lighten](../exercises/img/lighten.png)
 <br>
 
 *Note*: Polygon-gamma is the amount of anti-aliasing applied to your polygon's edges. Anti-aliasing reduces the jagged appearance of polygon edges, so that they appear more smooth. Values can range from 0 (no anti-aliasing, sharp edges) to 1 (fully anti-aliased).
@@ -272,7 +272,7 @@ text-comp-op: screen;
 ```
 
 <br>
-![multiply](https://github.com/CartoDB/carto-workshop/blob/master/03-cartography/exercises/img/multiply.png)
+![multiply](../exercises/img/multiply.png)
 <br>
 
 ## CartoCSS Best Practices
@@ -315,7 +315,7 @@ When nested conditional styles apply to more than one case, the bottom-most styl
 ## Some handy tricks
 
 **2.5D/Pseudo 3D/extruded geometries**
-  
+
 We could achieve a 3D-looking map using `building` CartoCSS properties:
 
 ```css
@@ -345,7 +345,7 @@ We could achieve a 3D-looking map using `building` CartoCSS properties:
   }
 }
 ```
-  
+
 See an example [here](http://bl.ocks.org/ernesmb/4a6f00d6d795a20406516bce3fbe8092)
 
 When using this kind of properties, some features won't fit into a single tile, and we'll need to use this trick in order to render geometries that go beyond their tile. This is also useful for labels that don't fit in a single tile: 
@@ -375,5 +375,5 @@ select unnest(CDB_QuantileBins(array_agg(pop_norm),4)) from data
 More [here](https://carto.com/docs/tips-and-tricks/carto-functions/#statistical-functions)
 
 
- 
+
 

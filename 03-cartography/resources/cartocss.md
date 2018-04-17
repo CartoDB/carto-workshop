@@ -55,9 +55,9 @@ Units for sizes are in pixels unless stated differenetly. Check the documentatio
 }
 ```
 
-<br>
+
 ![style](../exercises/img/style.png)
-<br>
+
 
 ## CartoCSS variables
 
@@ -80,9 +80,9 @@ Apply the `@` symbol to lists of all the color values for your categories. The C
 }
 ```
 
-<br>
+
 ![variables](../exercises/img/variables.png)
-<br>
+
 
 *Note*: using CartoCSS variables inside TurboCARTO ramp functions is not supported at the moment.
 
@@ -116,9 +116,9 @@ In the following example, there are user comments entered in the `marker-line-co
 }
 ```
 
-<br>
+
 ![comments](../exercises/img/comments.png)
-<br>
+
 
 
 ## Multiple Symbolizers for a Map Layer
@@ -160,9 +160,9 @@ Suppose you have a point symbol and want to put a glowing halo around it. You ne
 * The ::halo describes the style elements that you are applying to the halo
 * The default, top layer describes the style elements that you are applying to the point
 
-<br>
+
 ![multiple](../exercises/img/multiple.png)
-<br>
+
 
 *Note*: Similar to how map layers are rendered, symbolizers are rendered from bottom to top. To see an example, view this live map which is using [multiple symbolizers](https://mamataakella.carto.com/builder/36cb22c8-3334-11e6-ad49-0ecfd53eb7d3/embed) applied to point styles.
 
@@ -184,9 +184,9 @@ For instance, all the lines within this code are the same:
 }
 ```
 
-<br>
+
 ![yellow](../exercises/img/yellow.png)
-<br>
+
 
 
 *Note*: You can ramp transparency with color inside TurboCARTO by using RGBA instead of HEX colors.
@@ -227,9 +227,9 @@ Each of above examples uses color variables, literal colors, or is the result of
 }
 ```
 
-<br>
+
 ![lighten](../exercises/img/lighten.png)
-<br>
+
 
 *Note*: Polygon-gamma is the amount of anti-aliasing applied to your polygon's edges. Anti-aliasing reduces the jagged appearance of polygon edges, so that they appear more smooth. Values can range from 0 (no anti-aliasing, sharp edges) to 1 (fully anti-aliased).
 
@@ -271,9 +271,9 @@ text-comp-op: screen;
 }
 ```
 
-<br>
+
 ![multiply](../exercises/img/multiply.png)
-<br>
+
 
 ## CartoCSS Best Practices
 
@@ -373,7 +373,3 @@ select unnest(CDB_QuantileBins(array_agg(pop_norm),4)) from data
 ```
 
 More [here](https://carto.com/docs/tips-and-tricks/carto-functions/#statistical-functions)
-
-
-
-

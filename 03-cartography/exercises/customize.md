@@ -1,34 +1,29 @@
 # Customize Builder Styles for More Meaningful Maps
 
-### Index
+## Index
 
 1. [Introduction](#intro)
-
 2. [Which basemap to use?](#basemap)
-
 3. [How to separate signal from noise](#lines)<br>
-
 4. [Communicate Effectively](#communicate)<br>
 
-
-  ​
-### 1. Introduction <a name="intro"></a>
+## 1. Introduction <a name="intro"></a>
 
 This workshop will demonstrate how Builder map default cartography can be adjusted to be more meaningful with a few customizations.
 
 CARTO Builder dashboards are a holistic experience, so their elements should be balanced visually. We will cover examples of how to do that, and topics like assigning widget names, custom legends, and popups...all with the goal of not using Builder style defaults as-is.
 
-
-
-### 2. Which basemap to use?<a name="basemap"></a>
+## 2. Which basemap to use?<a name="basemap"></a>
 
 [SF Crime Heatmap](https://cartoworkshops.carto.com/u/carto-workshops/builder/3d71c79c-2616-4974-8e61-7cb10c3c0f6f/embed)
 
-#### Which basemap should you use? 
+### Which basemap should you use?
+
 * Consider labels on top or under geometry
 * Consider Voyager, Positron, Dark Matter
 
-#### Consider symbology + basemap
+### Consider symbology + basemap
+
 * How can you make symbology emphasize the data's insights?
 
 *Default:*
@@ -46,13 +41,12 @@ CARTO Builder dashboards are a holistic experience, so their elements should be 
 
 ![heat-adjusted](img/c_heat_adjusted.png)
 
-
-
-### 3. How to separate signal from noise<a name="lines"></a>
+## 3. How to separate signal from noise<a name="lines"></a>
 
 [NY Commuter Flow Map](https://cartoworkshops.carto.com/u/carto-workshops/builder/1b59856b-e4d4-4bdc-abe6-d993e1eb5b89/embed)
 
-#### How can you pick out information from this many lines?
+### How can you pick out information from this many lines?
+
 * Use classed line symbology
 * Use a CARTOColor scheme
 * Use redundant symbology
@@ -80,9 +74,7 @@ CARTO Builder dashboards are a holistic experience, so their elements should be 
   * Since we can't control the drawing order of an analysis node with custom SQL, take advantage of other symbology tricks
     * If you flip the color scheme and lighter colors are still drawing under darker ("less") values, use a blending mode like lighten to bring the lighter pixels to the foreground
 
-
-
-### 4. Leverage Autostyling<a name="autostyle"></a>
+## 4. Leverage Autostyling<a name="autostyle"></a>
 
 [Demographics of the United Kingdom Map](https://cartoworkshops.carto.com/u/carto-workshops/builder/a4bdb947-60e3-4ee6-89e0-ac887e0db262/embed)
 
@@ -104,9 +96,7 @@ CARTO Builder dashboards are a holistic experience, so their elements should be 
 * Make widget titles descriptive
   * What are we measuring? (people/sqkm)
 
-
-
-### 5. Communicate Effectively<a name="communicate"></a>
+## 5. Communicate Effectively<a name="communicate"></a>
 
 *Default:*
 
@@ -114,7 +104,7 @@ CARTO Builder dashboards are a holistic experience, so their elements should be 
 
 * This map is not communicating effectively
   * Overlapping markers obscure data
-  * Too many default colors 
+  * Too many default colors
 
 *Adjusted:*
 

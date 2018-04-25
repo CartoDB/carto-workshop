@@ -56,9 +56,9 @@ Each point is categorized as `[continent="name"] {` and contains its own polygon
   }
   ```
 
-<br>
+
 ![category](../exercises/img/category.png)
-<br>
+
 
 The following two styles are based on the same principle, but instead of using string fields, choropleth and bubbles styles use numeric ones.
 
@@ -116,9 +116,9 @@ It's also important to consider [quantification](https://carto.com/academy/cours
   }
   ```
 
-<br>
+
 ![choropleth](../exercises/img/choropleth.png)
-<br>
+
 
 ## Bubbles
 
@@ -171,17 +171,17 @@ Bubble, or ‘graduated point symbol’ maps are another approach to mapping dat
   }
   ```
 
-<br>
+
 ![bubbles](../exercises/img/bubbles.png)
-<br>
+
 
 ## Zoom-Based Styling
 
 Zoom-based styling refers to the ability to change what is displayed on a map, or how it is visualized, based on the zoom-level. Let’s start by looking at [Stamen’s map tiles](http://maps.stamen.com/#terrain/12/37.7706/-122.3782). As you zoom in and out, you can notice that some features or data (like streets, buildings, or waterways) appear or fade away. While there is a ton of data in the map, it is simplified when you’re zoomed out, and made more complex at closer scales, when a viewer is able to process more data. The map never becomes overly complex, but also manages to provide a very data-rich view of a city.
 
-<br>
+
 ![stamen](https://carto.com/academy/img/course2/lesson3/stamen.2c358963.gif)
-<br>
+
 
 Before we start making changes based on our zoom level, it’s important to note that online maps using [Mapnik](http://mapnik.org/) to build the map visualization will default to having marker widths stay the same, regardless of the level of zoom.
 
@@ -273,9 +273,9 @@ Torque is an efficient, fast, and styleable rendering method to bring data to li
     }
     ```
 
-<br>
+
 ![linear](../exercises/img/linear.png)
-<br>
+
 
   * Cumulative
 
@@ -307,7 +307,5 @@ Torque is an efficient, fast, and styleable rendering method to bring data to li
     }
     ```
 
-<br>
-![cumulative](../exercises/img/cumulative.png)
-<br>
 
+![cumulative](../exercises/img/cumulative.png)

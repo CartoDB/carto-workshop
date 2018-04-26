@@ -9,7 +9,7 @@ This is a **one hour** training about the [Postgres database](https://www.postgr
 
 ## Agenda 
 
-* Set up
+* Set up: instructions [here](../README.md#set-up)
 * Rendering one-to-many relationships
 * `LATERAL`
 * Subdividing
@@ -27,62 +27,6 @@ If you loved this workshop and want to learn more about Postgres/PostGIS, check 
 * this [awesome blogpost](https://abelvm.github.io/sql/sql-tricks/) from Abel Vázquez on "Some little known PostgreSQl/PostGIS tips & tricks". Explore the rest of his [blog](https://abelvm.github.io/) for more great content.
 * this [talk](https://vimeo.com/250498574) from Paul Ramsey on Scaling PostGIS · [slides and script](http://s3.cleverelephant.ca/2017-cdb-postgis.pdf)
 
-## Set up
-
-For this workshop, we will use [CARTO](https://carto.com) as a convenient way to interact with Postgres, which will require no installation or configuration by you. You won't even need an account; we're using public demo datasets.
-
-As a client for this workshop, we will use a web application that can interact with CARTO: [Franchise](https://franchise.cloud/). You can access to an instance of it, with the CARTO connector enabled, here: [https://franchise.carto.io/](https://franchise.carto.io/).
-
-From the side menu, navigate to 'CARTO', then use the following parameters to connect:
-
-* Host name: `carto.com`
-* User name: `carto-workshops`
-* API key: you can leave this empty
-
-![](imgs/franchise-setup.png)
-
-Once connected, you can run `SELECT` queries against any public dataset from that account.
-
-Some tables you have available to you from this account are:
-
-* `ne_10m_populated_places_simple`: Natural Earth populated places
-* `ne_110m_admin_0_countries`: Natural Earth country boundaries
-* `railroad_data`: Railroad accidents in the USA
-* `barcelona_building_footprints`: Barcelona blocks
-* `lineas_madrid`: Madrid metro lines
-* `listings_madrid`: Madrid Airbnb listings
-
-Try entering a simple query like the one below. To run the query, type `Control+Enter` on PCs, `Command+Enter`/`Cmd+Return` on macs, or the green `play` button in the bottom right corner of the SQL panel.
-
-```sql
-select * 
-  from listings_madrid
- where bathrooms >= 3
- ```
-
-The results of your query will be displayed in a typical table view, which will allow you to explore all returned fields and rows.
-
- ![](imgs/franchise-table.png)
-
- If you hit the small CARTO icon in the bottom right of the result panel, Franchise switches to a geographical result.
-
- ![](imgs/franchise-map.png)
-
-This map uses the [CartoCSS](https://carto.com/docs/carto-engine/cartocss/properties/) language to define how data is rendered. By default, all three geometry types (points, lines, polygons) are rendered with default symbology, defined in the panel to the left. You can, however, alter the cartoCSS at any point. After making your edits, apply them by typing `Control+Enter` or `Cmd+Enter`. You can even leverage [TurboCARTO](https://github.com/CartoDB/turbo-carto) to generate style ramps quickly. For example, if we wanted to style our points' size by the number of bathrooms at each point, we can change the default `marker-width` from this:
-
- ```css
- marker-width: 7;
- ```
-
-to this:
-
- ```css
- marker-width: ramp([bathrooms], range(5, 20), quantiles(5));
- ```
-
- ![](imgs/franchise-style.png)
-
-Both CartoCSS and TurboCARTO are out of the scope of this training, but you can find more training materials on the [cartography section](https://github.com/CartoDB/carto-workshop/tree/master/03-cartography) of this repository.
 
 ## Rendering one to many relationships or clustering
 

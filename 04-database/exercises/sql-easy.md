@@ -5,7 +5,7 @@ When doing maps it's a good idea to introduce you to a bit of the query language
 
 CARTO allows you to interact with your datasets using the interface so you can filter, order and modify your data values directly from BUILDER. Sometimes it will be useful to use the SQL view to perform more advanced tasks like formatting your data joining different tables.
 
-This section will cover the basics of SQL and is meant to be exercised using the CARTO DATA tab SQL view, where you can run queries and see the results immediately. If you don't have it yet, import from CARTO Data Library the `ne_10m_populated_places_simple` and `world_borders`datasets so you can follow all these queries.
+This section will cover the basics of SQL and is meant to be exercised using either the procedure outlined in the [frontpage](../README.md#set-up) of this module or the CARTO DATA tab SQL view, where you can run queries and see the results immediately. If you don't have it yet, import from CARTO Data Library the `ne_10m_populated_places_simple` and `world_borders`datasets so you can follow all these queries.
 
 ## Contents
 

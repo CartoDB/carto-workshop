@@ -42,12 +42,12 @@ Sometimes we don't need all the columns of a table so we can select just some of
 
 ```sql
   SELECT cartodb_id,
-    name AS city,
-adm1name AS region,
-adm0name AS country,
-        pop_max,
-        pop_min
-   FROM ne_10m_populated_places_simple
+         name AS city,
+         adm1name AS region,
+         adm0name AS country,
+         pop_max,
+         pop_min
+    FROM ne_10m_populated_places_simple
 ```
 
 ## Selecting distinct values
@@ -192,11 +192,11 @@ SELECT count(*) AS counts,
 `ROUND` and `TRUNC` will convert float numbers into integers, the first rounding to the nearest one. `ROUND` can also accept a second parameter to round to a specific decimal position. `TO_CHAR` is a more complex function that can be used to format numbers and dates into strings with decimal and thousand separators, any arbitrary date format, etc.
 
 ```sql
-SELECT round(1.9) AS rounded,        -- 2
-       round(1.193,1) AS rounded2,   -- 1.2
-       trunc(1.9)     AS truncated,  -- 1
-       to_char(12345.9332,'999,999.99') AS formatted, -- '12,345.93'
-       to_char(now(),'Day DD/MM/YY HH:mm') AS today;  -- 'Wednesday 01/06/16 10:06:32'
+SELECT round(1.9) AS rounded,
+       round(1.193,1) AS rounded2,
+       trunc(1.9) AS truncated,
+       to_char(12345.9332,'999,999.99') AS formatted,
+       to_char(now(),'Day DD/MM/YY HH:mm') AS today;10:06:32' */
 ```
 
 More about the `TO_CHAR` function [here](https://www.postgresql.org/docs/9.5/static/functions-formatting.html).

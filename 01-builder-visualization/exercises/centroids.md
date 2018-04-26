@@ -46,7 +46,7 @@
 * Select `Find centroids of geometries` analysis
 * Click on `ADD ANALYSIS` button and set the analysis parameters as follow:
   * **CATEGORIZE..**: `country`
-  * **AGGREGATE...**: `SUM(exports_total)`
+  * **OPERATION...**: `SUM(exports_total)`
 * Click on **APPLY**
 
 ![centroids](imgs/01-centroids-01.png)
@@ -61,7 +61,7 @@
 
 ![layer-nodes](imgs/01-centroids-02.png)
 
-*To know more about map layers, check [this guide](https://carto.com/learn/guides/intro/understanding-map-layers-in-builder).
+**NOTE**: To know more about map layers, check [this guide](https://carto.com/learn/guides/intro/understanding-map-layers-in-builder).
 
 <hr>
 

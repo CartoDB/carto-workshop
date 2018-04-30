@@ -1,15 +1,210 @@
 # Webmapping apps with CARTO.js <a name="cartojs"></a>
 
-## CARTO.js
+## CARTO.js v4
 
-[CARTO.js](https://carto.com/docs/carto-engine/carto-js/) is the JavaScript library that allows to create web mapping apps using CARTO services quickly and efficiently. It's built upon the following components:
+[CARTO.js v4](https://carto.com/developers/carto-js/) is the Javascript library that allows to create location intelligence apps using CARTO services quickly and efficiently.
+
+The main difference with the previous CARTO.js version is that CARTO.js v4 is a low level library which provides the methods needed to build the maps and use the dataviews, which are the models of data used in the widgets of CARTO Builder. This allows the users to create their own popups and widgets with their own code or using an external library.
+
+Also, CARTO.js v4 does not include the google maps or Leaflet library in the code, allowing the usage of any 1.x version of Leaflet.js or Google Maps.
+
+### Dataset permissions, CARTO Auth API and CARTO.js v4
+
+In CARTO, there are 3 different type of permissions for the CARTO datasets:
+
+* Public: anyone can access to the dataset
+* With Link: only people with the URL of the dataset can acccess to it.
+* Private: only owner can access to the dataset within the account.
+
+With the new CARTO Auth API, we provide more flexibility to manipulate and use the datasets of the account.Currently with the Auth API, you have three different types of API Keys:
+
+* Master: master api key of the account. Gives all permissions to the users who use this api key. Do not share this api key or add it on the client side of the app, due to if anyone have access to this API Key they could use it to extract data from your account or modify/delete the data of your account without your permission.
+
+* Regular: Regular API Keys are the most common type of API Keys. They provide access to APIs and database tables in a granular and flexible manner. You can give two different permissions to the datasets depending on the usage:
+
+  * SQL : to give read-only (select), or write (insert, update or delete) permissions to the datasets. This allows the users to make SQL queries to the datasets using the CARTO SQL API.
+
+  * Maps: to give read-only (select) permissions to the dataset. This allows the users to make requests to the datasets using the CARTO Maps API. This option is the one that should be used to create a CARTO.js v4 app using a dataset with private privacy.
+
+* Default public: Default public are a kind of regular API Keys. They too provide access to APIs and Datasets, but for the latter in a read-only way.
+
+CARTO.js v4 does not support Named Maps, so in order to create public maps from private data, it is mandatory to create a regular API Key type with Maps permission, so CARTO datasets can be used on a pubic map,but the data will be kept private.
+
+In this section of the developer center, you can find detailed information about the usage of the [CARTO Auth API](https://carto.com/developers/auth-api/).
+
+
+### Usage of CARTO.js v4
+
+The most basic way to display your map from CARTO.js v4 involves following the next steps:
+
+0. Call the CARTO.js and Laeflet 1.x or Google Maps libraries that you want to use and create a HTML div that will contain the map:
+
+```HTML
+<!DOCTYPE html>
+<html>
+...
+<!-- Include Leaflet -->
+<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+<link href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" rel="stylesheet">
+<!-- Include CARTO.js -->
+<script src="https://cartodb-libs.global.ssl.fastly.net/carto.js/v4.0.0/carto.min.js"></script>
+...
+
+<div id="map"></div>
+```
+
+1. Define the map element and add the basemap within Javascript
+
+```javascript
+const map = L.map('map').setView([30, 0], 3);
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png', {
+  maxZoom: 18
+}).addTo(map);
+```
+
+2. Define a client in CARTO, which will handle the requests to the server.
+
+```javascript
+   const client = new carto.Client({
+        apiKey: 'YOUR_API_KEY',
+        username: 'cartojs-test'
+      });
+```
+
+
+3. Define the source of the data to be used by using the name of the dataset or a custom SQL query.
+
+```javascript
+ const source = new carto.source.Dataset(`
+        ne_10m_populated_places_simple
+ `);
+```
+
+4. Define the style of the data with CartoCSS, which will define how the data will look like.
+
+```javascript
+const style = new carto.style.CartoCSS(`
+        #layer {
+          marker-width: 7;
+          marker-fill: #EE4D5A;
+          marker-line-color: #FFFFFF;
+        }
+`);
+      
+```
+5. Create a CARTO.js layer object and add it to the client.
+
+```javascript
+const layer = new carto.layer.Layer(source, style);
+
+client.addLayer(layer);
+```
+
+6. Retrieve the tiles to the client side.
+
+```javascript
+client.getLeafletLayer().addTo(map);
+```
+
+And that’s it! Take a look at the examples section of this document to find the complete code and different use cases for building CARTO.js v4 apps.
+
+### Dataviews
+
+Dataviews are a way to extract data from a CARTO account in predefined ways (eg: a list of categories, the result of a formula operation, etc.) and they can be used to create custom widgets in our apps that will be static or that will change depending on the bounding box of the map.
+
+Dataviews are defined in the next way:
+
+```javascript
+
+// define the type of dataview , the source,  field to use and operation
+const categoryDataview = new carto.dataview.Category(source, 'adm0name', {
+            limit: 10,
+            operation: carto.operation.SUM,
+            operationColumn: 'pop_max'
+});
+
+// when there is a change on the data of the dataview, execute function to 
+// do something
+categoryDataview.on('dataChanged', function(data){
+  // Do something
+}
+
+// add category dataview to client 
+client.addDataview(categoryDataview);
+
+// Set bounding box filter
+const bboxFilter = new carto.filter.BoundingBoxLeaflet(map);
+
+// add filter to formula dataview, so when the Bounding Box changes, the dataview will be recalculated
+categoryDataview.addFilter(bboxFilter);
+```
+
+### Interactivity
+
+When the layer object of CARTO.js is defined, we can add the fields that we want to retrieve data from when we click or hover on a geomtry. We can define the interactivity with the next block of code:
+
+```javascript
+// define interactivity when we click on a geometry
+ const layer = new carto.layer.Layer(source, style, {
+        featureClickColumns: ['name', 'pop_max']
+      })
+// when the geometry is clicked, use the data that comes from CARTO.js to do something
+// like show a popup, show the data on a HTML element or any other event.
+layer.on('featureClicked', featureEvent => {
+      // do something
+    });
+```
+
+### Tile aggregation
+
+With CARTO.js v4, we can set an aggregation of our data, so we can display less data depending on the zoom level.
+In [this blog post of CARTO](https://carto.com/blog/inside/tile-aggregation/) and in [this section of the CARTO Maps API](https://carto.com/developers/maps-api/guides/tile-aggregation/) you can find detailed information about how the tile aggregation works in CARTO.
+
+In CARTO.js, the tile aggregation can be defined with the next blok of code:
+
+```javascript
+// Aggregation option
+  const aggregation = new carto.layer.Aggregation({
+  threshold: 1,
+  resolution: 8,
+  placement: carto.layer.Aggregation.placement.GRID,
+  columns: {
+    pop_max_aggregated: {
+      aggregateFunction: carto.layer.Aggregation.operation.SUM,
+      aggregatedColumn: 'pop_max'
+    }
+  }
+});
+
+// define source of data
+const source = new carto.source.Dataset(`
+  ne_10m_populated_places_simple
+`);
+    
+// if use tile aggregation use the field resulting from the aggregation (pop_max_aggregated)
+const style = new carto.style.CartoCSS(`
+  #layer {
+    marker-width: 7;
+    marker-fill: ramp([pop_max_aggregated], (#ecda9a, #f7945d, #ee4d5a), jenks());
+    marker-line-color: #FFFFFF;
+    marker-allow-overlap: true;
+  }
+`);
+// create layer object using the aggregation
+const layer = new carto.layer.Layer(source, style, { aggregation });
+```
+
+## CARTO.js v3 ( deprecated version )
+
+[CARTO.js v3](https://carto.com/docs/carto-engine/carto-js/) is the JavaScript library that allows to create web mapping apps using CARTO services quickly and efficiently. It's built upon the following components:
 
 * [jQuery](http://jquery.com)
 * [Underscore.js](http://underscorejs.org)
 * [Backbone.js](http://backbonejs.org/)
 * It can use either [Google Maps API](https://developers.google.com/maps/) or [Leaflet](http://leafletjs.com/)
 
-The current version of CARTO.js is the version 3 and is the version explained in this document.
+The version explained of carto.js explained in this section is the carto.js v3.
 
 There are several versions available and are defined in [this section](https://github.com/CartoDB/cartodb.js/blob/release-3.15.11/scripts/publish.js#L15-L24) of the CARTO.js code. Some of them are:
 
@@ -125,14 +320,14 @@ In CARTO, there is just one UTF grid for the whole CARTO layer.
 * **Interactivity** (`setInteractivity(columnName)`): get values of the geometry from a mouse event. The values come form the column or columns that have the interactivity enabled.
 
 
-## Static Maps API with CARTO.js
+## Static Maps API with CARTO.js v3
 
 Static views of CartoDB maps can be generated using the [Static Maps API](https://carto.com/docs/carto-engine/maps-api/static-maps-api) within CartoDB.js. The map’s style, including the zoom and bounding box, follows from what was set in the viz.json file, but you can change the zoom, center, and size of your image with a few lines of code.
 
 In [this section](https://carto.com/docs/carto-engine/carto-js/static-maps) of our documentation you can find detailed information to use the Static Maps API with CARTO.js.
 
 
-## UI Functions
+## UI Functions in CARTO.js v3
 
 ### Tooltips
 
@@ -355,10 +550,23 @@ On the other hand, there are known issues for torque performance in Firefox brow
   * Disable hardware acceleration in Firefox
   * Reduce the torque resolution.
   	***An accumulated torque at maximum resolution is the most CPU demanding set up***
+  * Currently, CARTO.js v4 does not support Torque.
 
 ## Examples
 
 Each example points to a real time viewer showcasing a different procedure using CARTO.js. Feel free to change and play with the code and refresh the webpage to return to the initial state.
+
+### CARTO.js v4 examples
+
+* Load a simple visualization [plnkr](https://plnkr.co/edit/xSs8ehEf5TygjQdU9DiL?preview)
+* Load a simple visualization with tile aggregation [plnkr](https://plnkr.co/edit/bAuMdlJxwuou9DebyiWF?p=preview&preview)
+* Interactivity
+  * Events, feature click and hover [plnkr](https://plnkr.co/edit/QonoHnPYFtj6KWQPd1Ux?p=preview&preview)
+* Dataviews
+  * Category dataview [plnkr](https://plnkr.co/edit/2WbA6jlLhcrphn40nYcV?preview)
+* More examples in [CARTO Developer center](https://carto.com/developers/carto-js/examples/) 
+
+### CARTO.js v3 examples
 
 * Cartodb.js for on-premises [gist](https://gist.github.com/ernesmb/af3f957d109d0686612d)
 * Load a simple visualization [plnkr](http://plnkr.co/edit/plhwv3IQwFxLHBGWodQp?p=preview)

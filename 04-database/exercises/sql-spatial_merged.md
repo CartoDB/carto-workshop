@@ -118,7 +118,7 @@ _About [working with different projections in CARTO](http://cartodb.github.io/tr
 
 _This [application](https://ramiroaznar.github.io/labs-carto-proj/) displays several popular map projections and gives some information on each._
 
-### Translating geometries
+### Translating Geometries
 
 ```sql
 SELECT
@@ -132,3 +132,151 @@ WHERE
    ST_MakeEnvelope(-18.748169,27.571591,-13.342896,29.463514,4326)
  )
 ```
+
+### Transforming Projections of Geometries
+
+#### World Robinson
+
+```sql
+SELECT
+  cartodb_id,
+  ST_Transform(the_geom, 54030) AS the_geom_webmercator
+FROM
+  ne_50m_land
+```
+
+![robinson](imgs/robinson.png)
+
+You can read more about how to change map projections in CARTO [here](https://carto.com/blog/free-your-maps-web-mercator/). In addition, you can check and play with map projections [here](https://ramiroaznar.github.io/labs-carto-proj/) and [here](https://bl.ocks.org/ramiroaznar/6d19c773bb2764837c285c89da984c1d).
+
+### Buffer (ST_Buffer)
+
+#### Simple Buffer
+
+ST_Buffer uses the input geometry's unit of measure, which in the case of our `the_geom` is decimal degrees. In order to use meters as our buffer unit, we must cast our geometry to a geography, then back to a geometry once we have our buffer. Alternatively, if you just want to visualize you can simply use `the_geom_webmercator`, as it's unit of measure is already meters.
+
+_About [`ST_Buffer`](http://postgis.net/docs/ST_Buffer.html)._
+
+```sql
+SELECT
+  ST_Transform(
+    ST_Buffer(
+      the_geom::geography,
+      10000*5
+    )::geometry,
+  3857) As the_geom_webmercator,
+  1 as cartodb_id
+FROM
+  ne_10m_populated_places_simple
+WHERE
+  adm0name ILIKE 'spain'
+```
+
+#### Dissolve Buffers
+```sql
+SELECT
+  row_number() over() as cartodb_id,
+  ST_UnaryUnion(grp) as the_geom,
+  st_transform(
+    ST_UnaryUnion(grp)
+    ,3857
+  ) as the_geom_webmercator,
+  ST_NumGeometries(grp) as num_geoms
+FROM
+  (SELECT
+    UNNEST(
+      ST_ClusterWithin(
+        (
+          ST_BUFFER(
+            (the_geom::geography)
+            ,10000*5
+          )::geometry
+        )
+      ,0.0001)
+    ) AS grp
+  FROM ne_10m_populated_places_simple
+  WHERE adm0name ILIKE 'spain') sq
+```
+
+## SQL for Points
+
+
+
+## SQL for Polygons
+
+
+
+## SQL for CARTO
+
+### CDB_LatLng()
+
+`cdb_latlng()` is a shortcut to the function `ST_SetSRID(ST_Point(),srid)`, with the default srid set as `4326`, the srid of `the_geom`. One notable difference is that `ST_Point()` takes coordinate pairs in the order of `(longitude, latitude)`, whereas `cdb_latlng()` takes coordinate pairs in the order of `(latitude, longitude)`.
+
+```sql
+SELECT
+  1 as cartodb_id,
+  CDB_LatLng(0,0) as the_geom,
+  ST_Transform(CDB_LatLng(0, 0), 3857) as the_geom_webmercator  
+  /* ST_SetSRID(ST_MakePoint(0, 0), 4326) */
+```
+
+### Grids
+
+#### Hexagon Grids
+
+```sql
+WITH grid as (
+  SELECT
+    row_number() over () as cartodb_id,
+    CDB_HexagonGrid(
+      ST_Buffer(the_geom_webmercator, 1000000),
+      10000
+    ) AS the_geom_webmercator
+  FROM
+    world_borders
+  WHERE
+    name ILIKE 'spain')
+
+SELECT
+  grid.the_geom_webmercator,
+  grid.cartodb_id
+FROM
+  grid, world_borders a
+WHERE
+  ST_Intersects(grid.the_geom_webmercator, a.the_geom_webmercator)
+AND
+  name ILIKE 'spain'
+```
+
+_About [CDB_HexagonGrid](http://docs.cartodb.com/tips-and-tricks/cartodb-functions/#a-hexagon-grid)_
+
+#### Rectangular Grids
+
+```sql
+WITH grid as (
+  SELECT
+    row_number() over () as cartodb_id,
+    CDB_RectangleGrid(
+      ST_Buffer(the_geom_webmercator, 1000000),
+      25000,
+      25000
+    ) AS the_geom_webmercator
+  FROM
+    world_borders
+  WHERE
+    name ILIKE 'spain')
+
+SELECT
+  grid.the_geom_webmercator,
+  grid.cartodb_id
+FROM
+  grid, world_borders a
+WHERE
+  ST_Intersects(grid.the_geom_webmercator, a.the_geom_webmercator)
+AND
+  name ILIKE 'spain'
+```
+
+_About [CDB_RectangleGrid](http://docs.cartodb.com/tips-and-tricks/cartodb-functions/#a-rectangle-grid)_
+
+You can read more about CARTO custom spatial queries [here](https://carto.com/docs/tips-and-tricks/carto-functions/).

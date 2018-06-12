@@ -92,7 +92,7 @@
 * At the bottom of the main menu, click on **SHARE** at the right button corner.
 * Go to **PUBLISH** tab and click on **PUBLISH** button that is below the Map name in order to share our map.
 * After clicking on **PUBLISH**, we can select the options that we want to share our map.
-  * Get the link URL and paste it on other browser tab: https://team.carto.com/u/ramirocartodb/builder/f434a3ce-33e3-11e7-9d60-0e05a8b3e3d7/embed
+  * Get the link URL and paste it on other browser tab: https://team.carto.com/u/builder-demo/builder/e5335529-b27f-4f76-bd68-59959a27a966/embed
 
 ![map](imgs/01-centroids-04.png)
 

@@ -7,9 +7,7 @@
 2. [Exercises](#design)
 3. [Resources](#design)
    - [Colors](#design)
-   - [Effects](#effects)
-   - [Zoom](#zoom)
-   - [Documentation](#docs)
+   - [Other resources](#resources)
 
    ​
 
@@ -63,22 +61,18 @@
 
 * [Why is color important in maps?](https://carto.com/academy/courses/intermediate-design/choose-colors-1/)
 * [Color palettes tell a story](https://carto.com/academy/courses/intermediate-design/choose-colors-2/)
-* [http://colorbrewer2.org](http://colorbrewer2.org)
+* [ColorBrewer](http://colorbrewer2.org)
 * CARTOcolors:
   * [Landing page](https://carto.com/carto-colors/)
   * [Documentation](https://github.com/CartoDB/CartoColor)
   * [Scheme names](https://github.com/CartoDB/CartoColor/wiki/CARTOColor-Scheme-Names)
+* [CARTO Color Scale tool](http://cartodb.github.io/labs-colorscales)
+* [Color Blending Values](https://carto.com/developers/styling/cartocss/#color-blending-values)
 
-### Effects <a name="effects"></a>
+### Other resources <a name="resources"></a>
 
-* [Composite operations](https://carto.com/academy/courses/intermediate-design/use-composite-operations/)
-
-### Documentation <a name="docs"></a>
-
-* [CARTO ColorScales tool](http://cartodb.github.io/labs-colorscales)
-* [Maki icons collection](https://github.com/mapbox/maki)
-* [CARTOCSS complete reference](https://carto.com/docs/carto-engine/cartocss/properties/)
-* [More on the same](https://tilemill-project.github.io/tilemill/docs/guides/selectors/)
 * [Dig into the Torque unknown](http://andrewxhill.com/blog/2015/04/17/torque-unknown)
-* [Some Cesium experiments](https://cesium.cartodb.io/) code is [here](https://github.com/CartoDB/labs-cesiumjs)
-* UK Ordnance Survey post about [composite operations](https://www.ordnancesurvey.co.uk/blog/2017/02/carto-tips-using-blend-modes-opacity-levels/)
+* [The Basics of Data Classification](https://www.axismaps.com/guide/data/data-classification/)
+* [Normalize Data to Create Meaningful Polygon Maps](https://www.datavizforall.org/transform/normalize/)
+* [The Theory of the 4 colors (in Spanish)](http://albertoromeu.com/el-teorema-de-los-cuatro-colores/)
+* [Three cartography tricks for making CARTO BUILDER maps](http://ramiroaznar.com/2017/08/15/cartography-carto-builder-maps/)

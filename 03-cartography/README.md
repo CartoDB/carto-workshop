@@ -1,21 +1,10 @@
 # Cartography with CARTO
 
-1. [Cartographic Design](#design)
-   - [Talks](#talks)
-   - [CartoCSS](cartocss)
-   - [TurboCARTO](#turbo)
-2. [Exercises](#design)
-3. [Resources](#design)
-   - [Colors](#design)
-   - [Other resources](#resources)
-
-   ​
 
 
+## 1. Cartographic Design
 
-## 1. Cartographic Design <a name="design"></a>
-
-### Talks<a name="talks"></a>
+### Talks
 
 - [Cartographic design principles](https://docs.google.com/presentation/d/1LbBIFPEWki58F2yRdbESTKGgm_sjnZRf9VV4odLGPlM/edit?usp=sharing)
 - [All about the carto in CARTO](https://docs.google.com/presentation/d/1SwrQ37jd5UnQAbEFjm9VJ4diVnYoaeXmE0sod3ZuG-4/edit?usp=sharing)
@@ -23,7 +12,7 @@
 - [Mobile cartography](https://docs.google.com/presentation/d/1BDgV1WnvLMLdftZKYNUEP2aXL9wpbjj7L44LTupcZ9c/edit?usp=sharing)
 
 
-### CartoCSS<a name="cartocss"></a>
+### CartoCSS
 
 - [CartoCSS Styling Documentation](https://carto.com/developers/styling/cartocss/)
 - Guides:
@@ -32,7 +21,7 @@
 - [CartoCSS foundations](resources/cartocss.md)
 - [CartoCSS basics](resources/basics.md)
 
-### TurboCARTO<a name="turbo"></a>
+### TurboCARTO
 
 - [TurboCARTO Documentation](https://github.com/CartoDB/turbo-carto)
 - Guides: 
@@ -43,7 +32,7 @@
 
 
 
-## 2. Exercises <a name="exercises"></a>
+## 2. Exercises
 
 | Title                                    | Difficulty         | Technology                    |
 | ---------------------------------------- | ------------------ | ----------------------------- |
@@ -55,9 +44,9 @@
 
 
 
-## 3. Resources <a name="resources"></a>
+## 3. Resources
 
-### Colors <a name="colors"></a>
+### Colors
 
 * [Why is color important in maps?](https://carto.com/academy/courses/intermediate-design/choose-colors-1/)
 * [Color palettes tell a story](https://carto.com/academy/courses/intermediate-design/choose-colors-2/)
@@ -69,7 +58,7 @@
 * [CARTO Color Scale tool](http://cartodb.github.io/labs-colorscales)
 * [Color Blending Values](https://carto.com/developers/styling/cartocss/#color-blending-values)
 
-### Other resources <a name="resources"></a>
+### Other resources
 
 * [Dig into the Torque unknown](http://andrewxhill.com/blog/2015/04/17/torque-unknown)
 * [The Basics of Data Classification](https://www.axismaps.com/guide/data/data-classification/)

@@ -1,5 +1,11 @@
 # TURBO VIEWER WORKSHOP
 
+CARTO BUILDER and CARTO.js uses CartoCSS for styling your layers. CartoCSS is very similar in structure to Cascading Style Sheet code, or CSS. The code contains a selector that specifies the HTML element you’re applying style to, a property of that element that you’re going to change the style of, and a value that defines what you want the property to look like.
+
+On top of CartoCSS, CARTO built a preprocessor called TurboCARTO which allows to generate ramps of colors, widths, opacity and other styling properties. In this workshop, we will apply the most common TurboCARTO ramps and check the CartoCSS working behind the scenes.
+
+
+
 ## INDEX
 
 * [CARTOCSS vs. TURBO CARTO](#turbo)
@@ -19,9 +25,12 @@
 <a name="turbo"></a>
 ### CARTOCSS vs. TURBO CARTO 
 
+In order to see the difference between CartoCSS and TurboCARTO syntax, we are going to use an ENGINE application. On the one hand, we will be able to see at the same time the TurboCARTO ramps on the CartoCSS text box, and on the other, the CartoCSS translation will appear on the console as conditional blocks.
+
 1. Open the [CARTO basic viewer](http://bit.ly/carto-viewer).
 2. Enter this URL `http://ramirocartodb.cartodb.com/api/v1/map` as "Maps API endpoint".
 3. Leave empty the "API key".
+4. Open the developer tool.
 
 <br>
 

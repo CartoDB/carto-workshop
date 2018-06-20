@@ -1,43 +1,67 @@
 # Cartography with CARTO
 
-## Agenda
 
-* Cartographic design principles
-* CartoCSS foundations
-* CartoCSS basics:
-  * Thematic mapping
-  * Zoom based symbology
-  * Torque: maps with temporal data
-* Introduction to TurboCARTO
-* Exercises with TurboCARTO
 
-## Exercises
+## 1. Cartographic Design
 
-* [TurboCARTO workshop](http://bit.ly/turboviewer-cartosummit)
-* [Africa vintage map](exercises/africa.md)
-* [Game of Thrones basemap](exercises/got.md)
-* [Customize Builder Styles for More Meaningful Maps](exercises/customize.md)
+### Talks
 
-## Resources
+- [Cartographic design principles](https://docs.google.com/presentation/d/1LbBIFPEWki58F2yRdbESTKGgm_sjnZRf9VV4odLGPlM/edit?usp=sharing)
+- [All about the carto in CARTO](https://docs.google.com/presentation/d/1SwrQ37jd5UnQAbEFjm9VJ4diVnYoaeXmE0sod3ZuG-4/edit?usp=sharing)
+- [How (not) to lie with CARTO](exercises/lies.md)
+- [Mobile cartography](https://docs.google.com/presentation/d/1BDgV1WnvLMLdftZKYNUEP2aXL9wpbjj7L44LTupcZ9c/edit?usp=sharing)
 
-* [Cartographic design principles](https://docs.google.com/presentation/d/1LbBIFPEWki58F2yRdbESTKGgm_sjnZRf9VV4odLGPlM/edit?usp=sharing)
-* [CartoCSS foundations](resources/cartocss.md)
-* [CartoCSS basics](resources/basics.md)
-* [TurboCARTO slides](https://docs.google.com/a/cartodb.com/presentation/d/1v4IYwOXSfUMwv6_X5pbDPBr5SaHLS6GUaa74HSMG3-8/edit?usp=sharing)
-* [How (not) to lie with CARTO](exercises/lies.md)
 
-Additionally, these lessons about colors in Cartography are also very useful:
+### CartoCSS
 
-* [Colors, part I](https://carto.com/academy/courses/intermediate-design/choose-colors-1/)
-* [Colors, part II](https://carto.com/academy/courses/intermediate-design/choose-colors-2/)
-* [Composite operations](https://carto.com/academy/courses/intermediate-design/use-composite-operations/)
+- [CartoCSS Styling Documentation](https://carto.com/developers/styling/cartocss/)
+- Guides:
+  - [Basic CartoCSS for map styling](https://carto.com/learn/guides/styling/basic-cartocss-for-map-styling/)
+  - [Applying labels to your data](https://carto.com/learn/guides/styling/applying-text-labels-to-your-data/)
+- [CartoCSS foundations](resources/cartocss.md)
+- [CartoCSS basics](resources/basics.md)
 
-Also, some other nice resources:
+### TurboCARTO
 
-* [CARTO ColorScales tool](http://cartodb.github.io/labs-colorscales)
-* [Maki icons collection](https://github.com/mapbox/maki)
-* [CARTOCSS complete reference](https://carto.com/docs/carto-engine/cartocss/properties/)
-* [More on the same](https://tilemill-project.github.io/tilemill/docs/guides/selectors/)
+- [TurboCARTO Documentation](https://github.com/CartoDB/turbo-carto)
+- Guides: 
+  - [Styling thematic maps with TurboCARTO](https://carto.com/learn/guides/styling/style-thematic-maps-with-turbocarto/)
+  - [TurboCARTO by Geometries](https://carto.com/learn/guides/styling/style-thematic-maps-with-turbocarto/)  
+- [The good, the handsome and the turbo](http://bit.ly/turbo-carto-talk)
+
+
+
+
+## 2. Exercises
+
+| Title                                    | Difficulty         | Technology                    |
+| ---------------------------------------- | ------------------ | ----------------------------- |
+| [Customize Builder Styles for More Meaningful Maps](exercises/customize.md) | :star:             | BUILDER                       |
+| [TurboCARTO workshop](exercises/turbo.md) | :star::star:       | TurboCARTO                    |
+| [Africa vintage map](exercises/africa.md) | ⭐⭐:star:           | BUILDER, CartoCSS, TurboCARTO |
+| [Game of Thrones basemap](exercises/got.md) | :star::star::star: | BUILDER, CartoCSS, TurboCARTO |
+
+
+
+
+## 3. Resources
+
+### Colors
+
+* [Why is color important in maps?](https://carto.com/academy/courses/intermediate-design/choose-colors-1/)
+* [Color palettes tell a story](https://carto.com/academy/courses/intermediate-design/choose-colors-2/)
+* [ColorBrewer](http://colorbrewer2.org)
+* CARTOcolors:
+  * [Landing page](https://carto.com/carto-colors/)
+  * [Documentation](https://github.com/CartoDB/CartoColor)
+  * [Scheme names](https://github.com/CartoDB/CartoColor/wiki/CARTOColor-Scheme-Names)
+* [CARTO Color Scale tool](http://cartodb.github.io/labs-colorscales)
+* [Color Blending Values](https://carto.com/developers/styling/cartocss/#color-blending-values)
+
+### Other resources
+
 * [Dig into the Torque unknown](http://andrewxhill.com/blog/2015/04/17/torque-unknown)
-* [Some Cesium experiments](https://cesium.cartodb.io/) code is [here](https://github.com/CartoDB/labs-cesiumjs)
-* UK Ordnance Survey post about [composite operations](https://www.ordnancesurvey.co.uk/blog/2017/02/carto-tips-using-blend-modes-opacity-levels/)
+* [The Basics of Data Classification](https://www.axismaps.com/guide/data/data-classification/)
+* [Normalize Data to Create Meaningful Polygon Maps](https://www.datavizforall.org/transform/normalize/)
+* [The Theory of the 4 colors (in Spanish)](http://albertoromeu.com/el-teorema-de-los-cuatro-colores/)
+* [Three cartography tricks for making CARTO BUILDER maps](http://ramiroaznar.com/2017/08/15/cartography-carto-builder-maps/)

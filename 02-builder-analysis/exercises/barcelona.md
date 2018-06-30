@@ -51,8 +51,8 @@ FROM
 
 ![intersect](imgs/airbnb/intersect.png)
 
-* Add `n_distri` and `n_barri` widgets from "Neighborhoods" layer. Order their categories based on `count_vals` (you can use any aggregate function but `COUNT`).
-* Add `ref_cadast` widget from "Blocks" layer. Order their categories based on `count_vals`. 
+* Add widgets for `n_distri` and `n_barri` columns in "Neighborhoods" layer. Try different aggregations and see how it affects the ordering in the widget.
+* Add `ref_cadast` widget from "Blocks" layer. Use `COUNT` as aggregation operation. 
 * Style "Blocks" and "Neighborhoods" as a choropleth. For each layer, go to the **`STYLE`** tab. Secondly, click on the `polygon-fill` FILL color and select `BY VALUE`. Select `count_vals_density`. Set the number of `buckets`, color scheme (but invert the colors! Lighter colors should show higher values in contrast to the dark basemap) and classification method as you wish.
 
 > We have selected `count_vals_density` instead of `count_vals`, because when we make a choropleth map with polygon layers we need to use data which is normalized, in this case by the area.

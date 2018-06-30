@@ -197,7 +197,7 @@ FROM
 * Click on "Metro Lines" layer.
 * Go to the `ANALYSIS` tab.
 * Click on `ADD ANALYSIS`.
-* Select `Create areas of influence` analysis.
+* Select `Create Travel/Distance Buffers` analysis.
 * Click on `ADD ANALYSIS`.
 
 ![analysis-menu](imgs/airbnb/analysis-menu.png)
@@ -209,7 +209,7 @@ FROM
 
 * Secondly, we have to filter the points within those new areas.
 * Click on `+` to concatenate a new analysis.
-* Select `Filter points in polygons` analysis.
+* Select `Select points in polygons` analysis.
 * Click on `ADD ANALYSIS`.
 * Set "Airbnb" layer as `FILTERING LAYER`.
 * Click on `APPLY`.

@@ -100,7 +100,8 @@ FROM
 
 * In order to style our layer with this new field, click on the **`STYLE`** tab.
 * Create a bubble (proportional symbols) map:
-  * Click on the point-size number (`7` is the default fixed value).
+  * Click on "AirBnB" layer.
+  * Use the _SIZE_ control to change the size of the points.
   * Select `BY VALUE`.
   * Select `price_num` column.
   * Set buckets to `7` and the classification method to `Jenks`.
@@ -111,13 +112,11 @@ FROM
 ![bubbles](imgs/airbnb/bubbles.png)
 
 * Create a chroropleth map:
-  * Go back to the main menu.
-  * Click on "Countries" layer.
-  * Click on the FILL color (yellow/orange is the default fixed color for points).
+  * Use the _COLOR_ control to change the color ramp settings
   * Select `BY VALUE`.
   * Select `price_num` column.
   * Set buckets to `7` and the classification method to `Jenks`.
-  * Last, remove the `STROKE`.
+  * Finally, remove the `STROKE`.
 
 ![choropleth](imgs/airbnb/choropleth.png)
 

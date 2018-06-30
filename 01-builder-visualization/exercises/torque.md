@@ -71,7 +71,7 @@ Tweak the labels, suffixes, number of bins, etc so you get a nice map of the tra
 
 ## Adding category style
 
-Besides styling data by a time field, you can also style data by a column value to create an animated category map. Download the [cicloton category map .carto file](https://github.com/CartoDB/cdmx-training/blob/master/01-builder-visualization/exercises/maps/cicloton category map.carto). Import the map to your account. Open the map, and select the "cicloton_animated" layer in the LAYERS pane:
+Besides styling data by a time field, you can also style data by a column value to create an animated category map. Download the [cicloton category map .carto file](https://github.com/CartoDB/cdmx-training/blob/master/01-builder-visualization/exercises/maps/cicloton%20category%20map.carto). Import the map to your account. Open the map, and select the "cicloton_animated" layer in the LAYERS pane:
 
 * Navigate to the *STYLE* tab
 * Select on the *Aggregation* section, choose "ANIMATED" for the aggregation

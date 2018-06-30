@@ -47,7 +47,7 @@ FROM
 ```
 
 * Add some widgets from "Airbnb" layer (`price_num`, `property_type` and `number_of_reviews`, for example). We will add widgets from the other two layers later. Edit them.
-* Add `Intersect second layer` to "Blocks" and "Neighborhoods" layers. Set "Airbnb" as `INTERSECT LAYER` and `COUNT` as `OPERATION`.
+* Add a `Intersect and aggregate` analysis to the "Blocks" layer, and "Neighborhoods". Set "Airbnb" as `TARGET LAYER` and `COUNT` as `OPERATION`.
 
 ![intersect](imgs/airbnb/intersect.png)
 

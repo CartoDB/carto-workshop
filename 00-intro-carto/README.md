@@ -10,4 +10,5 @@ Introduction to CARTO
 ## Other resources
 
 * [mapschool.io](http://mapschool.io/) is a short introduction to geospatial data and GIS
+* [Introduction to GIS](https://volaya.github.io/gis-book/en/index.html) by Víctor Olaya
 * [EPSG4326 vs EPSG3857](http://lyzidiamond.com/posts/4326-vs-3857) is a nice recap on projections, datums, and geodesy concepts

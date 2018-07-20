@@ -349,10 +349,10 @@ Map{
 
   iii. Replace your user name and template id in the following URL:
 
-  `https://cartocdn-ashbu.global.ssl.fastly.net/USERNAME/api/v1/map/named/TEMPLATE_ID/all/{z}/{x}/{y}.png`
+  `https://http://cartocdn-gusc-d.global.ssl.fastly.net/USERNAME/api/v1/map/named/TEMPLATE_ID/all/{z}/{x}/{y}.png`
 
   iv. You will end up with a URL similar to this one:
 
-  `https://cartocdn-ashbu.global.ssl.fastly.net/ramirocartodb/api/v1/map/named/tpl_4dd30d45_4fb8_4dd5_ba4a_f7a92c6c16ac/all/{z}/{x}/{y}.png`
+  `https://http://cartocdn-gusc-d.global.ssl.fastly.net/ramirocartodb/api/v1/map/named/tpl_4dd30d45_4fb8_4dd5_ba4a_f7a92c6c16ac/all/{z}/{x}/{y}.png`
 
 * Finally, you can add this custom basemap following [this guide](https://carto.com/learn/guides/styling/inserting-external-basemaps).

@@ -76,30 +76,12 @@ curl 'http://USERNAME.cartodb.com/api/v1/map
   }
   &callback=_cdbc_1655719025_1'
 ```
-Which produces this response, note that it contains the layergroupid:
-```javascript
-/**/ typeof _cdbc_1655719025_1 === 'function' && _cdbc_1655719025_1({
-	"layergroupid":"b356a24187b9390c94d08ed134ab5fe9:1451998092397",
-	"metadata":{
-		"layers":[{
-			"type":"mapnik",
-			"meta":{
-				"stats":[],
-				"cartocss":"#layer {polygon-fill: #F00;}"
-			}
-		}]
-	},
-	"cdn_url":{
-		"http":"ashbu.cartocdn.com",
-		"https":"cartocdn-ashbu.global.ssl.fastly.net"
-	},
-	"last_updated":"2016-01-05T12:48:12.397Z"
-});
-```
+
+Which produces a response with many details on how to get raster and vector tiles. Note that it also contains the layergroupid:
 
 After that, tiles are requested with simple calls of the type:
 ```bash
-curl 'http://0.ashbu.cartocdn.com/USERNAME/api/v1/map/b356a24187b9390c94d08ed134ab5fe9:1451998092397/0/1/0/0.png' --compressed
+curl 'https://cartocdn-gusc-a.global.ssl.fastly.net/USERNAME/api/v1/map/b356a24187b9390c94d08ed134ab5fe9:1451998092397/0/1/0/0.png' --compressed
 ```
 
 We could use the layergroupid to get some more information, as the `grid.json` file that is used to define layer interactivity (check the link in the **[example](http://bl.ocks.org/ernesmb/raw/e5bf4a0826bb4fa85830/)**).
@@ -238,9 +220,9 @@ For this purpose, we will follow the same logic we use with the layergroupid, bu
     ![](http://ernestomb.cartodb.com/api/v1/map/named/world_borders/all/5/15/12.png?auth_token=ernesto)
 
   - Finally we could also use the cdn to retrieve tiles: 
-    - [https://cartocdn-ashbu.global.ssl.fastly.net/USERNAME/api/v1/map/named/world_borders/all/0/0/0.png?config={"color":"green"}](https://cartocdn-ashbu.global.ssl.fastly.net/ernestomb/api/v1/map/named/world_borders/all/0/0/0.png?config={"color":"green"}&auth_token=ernesto)
+    - [https://cartocdn-gusc-a.global.ssl.fastly.net//USERNAME/api/v1/map/named/world_borders/all/0/0/0.png?config={"color":"green"}](https://cartocdn-gusc-a.global.ssl.fastly.net//ernestomb/api/v1/map/named/world_borders/all/0/0/0.png?config={"color":"green"}&auth_token=ernesto)
 
-    ![](https://cartocdn-ashbu.global.ssl.fastly.net/ernestomb/api/v1/map/named/world_borders/all/0/0/0.png?config={%22color%22:%20%22green%22}&auth_token=ernesto)
+    ![](https://cartocdn-gusc-a.global.ssl.fastly.net//ernestomb/api/v1/map/named/world_borders/all/0/0/0.png?config={%22color%22:%20%22green%22}&auth_token=ernesto)
 
   - As we said before, we could use these URLs as basemaps. Check [this CartoDB map](https://team.cartodb.com/u/ernestomb/viz/a5efedd0-f515-11e5-b6d6-0e31c9be1b51/embed_map) that uses the following URL for the basemap: 
     

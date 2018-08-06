@@ -1,42 +1,105 @@
+# Spatial SQL
 
-# Spatial SQL  <a name="postgis"></a>
+In this section you'll have the chance to test some of the most common [PostGIS](http://postgis.net/docs/reference.html) SQL procedures.
 
-On this section you'll have the chance to test some of the most common [PostGIS](http://postgis.net/docs/reference.html) SQL procedures. To follow this section you only need to open a browser pointing to this url: [http://bl.ocks.org/jsanz/raw/fcb8394e084919a4135188b7c30504ad/](http://bl.ocks.org/jsanz/raw/fcb8394e084919a4135188b7c30504ad/) and change the Maps API entry point to `http://carto-workshops.carto.com/api/v1/map`. Alternatively, you can load the datasets listed below from CARTO Data Library into your account and use BUILDER SQL view to experiment.
-
-![](imgs/sql-block.png)
-
-From that point, you can place any valid query on the SQL view that plays with the following datasets from [Natural Earth](http://www.naturalearthdata.com/)
-
-* `ne_50m_land`
-* `ne_adm0_europe`
-* `ne_10m_populated_places_simple`
-
-Over different examples we'll see how to make buffers, intersect or calculate lines between different features of those tables. You can paste the SQL presented to the SQL view, make changes and see how it works saving them using `Control+S` or `Command+S` depending on your operating system.
-
-If no data shows on your map open the developer console and look for any errors. Usually when there's an error on your SQL statement the API will return a message that may help on finding the issue.
-
-This section assumes some basic knowledge on SQL. If you need a bit more of help on the basics of this language take a look on [this workshop](../introductory/elections-workshop.html), there's a section on simple SQL queries.
+***
 
 ## Contents
 
-<!-- MarkdownTOC -->
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- PostGIS concepts: `geometry` vs. `geography`
-- `the_geom` vs. `the_geom_webmercator`
-- Transform to a different projection
-- Get the number of points inside a polygon
-- Know wether a geometry is **within** the given range from another geometry:
-- Create a **buffer** from points:
-- Get the **difference** between two geometries:
-- Create a **straight line** between two points:
-- Create **great circles** between two points:
-- Generating Grids with CDB functions
-  - Rectangular grid
-  - Adaptative Hexagonal grid
-- Much more to discover
+- [Spatial SQL](#spatial-sql)
+	- [Contents](#contents)
+	- [Set up](#set-up)
+	- [PostGIS concepts: `geometry` vs. `geography`](#postgis-concepts-geometry-vs-geography)
+	- [`the_geom` vs. `the_geom_webmercator`](#thegeom-vs-thegeomwebmercator)
+	- [SQL that applies to all geometries](#sql-that-applies-to-all-geometries)
+		- [Transforming geometries into a different projection](#transforming-geometries-into-a-different-projection)
+			- [World Robinson](#world-robinson)
+		- [Translating Geometries](#translating-geometries)
+		- [Buffer (ST_Buffer)](#buffer-stbuffer)
+			- [Simple Buffer](#simple-buffer)
+			- [Dissolve Buffers](#dissolve-buffers)
+	- [SQL for Points](#sql-for-points)
+		- [Know wether a geometry is **within** the given range from another geometry:](#know-wether-a-geometry-is-within-the-given-range-from-another-geometry)
+		- [Making lines<a name="lines"></a>](#making-linesa-namelinesa)
+			- [Simple lines](#simple-lines)
+			- [Multiple lines](#multiple-lines)
+			- [Sequential lines](#sequential-lines)
+			- [Great Circles (curved lines)](#great-circles-curved-lines)
+	- [SQL for Polygons](#sql-for-polygons)
+		- [Get the number of points inside a polygon](#get-the-number-of-points-inside-a-polygon)
+		- [Get the **difference** between two geometries:](#get-the-difference-between-two-geometries)
+		- [Negative buffer](#negative-buffer)
+		- [Spatial Joins](#spatial-joins)
+	- [SQL for CARTO](#sql-for-carto)
+		- [CDB_LatLng()](#cdblatlng)
+		- [Grids](#grids)
+			- [Hexagon Grids](#hexagon-grids)
+			- [Rectangular Grids](#rectangular-grids)
 
-<!-- /MarkdownTOC -->
+<!-- /TOC -->
 
+***
+
+## Set up
+
+For this workshop, we will use [CARTO](https://carto.com) as a convenient way to interact with PostGIS, which will require no installation or configuration by you. You won't even need an account; we're using public demo datasets.
+
+As a client for this workshop, we will use a web application that can interact with CARTO: [Franchise](https://franchise.cloud/). You can access to an instance of it, with the CARTO connector enabled, here: [https://franchise.carto.io/](https://franchise.carto.io/).
+
+From the side menu, navigate to 'CARTO', then use the following parameters to connect:
+
+* Host name: `carto.com`
+* User name: `carto-workshops`
+* API key: you can leave this empty
+
+![](imgs/franchise-setup.png)
+
+Once connected, you can run `SELECT` queries against any public dataset from that account.
+
+Some tables you have available to you from this account are:
+
+* `ne_10m_populated_places_simple`: Natural Earth populated places
+* `ne_110m_admin_0_countries`: Natural Earth country boundaries
+* `railroad_data`: Railroad accidents in the USA
+* `barcelona_building_footprints`: Barcelona blocks
+* `lineas_madrid`: Madrid metro lines
+* `listings_madrid`: Madrid Airbnb listings
+
+Try entering a simple query like the one below. To run the query, type `Control+Enter` on PCs, `Command+Enter`/`Cmd+Return` on macs, or press the green `play` button in the bottom right corner of the SQL panel.
+
+```sql
+select *
+  from listings_madrid
+where bathrooms >= 3
+```
+
+The results of your query will be displayed in a typical table view, which will allow you to explore all returned fields and rows.
+
+ ![](imgs/franchise-table.png)
+
+ If you hit the small CARTO icon in the bottom right of the result panel, Franchise switches to a geographical result.
+
+ ![](imgs/franchise-map.png)
+
+This map uses the [CartoCSS](https://carto.com/docs/carto-engine/cartocss/properties/) language to define how data is rendered. By default, all three geometry types (points, lines, polygons) are rendered with default symbology, defined in the panel to the left. You can, however, alter the cartoCSS at any point. After making your edits, apply them by typing `Control+Enter` or `Cmd+Enter`. You can even leverage [TurboCARTO](https://github.com/CartoDB/turbo-carto) to generate style ramps quickly. For example, if we wanted to style our points' size by the number of bathrooms at each point, we can change the default `marker-width` from this:
+
+ ```css
+ marker-width: 7;
+ ```
+
+to this:
+
+ ```css
+ marker-width: ramp([bathrooms], range(5, 20), quantiles(5));
+ ```
+
+ ![](imgs/franchise-style.png)
+
+Both CartoCSS and TurboCARTO are out of the scope of this training, but you can find more training materials on the [cartography section](https://github.com/CartoDB/carto-workshop/tree/master/03-cartography) of this repository.
+
+***
 
 ## PostGIS concepts: `geometry` vs. `geography`
 
@@ -56,6 +119,8 @@ More about the `geography` type can be found [here](http://workshops.boundlessge
 
 _Source: [Boundless Postgis intro](http://workshops.boundlessgeo.com/postgis-intro)_
 
+***
+
 ## `the_geom` vs. `the_geom_webmercator`
 
 * **`the_geom`** EPSG:4326. Unprojected coordinates in **decimal degrees** (Lon/Lat). WGS84 Spheroid.
@@ -73,8 +138,15 @@ Finally, remember that BUILDER needs the following columns to work correctly:
 * `the_geom`: is a geometry in `EPSG:4326` coordinate system
 * `the_geom_webmercator`: is a geometry field in `EPSG:3857`
 
+***
 
-## Transform to a different projection
+## SQL that applies to all geometries
+
+The following queries will work on all geometries: point, line, and polygon.
+
+### Transforming geometries into a different projection
+
+#### World Robinson
 
 ```sql
 SELECT
@@ -83,68 +155,89 @@ SELECT
 FROM
   ne_50m_land
 ```
+![transform projections](imgs/spatial-sql-01.png)
 
 _About [working with different projections in CARTO](http://cartodb.github.io/training/intermediate/cartocss.html#projections) and [`ST_Transform`](http://postgis.net/docs/ST_Transform.html)._
 
+_This [application](https://ramiroaznar.github.io/labs-carto-proj/) displays several popular map projections and gives some information on each._
 
-## Get the number of points inside a polygon
+***
 
-Using `GROUP BY`:
-
-```sql
-  SELECT e.cartodb_id,
-         e.admin,
-         e.the_geom_webmercator,
-         count(*) AS pp_count,
-         sum(p.pop_max) as sum_pop
-    FROM ne_adm0_europe e
-    JOIN ne_10m_populated_places_simple p
-      ON ST_Intersects(p.the_geom, e.the_geom)
-GROUP BY e.cartodb_id
-```
-
-Using `LATERAL`:
+### Translating Geometries
 
 ```sql
-SELECT a.cartodb_id,
-       a.admin AS name,
-       a.the_geom_webmercator,
-       counts.number_cities AS pp_count,
-       counts.sum_pop
-  FROM ne_adm0_europe a
- CROSS JOIN LATERAL
-  ( SELECT count(*) as number_cities,
-           sum(pop_max) as sum_pop
-      FROM ne_10m_populated_places_simple b
-     WHERE ST_Intersects(a.the_geom, b.the_geom)
-  ) AS counts
+SELECT
+  cartodb_id,
+  ST_Transform(ST_Translate(the_geom,5.0,7.4), 3857) as the_geom_webmercator
+FROM
+  ne_50m_land
+WHERE
+ ST_Intersects(
+   the_geom,
+   ST_MakeEnvelope(-18.748169,27.571591,-13.342896,29.463514,4326)
+ )
 ```
+![translate geoms](imgs/spatial-sql-02.png)
 
-_About [`ST_Intersects`](http://postgis.net/docs/ST_Intersects.html) and [Lateral JOIN](http://blog.heapanalytics.com/postgresqls-powerful-new-join-type-lateral)_
+***
 
-----
+### Buffer (ST_Buffer)
 
-**Note:** Add this piece of CartoCSS at the end so you have a nice coropleth map:
+#### Simple Buffer
 
-```css
-#layer['mapnik::geometry_type'=3] {
-  line-width: 0;
-  polygon-fill: ramp([pp_count], cartocolor(SunsetDark), quantiles(5));
-}
+ST_Buffer uses the input geometry's unit of measure, which in the case of our `the_geom` is decimal degrees. In order to use meters as our buffer unit, we must cast our geometry to a geography, then back to a geometry once we have our buffer. Alternatively, if you just want to visualize you can simply use `the_geom_webmercator`, as it's unit of measure is already meters.
+
+_About [`ST_Buffer`](http://postgis.net/docs/ST_Buffer.html)._
+
+```sql
+SELECT
+  ST_Transform(
+    ST_Buffer(
+      the_geom::geography,
+      10000*5
+    )::geometry,
+  3857) As the_geom_webmercator,
+  1 as cartodb_id
+FROM
+  ne_10m_populated_places_simple
+WHERE
+  adm0name ILIKE 'spain'
 ```
+![buffer](imgs/spatial-sql-03.png)
 
-This is using the new [turbo-carto](https://carto.com/blog/styling-with-turbo-carto/) feature on CARTO to allow creating ramps from data without having to put the styles directly
+---
 
-----
+#### Dissolve Buffers
+```sql
+SELECT
+  row_number() over() as cartodb_id,
+  ST_UnaryUnion(grp) as the_geom,
+  st_transform(
+    ST_UnaryUnion(grp)
+    ,3857
+  ) as the_geom_webmercator,
+  ST_NumGeometries(grp) as num_geoms
+FROM
+  (SELECT
+    UNNEST(
+      ST_ClusterWithin(
+        (
+          ST_BUFFER(
+            (the_geom::geography)
+            ,10000*5
+          )::geometry
+        )
+      ,0.0001)
+    ) AS grp
+  FROM ne_10m_populated_places_simple
+  WHERE adm0name ILIKE 'spain') sq
+```
+![dissolve buffer](imgs/spatial-sql-04.png)
 
-----
+***
 
-**Note:** You know about the `EXPLAIN ANALYZE` function? use it to take a look on how both queries are pretty similar in terms of performance.
-
-----
-
-
-## Know wether a geometry is **within** the given range from another geometry:
+## SQL for Points
+### Know wether a geometry is **within** the given range from another geometry:
 
 ```sql
 SELECT a.*
@@ -158,6 +251,7 @@ SELECT a.*
    AND a.adm0name = 'Spain'
    AND b.adm0name = 'Spain'
 ```
+![dwithin](imgs/spatial-sql-10.png)
 
 In this case, we are using `the_geom_webmercator` to avoid casting to `geography` type. Calculations made with `geometry` type takes the CRS units.
 
@@ -165,74 +259,63 @@ Keep in mind that CRS **units in webmercator are not meters**, and they depend d
 
 _About [`ST_DWithin`](http://postgis.net/docs/ST_DWithin.html)._
 
-## Create a **buffer** from points:
+***
+
+### Making lines<a name="lines"></a>
+
+#### Simple lines
 
 ```sql
-SELECT cartodb_id,
-       name,
-       ST_Transform(
-         ST_Buffer(the_geom::geography, 250000)::geometry
-         ,3857
-       ) AS the_geom_webmercator
-  FROM ne_10m_populated_places_simple
- WHERE name ilike 'trondheim'
+WITH
+  b as (SELECT * FROM ne_10m_populated_places_simple WHERE name ilike 'barcelona' and adm0name ilike 'spain'),
+  m as (SELECT * FROM ne_10m_populated_places_simple WHERE name ilike 'madrid')
+
+SELECT
+  ST_Transform(ST_MakeLine(b.the_geom, m.the_geom),3857) as the_geom_webmercator,
+  b.cartodb_id
+FROM
+  b, m
 ```
 
-Compare the result with
+![simple-line](imgs/spatial-sql-12.png)
+
+---
+
+#### Multiple lines
 
 ```sql
- SELECT cartodb_id,
-        name,
-        ST_Transform(
-          ST_Buffer(the_geom, 2)
-          ,3857
-        ) AS the_geom_webmercator
-   FROM ne_10m_populated_places_simple
-  WHERE name ilike 'trondheim'
+WITH
+  spain as (SELECT * FROM ne_10m_populated_places_simple WHERE adm0name ILIKE 'spain'),
+  madrid as (SELECT * FROM spain WHERE name ILIKE 'Madrid')
+
+SELECT
+  ST_Transform(ST_MakeLine(m.the_geom, s.the_geom),3857) as the_geom_webmercator,
+  s.cartodb_id
+FROM
+  spain s, madrid m
+WHERE
+  s.cartodb_id <> m.cartodb_id
 ```
 
-Why this is not a circle?
+![multi-lines](imgs/spatial-sql-13.png)
 
-_About [`ST_Buffer`](http://postgis.net/docs/ST_Buffer.html)._
+---
 
-## Get the **difference** between two geometries:
+#### Sequential lines
 
 ```sql
-SELECT a.cartodb_id,
-       ST_Difference(
-         a.the_geom_webmercator,
-         b.the_geom_webmercator
-       ) AS the_geom_webmercator
-  FROM ne_50m_land a,
-       ne_adm0_europe b
- WHERE b.adm0_a3 like 'ESP'
+SELECT
+  ST_MakeLine(the_geom_webmercator ORDER BY ST_X(the_geom), ST_Y(the_geom) ASC) as the_geom_webmercator,
+  min(cartodb_id) as cartodb_id
+FROM
+  ne_10m_populated_places_simple
+WHERE
+  adm0name ILIKE 'spain'
 ```
 
-_About [`ST_Difference`](http://postgis.net/docs/ST_Difference.html)._
-
-## Create a **straight line** between two points:
-
-```sql
-SELECT ST_MakeLine(
-        a.the_geom_webmercator,
-        b.the_geom_webmercator
-      ) as the_geom_webmercator
- FROM (
-        SELECT *
-          FROM ne_10m_populated_places_simple
-         WHERE name ILIKE 'madrid'
-      ) as a,
-      (
-        SELECT *
-          FROM ne_10m_populated_places_simple
-         WHERE name ILIKE 'barcelona'
-           AND adm0name ILIKE 'spain'
-      ) as b
-```
-
-_About [`ST_MakeLine`](http://postgis.net/docs/ST_MakeLine.html)._
-
-## Create **great circles** between two points:
+![seq-lines](imgs/spatial-sql-14.png)
+---
+#### Great Circles (curved lines)
 
 ```sql
  SELECT ST_Transform(
@@ -256,58 +339,202 @@ _About [`ST_MakeLine`](http://postgis.net/docs/ST_MakeLine.html)._
            WHERE name ILIKE 'new york'
         ) as b
 ```
+![seq-lines](imgs/spatial-sql-15.png)
 
 _About [Great Circles](http://blog.cartodb.com/jets-and-datelines/)._
 
-## Generating Grids with CDB functions
+***
 
-### Rectangular grid
+## SQL for Polygons
 
-```sql
- SELECT row_number() over () AS cartodb_id,
-        CDB_RectangleGrid(
-          ST_Buffer(the_geom_webmercator,125000),
-          250000,
-          250000
-        ) AS the_geom_webmercator
-   FROM ne_adm0_europe
-  WHERE adm0_a3 IN ('ITA','GBR')
-```
+### Get the number of points inside a polygon
 
-_About [CDB_RectangleGrid](http://docs.cartodb.com/tips-and-tricks/cartodb-functions/#a-rectangle-grid)_
-
-### Adaptative Hexagonal grid
+Using `GROUP BY`:
 
 ```sql
-WITH grid AS (
-  SELECT row_number() over () AS cartodb_id,
-         CDB_HexagonGrid(
-           ST_Buffer(the_geom_webmercator, 100000),
-           100000
-         ) AS the_geom_webmercator
-    FROM ne_adm0_europe
-   WHERE adm0_a3 IN ('ESP','ITA')
-)
-SELECT grid.the_geom_webmercator,
-       grid.cartodb_id
-  FROM grid, ne_adm0_europe a
- WHERE a.adm0_a3 IN ('ESP','ITA') AND
-       ST_intersects(
-         grid.the_geom_webmercator,
-         a.the_geom_webmercator
-       )
+  SELECT e.cartodb_id,
+         e.admin,
+         e.the_geom_webmercator,
+         count(*) AS pp_count,
+         sum(p.pop_max) as sum_pop
+    FROM ne_adm0_europe e
+    JOIN ne_10m_populated_places_simple p
+      ON ST_Intersects(p.the_geom, e.the_geom)
+GROUP BY e.cartodb_id
 ```
+![points in poly group](imgs/spatial-sql-08.png)
+Using `LATERAL`:
+
+```sql
+SELECT a.cartodb_id,
+       a.admin AS name,
+       a.the_geom_webmercator,
+       counts.number_cities AS pp_count,
+       counts.sum_pop
+  FROM ne_adm0_europe a
+ CROSS JOIN LATERAL
+  ( SELECT count(*) as number_cities,
+           sum(pop_max) as sum_pop
+      FROM ne_10m_populated_places_simple b
+     WHERE ST_Intersects(a.the_geom, b.the_geom)
+  ) AS counts
+```
+![points in poly lats](imgs/spatial-sql-09.png)
+
+_About [`ST_Intersects`](http://postgis.net/docs/ST_Intersects.html) and [Lateral JOIN](http://blog.heapanalytics.com/postgresqls-powerful-new-join-type-lateral)_
+
+**Note:** You know about the `EXPLAIN ANALYZE` function? use it to take a look on how both queries are pretty similar in terms of performance.
+
+***
+
+### Get the **difference** between two geometries:
+
+```sql
+SELECT a.cartodb_id,
+       ST_Difference(
+         a.the_geom_webmercator,
+         b.the_geom_webmercator
+       ) AS the_geom_webmercator
+  FROM ne_50m_land a,
+       ne_adm0_europe b
+ WHERE b.adm0_a3 like 'ESP'
+```
+![difference](imgs/spatial-sql-11.png)
+
+_About [`ST_Difference`](http://postgis.net/docs/ST_Difference.html)._
+
+***
+
+### Negative buffer
+
+```sql
+SELECT
+  cartodb_id,
+  ST_Transform(
+    ST_Buffer(
+      the_geom::geography,
+      -30000
+    )::geometry,
+  3857) As the_geom_webmercator
+FROM
+  world_borders
+WHERE
+  name ilike 'spain'
+```
+
+![negative-buffers](imgs/spatial-sql-16.png)
+
+***
+
+### Spatial Joins
+
+```sql
+with metro_lines as (
+  SELECT
+    row_number() over() as cartodb_id,
+    ST_Buffer(
+        the_geom::geography,
+        100
+      )::geometry as the_geom,
+    ST_Transform(
+      ST_Buffer(
+        the_geom::geography,
+        100
+      )::geometry,
+    3857) As the_geom_webmercator
+  FROM lineas_madrid
+  )
+
+select x.*,
+y.cartodb_id as joined
+from listings_madrid x
+left join metro_lines y
+on st_intersects(x.the_geom, y.the_geom)
+```
+![spatial join](imgs/spatial-sql-17.png)
+
+In the above example, you can see where the points joined on the buffer of the metro lines, and where they didn't based on if the cartodb_id for the lines existed in the points dataset.
+
+***
+
+## SQL for CARTO
+
+### CDB_LatLng()
+
+`cdb_latlng()` is a shortcut to the function `ST_SetSRID(ST_Point(),srid)`, with the default srid set as `4326`, the srid of `the_geom`. One notable difference is that `ST_Point()` takes coordinate pairs in the order of `(longitude, latitude)`, whereas `cdb_latlng()` takes coordinate pairs in the order of `(latitude, longitude)`.
+
+```sql
+SELECT
+  1 as cartodb_id,
+  CDB_LatLng(0,0) as the_geom,
+  ST_Transform(CDB_LatLng(0, 0), 3857) as the_geom_webmercator  
+  /* ST_SetSRID(ST_MakePoint(0, 0), 4326) */
+```
+![cdb_latlng](imgs/spatial-sql-05.png)
+
+***
+
+### Grids
+
+#### Hexagon Grids
+
+```sql
+WITH grid as (
+  SELECT
+    row_number() over () as cartodb_id,
+    CDB_HexagonGrid(
+      ST_Buffer(the_geom_webmercator, 1000000),
+      10000
+    ) AS the_geom_webmercator
+  FROM
+    world_borders
+  WHERE
+    name ILIKE 'spain')
+
+SELECT
+  grid.the_geom_webmercator,
+  grid.cartodb_id
+FROM
+  grid, world_borders a
+WHERE
+  ST_Intersects(grid.the_geom_webmercator, a.the_geom_webmercator)
+AND
+  name ILIKE 'spain'
+```
+
+![hex grids](imgs/spatial-sql-06.png)
 
 _About [CDB_HexagonGrid](http://docs.cartodb.com/tips-and-tricks/cartodb-functions/#a-hexagon-grid)_
 
-## Much more to discover
+---
 
-Take a look on the [PostGIS reference](http://postgis.net/docs/reference.html) for many many more interesting functions and try to experiment with them using the same approach above.
+#### Rectangular Grids
 
-* Generating envelopes from groups of features
-* Using the [operators](http://postgis.net/docs/reference.html#Operators) for super fast queries
-* Try to *deconstruct* polygon geometries to get the number of vertices, the exterior ring of a multipolygon, etc
-* Snapping and simplify functions
-* Linear Referencing functions to operate with points over lines
-* Try to mimic the *Connect with lines* BUILDER analysis
-* ....
+```sql
+WITH grid as (
+  SELECT
+    row_number() over () as cartodb_id,
+    CDB_RectangleGrid(
+      ST_Buffer(the_geom_webmercator, 1000000),
+      25000,
+      25000
+    ) AS the_geom_webmercator
+  FROM
+    world_borders
+  WHERE
+    name ILIKE 'spain')
+
+SELECT
+  grid.the_geom_webmercator,
+  grid.cartodb_id
+FROM
+  grid, world_borders a
+WHERE
+  ST_Intersects(grid.the_geom_webmercator, a.the_geom_webmercator)
+AND
+  name ILIKE 'spain'
+```
+![rect grids](imgs/spatial-sql-07.png)
+_About [CDB_RectangleGrid](http://docs.cartodb.com/tips-and-tricks/cartodb-functions/#a-rectangle-grid)_
+
+You can read more about CARTO custom spatial queries [here](https://carto.com/docs/tips-and-tricks/carto-functions/).

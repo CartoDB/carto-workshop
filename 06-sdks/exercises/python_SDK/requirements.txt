@@ -1,5 +1,5 @@
 appdirs==1.4.3
-bleach==2.1.2
+bleach==3.1.1
 carto==1.1.2
 cartoframes==0.5.2b11
 certifi==2017.11.5
